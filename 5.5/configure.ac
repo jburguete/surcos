@@ -62,7 +62,6 @@ if test $win = 0; then
 	AC_SUBST(objdir, [src/])
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
-	AC_SUBST(ccflags, [-march=native])
 	$exegui="surcos_gui"
 else
 	AC_CHECK_TOOL(WINDRES, windres)
