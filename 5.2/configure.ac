@@ -58,7 +58,7 @@ if test $host == "x86_64-w64-mingw32"; then
 	AC_SUBST(basedir, [win64/])
 	AC_SUBST(icon, [win64/obj/logo.o])
 	AC_SUBST(exegui, winsurcos)
-	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3")
+	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 elif test $host == "mingw32"; then
@@ -73,7 +73,7 @@ elif test $host == "mingw32"; then
 	AC_SUBST(basedir, [win32/])
 	AC_SUBST(icon, [win32/obj/logo.o])
 	AC_SUBST(exegui, winsurcos)
-	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2")
+	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_dw2-1")
 	win=1
 else

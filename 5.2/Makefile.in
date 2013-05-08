@@ -291,7 +291,7 @@ dist: $(exe) $(dll) $(manuals)
 	cp doc/latex/refman.pdf $(basedir)reference-manual.pdf
 	cp manual/ppal.pdf $(basedir)user-manual-es.pdf
 	cp manual/ppal_EN.pdf $(basedir)user-manual-en.pdf
-	cp --parents examples/*/*.in win64/
+	cp --parents examples/*/*.in @basedir@
 	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
 		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
 		$(modir)$(es)gtk20.mo $(modir)$(es)gtk20-properties.mo \
@@ -305,5 +305,4 @@ dist: $(exe) $(dll) $(manuals)
 		$(modir)$(it)gtk20.mo $(modir)$(it)gtk20-properties.mo \
 		$(localdir)$(it)
 	zip -r surcos $(bindir)*.exe $(bindir)*.dll $(bindir)*.png \
-		$(localdir)*/*/*.mo $(basedir)examples/*/*.in $(basedir)*.pdf \
-		$(etcdir) $(libdir)
+		$(localdir)*/*/*.mo $(basedir)examples/*/*.in $(etcdir) $(libdir)
