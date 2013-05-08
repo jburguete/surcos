@@ -4,8 +4,6 @@ SURCOS (5.2 version)
 A program to solve irrigation and fertigation in isolated furrows and furrow
 networks.
 
-This program is a benchmark on parallelization. It uses intensively the CPU.
-
 REQUIRED
 --------
 
