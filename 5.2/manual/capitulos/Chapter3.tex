@@ -1,0 +1,238 @@
+\chapter{Input and Output files format}
+
+In program \emph{Surcos}, the input and output files are stored in a single common folder whose name
+can be chosen by the user. However, the input and output files are plain ASCII files with a fixed name
+that follows the structure detailed in next sections
+
+
+\section{Input files}
+
+\subsection{The geometry file: field.in}
+
+The geometry file is always named:
+\begin{itemize}
+\item Case\_folder$\backslash$field.in
+\end{itemize}
+
+This file contains the following set of numbers:\\
+$o$ $n$ $s$\\
+$x_1$ $y_1$ $z_1$\\
+$x_2$ $y_2$ $z_2$\\
+$x_3$ $y_3$ $z_3$\\
+$x_4$ $y_4$ $z_4$\\
+$b_b$ $z_b$ $H_b$ $D_b$ $R_b$ $\epsilon_b$ $r_b$ $K_b$ $a_b$ $i_b$ $d_b$
+	$h_b$ $Q_b$ $c_b$\\
+$b_i$ $z_i$ $H_i$ $D_i$ $R_i$ $\epsilon_i$ $r_i$ $K_i$ $a_i$ $i_i$ $d_i$
+	$h_i$ $Q_i$ $c_i$\\
+$b_c$ $z_c$ $H_c$ $D_c$ $R_c$ $\epsilon_c$ $r_c$ $K_c$ $a_c$ $i_c$ $d_c$
+	$h_c$ $Q_c$ $c_c$\\
+with:
+\begin{description}
+\item[$o$] 1 if there is recirculation furrow, 0 otherwise.
+\item[$n$] Number of irrigation furrows. 0 if there is a single furrow. 
+           In that case, the flow in the distribution furrow is simulated.
+\item[$s$] Fertilizer solubility.
+\item[$x_j$, $y_j$, $z_j$] Spatial coordinates of vertex $j$ defining one corner of the 
+	furrow network plot.  
+\item[$b_k$] Base width in furrow $k$.
+\item[$z_k$] Lateral slope in furrow $k$.
+\item[$H_k$] Maximum depth in furrow $k$.
+\item[$D_k$] Furrow separation at furrow $k$.
+\item[$R_k$] Water retention capacity in furrow $k$.
+\item[$\epsilon_k$] Burguete aerodynamic roughness coefficient ($\epsilon>0$) or Gauckler-Manning 
+            roughness coefficient($\epsilon=0$) at furrow $k$.
+\item[$r_k$] Gauckler-Manning number ($\epsilon=0$) or Burguete roughness characteristic length
+            ($\epsilon>0$) at furrow $k$.
+\item[$K_k$] Kostiakov infiltration coefficient at furrow $k$.
+\item[$a_k$] Kostiakov infiltration power at furrow $k$.
+\item[$i_k$] Infiltration saturated rate at furrow $k$.
+\item[$d_k$] Diffusion coefficient at furrow $k$.
+\item[$h_k$] Initial surface water depth at furrow $k$.
+\item[$Q_k$] Initial surface water discharge at furrow $k$.
+\item[$c_k$] Initial fertilizer concentration at furrow $k$.
+\end{description}
+The subindex label $k$ represents: $b$ for the distribution furrow, $i$ for all the irrigation furrows 
+(they are all assumed to share the same geometry properties) and $c$ for the recirculation furrow.
+
+\subsection{Inlet water and fertilizer file: input.in}
+
+Water and fertilizer inlet is defined in a file named:
+\begin{itemize}
+\item Case\_folder$\backslash$input.in
+\end{itemize}
+
+The following set of data must be provided:\\
+$n_w$ $n_s$\\
+$x_1$ $y_1$ $I_1$ $F_1$ $q_1$\\
+$\cdots$\\
+$x_{n_w}$ $y_{n_w}$ $I_{n_w}$ $F_{n_w}$ $q_{n_w}$\\
+$x_1$ $y_1$ $I_1$ $F_1$ $q_1$\\
+$\cdots$\\
+$x_{n_s}$ $y_{n_s}$ $I_{n_s}$ $F_{n_s}$ $q_{n_s}$\\
+with:
+\begin{description}
+\item[$n_w$, $n_s$] the number of water and fertilizer inlet points respectively,
+\item[$x_i$] $x$ coordinate of the $i$ inlet point,
+\item[$y_i$] $y$ coordinate of the $i$ inlet point,
+\item[$I_i$] initial time at the $i$ inlet point,
+\item[$F_i$] final time at the $i$ inlet point,
+\item[$q_i$] Inlet discharge at the $i$ inlet point, in $m^3/s$ if it is a water inlet or in 
+	 $kg/s$ when it is a fertilizer inlet.
+\end{description}
+Note that first the $n_w$ water inlet points must be defined and then the $n_s$ fertilizer inlet points.
+
+\subsection{Simulation time file: times.in\label{SecTiempos}}
+
+The relevant time data in the simulation are defined in file:
+\begin{itemize}
+\item Case\_folder$\backslash$times.in
+\end{itemize}
+
+This file contains the following information:\\
+$t_f$ $cfl$ $t_m$\\
+where:
+\begin{description}
+\item[$t_f$] is the total simulation time,
+\item[$cfl$] is the CFL number controlling the time step,
+\item[$t_m$] is the time interval to write intermediate numerical results in a file.
+\end{description}
+
+\subsection{Grid file: mesh.in}
+
+The number of grid computational grid cells is defined in file:
+\begin{itemize}
+\item Case\_folder$\backslash$mesh.in
+\end{itemize}
+
+This file contains:\\
+$n_d$ $n_i$\\
+with:
+\begin{description}
+\item[$n_d$] number of cells inserted in the distribution/recirculation furrows between each pair of irrigation furrows,
+\item[$n_i$] number of cells in every irrigation furrow.
+\end{description}
+
+\subsection{Probes file: probe.in}
+
+The measurement points or probes are specified in the file:
+\begin{itemize}
+\item Case\_folder$\backslash$probe.in
+\end{itemize}
+
+This file contains the following data:\\
+$n_p$\\
+$x_1$ $y_1$\\
+$\cdots$\\
+$x_{n_p}$ $y_{n_p}$\\
+with:
+\begin{description}
+\item[$n_p$] total number of probes,
+\item[$x_i$] $x$ coordinate of the location of the $i$ probe,
+\item[$y_i$] $y$ coordinate of the location of the $i$ probe.
+\end{description}
+
+\subsection{Model file: model.in}
+
+The models used are defined in the file:
+\begin{itemize}
+\item Case\_folder$\backslash$model.in
+\end{itemize}
+
+This file contains the following data:\\
+$m_f$ $m_i$ $m_u$ $m_a$\\
+with:
+\begin{description}
+\item[$m_f$] 1 if there is fertilizer transport, 0 otherwise.
+\item[$m_i$] 1 if there is infiltration, 0 otherwise.
+\item[$m_u$] 1 if there is turbulent diffusion, 0 otherwise.
+\item[$m_a$] 1 if the Boussinesq convection model is used, 0 if the simple model is used.
+\end{description}
+
+\section{Results files}
+
+In program \emph{Surcos} the results are gathered in files according to the following names: 
+\begin{description}
+\item[00b] Distribution furrow.
+\item[00c] Recirculation furrow.
+\item[xxx] Irrigation furrow, with $xxx$ representing the furrow number with 3
+	digits. The furrow numbering goes from 0 to $n$-1 with $n$ the total number of irrigation furrows.
+\end{description}
+
+The results files are written in the same folder where the input data files are. The program generates
+3 different results files, all of them in ASCII format.
+
+\subsection{Longitudinal profile files (xxx-yyy.out)}
+
+\emph{Surcos} generates a file to store the longitudinal profile of every variable in every furrow for every
+intermediate time as defined in section~\ref{SecTiempos}). The name of these files is as follows:
+
+\begin{itemize}
+\item $xxx-yyy.out$
+\end{itemize}
+where $xxx$ represents the furrows name with the above described codification and $yyy$ represents
+the intermediate time step with 3 digits.
+
+The profiles are provided using files with 12 columns in the form:\\
+\begin{tabular}{cccccccccccc}
+$x_1$& $h_1$& $A_1$& $Q_1$& ${z_s}_1$& ${z_f}_1$& $-{A_i}_1$& $c_1$&
+	$-{A_{ci}}_1$& $-{A_p}_1$& $-{A_{cp}}_1$& $\beta_1$\\
+&&&&&&$\cdots$\\
+$x_n$& $h_n$& $A_n$& $Q_n$& ${z_s}_n$& ${z_f}_n$& $-{A_i}_n$& $c_n$&
+	$-{A_{ci}}_n$& $-{A_p}_n$& $-{A_{cp}}_n$& $\beta_n$
+\end{tabular}\\\\
+with:
+\begin{description}
+\item[$x_i$] the longitudinal coordinate of the $i$ grid point,
+\item[$h_i$] the surface water depth of the $i$ grid point,
+\item[$A_i$] the surface wetted cross section of the $i$ grid point,
+\item[$Q_i$] the surface water discharge of the $i$ grid point,
+\item[${z_s}_i$] the water surface elevation of the $i$ grid point,
+\item[${z_f}_i$] the bed level elevation of the $i$ grid point,
+\item[$-{A_i}_i$] the infiltrated water volume (negative) per unit furroe length of the $i$ grid point,
+\item[$c_i$] the surface fertilizer concentration of the $i$ grid point,
+\item[$-{A_{ci}}_i$] the mass of fertilizer infiltrated (negative) per unit furrow length of the $i$ grid point,
+\item[$-{A_p}_i$] the volume of percolated water per unit furrow length of the $i$ grid point,
+\item[$-{A_{cp}}_i$] the mass of percolated fertilizer per unit furrow length of the $i$ grid point,
+\item[$\beta_i$] the Boussinesq convection coefficient of the $i$ grid point, 
+\item[$n$] the number of grid points in the furrow.
+\end{description}
+
+\subsection{Advance and recession times files (xxx.out)}
+
+\emph{Surcos} generates files with information concerning the advance and recession times in every furrow. 
+The names of the files are in the following form: 
+\begin{itemize}
+\item $xxx.out$
+\end{itemize}
+where $xxx$ represents the name of the furrow with the above described codification. 
+
+These files contain 3 columns in the form:\\
+\begin{tabular}{ccc}
+$x_1$& ${t_a}_1$& ${t_r}_1$\\
+&$\cdots$\\
+$x_n$& ${t_a}_n$& ${t_r}_n$\\
+\end{tabular}\\\\
+with:
+\begin{description}
+\item[$x_i$] the longitudinual aoordinate of the $i$ grid cell,
+\item[${t_a}_i$] the advance time for the $i$ grid cell,
+\item[${t_r}_i$] the recession time for the $i$ grid cell,
+\item[$n$] the number of grid points in the furrow.
+\end{description}
+
+\subsection{Probe files (probes.out)}
+
+The files where the probe information is stored are called \emph{probes.out}. This file is written with the following format:\\
+\begin{tabular}{cccccc}
+$t_0$ & $h_{1,0}$ & $c_{1,0}$ & $\cdots$ & $h_{n_p,0}$ & $c_{n_p,0}$\\
+&&&$\vdots$\\
+$t_{n_t}$ & $h_{1,n_t}$ & $c_{1,n_t}$ & $\cdots$ & $h_{n_p,n_t}$ & $c_{n_p,n_t}$
+\end{tabular}\\\\
+with:
+\begin{description}
+\item[$t_j$] the $j$ time level, with 0 the initial time,
+\item[$h_{i,j}$] the surface water depth measured in probe $i$ at time $j$,
+\item[$c_{i,j}$] the surface fertilizer concentration measured in probe $i$ at time $j$,
+\item[$n_p$] the total number of probes,
+\item[$n_t$] the total number of time steps.
+\end{description}

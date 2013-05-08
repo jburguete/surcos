@@ -1,0 +1,266 @@
+\chapter{Formato de los ficheros de entrada y salida}
+
+En el programa \emph{Surcos}, los ficheros de entrada y de salida se almacenan
+en una misma carpeta. El usuario puede elegir el nombre de esta carpeta,
+pudiendo almacenar numerosos casos de estudio en distintas carpetas, pero los
+ficheros de entrada y salida en cada carpeta tienen nombres fijos con una
+nomenclatura que se detallará en las siguientes secciones. Todos estos ficheros
+son ficheros de texto plano en formato ASCII.
+
+\section{Ficheros de entrada}
+
+\subsection{El fichero de geometría: field.in}
+
+El fichero de geometría tiene el nombre:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$field.in
+\end{itemize}
+
+Este fichero está formado por el siguiente conjunto de números:\\
+$o$ $n$ $s$\\
+$x_1$ $y_1$ $z_1$\\
+$x_2$ $y_2$ $z_2$\\
+$x_3$ $y_3$ $z_3$\\
+$x_4$ $y_4$ $z_4$\\
+$b_b$ $z_b$ $H_b$ $D_b$ $R_b$ $\epsilon_b$ $r_b$ $K_b$ $a_b$ $i_b$ $d_b$
+	$h_b$ $Q_b$ $c_b$\\
+$b_i$ $z_i$ $H_i$ $D_i$ $R_i$ $\epsilon_i$ $r_i$ $K_i$ $a_i$ $i_i$ $d_i$
+	$h_i$ $Q_i$ $c_i$\\
+$b_c$ $z_c$ $H_c$ $D_c$ $R_c$ $\epsilon_c$ $r_c$ $K_c$ $a_c$ $i_c$ $d_c$
+	$h_c$ $Q_c$ $c_c$\\
+con:
+\begin{description}
+\item[$o$] 1 si hay surco de recirculación, 0 si no.
+\item[$n$] Número de surcos de riego. Si sólo se quisiera simular un surco poner
+	este número a 0 y se simulará sólo el surco de distribución.
+\item[$s$] Solubilidad del fertilizante.
+\item[$x_j$, $y_j$, $z_j$] Coordenadas del vértice $j$-ésimo que delimita la
+	superficie del tablar.
+\item[$b_k$] Anchura de la base del surco $k$.
+\item[$z_k$] Pendiente de las paredes con respecto a la vertical del surco $k$.
+\item[$H_k$] Profundidad del surco $k$.
+\item[$D_k$] Distancia entre surcos del surco $k$.
+\item[$R_k$] Capacidad de retención del suelo del surco $k$.
+\item[$\epsilon_k$] Coeficiente de rozamiento aerodinámico de Burguete (si
+	$\epsilon>0$) o modelo de fricción de Gauckler-Manning (si $\epsilon=0$)
+	para el surco $k$.
+\item[$r_k$] Número de Gauckler-Manning (si $\epsilon=0$) o longitud
+	característica de rugosidad de Burguete (si $\epsilon>0$) del surco $k$.
+\item[$K_k$] Coeficiente de infiltración de Kostiakov del surco $k$.
+\item[$a_k$] Exponente de Kostiakov del surco $k$.
+\item[$i_k$] Velocidad de infiltración saturada del surco $k$.
+\item[$d_k$] Coeficiente de difusión del surco $k$.
+\item[$h_k$] Profundidad inicial del agua del surco $k$.
+\item[$Q_k$] Caudal inicial del surco $k$.
+\item[$c_k$] Concentración inicial de fertilizante del surco $k$.
+\end{description}
+Los subíndices $k$ representan: $b$ para el surco de distribución, $i$ para
+todos los surcos de irrigación (que por tanto tienen todos las mismas
+características) y $c$ el surco de recirculación.
+
+\subsection{Fichero de entradas de agua y fertilizante: input.in}
+
+Las entradas de agua y fertilizante se definen en un fichero cuyo nombre es:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$input.in
+\end{itemize}
+
+Este fichero está formado por el siguiente conjunto de números:\\
+$n_w$ $n_s$\\
+$x_1$ $y_1$ $I_1$ $F_1$ $q_1$\\
+$\cdots$\\
+$x_{n_w}$ $y_{n_w}$ $I_{n_w}$ $F_{n_w}$ $q_{n_w}$\\
+$x_1$ $y_1$ $I_1$ $F_1$ $q_1$\\
+$\cdots$\\
+$x_{n_s}$ $y_{n_s}$ $I_{n_s}$ $F_{n_s}$ $q_{n_s}$\\
+con:
+\begin{description}
+\item[$n_w$, $n_s$] los números de entradas de agua y fertilizante
+	respectivamente,
+\item[$x_i$] coordenada $x$ del punto donde se produce la entrada $i$-ésima,
+\item[$y_i$] coordenada $y$ del punto donde se produce la entrada $i$-ésima,
+\item[$I_i$] tiempo inicial en el que se produce la entrada $i$-ésima,
+\item[$F_i$] tiempo final en el que se produce la entrada $i$-ésima,
+\item[$q_i$] caudal de la entrada $i$-ésima, en $m^3/s$ si la entrada es de
+	agua y en $kg/s$ para las entradas de fertilizante.
+\end{description}
+Nótese que primero deben especificarse las $n_w$ entradas de agua y luego las
+$n_s$ entradas de fertilizante.
+
+\subsection{Fichero de tiempos de simulación: times.in\label{SecTiempos}}
+
+Los tiempos característicos de simulación deben definirse en el fichero:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$times.in
+\end{itemize}
+
+Este fichero está compuesto por el siguiente conjunto de números:\\
+$t_f$ $cfl$ $t_m$\\
+donde:
+\begin{description}
+\item[$t_f$] es el tiempo total de simulación,
+\item[$cfl$] es el número CFL que controla el tamaño de paso temporal,
+\item[$t_m$] es el intervalo de tiempo cada cuanto se vuelcan los resultados en
+	un fichero.
+\end{description}
+
+\subsection{Fichero de malla: mesh.in}
+
+El número de celdas de la malla se especifica en el fichero:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$mesh.in
+\end{itemize}
+
+Este fichero está compuesto por los números:\\
+$n_d$ $n_i$\\
+con:
+\begin{description}
+\item[$n_d$] número de celdas de los surcos de distribución o de recirculación
+	entre cada 2 surcos de riego,
+\item[$n_i$] número de celdas en cada surco de riego.
+\end{description}
+
+\subsection{Fichero de sondas: probe.in}
+
+Las sondas de medida pueden especificarse en el fichero:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$probe.in
+\end{itemize}
+
+Este fichero está formado por el siguiente conjunto de números:\\
+$n_p$\\
+$x_1$ $y_1$\\
+$\cdots$\\
+$x_{n_p}$ $y_{n_p}$\\
+con:
+\begin{description}
+\item[$n_p$] número de sondas,
+\item[$x_i$] coordenada $x$ del punto de la sonda $i$-ésima,
+\item[$y_i$] coordenada $y$ del punto de la sonda $i$-ésima.
+\end{description}
+
+\subsection{Fichero de modelo: model.in}
+
+Los modelos utilizados se definen en el fichero:
+\begin{itemize}
+\item Carpeta\_del\_caso$\backslash$model.in
+\end{itemize}
+
+Este fichero está formado por los números:\\
+$m_f$ $m_i$ $m_u$ $m_a$\\
+con:
+\begin{description}
+\item[$m_f$] 1 si hay fertilizante, 0 si no.
+\item[$m_i$] 1 si hay infiltración, 0 si no.
+\item[$m_u$] 1 si hay difusión subterránea, 0 si no.
+\item[$m_a$] 1 si se usa el modelo de convección de Boussinesq, 0 si usa el
+	modelo simple.
+\end{description}
+
+\section{Ficheros de resultados}
+
+En el programa \emph{Surcos} los ficheros de resultados están codificados con
+los siguientes nombres:
+\begin{description}
+\item[00b] Surco de distribución.
+\item[00c] Surco de recirculación.
+\item[xxx] Surco de riego, con $xxx$ representando el número de surco con 3
+	dígitos. La numeración de estos surcos va de 0 a $n$-1 con $n$ el
+	número total de surcos de riego.
+\end{description}
+
+Los ficheros de resultados son escritos en la misma carpeta donde se
+encuentran los ficheros de entrada de datos. El programa genera 3 tipos
+diferentes de ficheros de resultados, todos ellos en formato ASCII. 
+
+\subsection{Ficheros de perfil longitudinal (xxx-yyy.out)}
+
+El programa \emph{Surcos} genera un fichero donde se almacena el perfil
+longitudinal de cada variable para cada surco y para cada paso de tiempo
+definido en el intervalo de tiempo de volcado (véase la
+sección~\ref{SecTiempos}).
+
+El nombre de estos ficheros es de forma:
+\begin{itemize}
+\item $xxx-yyy.out$
+\end{itemize}
+donde $xxx$ representa el nombre del surco con la codificación descrita
+anteriormente y $yyy$ representa el número de paso temporal en el que se
+volcaron los resultados, especificado con 3 dígitos.
+
+Estos perfiles son ficheros de 12 columnas de la forma:\\
+\begin{tabular}{cccccccccccc}
+$x_1$& $h_1$& $A_1$& $Q_1$& ${z_s}_1$& ${z_f}_1$& $-{A_i}_1$& $c_1$&
+	$-{A_{ci}}_1$& $-{A_p}_1$& $-{A_{cp}}_1$& $\beta_1$\\
+&&&&&&$\cdots$\\
+$x_n$& $h_n$& $A_n$& $Q_n$& ${z_s}_n$& ${z_f}_n$& $-{A_i}_n$& $c_n$&
+	$-{A_{ci}}_n$& $-{A_p}_n$& $-{A_{cp}}_n$& $\beta_n$
+\end{tabular}\\\\
+con:
+\begin{description}
+\item[$x_i$] la coordenada longitudinual del punto $i$-ésimo de la malla,
+\item[$h_i$] el calado superficial del punto $i$-ésimo de la malla,
+\item[$A_i$] el área transversal mojada superficial del punto $i$-ésimo de la
+	malla,
+\item[$Q_i$] el caudal superficial del punto $i$-ésimo de la malla,
+\item[${z_s}_i$] la cota de la superficie del agua del punto $i$-ésimo de la
+	malla,
+\item[${z_f}_i$] la cota del fondo del punto $i$-ésimo de la malla,
+\item[$-{A_i}_i$] la masa de agua infiltrada (negativa) por unidiad de longitud
+	de surco del punto $i$-ésimo de la malla,
+\item[$c_i$] la concentración superficial de fertilizante del punto $i$-ésimo de
+	la malla,
+\item[$-{A_{ci}}_i$] la masa de fertilizante infiltrada por unidad de longitud
+	de surco (negativa) del punto $i$-ésimo de la malla,
+\item[$-{A_p}_i$] la masa de agua percolada por unidad de longitud de surco del
+	punto $i$-ésimo de la malla,
+\item[$-{A_{cp}}_i$] la masa de fertilizante percolada por unidad de longitud
+	de surco del punto $i$-ésimo de la malla,
+\item[$\beta_i$] el coeficiente de convección de Boussinesq del punto $i$-ésimo
+	de la mallar,
+\item[$n$] el número de puntos de la malla que contiene el surco.
+\end{description}
+
+\subsection{Ficheros de tiempos de avance y receso (xxx.out)}
+
+El programa \emph{Surcos} genera ficheros con los tiempos de avance y receso que
+se producen para cada surco. El nombre de estos ficheros es de forma:
+\begin{itemize}
+\item $xxx.out$
+\end{itemize}
+donde $xxx$ representa el nombre del surco con la codificación descrita
+anteriormente.
+
+Estos ficheros son de 3 columnas de la forma:\\
+\begin{tabular}{ccc}
+$x_1$& ${t_a}_1$& ${t_r}_1$\\
+&$\cdots$\\
+$x_n$& ${t_a}_n$& ${t_r}_n$\\
+\end{tabular}\\\\
+con:
+\begin{description}
+\item[$x_i$] la coordenada longitudinual del punto $i$-ésimo de la malla,
+\item[${t_a}_i$] el tiempo de avance del punto $i$-ésimo de la malla,
+\item[${t_r}_i$] el tiempo de receso del punto $i$-ésimo de la malla,
+\item[$n$] el número de puntos de la malla que contiene el surco.
+\end{description}
+
+\subsection{Ficheros de sondas (probes.out)}
+
+El fichero donde se almacenan los resultados de las sondas tiene el nombre
+\emph{probes.out}. Este fichero tiene el formato:\\
+\begin{tabular}{cccccc}
+$t_0$ & $h_{1,0}$ & $c_{1,0}$ & $\cdots$ & $h_{n_p,0}$ & $c_{n_p,0}$\\
+&&&$\vdots$\\
+$t_{n_t}$ & $h_{1,n_t}$ & $c_{1,n_t}$ & $\cdots$ & $h_{n_p,n_t}$ & $c_{n_p,n_t}$
+\end{tabular}\\\\
+con:
+\begin{description}
+\item[$t_j$] el tiempo $j$-ésimo, con 0 el instante inicial,
+\item[$h_{i,j}$] el calado medido en la sonda $i$-ésima y en el tiempo
+	$j$-ésimo,
+\item[$c_{i,j}$] la concentración superficial de fertilizante medida en la sonda
+	$i$-ésima y en el tiempo $j$-ésimo,
+\item[$n_p$] el número de sondas,
+\item[$n_t$] el número de pasos de tiempo.
+\end{description}

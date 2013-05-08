@@ -1,0 +1,136 @@
+\chapter*{¡Atención!}
+
+Para ejecutar el programa \emph{surcos} en sistema operativo Windows, deberá
+iniciar la aplicación desde la subcarpeta \emph{win32/bin/winsurcos.exe}, en
+versiones de 32 bits, o \emph{win64/bin/winsurcos.exe} en versiones de 64 bits.
+
+\begin{itemize}
+\item La representación de los números reales se hace, según el estándar
+internacional, separando los decimales mediante el ``.'' decimal.
+\item Las unidades de todas las variables utilizadas y representadas están en
+Sistema Internacional.
+\end{itemize}
+
+El programa ha sido probado en los siguientes sistemas operativos de Microsoft:
+\begin{itemize}
+\item Windows XP 32 bits.
+\item Windows XP 64 bits.
+\item Windows 7 32 bits.
+\item Windows 7 64 bits.
+\end{itemize}
+
+La activación del idioma se hace mediante la modificación de la configuración
+regional del sistema operativo. La versión 5.2 de este programa tiene soporte
+idiomático en inglés, español, francés e italiano. 
+
+Se han reportado problemas en la ventana de representación gráfica debidos a
+fallos de configuración de OpenGL en el driver de la tarjeta gráfica. Inténtese
+en ese caso instalar el driver más actualizado de la tarjeta gráfica.
+
+También se han reportado fallos guardando el fichero de la gráfica cuando el
+sistema Windows se ejecuta dentro de una máquina virtual de VirtualBox. En este
+caso el problema se corrige desactivando la aceleración gráfica en la
+configuración de VirtualBox.
+
+Windows XP y Windows 7 son marcas registradas de Microsoft.
+
+\setcounter{page}{1}
+
+\chapter{Instrucciones de instalación}
+
+\section{Descarga}
+
+El programa \emph{surcos} y su código fuente pueden ser descargados libremente,
+con una licencia de tipo BSD, en:
+\begin{itemize}
+\item \textit{http://digital.csic.es/handle/XXXXX/XXXXX}
+\end{itemize}
+
+\section{Instalación}
+
+La instalación del programa \emph{surcos} consiste simplemente en descomprimirlo
+en la carpeta deseada. No obstante, se recomienda que tanto la carpeta donde se
+instala el programa como los nombres de los ficheros generados no contengan
+espacios ni símbolos raros. Se han reportado casos en los que el podría no
+encontrar los ficheros y no ejecutar la simulación.
+
+\section{Ficheros del programa}
+
+El programa consta de las siguientes carpetas:
+\begin{description}
+\item[win32/bin]
+\item Carpeta que contiene el ejecutable, los ficheros ejecutables de las
+librerías y los ficheros de diagramas en la versión para Windows de 32 bits.
+\item[win32/etc]
+\item[win32/lib]
+\item Estas dos carpetas contienen algunos ficheros de las librerías para
+Windows de 32 bits.
+\item[win32/share]
+\item Carpeta que contiene los ficheros de idiomas para Windows de 32 bits.
+\item[win64/bin]
+\item[win64/etc]
+\item[win64/lib]
+\item[win64/share]
+\item Carpetas equivalentes a las anteriores para la versión de 64 bits.
+\item[examples]
+\item Carpeta que contiene ficheros de ejemplo.
+\item[src]
+\item Carpeta que contiene el código fuente del programa \emph{surcos} y el
+código fuente de las librerías utilizadas.
+\end{description}
+
+\section{Compilación del código fuente}
+
+El código fuente está escrito en lenguaje C y se han usado en su compilación
+herramientas libres de GNU: gcc, gmake, aclocal, autoconf y pkg-config. La
+versión para Windows se ha compilado además usando msys/mingw.
+
+El programa \emph{surcos} hace uso de las siguientes librerías:
+\begin{description}
+\item[libiconv] (http://ftp.gnu.org/pub/gnu/libiconv)
+\item[zlib] (http://sourceforge.net/projects/libpng)
+\item[libxml] (http://xmlsoft.org)
+\item[libffi] (ftp://sourceware.org/pub/libffi)
+\item[glib] (http://ftp.gnome.org/pub/gnome/sources/glib)
+\item[gettext] (http://ftp.gnu.org/pub/gnu/gettext)
+\item[libpng] (http://sourceforge.net/projects/libpng)
+\item[freetype] (http://sourceforge.net/projects/freetype)
+\item[fontconfig] (http://fontconfig.freedesktop.org)
+\item[pixman] (http://www.cairographics.org)
+\item[cairo] (http://www.cairographics.org)
+\item[atk] (http://ftp.gnome.org/pub/gnome/sources/atk)
+\item[pango] (http://ftp.gnome.org/pub/gnome/sources/pango)
+\item[gdk-pixbuf] (http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf)
+\item[gtk+] (http://ftp.gnome.org/pub/gnome/sources/gtk+)
+\item[freeglut] (http://sourceforge.net/projects/freeglut)
+\end{description}
+
+Una vez instaladas y configuradas todas estas herramientas y librerías la
+secuencia para compilar el programa consiste en hacer los cuatro pasos
+siguientes:
+\begin{enumerate}
+\item aclocal
+\item autoconf
+\item ./configure
+\item make
+\end{enumerate}
+En algunos sistemas hay que hacer alguna corrección. Consúltese el inicio del
+fichero configure.ac donde se dan instrucciones más detalladas en algunos
+sistemas.
+
+El programa \emph{surcos} ha sido compilado y probado en los siguientes sistemas
+operativos:
+\begin{itemize}
+\item Debian Linux 7.0
+\item Debian kFreeBSD 7.0
+\item Debian Hurd 7.0
+\item DragonFly BSD 3.2.2
+\item FreeBSD 9.1
+\item Microsoft Windows XP 32 bits
+\item Microsoft Windows XP 64 bits
+\item Microsoft Windows 7 32 bits
+\item Microsoft Windows 7 64 bits
+\item NetBSD 6.1
+\item OpenBSD 5.2
+\item OpenIndiana 151a7
+\end{itemize}
