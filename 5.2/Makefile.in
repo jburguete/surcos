@@ -43,7 +43,7 @@ man_en = $(mandir)ppal_EN.tex $(mandir)bib/references.bib \
 
 png = curve32.png fondo6.png logo2.png logo3.png diagram_furrow.png \
 	  diagram_geometry_en.png diagram_geometry_es.png diagram_geometry_fr.png \
-	  diagram_input.png
+	  diagram_geometry_it.png diagram_input.png
 
 dep = Makefile $(srcdir)jb/jb_config.h
 depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
