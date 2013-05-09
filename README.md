@@ -42,13 +42,13 @@ BUILDING INSTRUCTIONS
 ---------------------
 
 Debian Linux 7.0
-................
+________________
 Debian kFreeBSD 7.0
-...................
+___________________
 Debian Hurd 7.0
-...............
+_______________
 FreeBSD 9.1
-...........
+___________
 
 * download the latest JB library (github.com:jburguete/jb.git)
 * cd 5.2/src
@@ -61,9 +61,9 @@ FreeBSD 9.1
 * strip surcos surcos_gui (optional: to make a final version)
 
 Microsoft Windows 7 32 bits
-...........................
+___________________________
 Microsoft Windows XP 32 bits
-............................
+____________________________
 
 * install MSYS/MinGW (http://www.mingw.org) and the required libraries and
 utilities
