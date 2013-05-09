@@ -137,15 +137,15 @@ msgstr "Dati di sondi non corretti"
 
 #: src/kernel.c:143
 msgid "Irrigation life time"
-msgstr ""
+msgstr "Durata dell’irrigazione"
 
 #: src/kernel.c:145
 msgid "Calculation time"
-msgstr ""
+msgstr "Tempo di calcolo"
 
 #: src/kernel.c:149
 msgid "IRRIGATION QUALITY"
-msgstr ""
+msgstr "QUALITA DI IRRIGAZIONE"
 
 #: src/kernel.c:151
 msgid "Water"
@@ -153,11 +153,11 @@ msgstr "Acqua"
 
 #: src/kernel.c:153 src/kernel.c:161
 msgid "Uniformity"
-msgstr ""
+msgstr "Uniformità"
 
 #: src/kernel.c:156 src/kernel.c:164
 msgid "Efficiency"
-msgstr ""
+msgstr "Efficienza"
 
 #: src/kernel.c:159
 msgid "Fertilizer"
@@ -165,12 +165,12 @@ msgstr "Fertilisant"
 
 #: src/kernel.c:168
 msgid "WATER VOLUME"
-msgstr ""
+msgstr "VOLUME DI ACQUA"
 
 #: src/kernel.c:170 src/kernel.c:190 src/kernel.c:200 src/kernel.c:213
 #: src/kernel.c:227 src/kernel.c:257 src/kernel.c:274 src/kernel.c:294
 msgid "Total"
-msgstr ""
+msgstr "Totale"
 
 #: src/kernel.c:173 src/kernel.c:230
 msgid "Input"
@@ -178,34 +178,34 @@ msgstr ""
 
 #: src/kernel.c:175 src/kernel.c:234
 msgid "Calculated"
-msgstr ""
+msgstr "Calcolato"
 
 #: src/kernel.c:177 src/kernel.c:237
 msgid "Conservation error"
-msgstr ""
+msgstr "Errore di conservazione"
 
 #: src/kernel.c:179 src/kernel.c:192 src/kernel.c:202 src/kernel.c:215
 #: src/kernel.c:240 src/kernel.c:260 src/kernel.c:277 src/kernel.c:297
 msgid "Superficial"
-msgstr ""
+msgstr "Superficiale"
 
 #: src/kernel.c:181 src/kernel.c:194 src/kernel.c:204 src/kernel.c:217
 #: src/kernel.c:243 src/kernel.c:263 src/kernel.c:280 src/kernel.c:300
 msgid "Infiltrated"
-msgstr ""
+msgstr "Infiltrata"
 
 #: src/kernel.c:183 src/kernel.c:196 src/kernel.c:206 src/kernel.c:219
 #: src/kernel.c:246 src/kernel.c:266 src/kernel.c:283 src/kernel.c:303
 msgid "Percolated"
-msgstr ""
+msgstr "Filtrato"
 
 #: src/kernel.c:225
 msgid "FERTILIZER MASS"
-msgstr ""
+msgstr "MASSA DI FERTILIZZANTE"
 
 #: src/kernel.c:249 src/kernel.c:269 src/kernel.c:286 src/kernel.c:306
 msgid "Solid"
-msgstr ""
+msgstr "Solido"
 
 #: src/kernel.c:361
 msgid "Running the numerical simulation ..."
