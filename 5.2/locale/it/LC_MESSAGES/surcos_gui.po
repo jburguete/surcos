@@ -145,15 +145,15 @@ msgstr "Dati di sondi non corretti"
 
 #: src/kernel.c:143 src/mainWindow.c:397
 msgid "Irrigation life time"
-msgstr "Temps de durée de l'irrigation"
+msgstr ""
 
 #: src/kernel.c:145 src/mainWindow.c:399
 msgid "Calculation time"
-msgstr "Temps de calcul"
+msgstr ""
 
 #: src/kernel.c:149 src/mainWindow.c:403
 msgid "IRRIGATION QUALITY"
-msgstr "QUALITÉ D'IRRIGATION"
+msgstr ""
 
 #: src/kernel.c:151 src/configIrrigation.c:313 src/mainWindow.c:406
 msgid "Water"
@@ -161,11 +161,11 @@ msgstr "Acqua"
 
 #: src/kernel.c:153 src/kernel.c:161 src/mainWindow.c:409 src/mainWindow.c:418
 msgid "Uniformity"
-msgstr "Uniformité"
+msgstr ""
 
 #: src/kernel.c:156 src/kernel.c:164 src/mainWindow.c:412 src/mainWindow.c:421
 msgid "Efficiency"
-msgstr "Efficience"
+msgstr ""
 
 #: src/kernel.c:159 src/configIrrigation.c:313 src/configWindow.c:226
 #: src/mainWindow.c:415
@@ -174,7 +174,7 @@ msgstr "Fertilizzante"
 
 #: src/kernel.c:168 src/mainWindow.c:425
 msgid "WATER VOLUME"
-msgstr "VOLUME D'EAU"
+msgstr ""
 
 #: src/kernel.c:170 src/kernel.c:190 src/kernel.c:200 src/kernel.c:213
 #: src/kernel.c:227 src/kernel.c:257 src/kernel.c:274 src/kernel.c:294
@@ -182,7 +182,7 @@ msgstr "VOLUME D'EAU"
 #: src/mainWindow.c:475 src/mainWindow.c:490 src/mainWindow.c:522
 #: src/mainWindow.c:540 src/mainWindow.c:561
 msgid "Total"
-msgstr "Totale"
+msgstr ""
 
 #: src/kernel.c:173 src/kernel.c:230 src/configIrrigation.c:292
 #: src/configIrrigation.c:301 src/mainWindow.c:432 src/mainWindow.c:494
@@ -192,11 +192,11 @@ msgstr ""
 
 #: src/kernel.c:175 src/kernel.c:234 src/mainWindow.c:434 src/mainWindow.c:498
 msgid "Calculated"
-msgstr "Calculée"
+msgstr ""
 
 #: src/kernel.c:177 src/kernel.c:237 src/mainWindow.c:436 src/mainWindow.c:501
 msgid "Conservation error"
-msgstr "Erreur de conservation"
+msgstr ""
 
 #: src/kernel.c:179 src/kernel.c:192 src/kernel.c:202 src/kernel.c:215
 #: src/kernel.c:240 src/kernel.c:260 src/kernel.c:277 src/kernel.c:297
@@ -204,7 +204,7 @@ msgstr "Erreur de conservation"
 #: src/mainWindow.c:477 src/mainWindow.c:504 src/mainWindow.c:525
 #: src/mainWindow.c:543 src/mainWindow.c:564
 msgid "Superficial"
-msgstr "Superficielle"
+msgstr ""
 
 #: src/kernel.c:181 src/kernel.c:194 src/kernel.c:204 src/kernel.c:217
 #: src/kernel.c:243 src/kernel.c:263 src/kernel.c:280 src/kernel.c:300
@@ -212,7 +212,7 @@ msgstr "Superficielle"
 #: src/mainWindow.c:479 src/mainWindow.c:507 src/mainWindow.c:528
 #: src/mainWindow.c:546 src/mainWindow.c:567
 msgid "Infiltrated"
-msgstr "Infiltrée"
+msgstr ""
 
 #: src/kernel.c:183 src/kernel.c:196 src/kernel.c:206 src/kernel.c:219
 #: src/kernel.c:246 src/kernel.c:266 src/kernel.c:283 src/kernel.c:303
@@ -220,21 +220,21 @@ msgstr "Infiltrée"
 #: src/mainWindow.c:481 src/mainWindow.c:510 src/mainWindow.c:531
 #: src/mainWindow.c:549 src/mainWindow.c:570
 msgid "Percolated"
-msgstr "Percolée"
+msgstr ""
 
 #: src/kernel.c:225 src/mainWindow.c:487
 msgid "FERTILIZER MASS"
-msgstr "MASSE DE FERTILISANT"
+msgstr ""
 
 #: src/kernel.c:249 src/kernel.c:269 src/kernel.c:286 src/kernel.c:306
 #: src/mainWindow.c:513 src/mainWindow.c:534 src/mainWindow.c:552
 #: src/mainWindow.c:573
 msgid "Solid"
-msgstr "Solide"
+msgstr ""
 
 #: src/kernel.c:361
 msgid "Running the numerical simulation ..."
-msgstr "Simulazione numerica in esecuzione ..."
+msgstr ""
 
 #: src/configIrrigation.c:295 src/configIrrigation.c:304
 msgid "Initial time (s)"
@@ -291,16 +291,14 @@ msgid ""
 "a: Kostiakov's exponent\n"
 "f0: infiltration velocity in saturated soil"
 msgstr ""
-"K: coefficient de Kostiakov\n"
-"a: exponent de Kostiakov\n"
-"f0: vitesse d'infiltration en sol saturéR: capacità di ritenzione di acqua\n"
+"R: capacità di ritenzione di acqua\n"
 "e=0: modello di Gauckler-Manning\n"
 "e>0: coefficiente aerodinamico di Burguete\n"
 "n(e=0): numero di Gauckler-Manning\n"
 "n(e>0): lunghezza di rugosità caratteristica di Burguete\n"
 "K: coefficiente di Kostiakov\n"
 "a: esponente di Kostiakov\n"
-"f0: Velocità di infiltrazione nel suolo saturo"
+"f0: velocità di infiltrazione nel suolo saturo"
 
 #: src/configFurrows.c:175 src/mainWindow.c:320
 msgid "Number of irrigation furrows"
@@ -433,173 +431,173 @@ msgstr "Tempo di recessione (s)"
 
 #: src/graphics.c:859
 msgid "Superficial fertilizer mass per unit length (kg/m)"
-msgstr "Masse superficielle de fertilisant par unité de longueur (kg/m)"
+msgstr "Massa di fertilizzante superficiale per unità di lunghezza (kg/m)"
 
 #: src/graphics.c:885 src/graphics.c:887 src/graphics.c:1060
 #, c-format
 msgid "Furrow %d"
-msgstr "Sillon %d"
+msgstr "Solco %d"
 
 #: src/graphics.c:890
 msgid "Position (m)"
-msgstr "Position (m)"
+msgstr ""
 
 #: src/graphics.c:1071
 msgid "Water discharge (m³/s)"
-msgstr "Débit d'eau (m³/s)"
+msgstr "Flusso di acqua (m³/s)"
 
 #: src/graphics.c:1072
 msgid "Level (m)"
-msgstr "Niveau (m)"
+msgstr "Livello (m)"
 
 #: src/graphics.c:1076
 msgid "Mass per unit length (kg/m)"
-msgstr "Masse par unité de longueur (kg/m)"
+msgstr ""
 
 #: src/graphics.c:1078
 msgid "Advance and recession times (s)"
-msgstr "Temps d'avance et de récession (s)"
+msgstr ""
 
 #: src/graphics.c:1120
 msgid "Time (s)"
-msgstr "Temps (s)"
+msgstr "Tempo (s)"
 
 #: src/graphics.c:1121
 msgid "Depth (m)"
-msgstr "Profondeur (m)"
+msgstr ""
 
 #: src/graphics.c:1207
 #, c-format
 msgid "Probe %d"
-msgstr "Sonde %d"
+msgstr "Sonda %d"
 
 #: src/graphics.c:1340
 msgid "Map Furrows Representation"
-msgstr "Carte des sillons"
+msgstr ""
 
 #: src/graphics.c:1343
 msgid "Furrow Representation"
-msgstr "Représentation de furrow"
+msgstr ""
 
 #: src/graphics.c:1353
 msgid "Probes Time Evolution"
-msgstr "Evolution temporelle des sondes"
+msgstr ""
 
 #: src/graphics.c:1372
 msgid "Plotting results"
-msgstr "Montre les résultats"
+msgstr ""
 
 #: src/mainWindow.c:92
 msgid "Coordinates of corner"
-msgstr "Coordonnées du sommet"
+msgstr ""
 
 #: src/mainWindow.c:124
 msgid "Base width"
-msgstr "Largeur de la base"
+msgstr ""
 
 #: src/mainWindow.c:126
 msgid "Lateral slope"
-msgstr "Pente laterale"
+msgstr ""
 
 #: src/mainWindow.c:129
 msgid "Depth"
-msgstr "Profondeur"
+msgstr ""
 
 #: src/mainWindow.c:131
 msgid "Distance"
-msgstr "Distance"
+msgstr ""
 
 #: src/mainWindow.c:134
 msgid "Soil retention capacity"
-msgstr "Capacité de rétention sol"
+msgstr "Capacità di ritenzione di acqua"
 
 #: src/mainWindow.c:142
 msgid "Aerodynamical coefficient"
-msgstr "Coefficient aérodynamique"
+msgstr "Coefficiente aerodinamico"
 
 #: src/mainWindow.c:145
 msgid "Characteristic roughness length"
-msgstr "Longueur caractéristique de rugosité"
+msgstr "Lunghezza di rugosità caratteristica di Burguete"
 
 #: src/mainWindow.c:154
 msgid "Number of Gauckler-Manning"
-msgstr "Numéro de Gauckler-Manning"
+msgstr "Numero di Gauckler-Manning"
 
 #: src/mainWindow.c:161
 msgid "Kostiakov's coefficient"
-msgstr "Coefficient de Kostiakov"
+msgstr "Coefficiente di Kostiakov"
 
 #: src/mainWindow.c:167
 msgid "Kostiakov's exponent"
-msgstr "Exponent de Kostiakov"
+msgstr "Esponente di Kostiakov"
 
 #: src/mainWindow.c:171
 msgid "Infiltration velocity in saturated soil"
-msgstr "Velocité d'infiltration en sol saturé"
+msgstr "Velocità di infiltrazione nel suolo saturo"
 
 #: src/mainWindow.c:194
 msgid "Fertilizer input"
-msgstr "Entrée de fertilisant"
+msgstr ""
 
 #: src/mainWindow.c:195
 msgid "Water input"
-msgstr "Entrée d'eau"
+msgstr ""
 
 #: src/mainWindow.c:285
 msgid "GEOMETRY"
-msgstr "GÉOMÉTRIE"
+msgstr ""
 
 #: src/mainWindow.c:313
 msgid "FURROWS"
-msgstr "SILLONS"
+msgstr "SOLCI"
 
 #: src/mainWindow.c:317
 msgid "yes"
-msgstr "oui"
+msgstr ""
 
 #: src/mainWindow.c:317
 msgid "not"
-msgstr "non"
+msgstr ""
 
 #: src/mainWindow.c:333
 msgid "INPUTS"
-msgstr "ENTRÉES"
+msgstr ""
 
 #: src/mainWindow.c:349
 msgid "FERTILIZER"
-msgstr "FERTILISANT"
+msgstr "FERTILIZZANTE"
 
 #: src/mainWindow.c:352
 msgid "Solubility"
-msgstr "Solubilité"
+msgstr "Solubilità"
 
 #: src/mainWindow.c:356
 msgid "PROBES"
-msgstr "SONDES"
+msgstr "SONDI"
 
 #: src/mainWindow.c:366
 msgid "ADVANCED OPTIONS"
-msgstr "OPTIONS AVANCÉES"
+msgstr ""
 
 #: src/mainWindow.c:369
 msgid "Maximum simulation time"
-msgstr "Temps de simulation maximale"
+msgstr ""
 
 #: src/mainWindow.c:372
 msgid "CFL number"
-msgstr "Numéro CFL"
+msgstr ""
 
 #: src/mainWindow.c:374
 msgid "Data dump period"
-msgstr "Période de renversé des données"
+msgstr ""
 
 #: src/mainWindow.c:584
 msgid "Results"
-msgstr "Résultats"
+msgstr ""
 
 #: src/mainWindow.c:590 src/mainWindow.c:788
 msgid "Summary"
-msgstr "Sommaire"
+msgstr ""
 
 #: src/mainWindow.c:717
 msgid "Copyright 2011-2013 Javier Burguete Tolosa."
@@ -607,123 +605,20 @@ msgstr ""
 
 #: src/mainWindow.c:762
 msgid "Configure"
-msgstr "Configurer"
+msgstr ""
 
 #: src/mainWindow.c:764
 msgid "Simulation configure"
-msgstr "Configurer simulation"
+msgstr ""
 
 #: src/mainWindow.c:775
 msgid "Plot"
-msgstr "Graphiques"
+msgstr ""
 
 #: src/mainWindow.c:777
 msgid "Plot results"
-msgstr "Montrer graphiques"
+msgstr ""
 
 #: src/mainWindow.c:790
 msgid "Show summary"
-msgstr "Montrer le sommaire"
-
-#, fuzzy
-#~ msgid "Unable to open the inputs file"
-#~ msgstr "On peut pas ouvrir le fichier des entrées"
-
-#~ msgid "Unable to open logo2.png"
-#~ msgstr "On peut pas ouvrir logo2.png"
-
-#~ msgid "Discharge (m^3/s)"
-#~ msgstr "Débit (m³/s)"
-
-#~ msgid "Simulation time (s)"
-#~ msgstr "Temps de simulation (s)"
-
-#~ msgid "Losses"
-#~ msgstr "Pertes"
-
-#~ msgid "Total input"
-#~ msgstr "Entrée totale"
-
-#~ msgid "Total mass"
-#~ msgstr "Masse totale"
-
-#~ msgid "Superficial mass"
-#~ msgstr "Masse superficielle"
-
-#~ msgid "Infiltrated mass"
-#~ msgstr "Masse infiltrée"
-
-#~ msgid "Mass losses"
-#~ msgstr "Pertes de masse"
-
-#~ msgid "Mass conservation error"
-#~ msgstr "Erreur de conservation de mass"
-
-#~ msgid "Water uniformity (%)"
-#~ msgstr "Uniformité d'eau (%)"
-
-#~ msgid "Fertilizer uniformity (%)"
-#~ msgstr "Uniformité de fertilisant (%)"
-
-#~ msgid "Water efficiency (%)"
-#~ msgstr "Efficience d'eau (%)"
-
-#~ msgid "Fertilizer efficiency (%)"
-#~ msgstr "Efficience de fertilisant (%)"
-
-#~ msgid "Water mass"
-#~ msgstr "Masse d'eau"
-
-#~ msgid "Fertilizer mass"
-#~ msgstr "Masse de fertilisant"
-
-#~ msgid "Irrigation coefficients"
-#~ msgstr "Coefficients d'irrigation"
-
-#~ msgid "Fertilizer uniformity"
-#~ msgstr "Uniformité de fertilisant"
-
-#~ msgid "Total fertilizer input"
-#~ msgstr "Entrée totale de fertilisant"
-
-#~ msgid "Losses of water mass"
-#~ msgstr "Pertes de masse d'eau"
-
-#~ msgid "Total fertilizer mass"
-#~ msgstr "Masse totale de fertilisant"
-
-#~ msgid "Superficial fertilizer mass"
-#~ msgstr "Masse de fertilisant superficielle"
-
-#~ msgid "Infiltrated fertilizer mass"
-#~ msgstr "Masse de fertilisant infiltrée"
-
-#~ msgid "Losses of fertilizer mass"
-#~ msgstr "Pertes de masse de fertilisant"
-
-#~ msgid "Fertilizer mass conservation error"
-#~ msgstr "Erreur de conservation de masse de fertilisant"
-
-#~ msgid "Corner coordinates"
-#~ msgstr "Coordonnées des sommets"
-
-#~ msgid "Infiltrated water mass per unit length(kg/m)"
-#~ msgstr "Area superficielle d'eau (m^2)"
-
-#~ msgid "Times"
-#~ msgstr "Temps"
-
-#~ msgid "Input discharge (m^3/s)"
-#~ msgstr "Débit d'entrée (m^3/s)"
-
-#~ msgid "Initial time for the fertilizer (s)"
-#~ msgstr "Temps initial du fertilisant (s)"
-
-#~ msgid "Final time for the fertilizer (s)"
-#~ msgstr "Temps final du fertilisant (s)"
-
-#~ msgid "X position (m)"
-#~ msgstr "Coordonnée X (m)"
-
-#~ msgid "Y position (m)"
-#~ msgstr "Coordonnée Y (m)"
+msgstr ""

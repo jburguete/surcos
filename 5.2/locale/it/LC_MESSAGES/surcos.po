@@ -19,34 +19,34 @@ msgstr ""
 
 #: src/furrow.c:55
 msgid "Unable to open the coefficients file"
-msgstr "On peut pas ouvrir le fichier des coefficients"
+msgstr "Impossible aprire il file di coefficienti"
 
 #: src/furrow.c:61
 msgid "Bad coefficients file"
-msgstr "Fichier des coefficients incorrect"
+msgstr "File di coefficienti non corretti"
 
 #: src/furrow.c:81 src/furrow.c:86 src/furrow.c:91 src/furrow.c:96
 msgid "Bad initial conditions"
-msgstr "Données des conditions initiales"
+msgstr "Condizioni iniziali non corretti"
 
 #: src/furrow.c:128
 msgid "Bad furrow data"
-msgstr "Données des sillons incorrectes"
+msgstr "Dati di solchi non corretti"
 
 #: src/furrow.c:135 src/furrow.c:140 src/furrow.c:145 src/furrow.c:150
 #: src/furrow.c:155 src/furrow.c:160 src/furrow.c:165 src/furrow.c:170
 #: src/furrow.c:175 src/furrow.c:180
 msgid "Bad furrow"
-msgstr "Sillon incorrect"
+msgstr "Solco non corretto"
 
 #: src/field.c:124 src/field.c:535 src/field.c:551
 msgid "Bad input data"
-msgstr "Données des entrées incorrectes"
+msgstr "Dati di input non valido"
 
 #: src/field.c:129 src/field.c:134 src/field.c:139 src/field.c:145
 #: src/field.c:151
 msgid "Bad input"
-msgstr "Données des entrées incorrectes"
+msgstr "Input non valido"
 
 #: src/field.c:140
 msgid "Initial time"
@@ -54,96 +54,94 @@ msgstr "Temps initial"
 
 #: src/field.c:146
 msgid "Final time"
-msgstr "Temps final"
+msgstr "Tempo finale"
 
 #: src/field.c:152
 msgid "Discharge"
-msgstr "Débit"
+msgstr "Flusso"
 
 #: src/field.c:239
 msgid "Unable to open the geometry data file"
-msgstr "On peut pas ouvrir le fichier des données de géométrie"
+msgstr "Imposible aprire il file di dati della geometria"
 
 #: src/field.c:255 src/field.c:261 src/field.c:267 src/field.c:272
 #: src/field.c:277 src/field.c:282 src/field.c:287 src/field.c:292
 #: src/field.c:297 src/field.c:302 src/field.c:307 src/field.c:312
 #: src/field.c:317 src/field.c:322
 msgid "Bad data"
-msgstr "Données incorrectes"
+msgstr "Dati non valido"
 
 #: src/field.c:261
 msgid "solubility"
-msgstr "solubilité"
+msgstr "solubilità"
 
 #: src/field.c:333 src/kernel.c:198 src/kernel.c:272
 msgid "Distribution furrow"
-msgstr "Sillon de distribution"
+msgstr "Solco di distribuzione"
 
 #: src/field.c:349
 msgid "Not enough memory to open the irrigation furrows"
-msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
+msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 
 #: src/field.c:356 src/kernel.c:188 src/kernel.c:255
 msgid "Irrigation furrows"
-msgstr "Sillons d'irrigation"
+msgstr "Solchi di irrigazione"
 
 #: src/field.c:372 src/kernel.c:211 src/kernel.c:292
 msgid "Recirculation furrow"
-msgstr "Sillon de recirculation"
+msgstr "Solco di ricircolazione"
 
 #: src/field.c:471
 msgid "Bad data set"
-msgstr "Données de champ incorrectes"
+msgstr "Serie di dati non corretta"
 
 #: src/field.c:526
 msgid "Unable to open the input file"
-msgstr "On peut pas ouvrir le fichier des entrées"
+msgstr "Impossible aprire il file di input"
 
 #: src/field.c:543
 msgid "Not enough memory to open the input data"
-msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
+msgstr "Memoria insufficiente per aprire il file di input"
 
 #: src/field.c:591
 msgid "Unable to open the mesh data file"
-msgstr "On peut pas ouvrir le fichier des données de maille"
+msgstr "Impossible aprire il file di input di maglia"
 
 #: src/field.c:602
 msgid "Bad mesh data"
-msgstr "Données de maille incorrectes"
+msgstr "Dati di maglia non corretti"
 
 #: src/field.c:626
 msgid "Unable to open the times data file"
-msgstr "On peut pas ouvrir le fichier des données de temps"
+msgstr "Imposible aprire il file di dati di tempo"
 
 #: src/field.c:632
 msgid "Bad times data"
-msgstr "Données des temps incorrectes"
+msgstr "Dati di tempo non corretti"
 
 #: src/field.c:656
 msgid "Unable to open the model data file"
-msgstr "On peut pas ouvrir le fichier des données des modèles"
+msgstr "Impossible aprire il file di dati di modelli"
 
 #: src/field.c:663
 msgid "Bad model data"
-msgstr "Données des modèles incorrectes"
+msgstr "Dati di modelli non corretti"
 
 #: src/field.c:688
 msgid "Unable to open the probes data file"
-msgstr "On peut pas ouvrir le fichier des données des sondes"
+msgstr "Imposible aprire il file di dati di sondi"
 
 #: src/field.c:695 src/field.c:709
 msgid "Bad probes data"
-msgstr "Données des sondes incorrectes"
+msgstr "Dati di sondi non corretti"
 
 #: src/kernel.c:143
-#, fuzzy
 msgid "Irrigation life time"
-msgstr "Sillons d'irrigation"
+msgstr ""
 
 #: src/kernel.c:145
-#, fuzzy
 msgid "Calculation time"
-msgstr "Temps de simulation"
+msgstr ""
 
 #: src/kernel.c:149
 msgid "IRRIGATION QUALITY"
@@ -151,12 +149,11 @@ msgstr ""
 
 #: src/kernel.c:151
 msgid "Water"
-msgstr "Eau"
+msgstr "Acqua"
 
 #: src/kernel.c:153 src/kernel.c:161
-#, fuzzy
 msgid "Uniformity"
-msgstr "Uniformité d'eau (%)"
+msgstr ""
 
 #: src/kernel.c:156 src/kernel.c:164
 msgid "Efficiency"
@@ -177,7 +174,7 @@ msgstr ""
 
 #: src/kernel.c:173 src/kernel.c:230
 msgid "Input"
-msgstr "Entrée"
+msgstr ""
 
 #: src/kernel.c:175 src/kernel.c:234
 msgid "Calculated"
@@ -189,15 +186,13 @@ msgstr ""
 
 #: src/kernel.c:179 src/kernel.c:192 src/kernel.c:202 src/kernel.c:215
 #: src/kernel.c:240 src/kernel.c:260 src/kernel.c:277 src/kernel.c:297
-#, fuzzy
 msgid "Superficial"
-msgstr "Profondeur superficielle (m)"
+msgstr ""
 
 #: src/kernel.c:181 src/kernel.c:194 src/kernel.c:204 src/kernel.c:217
 #: src/kernel.c:243 src/kernel.c:263 src/kernel.c:280 src/kernel.c:300
-#, fuzzy
 msgid "Infiltrated"
-msgstr "Modèle d'infiltration"
+msgstr ""
 
 #: src/kernel.c:183 src/kernel.c:196 src/kernel.c:206 src/kernel.c:219
 #: src/kernel.c:246 src/kernel.c:266 src/kernel.c:283 src/kernel.c:303
@@ -214,16 +209,16 @@ msgstr ""
 
 #: src/kernel.c:361
 msgid "Running the numerical simulation ..."
-msgstr "Calculant la simulation numérique ..."
+msgstr ""
 
 #: src/surcos.c:129
 msgid "Not enough memory to calibrate the coefficients"
-msgstr "Mémoire insuffisante pour ouvrir le fichier des coefficients"
+msgstr ""
 
 #: src/surcos.c:140
 msgid "Usage is"
-msgstr "La sintaxe est"
+msgstr ""
 
 #: src/surcos.c:141
 msgid "surcos input_directory [-calibrate]"
-msgstr "surcos répertoire_d'entrée [-calibrate]"
+msgstr ""
