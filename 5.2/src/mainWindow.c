@@ -714,13 +714,13 @@ void main_window_about(MainWindow *w)
 		"version",
 		"5.2",
 		"copyright",
-		gettext("Copyright 2011-2013 Javier Burguete Tolosa."),
+		"Copyright 2011-2013 Javier Burguete Tolosa",
 		"logo",
 		w->pixbuf,
 		"website-label",
 		"Website",
 		"website",
-		"http://www.eead.csic.es",
+		"http://digital.csic.es/handle/10261/75830",
 		NULL);
 }
 

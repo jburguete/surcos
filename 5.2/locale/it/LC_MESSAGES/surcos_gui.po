@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-27 03:05+0200\n"
+"POT-Creation-Date: 2013-05-10 15:25+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -79,6 +79,7 @@ msgstr "solubilità"
 #: src/field.c:333 src/kernel.c:198 src/kernel.c:272 src/graphics.c:880
 #: src/graphics.c:1055 src/mainWindow.c:322 src/mainWindow.c:458
 #: src/mainWindow.c:537
+#, c-format
 msgid "Distribution furrow"
 msgstr "Solco di distribuzione"
 
@@ -94,6 +95,7 @@ msgstr "Solchi di irrigazione"
 #: src/field.c:372 src/kernel.c:211 src/kernel.c:292 src/graphics.c:884
 #: src/graphics.c:1057 src/mainWindow.c:316 src/mainWindow.c:328
 #: src/mainWindow.c:472 src/mainWindow.c:558
+#, c-format
 msgid "Recirculation furrow"
 msgstr "Solco di ricircolazione"
 
@@ -596,10 +598,6 @@ msgstr "Risultati"
 #: src/mainWindow.c:590 src/mainWindow.c:788
 msgid "Summary"
 msgstr "Sommario"
-
-#: src/mainWindow.c:717
-msgid "Copyright 2011-2013 Javier Burguete Tolosa."
-msgstr ""
 
 #: src/mainWindow.c:762
 msgid "Configure"

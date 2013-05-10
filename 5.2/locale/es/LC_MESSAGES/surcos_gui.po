@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-27 02:58+0200\n"
+"POT-Creation-Date: 2013-05-10 15:25+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -598,10 +598,6 @@ msgstr "Resultados"
 #: src/mainWindow.c:590 src/mainWindow.c:788
 msgid "Summary"
 msgstr "Sumario"
-
-#: src/mainWindow.c:717
-msgid "Copyright 2011-2013 Javier Burguete Tolosa."
-msgstr ""
 
 #: src/mainWindow.c:762
 msgid "Configure"
