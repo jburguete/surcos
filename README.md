@@ -4,6 +4,13 @@ SURCOS (5.2 version)
 A program to solve irrigation and fertigation in isolated furrows and furrow
 networks.
 
+AUTHORS
+-------
+
+* Javier Burguete Tolosa (jburguete@eead.csic.es)
+* Asier Lacasta Soto (asierlacasta@gmail.com)
+* Pilar García Navarro (pigar@unizar.es)
+
 REQUIRED
 --------
 
