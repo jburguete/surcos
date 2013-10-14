@@ -1,0 +1,10 @@
+cd ../5.2
+./surcos examples/case1
+./surcos examples/case2
+./surcos examples/case3
+./surcos examples/case4
+./surcos examples/case5
+./surcos examples/case6
+./surcos examples/case7
+./surcos examples/case8
+./surcos examples/case9

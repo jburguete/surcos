@@ -1,0 +1,23 @@
+set term pos eps 10 enh
+set size 0.45,0.45
+set xlabel 'l (m)'
+set key bottom
+set ylabel '{/Symbol a} (m^2)'
+set out 'water1-9.eps'
+plot [][0:] '../5.2/examples/case1/00b-102.out' u 1:(-$7) t'Cases 1-2-3' w l,\
+	'../5.2/examples/case4/00b-086.out' u 1:(-$7) t'Cases 4-5-6' w l,\
+	'../5.2/examples/case7/00b-083.out' u 1:(-$7) t'Cases 7-8-9' w l lt 4
+set key top left
+set ylabel '{/Symbol f} (kg m^{-1})'
+set out 'fertilizer123.eps'
+plot [][0:0.07] '../5.2/examples/case1/00b-102.out' u 1:(-$9) t'Case 1' w l,\
+	'../5.2/examples/case2/00b-102.out' u 1:(-$9) t'Case 2' w l,\
+	'../5.2/examples/case3/00b-102.out' u 1:(-$9) t'Case 3' w l lt 4
+set out 'fertilizer456.eps'
+plot [][0:0.07] '../5.2/examples/case4/00b-086.out' u 1:(-$9) t'Case 4' w l,\
+	'../5.2/examples/case5/00b-086.out' u 1:(-$9) t'Case 5' w l,\
+	'../5.2/examples/case6/00b-086.out' u 1:(-$9) t'Case 6' w l lt 4
+set out 'fertilizer789.eps'
+plot [][0:0.07] '../5.2/examples/case7/00b-083.out' u 1:(-$9) t'Case 7' w l,\
+	'../5.2/examples/case8/00b-083.out' u 1:(-$9) t'Case 8' w l,\
+	'../5.2/examples/case9/00b-083.out' u 1:(-$9) t'Case 9' w l lt 4
