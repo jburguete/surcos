@@ -95,12 +95,15 @@ printf("LC_NUMERIC = %s\n", buffer);
 #endif
 
     // Setting the program name and locale directory to find locale files
-	buffer = g_build_filename(g_get_current_dir(), LOCALE_DIR, NULL);
+	buffer2 = g_get_current_dir();
+	buffer = g_build_filename(buffer2, LOCALE_DIR, NULL);
+	g_free(buffer2);
 	buffer2 = bindtextdomain(PROGRAM_NAME, buffer);
 #if DEBUG_MAIN
 printf("Locale dir = %s\n", buffer);
 printf("bindtextdomain = %s\n", buffer2);
 #endif
+	g_free(buffer);
 	
 	// Setting the format of the codeset files (UTF-8)
     buffer2 = bind_textdomain_codeset(PROGRAM_NAME, "UTF-8");

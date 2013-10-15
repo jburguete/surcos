@@ -59,20 +59,18 @@ simulation software, infiltration, furrows, irrigation, fertigation
 
 \begin{abstract}
 A software tool useful for the numerical computation of surface irrigation and
-fertigation in furrows and furrow networks was developed.
-The model solves the complete one-dimensional St-Venant equations
-together with the transport equation of a passive solute. The flow equations and
-the solute advection are solved with a high resolution TVD explicit Eulerian
-scheme. The solute dispersion is solved with a centered implicit Eulerian scheme
-to avoid further restriction in the allowable time step. The computational speed
-of the model is high in isolated furrows. In cases of large furrow networks over
-extended irrigation times the model is slower but affordable computational speed
-is achieved.
-The computational model
-has been designed to be robust, intuitive and able to supply useful visual
-results.
-Both the executable and the source code, as well as the examples
-presented can be downloaded, edited and distributed under a BSD type license.
+fertigation in furrows and furrow networks was developed. The model solves the
+complete one-dimensional St-Venant equations together with the transport
+equation of a passive solute. The flow equations and the solute advection are
+solved with a high resolution TVD explicit Eulerian scheme. The solute
+dispersion is solved with a centered implicit Eulerian scheme to avoid further
+restriction in the allowable time step. The computational speed of the model is
+high in isolated furrows. In cases of large furrow networks over extended
+irrigation times the model is slower but affordable computational speed is
+achieved. The computational model has been designed to be robust, intuitive and
+able to supply useful visual results. Both the executable and the source code,
+as well as the examples presented can be downloaded, edited and distributed
+under a BSD type license.
 \end{abstract}
 
 \maketitle
@@ -80,58 +78,59 @@ presented can be downloaded, edited and distributed under a BSD type license.
 \section{Introduction}
 
 Engineering studies of surface irrigation systems begin with an evaluation of
-current performance based on field-measured data in order to determine the applied amount
-of the irrigation water. The interest is in the
-distribution of infiltrated water along the field in order to evaluate whether
-water contributed to satisfy the irrigation requirement and how much was lost
-by deep percolation and runoff. The ultimate objective is to identify
-recommendations 
-that result in acceptable levels of irrigation performance under the expected
-range of field conditions.
+current performance based on field-measured data in order to determine the
+applied amount of the irrigation water. The interest is in the distribution of
+infiltrated water along the field in order to evaluate whether water contributed
+to satisfy the irrigation requirement and how much was lost by deep percolation
+and runoff. The ultimate objective is to identify recommendations that result in
+acceptable levels of irrigation performance under the expected range of field
+conditions.
 
-In the last decades computer based models were
-developed to support this analytical process. The most usual simulation engines,
-WinSRFR \citep{Clemmens99} and SIRMOD \citep{Walker03}, can be configured to
-model basins, borders, and furrows, all under the assumption of one-dimensional
-flow. This means that all flow characteristics vary only with distance along the
-field length and time, i.e. not across the field width. For borders and basins,
-the models are applicable to situations where the side-fall is negligible in
+In the last decades computer based models were developed to support this
+analytical process. The most usual simulation engines, WinSRFR
+\citep{Clemmens99} and SIRMOD \citep{Walker03}, can be configured to model
+basins, borders, and furrows, all under the assumption of one-dimensional flow.
+This means that all flow characteristics vary only with distance along the field
+length and time, i.e. not across the field width. For borders and basins, the
+models are applicable to situations where the side-fall is negligible in
 comparison with the applied depth, infiltration and roughness are relatively
 uniform across the field width, and inflow is distributed. With furrows,
 simulations consider only a single furrow and, therefore, neighboring furrows
 are assumed identical. Any variation in properties from furrow to furrow must be
-modeled separately.
-Their simulation engines solve the one-dimensional unsteady open-channel flow
-equations coupled with empirical/semi-empirical equations describing
-infiltration and channel roughness. The governing equations represent the
-physical principles of conservation of mass and momentum. Given the relatively
-low velocities and Froude numbers that characterize surface-irrigation flows,
-their simulation engines often solve truncated forms of the momentum equation.
-The zero-inertia (force equilibrium) version assumes only pressure gradients,
-friction, and gravitational forces acting on the flow. 
+modeled separately. Their simulation engines solve the one-dimensional unsteady
+open-channel flow equations coupled with empirical/semi-empirical equations
+describing infiltration and channel roughness. The governing equations represent
+the physical principles of conservation of mass and momentum. Given the
+relatively low velocities and Froude numbers that characterize
+surface-irrigation flows, their simulation engines often solve truncated forms
+of the momentum equation. The zero-inertia (force equilibrium) version assumes
+only pressure gradients, friction, and gravitational forces acting on the flow. 
 
-Water flow simulation in open channels and rivers has been a topic of interest recently and many numerical advances can be found \citep{JaviTVD}. They include
+Water flow simulation in open channels and rivers has been a topic of interest
+recently and many numerical advances can be found \citep{JaviTVD}. They include
 the presence of transcritical flow, bed slope changes, dominant friction terms
-\citep{JaviFriccion,JaviFriccion2}, solute transport
-\citep{JaviTrans} and unsteady boundary conditions \citep{JaviContorno}.
-In order to extend those developments to furrow irrigation simulation, specific models have been
-adapted to formulate friction, solute dispersion, infiltration and junctions in furrows and furrow networks
-\citep{JaviFriccion,JaviSurcos1,JaviSurcos2}.
+\citep{JaviFriccion,JaviFriccion2}, solute transport \citep{JaviTrans} and
+unsteady boundary conditions \citep{JaviContorno}. In order to extend those
+developments to furrow irrigation simulation, specific models have been adapted
+to formulate friction, solute dispersion, infiltration and junctions in furrows
+and furrow networks \citep{JaviSurcos1,JaviSurcos2}.
 
-The objective of the present work is the development of a software tool
-to simulate the complete water flow dynamics and solute transport in furrows and
+The objective of the present work is the development of a software tool to
+simulate the complete water flow dynamics and solute transport in furrows and
 furrow networks with a basis on the exhaustive verification and validation
-performed \citep{JaviSurcos1,JaviSurcos2}
-The software \emph{surcos} has been designed to incorporate the
-cited modelling improvements in a user friendly, reliable, robust and efficient tool.
+performed \citep{JaviSurcos1,JaviSurcos2}. The software \emph{surcos} has been
+designed to incorporate the cited modelling improvements in a user friendly,
+reliable, robust and efficient tool.
 
-First, the governing equations used are outlined in order to state the notation. Second, the numerical scheme used
-in the simulation engine is detailed to enable an easy reproduction of the
-model. Then, the main components of the software interface are presented. Finally, some examples of use are included to illustrate the performance.
+First, the governing equations used are outlined in order to state the notation.
+Second, the numerical scheme used in the simulation engine is detailed to enable
+an easy reproduction of the model. Then, the main components of the software
+interface are presented. Finally, some examples of use are included to
+illustrate the performance.
 
-The model and the examples presented in this work are
-distributed \citep{Surcos,SurcosGit} as free software under a Berkeley Software
-Distribution (BSD) type license with available and editable source code.
+The model and the examples presented in this work are distributed
+\citep{Surcos,SurcosGit} as free software under a Berkeley Software Distribution
+(BSD) type license with available and editable source code.
 
 \section{Physical model}
 
@@ -146,8 +145,9 @@ conservative form as \citep{JaviSurcos1}:
 	\PARTIAL{\vec{U}}{t}+\PARTIAL{\vec{F}}{l}=
 	\vec{I}+\vec{S}^c+\PARTIAL{\vec{D}}{l},
 }{EqCons}
-where $\vec{U}$ is the vector of conserved variables, $t$ is the time, $\vec{F}$ the flux vector,  $l$ the longitudinal coordinate, $\vec{I}$ the infiltration vector, $\vec{S}^c$ the source term
-vector, and $\vec{D}$ stands for solute
+where $\vec{U}$ is the vector of conserved variables, $t$ is the time, $\vec{F}$
+the flux vector,  $l$ the longitudinal coordinate, $\vec{I}$ the infiltration
+vector, $\vec{S}^c$ the source term vector, and $\vec{D}$ stands for solute
 dispersion:
 \[
 	\vec{U}=\MATRIX{c}{A\\Q\\A\,s},\quad
@@ -736,16 +736,17 @@ Help & Information \\
 Using the icons in table~\ref{mainWindowIcons} it is possible to get access to
 the different utilities in the program.
 
-\subsection{Configuration of a simulation}
+\subsection{Configuration window}
 
-\subsubsection{Geometry configuration window}
+The window to configure a simulation can be accessed by pressing on the button
+"Configure". Some panels can be accessed in this windows.
+
+\subsubsection{Geometry configuration panel}
 
 Program \emph{surcos} simulates irrigation in a quadrilateral network of
 furrows or in a isolated furrow. The geometry configuration panel (see
-figure~\ref{geomWindow}), accessed by pressing the button "configure",
-can be used to edit the project topographic
-data by means of the coordinates of the four vertices that define the furrow
-plot.
+figure~\ref{geomWindow}), can be used to edit the project topographic data by
+means of the coordinates of the four vertices that define the furrow plot.
 
 \begin{figure}[!ht]
 \begin{center}

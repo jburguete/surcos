@@ -79,6 +79,8 @@ typedef struct _Summary Summary;
 struct _MainWindow
 {
 /**
+ * \var item
+ * \brief GtkToolItem to separate exit on the toolbar.
  * \var button_exit
  * \brief GtkToolButton to exit the program.
  * \var button_open
@@ -104,6 +106,7 @@ struct _MainWindow
  * \var window
  * \brief Main GtkWindow.
  */
+	GtkToolItem *item;
 	GtkToolButton *button_exit, *button_open, *button_config, *button_run,
 		*button_plot, *button_summary, *button_help;
 	GtkToolbar *toolbar;
@@ -119,9 +122,9 @@ struct _MainWindow
 typedef struct _MainWindow MainWindow;
 
 #if JBW_GRAPHIC == JBW_GRAPHIC_GTKGLEXT
-void main_window_new(GdkGLConfig *glconfig);
+MainWindow* main_window_new(GdkGLConfig *glconfig);
 #else
-void main_window_new();
+MainWindow* main_window_new();
 #endif
 
 #endif

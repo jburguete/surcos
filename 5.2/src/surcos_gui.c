@@ -79,6 +79,7 @@ GtkWidget *windowMain;
 int main(int argn, char *argc[])
 {
 	char *buffer, *buffer2;
+	MainWindow *window;
 #if JBW_GRAPHIC == JBW_GRAPHIC_GTKGLEXT
 	GdkGLConfig *glconfig;
 #endif
@@ -168,7 +169,7 @@ printf("gtk_gl_init\n");
 #if DEBUG_MAIN
 printf("main window\n");
 #endif
-	main_window_new(glconfig);
+	window = main_window_new(glconfig);
 #elif JBW_GRAPHIC == JBW_GRAPHIC_GLUT
 	// Some FREEGLUT options
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -177,7 +178,7 @@ printf("main window\n");
 #if DEBUG_MAIN
 printf("main window\n");
 #endif
-	main_window_new();
+	window = main_window_new();
 #else
 	// Initing graphical libraries
 	jbw_graphic_init(&argn, &argc);
@@ -185,11 +186,15 @@ printf("main window\n");
 #if DEBUG_MAIN
 printf("main window\n");
 #endif
-	main_window_new();
+	window = main_window_new();
 #endif
 
 	// Starting the main bucle
 	gtk_main();
+
+	// Freeing memory
+	gtk_widget_destroy(GTK_WIDGET(window->window));
+	free(window);
 
 	return 0;
 }

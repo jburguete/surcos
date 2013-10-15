@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 15:25+0200\n"
+"POT-Creation-Date: 2013-09-28 01:38+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -595,26 +595,26 @@ msgstr "Période de renversé des données"
 msgid "Results"
 msgstr "Résultats"
 
-#: src/mainWindow.c:590 src/mainWindow.c:788
+#: src/mainWindow.c:590 src/mainWindow.c:789
 msgid "Summary"
 msgstr "Sommaire"
 
-#: src/mainWindow.c:762
+#: src/mainWindow.c:763
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/mainWindow.c:764
+#: src/mainWindow.c:765
 msgid "Simulation configure"
 msgstr "Configurer simulation"
 
-#: src/mainWindow.c:775
+#: src/mainWindow.c:776
 msgid "Plot"
 msgstr "Graphiques"
 
-#: src/mainWindow.c:777
+#: src/mainWindow.c:778
 msgid "Plot results"
 msgstr "Montrer graphiques"
 
-#: src/mainWindow.c:790
+#: src/mainWindow.c:791
 msgid "Show summary"
 msgstr "Montrer le sommaire"

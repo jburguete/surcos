@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-27 02:58+0200\n"
+"POT-Creation-Date: 2013-09-28 19:54+0200\n"
 "PO-Revision-Date: 2011-10-10 17:22+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -211,14 +211,14 @@ msgstr "Sólida"
 msgid "Running the numerical simulation ..."
 msgstr "Calculando la solución numérica ..."
 
-#: src/surcos.c:129
+#: src/surcos.c:132
 msgid "Not enough memory to calibrate the coefficients"
 msgstr "Falta memoria para calibrar los coeficientess"
 
-#: src/surcos.c:140
+#: src/surcos.c:143
 msgid "Usage is"
 msgstr "La sintaxis es"
 
-#: src/surcos.c:141
+#: src/surcos.c:144
 msgid "surcos input_directory [-calibrate]"
 msgstr "surcos directorio_de_entrada [-calibrate]"

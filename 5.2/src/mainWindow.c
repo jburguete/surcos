@@ -725,13 +725,14 @@ void main_window_about(MainWindow *w)
 }
 
 /**
- * \fn void main_window_new()
+ * \fn MainWindow* main_window_new()
  * \brief Function to open the main window.
+ * \return Main window structure.
  */
 #if JBW_GRAPHIC == JBW_GRAPHIC_GTKGLEXT
-void main_window_new(GdkGLConfig *glconfig)
+MainWindow* main_window_new(GdkGLConfig *glconfig)
 #else
-void main_window_new()
+MainWindow* main_window_new()
 #endif
 {
 	GtkWindow *window;
@@ -793,16 +794,20 @@ printf("main_window_new: buttons\n");
 	w->button_help = (GtkToolButton*)gtk_tool_button_new_from_stock(
 		GTK_STOCK_HELP);
 
+	w->item = (GtkToolItem*)gtk_tool_item_new();
+	gtk_tool_item_set_expand(w->item, TRUE);
+
 	w->toolbar = (GtkToolbar*)gtk_toolbar_new ();
 //	gtk_toolbar_set_orientation(w->toolbar, GTK_ORIENTATION_HORIZONTAL);
 	gtk_toolbar_set_style(w->toolbar, GTK_TOOLBAR_BOTH);
-	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_exit), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_open), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_config), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_run), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_plot), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_summary), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_help), -1);
+	gtk_toolbar_insert(w->toolbar, w->item, -1);
+	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_exit), -1);
 
 	w->label = (GtkLabel*)gtk_label_new("");
 
@@ -862,4 +867,6 @@ printf("main_window_new: intro window\n");
 #if DEBUG_MAIN_WINDOW_NEW
 printf("main_window_new: end\n");
 #endif
+
+	return w;
 }
