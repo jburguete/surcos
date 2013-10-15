@@ -1,0 +1,197 @@
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+%Ms. Ref. No.: COMPAG-D-13-00254
+%Title: SURCOS: a new software to simulate irrigation and fertigation in isolated furrows and furrow networks
+%Computers and Electronics in Agriculture
+%
+%Dear Dr. Javier Burguete,
+%
+%Reviewers have now commented on your paper. You will see that they are advising that you revise your manuscript. If you are prepared to undertake the work required, I would be pleased to reconsider my decision.
+%
+%For your guidance, reviewers' comments are appended below.
+%
+%If you decide to revise the work, please submit a list of changes or a rebuttal against each point which is being raised when you submit the revised manuscript. Where you have revised the text please indicate also the line numbers in the NEW submission.
+%
+%To submit a revision, please go to http://ees.elsevier.com/compag/ and login as an Author.
+%Your username is: jburguete@eead.csic.es
+%Your password is: Jbt350!!
+%On your Main Menu page is a folder entitled "Submissions Needing Revision". You will find your submission record there.
+%
+%Yours sincerely,
+%
+%Qin Zhang, Ph.D.
+%Editor-in-Chief
+%Computers and Electronics in Agriculture
+
+Reviewers' comments:
+
+
+Reviewer \#1: The 'SURCOS' irrigation modelling equations presented in this paper include repetition of at least half of the equations directly from Burguette et al. (2009a). To differentiate the submitted paper from Burguette et al. (2009a) I recommend that the focus of this paper needs to be on the new modelling steps presented (that relate to irrigation at junctions and networks) and simulation case studies that illustrate the performance of the new equations under different conditions.
+
+\textcolor{red}{ANSWER: The objective of this work is to present a new software
+tool based on the model tested and validated in
+Burgue}\textcolor{blue}{t}\textcolor{red}{e et al. (2009a,b). Sólo mínimas
+correcciones se han aplicado sobre el modelo, por lo que los autores no creemos
+que éste deba ser un enfoque del trabajo. Como el revisor apunta, este trabajo
+sí que repite muchas de las ecuaciones de aquellos papers, no obstante, los
+autores creemos que esto es necesario para que el lector pueda entender la
+notación utilizada y reproducir fácilmente el modelo.}
+
+Reviewer \#3: Dear Editor,
+
+CC: Authors
+
+Thank you for inviting me to review the paper entitled "SURCOS: a new software to simulate irrigation and fertigation in isolated furrows and furrow networks".
+The paper describes the development concepts of a mathematical model called SURCOS for simulation of furrow irrigation networks and the flow of water and fertilizers.
+
+The paper contains three main parts
+
+1-The development of the model's equations
+
+2-The graphical user interface of the model
+
+3- Sample runs of the model, one for isolated furrows and one for large furrows networks.
+
+Overall, the paper is very good and it is publishable with few modifications and additions.
+
+My comments on the paper can be summarized in the following
+
+1- In the abstract,
+
+a. The authors wrote "A new software", while in in line 436: "the present model surcos improves previous developments". Please change to "A software tool .. was developed" instead of "A new software ... is presented". Please change the corresponding part in the title as well.
+
+\textcolor{red}{ANSWER: OK, this has been changed in the new manuscript.}
+ 
+b. The sentence "The computational model ...visual results." Should be moved to the end of the abstract before the sentence "Both the executable .. BSD type license."
+
+\textcolor{red}{ANSWER: OK, this has been moved in the new manuscript.}
+
+2- One of the weakest points in the paper is the introduction, as it is not clear, uses many quoted sentences, and lacks references of similar models and historical development of the current model. I highly recommend rewriting the whole introduction especially lines 12 to 31. Some point to be considered:
+
+a. L12-17: too long sentence.
+
+b. L13: remove the coma after "performance".
+
+c. L13-14: replace the words ".in order to determine the fate of the irrigation water (amount applied and infiltrated) with an interest." with ".in order to determine the applied amount of the irrigation water with an interest. ". this is easier to understand, and try to omit any similar quotes.
+
+d. L17-19: remove the words "operational and/or design recommendations that are robust, i.e.," so that the sentence read "The ultimate objective is to identify recommendations that result in acceptable levels of..". no need to put sentences that need to be clarified by "i.e.".
+
+\textcolor{red}{ANSWER: OK, the paragraph has been rewritten following the
+reviewer's recommendations.}
+
+e. L40-49: I think that a historical flow would be better to attract the reader.
+
+\textcolor{red}{ANSWER: OK, a historical flow has been written.}
+
+f. The objective of the paper is not clearly mentioned.
+
+\textcolor{red}{ANSWER: OK, a new paragraph has been included to mention the
+main objective of the paper.}
+
+3- Physical model:
+
+a. L56-58: please put definitions in the order of appearance in the equation (starting from upper left, then top to bottom, left to right).
+
+\textcolor{red}{ANSWER: OK, it has been modified in the new manuscript.}
+
+b. L61: g is the acceleration of gravity, it is not constant by the way.
+
+\textcolor{red}{ANSWER: OK, it has been modified.}
+
+c. L64: please put a line brake between the variables definitions and the next sentence, "The furrows.." Should start in a new line.
+
+\textcolor{red}{ANSWER: OK, a new line has been added.}
+
+4- Interface:
+
+a. Please mention the computer language in which this software was developed in.
+
+\textcolor{red}{ANSWER: OK, the computer language as well as some libraries and
+operative systems where the program is available have been included.}
+
+b. Figure 3: I think it is not common to place the "Quit" button as a first button to the left, this is the place of "new" or "open" buttons, the "Quit" button should be placed at the far end of the toolbar (to the right).
+
+\textcolor{red}{ANSWER: Thank you for the suggestion. It has been modified in
+the figure as well as in the software tool.}
+
+c. Table 1: all the actions are the same "Click", please remove this column. The heading "Icon" should be replaced by "Button" as you are not butting the icon here. Replace the header "Utility" by "Role".
+
+\textcolor{red}{ANSWER: OK, the table has been modified following the reviewer's
+comment.}
+
+d. L239: please identify how to get to this window, by pressing the "configure" button.
+
+\textcolor{red}{ANSWER: OK, it has been included.}
+
+e. L238, L248, L256, L265, L267, L271: all of these titles read ".. .. Window" while it just describes a tab in the "Configuration" window, please change the word "window" to "tab" or "panel". Don't forget to change the corresponding words in the text under each title and the corresponding figures titles as well.
+
+\textcolor{red}{ANSWER: OK, the word "window" has been replaced by "panel" in
+the new manuscript.}
+
+f. Figures 6, 7, 8: please crop the screenshot to show only the filled area, no need to show the space around the controls.
+
+\textcolor{red}{ANSWER: These figures are screenshots of the program. It is an
+issue of the GTK+ library, used to build the interactive windows. The size of
+the "Configure window" panels is governed by the biggest panel (Furrow
+configuration panel) and it is not possible to decrease the size of the others
+panels.}
+
+g. L283: it is "Data saving cycle" not "Data saving period".
+
+\textcolor{red}{ANSWER: OK, it has been modified in the new manuscript.}
+
+h. L290: As I understood from the paper, it is better to use "Number of channels" here instead of "cells" to differentiate between this variable and its predecessor in line 286.
+
+\textcolor{red}{ANSWER: The text was confushing. A new figure (14) has been
+added in order to clarify the mean of this number.}
+
+i. L304: it is good to show some sample output here.
+
+\textcolor{red}{ANSWER: OK, a reference to the figures 15-17 has been added.}
+
+j. L307-313: please consolidate Tables 2, 3, 4 into one table contains variables and units to the left, and three other columns to the right (Furrow network plot, every furrow, and probe), then just put a tick in the intersection cells if applies (similar to software versions comparison tables).
+
+\textcolor{red}{ANSWER: OK, the tables have been consolidate following the
+reviewer's suggestion.}
+
+5- Results:
+
+a. L339: the word "total" is repeated twice.
+
+\textcolor{red}{ANSWER: OK, it has been corrected.}
+
+b. L353, and Table 5 title: Is it better to use the word "scenarios" than "cases"
+c. L363: same question as above.
+
+\textcolor{red}{ANSWER: OK, the word "cases" has been replaced by "scenarios".}
+
+d. L374-408: why you use cases (scenarios) numbers in roman? I think it is a little bit confusing, please change to normal Arabic numbers.
+
+\textcolor{red}{ANSWER: OK, "cases I-XII" have been replaced by "scenarios
+10-21".}
+
+e. The differences between the 12 scenarios should be placed in a clear table like TABLE5
+
+\textcolor{blue}{ANSWER: TO DO}
+
+f. Why you use the 12 cases in parallel processes?
+
+\textcolor{blue}{ANSWER: Running in parallel 4 instances of the program enable
+us to do an optimal use of the 4 cores of the CPU. A brief comment has been
+included to explain it.}
+
+6- Conclusions
+
+a. You didn't mention any thing about the verification and validation of this model, please put some words that this model or its mathematical bas either "was verified in a previous publication (----) " OR "is being verified and the results will be published in a coming publication."
+
+\textcolor{red}{OK, it has been included in the new manuscript.}
+
+Thank you for this good work. I recommend it for publication after making the suggestions above. 
+
+\end{document}
