@@ -693,21 +693,34 @@ remain unchanged:
 \section{Interface}
 
 This section describes the windows interface in \emph{surcos}. The simulation
-engine has been coded in C-language. The graphical interface uses GTK+, OpenGL
-and FreeGLUT libraries.
+engine has been coded in standard C-language. The graphical interface has also
+been coded in C-language using some multiplatform free libraries:
+\begin{description}
+\item{Gettext}: to support different international languages. Currently english,
+	spanish, french and italian versions are available.
+\item{GTK+}: to show the interactive windows.
+\item{OpenGL / FreeGLUT}: to display the graphical results.
+\end{description}
+The program has been tested in multiple operative systems: Windows
+XP\footnotemark[1], Windows 7\footnotemark[1], Debian Linux, FreeBSD, OpenBSD,
+NetBSD, DragonflyBSD and OpenIndiana.
+
+\footnotetext[1]{Windows XP and Windows 7 are trademarks of Microsoft
+Corporation.}
 
 \subsection{Main window}
 
 The main window appears when launching the program and is used as basic
 interface with the user. It contains the links to get access to the rest of the
-windows.
+windows. Using the buttons in table~\ref{mainWindowIcons} it is possible to get
+access to the different utilities in the program.
 
 \newlength{\UNIT}
 \setlength{\UNIT}{0.0107cm}
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=642\UNIT]{mprincipalEN.eps}
+\includegraphics[width=643\UNIT]{mprincipalEN.eps}
 \caption{Initial and main window in the application \emph{surcos}.}
 	\label{mainWindow}
 \end{center}
@@ -721,20 +734,17 @@ windows.
 \hline
 Button & Role \\
 \hline
-Exit & Exit the application\\
-Open & Open window to load project \\
-Configure & Open window to configure project \\
-Run & Run project \\
-Graphics & Open window for visualization of the results  \\
-Summary & Open summary window \\
+Open & Open a window to load a project \\
+Configure & Open a window to configure the project \\
+Run & Run the simulation \\
+Graphics & Open a window for results visualization \\
+Summary & Open a summary window \\
 Help & Information \\
+Exit & Exit the application \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
-
-Using the icons in table~\ref{mainWindowIcons} it is possible to get access to
-the different utilities in the program.
 
 \subsection{Configuration window}
 
@@ -877,65 +887,40 @@ in that moment is saved in format \emph{png}.
 
 Program \emph{Surcos} produces three types of plots. The first is a plan view of
 the furrow network, with the possibility to display the distribution in the
-network of the variables described in table~\ref{tableVariablesMapa}.
+network. The second graphical option is a Cartesian $xy$-plot of the
+longitudinal profile along different furrows. The third graphical option is a
+time evolution of the variables in the different probes. The variables that can
+be plotted are those in table~\ref{tableVariables}.
 
 \begin{table}[h]\footnotesize
-\caption{Variables to view on the furrow network plot.}
-\label{tableVariablesMapa}
+\caption{Variables to view on the plots.}
+\label{tableVariables}
 \begin{center}
-\begin{tabular}{ll}
+\begin{tabular}{lcccc}
 \hline
-Variable & Units \\
+Variable & Units & Furrows & Furrow & Probe \\
+& & network & profile & evolution\\
 \hline
-Water depth & m \\
-Fertilizer concentration & kg~m$^{-3}$\\
-Infiltrated water volume per unit furrow length & m$^2$ \\
-Fertilizer mass per unit furrow length & kg~m$^{-1}$ \\
+Surface water depth & m & x & x & x \\
+Surface fertilizer concentration & kg~m$^{-3}$ & x & x & x \\
+Infiltrated water volume & m$^2$ & x & x & - \\
+\hspace{3mm} per unit furrow length \\
+Infiltrated fertilizer mass & kg~m$^{-1}$ & x & x & - \\
+\hspace{3mm} per unit furrow length \\
+Discharge & m$^3$ s$^{-1}$ & - & x & - \\
+Surface water volume & m$^2$ & - & x & - \\
+\hspace{3mm} per unit furrow length \\
+Surface fertilizer mass & kg~m$^{-1}$ & - & x & - \\
+\hspace{3mm} per unit furrow length \\
+Surface water and bed levels & m & - & x & - \\
+Irrigation advance and recession times & s & - & x & - \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-The second graphical option is a Cartesian $xy$-plot of the longitudinal
-profile along different furrows. 
-The variables that can be plotted in the longitudinal profile are those in
-table~\ref{tableVariables2}.
-
-\begin{table}[h]\footnotesize
-\caption{Variables that can be plotted in every furrow.}\label{tableVariables2}
-\begin{center}
-\begin{tabular}{ll}
-\hline
-Variable & Units\\
-\hline
-Water depth & m \\
-Discharge & m$^3$ s$^{-1}$\\
-Surface level (Water surface and bottom) & m\\
-Fertilizer concentration & kg m$^{-3}$\\
-Surface and infiltrated water volume and fertilizer mass & m$^2$, kg m$^{-1}$\\
-Irrigation advance and recession times & s\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-The third graphical option is a time evolution of the variables in the different
-probes. These are contained in table~\ref{tableVariables3}.
-\begin{table}[!ht]\footnotesize
-\caption{Variables that can be plotted in a probe.}\label{tableVariables3}
-\begin{center}
-\begin{tabular}{llr}
-\hline
-Variable & Units & Observations \\
-\hline
-Water depth & m\\
-Fertilizer concentration & kg~m$^{-3}$\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-Some of these graphics provided by the program are shown in the next section.
+Some of these graphics provided by the program are shown in the next section
+(figures~\ref{evo1}-\ref{evoSonda}).
 
 \subsubsection{Summary}
 
