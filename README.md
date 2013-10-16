@@ -17,15 +17,15 @@ REQUIRED
 * gcc or clang (to compile the surce code)
 * autoconf (to generate the Makefile in different systems)
 * pkg-config (to find the libraries to compile)
-* gettext (to work with different locales)
+* gettext (to work with different international locales and languages)
 * gthreads (to use multicores in shared memory machines)
 * glib (extended utilities of C to work with data, lists, random numbers, ...)
 * png (to work with PNG files)
 * gtk+ (to make the interface windows)
 * freeglut (interaction with OpenGL to draw graphics)
-* doxygen (standard comments format to generate documentation)
-* latex (to build the PDF manuals)
 * jb (utility library of J. Burguete)
+* doxygen (optional: standard comments format to generate documentation)
+* latex (optional: to build the PDF manuals)
 
 FILES
 -----
@@ -54,7 +54,7 @@ Debian kFreeBSD 7.0
 ___________________
 Debian Hurd 7.0
 _______________
-FreeBSD 9.1
+FreeBSD 9.2
 ___________
 
 * download the latest JB library (github.com:jburguete/jb.git)
@@ -98,7 +98,7 @@ ____________________________
 * autoconf
 * CPPFLAGS='-I/mingw/include -I/mingw/x86_64-w64-mingw32/include' configure --host=x86_64-w64-mingw32
 * make
-* strip win32/bin/*.exe (optional: to make a final version)
+* strip win64/bin/*.exe (optional: to make a final version)
 
 NetBSD 6.1
 __________

@@ -105,20 +105,23 @@ relatively low velocities and Froude numbers that characterize
 surface-irrigation flows, their simulation engines often solve truncated forms
 of the momentum equation. The zero-inertia (force equilibrium) version assumes
 only pressure gradients, friction, and gravitational forces acting on the flow. 
+Examples of recent applications of these models can be
+\cite{Bautista09a,Bautista09b} or \cite{EbrahimiamLiaghat11}.
 
 Water flow simulation in open channels and rivers has been a topic of interest
-recently and many numerical advances can be found \citep{JaviTVD}. They include
-the presence of transcritical flow, bed slope changes, dominant friction terms
-\citep{JaviFriccion,JaviFriccion2}, solute transport \citep{JaviTrans} and
-unsteady boundary conditions \citep{JaviContorno}. In order to extend those
-developments to furrow irrigation simulation, specific models have been adapted
-to formulate friction, solute dispersion, infiltration and junctions in furrows
-and furrow networks \citep{JaviSurcos1,JaviSurcos2}.
+recently and many numerical advances can be found. They include the presence of
+transcritical flow, bed slope changes, non-oscillatory high order calculations
+\citep{JaviTVD}, unsteady boundary conditions \citep{JaviContorno}, solute
+transport \citep{JaviTrans} and dominant friction terms
+\citep{JaviFriccion,JaviFriccion2}. In order to extend those developments to
+furrow irrigation simulation, specific models have been adapted to formulate
+friction, solute dispersion, infiltration and junctions in furrows and furrow
+networks \citep{JaviSurcos1,JaviSurcos2}.
 
 The objective of the present work is the development of a software tool to
 simulate the complete water flow dynamics and solute transport in furrows and
 furrow networks with a basis on the exhaustive verification and validation
-performed \citep{JaviSurcos1,JaviSurcos2}. The software \emph{surcos} has been
+performed in \cite{JaviSurcos1,JaviSurcos2}. The software \emph{surcos} has been
 designed to incorporate the cited modelling improvements in a user friendly,
 reliable, robust and efficient tool.
 
@@ -371,7 +374,7 @@ variables $\vec{U}_i^{n+1}$ at the next time step.
 \subsection{First sub-step: surface flow and transport}
 
 This sub-step is limitant for the time step size compatible with the numerical
-stabilityof the schemes used in the present code \citep{JaviSurcos1}. The time
+stability of the schemes used in the present code \citep{JaviSurcos1}. The time
 step size is selected according to:
 \eq
 {
@@ -700,6 +703,7 @@ been coded in C-language using some multiplatform free libraries:
 	spanish, french and italian versions are available.
 \item{GTK+}: to show the interactive windows.
 \item{OpenGL / FreeGLUT}: to display the graphical results.
+\item{Libpng}: to save the graphical plots.
 \end{description}
 The program has been tested in multiple operative systems: Windows
 XP\footnotemark[1], Windows 7\footnotemark[1], Debian Linux, FreeBSD, OpenBSD,
@@ -851,11 +855,11 @@ slow the computation.
 numerical results in a file. It is possible to have $n=\frac{t_s}{p_v}$
 snapshots of the irrigation event, with $t_s$ the simulation time and $p_v$ the
 data saving cycle.  
-\item{Number of cells in the distribution furrow (between irrigation furrows)}:
+\item{Cells number for distribution furrow (between irrigation furrows)}:
 Number of computational cells in the distribution/recirculation furrow between
 two irrigation furrows. A diagram can be shown in figure~\ref{FigMeshCells}. In
 cases of isolated furrow this is the number of cells of the mesh.
-\item{Number of cells in the irrigation furrows}: Number of computational cells
+\item{Cells number for irrigation furrows}: Number of computational cells
 in every irrigation furrow. See an example in figure~\ref{FigMeshCells}. More
 cells implies better quality in the results and slower computations.
 \end{description}
@@ -878,9 +882,9 @@ cells implies better quality in the results and slower computations.
 	\put(70,50){\vector(-2,-1){45}}
 
 \end{picture}
-\caption{Mesh example on a furrow network. They are 5 cells at the distribution
-furrow between irrigation furrows and 11 cells at every irrigation furrow.
-\label{FigMeshCells}}
+\caption{Mesh example on a furrow network. This example has 5 cells at the
+distribution furrow between irrigation furrows and 11 cells at every irrigation
+furrow.\label{FigMeshCells}}
 \end{figure}
 
 \subsection{Simulation}
@@ -1171,7 +1175,7 @@ Figure~\ref{evo2} shows a snapshot of the program with the longitudinal surface
 and infiltrated water depth profiles in the 60th furrow for scenario 10 at
 $t=3240$~s.
 
-\begin{figure}[!ht]
+\begin{figure}[ht!]
 \begin{center}
 %\includegraphics[width=674\UNIT]{evoSurcoEN.eps}
 \includegraphics[width=\textwidth]{evoSurcoEN.eps}
@@ -1184,7 +1188,7 @@ the program \emph{surcos}.}\label{evo2}
 Figure~\ref{evoSonda} shows a snapshot of the program with the time evolution of
 the surface water depth and concentration at a point located in the mid point of
 the distribution furrow for scenario 10. 
-\begin{figure}[!ht]
+\begin{figure}[ht!]
 \begin{center}
 %\includegraphics[width=674\UNIT]{evoSondaEN.eps}
 \includegraphics[width=\textwidth]{evoSondaEN.eps}
@@ -1274,8 +1278,8 @@ fertigation in furrows and furrow networks.
 The present model \emph{surcos} improves previous developments by offering the
 possibility to model water flow and solute transport in furrow junctions and
 furrow networks. The model and the examples presented in this work are
-distributed \citep{Surcos,SurcosGit} as free software under a Berkeley Software
-Distribution (BSD) type license with available and editable source code.
+distributed \citep{Surcos,SurcosGit} as free software under a BSD type license
+with available and editable source code.
 
 \section*{Notation}
 \noindent
