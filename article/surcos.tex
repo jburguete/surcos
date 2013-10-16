@@ -106,7 +106,9 @@ surface-irrigation flows, their simulation engines often solve truncated forms
 of the momentum equation. The zero-inertia (force equilibrium) version assumes
 only pressure gradients, friction, and gravitational forces acting on the flow. 
 Examples of recent applications of these models can be
-\cite{Bautista09a,Bautista09b} or \cite{EbrahimiamLiaghat11}.
+\cite{Bautista09a,Bautista09b} or \cite{EbrahimiamLiaghat11}. It is difficult
+to find published, easy and user friendly software tools based on other similar
+models as, for instance, \cite{Mailapalli09} or \cite{Soroush13}.
 
 Water flow simulation in open channels and rivers has been a topic of interest
 recently and many numerical advances can be found. They include the presence of
@@ -835,7 +837,7 @@ the numerical simulation, as follow:
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=1125\UNIT]{confParamEN.eps}
+\includegraphics[width=1118\UNIT]{confParamEN.eps}
 \caption{Advanced parameters configuration panel.}\label{param}
 \end{center}
 \end{figure}
@@ -874,7 +876,7 @@ cells implies better quality in the results and slower computations.
 	\put(220,70){Irrigation}
 	\put(220,60){furrows}
 	\multiput(10,20)(10,0){5}{\multiput(0,0)(0,100){2}{\circle*{3}}}
-	\multiput(130,20)(0,10){11}{\circle*{3}}
+	\multiput(130,20)(0,10){11}{\circle{3}}
 	\put(60,65){Cell}
 	\put(60,55){nodes}
 	\put(85,65){\vector(1,0){40}}
@@ -883,8 +885,8 @@ cells implies better quality in the results and slower computations.
 
 \end{picture}
 \caption{Mesh example on a furrow network. This example has 5 cells at the
-distribution furrow between irrigation furrows and 11 cells at every irrigation
-furrow.\label{FigMeshCells}}
+distribution furrow between irrigation furrows ($\bullet$) and 11 cells at every
+irrigation furrow ($\circ$).\label{FigMeshCells}}
 \end{figure}
 
 \subsection{Simulation}
@@ -902,8 +904,8 @@ evolution of the variables represented. It is also possible to choose the
 furrow, the variable and the probe to view.  The program offers the possibility
 to save the graphical results by pressing the button \emph{Save} at the bottom
 of the window. The image of the plot appearing on the graphical window in that
-moment, as the shown in figures~\ref{evo1}-\ref{evoSonda}, is saved in a
-\emph{png} format.
+moment, as the shown in next section in figures~\ref{evo1}-\ref{evoSonda}, is
+saved in a \emph{png} format.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -946,8 +948,8 @@ Irrigation advance and recession times & s & - & x & - \\
 \end{center}
 \end{table}
 
-Some of these graphics provided by the program are shown in the next section
-(figures~\ref{evo1}-\ref{evoSonda}).
+Some examples of these graphics provided by the program are shown in the next
+section (figures~\ref{evo1}-\ref{evoSonda}).
 
 \subsubsection{Summary}
 
@@ -1096,15 +1098,12 @@ the mid-point of the distribution furrow and in scenarios 18-21 water is applied
 simultaneously at the two end points of the distribution furrow. On the other
 hand, in scenarios 10, 14 and 18 the fertilizer is applied during 20 hours, in cases
 11, 15 and 19 it is applied during the first 10 hours and in scenarios 12, 16 and
-20 it is applied in the last 10 hours. In all scenarios, water and fertilizer are
-applied at the same location. In scenarios 13, 17 and 21 the fertilizer is
-applied suddenly at the beginning of the equally distributed in 9 points along
-the distribution furrow. Figures~\ref{FigNetworkWater}
-and~\ref{FigNetworkFertilizer} show the sketch of the water and fertilizer
-application in the different scenarios. In all cases, the total
-irrigation time required by complete infiltration of surface water takes about
-46-47 hours. For the numerical simulation, a grid spacing $\delta l=1$~m was used in all scenarios, leading to
-24480 cells. The time step was controlled by $\mathrm{CFL}=0.9$.
+20 it is applied in the last 10 hours. In all scenarios, water and fertilizer
+are applied at the same location except in scenarios 13, 17 and 21, where the
+fertilizer is applied suddenly at the beginning time on 9 equally distributed
+points along the distribution furrow. Figures~\ref{FigNetworkWater}
+and~\ref{FigNetworkFertilizer}, and table~\ref{TabNetwork}, show the sketch of
+the water and fertilizer application in the different scenarios.
 
 \begin{figure}[ht!]
 \centering
@@ -1158,6 +1157,39 @@ irrigation time required by complete infiltration of surface water takes about
 \caption{Fertilizer application in scenarios 10-21.
 \label{FigNetworkFertilizer}}
 \end{figure}
+
+\begin{table}[ht!]
+\centering
+\caption{Water and fertilizer applications for scenarios 10-21.
+\label{TabNetwork}}
+\footnotesize
+\begin{tabular}{|c|cccc|cccc|}
+\hline
+&\multicolumn{4}{|c|}{Water}&\multicolumn{4}{|c|}{Fertilizer}\\
+\hline
+Scenario&$t_i$&$t_f$&Inlets&Inlets&$t_i$&$t_f$&Inlets&Inlets\\
+&h&h&number&location&h&h&number&location\\
+\hline
+10&0&20&1&Corner&0&20&1&Corner\\
+11&0&20&1&Corner&0&10&1&Corner\\
+12&0&20&1&Corner&10&20&1&Corner\\
+13&0&20&1&Corner&\multicolumn{2}{c}{Suddenly at $t=0$}&9&Distributed\\
+14&0&20&1&Middle&0&20&1&Middle\\
+15&0&20&1&Middle&0&10&1&Middle\\
+16&0&20&1&Middle&10&20&1&Middle\\
+17&0&20&1&Middle&\multicolumn{2}{c}{Suddenly at $t=0$}&9&Distributed\\
+18&0&20&2&Corners&0&20&2&Corners\\
+19&0&20&2&Corners&0&10&2&Corners\\
+20&0&20&2&Corners&10&20&2&Corners\\
+21&0&20&2&Corners&\multicolumn{2}{c}{Suddenly at $t=0$}&9&Distributed\\
+\hline
+\end{tabular}
+\end{table}
+
+In all cases, the total irrigation lifetime required by complete infiltration of
+surface water takes about 46-47 hours. For the numerical simulation, a grid
+spacing $\delta l=1$~m was used in all scenarios, leading to 24480 cells. The
+time step was controlled by $\mathrm{CFL}=0.9$.
 
 Figure~\ref{evo1} shows a snapshot of the program with a distribution map of the
 surface water depth in scenario 10 at $t=43200$~s.

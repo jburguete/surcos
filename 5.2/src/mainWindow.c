@@ -371,7 +371,7 @@ void summary_new()
 	gtk_text_buffer_insert(s->text_input, iter, buffer, -1);
 	snprintf(buffer, 512, "\t%s = %g\n", gettext("CFL number"), field->cfl);
 	gtk_text_buffer_insert(s->text_input, iter, buffer, -1);
-	snprintf(buffer, 512, "\t%s = %g s\n", gettext("Data dump period"),
+	snprintf(buffer, 512, "\t%s = %g s\n", gettext("Data saving cycle"),
 		field->tm);
 	gtk_text_buffer_insert(s->text_input, iter, buffer, -1);
 	snprintf(buffer, 512, "\t%s = %d\n",

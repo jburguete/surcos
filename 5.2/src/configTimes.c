@@ -117,7 +117,7 @@ printf("creating the labels\n");
 	w->label[0] = (GtkLabel*)gtk_label_new
 		(gettext("Maximum simulation time (s)"));
 	w->label[1] = (GtkLabel*)gtk_label_new("CFL");
-	w->label[2] = (GtkLabel*)gtk_label_new(gettext("Data dump period (s)"));
+	w->label[2] = (GtkLabel*)gtk_label_new(gettext("Data saving cycle (s)"));
 	w->label[3] = (GtkLabel*)gtk_label_new
 		(gettext("Cells number for distribution channel (between furrows)"));
 	w->label[4] = (GtkLabel*)gtk_label_new
