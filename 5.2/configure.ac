@@ -30,14 +30,13 @@
 # CPPFLAGS='-I/usr/local/include -I/usr/X11R6/include' LDFLAGS='-L/usr/local/lib -L/usr/X11R6/lib' ./configure
 # make
 
-# To work in DragonFly BSD:
-# setenv PATH ${PATH}:/usr/pkg/gcc47/bin
-# setenv CPPFLAGS '-I/usr/pkg/include -I/usr/pkg/gcc47/include -I/usr/pkg/include/gettext'
-# setenv CFLAGS '-I/usr/pkg/include -I/usr/pkg/gcc47/include -I/usr/pkg/include/gettext'
-# setenv LDFLAGS '-L/usr/pkg/lib -L/usr/pkg/gcc47/lib'
+# To work in DragonflyBSD:
+# setenv CPPFLAGS '-I/usr/pkg/include -I/usr/pkg/include/gettext'
+# setenv CFLAGS '-I/usr/pkg/include -I/usr/pkg/include/gettext'
+# setenv LDFLAGS '-L/usr/pkg/lib'
 # aclocal
 # autoconf
-# ./configure --host=x86_64-pc-dragonfly
+# ./configure
 # make
 
 AC_PREREQ([2.67])
@@ -46,7 +45,7 @@ AC_INIT(surcos, [5.2])
 # Checks for operative systems
 #AC_CANONICAL_HOST: Requires automake
 AC_MSG_NOTICE([System: $host])
-if test $host == "x86_64-w64-mingw32"; then
+if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win64/obj/])
@@ -61,7 +60,7 @@ if test $host == "x86_64-w64-mingw32"; then
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
-elif test $host == "mingw32"; then
+elif test $host = "mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win32/obj/])
@@ -99,7 +98,7 @@ compiler=$CC
 CC="$CC -flto"
 AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [lto=1], [lto=0])
 CC=$compiler
-if test $lto == 0; then
+if test $lto = 0; then
 	AC_MSG_NOTICE("checking for -flto... no")
 	AC_SUBST(LTO, "")
 else
@@ -108,11 +107,11 @@ else
 fi
 
 # Checks for libraries.
-if test $win == 0; then
+if test $win = 0; then
 	AC_SUBST(latex, "pdflatex -shell-escape")
 	AC_MSG_NOTICE([GTK+ version 3])
 	PKG_CHECK_MODULES([GTK], [gtk+-3.0], gtk3=1, gtk3=0)
-	if test $gtk3 == 0; then
+	if test $gtk3 = 0; then
 		AC_MSG_NOTICE([GTK+ version 2])
 		PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 	fi
