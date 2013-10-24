@@ -47,7 +47,7 @@
 \cortext[cor1]{Corresponding author}
 \address[rvt1]{Soil and Water, EEAD / CSIC.
 P.O. Box 13034, 50080~Zaragoza, Spain.}
-\address[rvt2]{Fluid Mechanics, LIFTEC, Universidad de Zaragoza.
+\address[rvt2]{Fluid Mechanics, LIFTEC, CSIC-Universidad de Zaragoza.
 María de Luna 3, 50018~Zaragoza, Spain.}
 \address[rvt3]{BIFI: Instituto de Biocomputación y Física de Sistemas Complejos,
 Universidad de Zaragoza.
@@ -412,7 +412,7 @@ Then, defining the first order upwind coefficients as:
 \[
 	\delta F=-g\,A\,\PA{\delta z_b+S_f\,\delta l}
 	-\delta\PA{\frac{Q^2}{A}+g\,\delta I_1},\quad
-	o_i^\pm=\frac12\C{1\pm\sign\PA{\overline{\lambda}_i}},
+	o_k^\pm=\frac12\C{1\pm\sign\PA{\overline{\lambda}^k}},
 \]
 \[
 	\delta w_1=\frac{-\overline{\lambda}^2\,\delta Q+\delta F}
@@ -438,13 +438,13 @@ the high order TVD coefficients as:
 \]
 \[
 	L_2^\pm=\frac12\,
-	\PA{1\mp\frac{\Delta t}{\delta l}\,o_1^\pm\overline{\lambda}^1}\,
+	\PA{1\mp\frac{\Delta t}{\delta l}\,o_2^\pm\overline{\lambda}^2}\,
 	\frac{\overline{\lambda}^1\,G_1^\pm-G_2^\pm}
 	{\overline{\lambda}^1-\overline{\lambda}^2},
 \]
 \[
 	L_3^\pm=\frac12\,
-	\PA{1\mp\frac{\Delta t}{\delta l}\,o_1^\pm\overline{\lambda}^1}\,
+	\PA{1\mp\frac{\Delta t}{\delta l}\,o_3^\pm\overline{\lambda}^3}\,
 	\PA{G_3^\pm-\overline{s}\,G_1^\pm},
 \]
 \[
@@ -742,11 +742,11 @@ Button & Role \\
 \hline
 Open & Open a window to load a project \\
 Configure & Open a window to configure the project \\
-Run & Run the simulation \\
-Graphics & Open a window for results visualization \\
+Execute & Run the simulation \\
+Plot & Open a window for results visualization \\
 Summary & Open a summary window \\
 Help & Information \\
-Exit & Exit the application \\
+Quit & Exit the application \\
 \hline
 \end{tabular}
 \end{center}
@@ -884,20 +884,23 @@ cells implies better quality in the results and slower computations.
 	\put(70,50){\vector(-2,-1){45}}
 
 \end{picture}
-\caption{Mesh example on a furrow network. This example has 5 cells at the
-distribution furrow between irrigation furrows ($\bullet$) and 11 cells at every
-irrigation furrow ($\circ$).\label{FigMeshCells}}
+\caption{Mesh example on a furrow network. This example has 6 irrigation
+furrows, 5 cells at the distribution furrow between irrigation furrows
+($\bullet$) and 11 cells at every irrigation furrow ($\circ$).
+\label{FigMeshCells}}
 \end{figure}
 
 \subsection{Simulation}
 
 After the configuration, the simulation of the project is performed by pressing
-the button \emph{Execute} in the main menu:
+the button \emph{Execute} in the main menu.
 
 \subsection{Results visualization}
 
 \subsubsection{Graphical results}
 
+A window showing a graphical plot of the numerical results can be accessed by
+pressing the button \emph{Plot}.
 The graphics are controlled from the window shown in figure~\ref{barraRepres},
 where an interactive dial can be used to move forward and backward in time the
 evolution of the variables represented. It is also possible to choose the
@@ -914,7 +917,7 @@ saved in a \emph{png} format.
 \end{center}
 \end{figure}
 
-Program \emph{Surcos} produces three types of plots. The first is a plan view of
+Program \emph{surcos} produces three types of plots. The first is a plan view of
 the furrow network, with the possibility to display the distribution in the
 network. The second graphical option is a Cartesian $xy$-plot of the
 longitudinal profile along different furrows. The third graphical option is a
@@ -960,7 +963,7 @@ figure~\ref{wInforme}.
 
 The results include the surface, infiltrated and percolated water and fertilizer
 mass both in the irrigation furrows and in the distribution/recirculation
-furrows. The infiltrated water mass in the soil that remains available to the
+furrows. The infiltrated water mass in the soil remains available to the
 crops by retention forces, contrary to the percolated water.
 
 The uniformity of distribution of water ($UW_{25}$) and of the fertilizer
@@ -994,9 +997,9 @@ losses in the estimation of the efficiency.
 \section{Results}
 
 This section is devoted to the presentation of examples of the numerical results
-produced by the model in several cases of fertigation in furrows and furrow
+produced by the model in several scenarios of fertigation in furrows and furrow
 networks. All the necessary input files for these examples can be downloaded
-from \cite{Surcos}.
+from \cite{Surcos} or \cite{SurcosGit}.
 
 \subsection{Simulation of 9 fertigation scenarios in a level isolated furrow}
 
@@ -1096,7 +1099,8 @@ $S=1$~kg~m$^{-3}$ are applied during 20 hours. In scenarios 10-13 water is appli
 an extreme point in the distribution furrow. In scenarios 14-17 it is applied at
 the mid-point of the distribution furrow and in scenarios 18-21 water is applied
 simultaneously at the two end points of the distribution furrow. On the other
-hand, in scenarios 10, 14 and 18 the fertilizer is applied during 20 hours, in cases
+hand, in scenarios 10, 14 and 18 the fertilizer is applied during 20 hours, in
+scenarios
 11, 15 and 19 it is applied during the first 10 hours and in scenarios 12, 16 and
 20 it is applied in the last 10 hours. In all scenarios, water and fertilizer
 are applied at the same location except in scenarios 13, 17 and 21, where the
@@ -1326,6 +1330,7 @@ $\mathbf{\Lambda}$ = flow Jacobian eigenvalues diagonal matrix,\\
 $\lambda^k$ = flow Jacobian eigenvalues,\\
 $\nu$ = artificial viscosity coefficient,\\
 $\phi$ = mass of solute infiltrated per unit length of the furrow,\\
+$\Psi_k^\pm$ = high order TVD coefficients,\\
 $\psi$ = high order TVD flux limiter function,\\
 $A$ = wetted cross sectional area,\\
 $a$ = Kostiakov model exponent,\\
@@ -1388,7 +1393,6 @@ $z$ = vertical coordinate,\\
 $z_b$ = bed level,\\
 $z_s$ = surface water level.
 
-\section*{References}
 \bibliography{bib}
 
 \end{document}

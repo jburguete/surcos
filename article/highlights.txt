@@ -1,7 +1,0 @@
-We present SURCOS, a new software to solve fertigation in furrow networks
-
-The model solves surface flow, solute dispersion, infiltration and junctions
-
-The hydrodynamic model is solved with an explicit Eulerian high-order method
-
-The model is very fast in isolated furrows and reasonably fast in big furrow networks
