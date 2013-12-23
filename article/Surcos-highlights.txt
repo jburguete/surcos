@@ -1,9 +1,9 @@
-We present SURCOS, a software tool to simulate fertigation in furrow networks
+We present SURCOS, a software tool to simulate fertigation in furrow networks and isolated furrows
 
 It solves both unsteady surface flows with solute dispersion and infiltration
 
 The numerical error in water and solute mass is ensured to be below the machine accuracy
 
-The model relies on a previously verified and validated, robust and accurate, numerical method
+The model relies on a previously verified and validated, robust and accurate numerical method
 
 The program is fast, easy and free
