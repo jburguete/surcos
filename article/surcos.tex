@@ -106,9 +106,8 @@ surface-irrigation flows, their simulation engines often solve truncated forms
 of the momentum equation. The zero-inertia (force equilibrium) version assumes
 only pressure gradients, friction, and gravitational forces acting on the flow. 
 Examples of recent applications of these models can be
-\cite{Bautista09a,Bautista09b} or \cite{EbrahimiamLiaghat11}. It is difficult
-to find published, easy and user friendly software tools based on other similar
-models as, for instance, \cite{Mailapalli09} or \cite{Soroush13}.
+\cite{Bautista09a,Bautista09b} or \cite{EbrahimiamLiaghat11}.
+Other irrigation models such as \cite{Mailapalli09} or \cite{Soroush13} have been reported but they don't offer an easy and user friendly software tool.
 
 Water flow simulation in open channels and rivers has been a topic of interest
 recently and many numerical advances can be found. They include the presence of
@@ -123,7 +122,7 @@ networks \citep{JaviSurcos1,JaviSurcos2}.
 The objective of the present work is the development of a software tool to
 simulate the complete water flow dynamics and solute transport in furrows and
 furrow networks with a basis on the exhaustive verification and validation
-performed in \cite{JaviSurcos1,JaviSurcos2}. The software \emph{surcos} has been
+performed in \cite{JaviSurcos1,JaviSurcos2}. The software \emph{SURCOS} has been
 designed to incorporate the cited modelling improvements in a user friendly,
 reliable, robust and efficient tool.
 
@@ -266,7 +265,7 @@ The friction slope can be modeled by means of the Gauckler-Manning law
 	{\PA{B_0\,h+Z\,h^2}^{10/3}}.
 }{EqManning}
 
-The program \emph{surcos} can calculate the friction with the model proposed in
+The model can calculate the friction with the model proposed in
 \cite{JaviFriccion,JaviFriccion2}, that in furrows with trapezoidal cross
 section is \citep{JaviSurcos1}:
 \eq
@@ -322,7 +321,7 @@ applications:
 			\put(45,10){Recirculation furrow}
 		\end{picture}
 	\end{tabular}
-	\caption{Possible geometry configurations in \emph{surcos}: (a) isolated
+	\caption{Possible geometry configurations in \emph{SURCOS}: (a) isolated
 		furrow ($N_{furrows}=0$), where only the distribution furrow is
 		simulated, (b) furrow irrigation network ($N_{furrows}>0$). The
 		recirculation furrow is optional.\label{FigGeometry}}
@@ -342,7 +341,7 @@ distance between cells $\delta l\IR$ is defined as:
 	\delta l_1=\delta l_N=\frac12\,\frac{L}{N-1}.
 }{EqMeshSize}
 
-The program \emph{surcos} can only be used for furrows of uniform slope. The
+The model can only be used for furrows of uniform slope. The
 grid cells bed level is computed by interpolation from the furrows end points.
 
 \subsection{Sub-steps}
@@ -611,13 +610,13 @@ to:
 
 \subsubsection{Inlet and outlet}
 
-The program \emph{surcos} always assumes the the furrows are closed at both
+The model always assumes the the furrows are closed at both
 ends. This is achieved by means of:
 \eq{Q_1^e=Q_N^e=0.}{EqInletOutlet}
 
 \subsubsection{Mass sources}
 
-All the mass inflows, both of water or solute, are treated in \emph{surcos} as
+All the mass inflows, both of water or solute, are treated in \emph{SURCOS} as
 internal source points. A water inflow point at the location $\vec{r}_{in}$ with
 a discharge $Q_{in}(t)$ is dealt with by searching the nearest $i$-th grid cell
 where the following is assigned: 
@@ -697,16 +696,14 @@ remain unchanged:
 
 \section{Interface}
 
-This section describes the windows interface in \emph{surcos}. The simulation
+This section describes the windows interface in \emph{SURCOS}. The simulation
 engine has been coded in standard C-language. The graphical interface has also
-been coded in C-language using some multiplatform free libraries:
-\begin{description}
-\item{Gettext}: to support different international languages. Currently english,
-	spanish, french and italian versions are available.
-\item{GTK+}: to show the interactive windows.
-\item{OpenGL / FreeGLUT}: to display the graphical results.
-\item{Libpng}: to save the graphical plots.
-\end{description}
+been coded in C-language using some multiplatform free libraries.
+\emph{Gettext}: to support different international languages. Currently english,
+spanish, french and italian versions are available.
+\emph{GTK+}: to show the interactive windows.
+\emph{OpenGL} and \emph{FreeGLUT}: to display the graphical results.
+\emph{Libpng}: to save the graphical plots.
 The program has been tested in multiple operative systems: Windows
 XP\footnotemark[1], Windows 7\footnotemark[1], Debian Linux, FreeBSD, OpenBSD,
 NetBSD, DragonflyBSD and OpenIndiana.
@@ -724,17 +721,16 @@ access to the different utilities in the program.
 \newlength{\UNIT}
 \setlength{\UNIT}{0.0107cm}
 
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=643\UNIT]{mprincipalEN.eps}
-\caption{Initial and main window in the application \emph{surcos}.}
-	\label{mainWindow}
-\end{center}
-\end{figure}
+%\begin{figure}[!ht]
+%\begin{center}
+%\includegraphics[width=643\UNIT]{mprincipalEN.eps}
+%\caption{Initial and main window in \emph{SURCOS}.}
+%	\label{mainWindow}
+%\end{center}
+%\end{figure}
 
 \begin{table}[!ht]\footnotesize
-\caption{Description of the different actions offered by the main menu
-	\emph{surcos}.}\label{mainWindowIcons}
+\caption{Description of the different actions offered by the main menu.}\label{mainWindowIcons}
 \begin{center}
 \begin{tabular}{llr}
 \hline
@@ -754,13 +750,12 @@ Quit & Exit the application \\
 
 \subsection{Configuration window}
 
-The window to configure a simulation can be accessed by pressing on the button
-\emph{Configure}. Some panels can be accessed in this window.
+A window contains different panel to configure the simulations. The window can be accessed by pressing on the \emph{Configure} button.
 
 \subsubsection{Geometry configuration panel}
 
-Program \emph{surcos} simulates irrigation in a quadrilateral network of
-furrows or in a isolated furrow. The geometry configuration panel (see
+\emph{SURCOS} simulates irrigation in a quadrilateral network of
+furrows or in an isolated furrow. The geometry configuration panel (see
 figure~\ref{geomWindow}), can be used to edit the project topographic data by
 means of the coordinates of the four vertices that define the furrow plot.
 
@@ -808,14 +803,14 @@ means of a sequence of inlet discharges at the same point.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=1125\UNIT]{confInputEN.eps}
+\includegraphics[width=993\UNIT]{confInputEN-2.eps}
 \caption{Inlet configuration panel.}\label{input}
 \end{center}
 \end{figure}
 
 \subsubsection{Fertilizer configuration panel}
 
-The solubility characteristics of the fertilizer can be set too. 
+The solubility characteristics of the fertilizer can be set here. 
 
 \subsubsection{Probes configuration panel}
 
@@ -825,7 +820,7 @@ out of a furrow, the program finds the nearest position within a furrow.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=1125\UNIT]{confSondasEN.eps}
+\includegraphics[width=366\UNIT]{confSondasEN-2.eps}
 \caption{Probes configuration panel.}\label{sondas}
 \end{center}
 \end{figure}
@@ -833,17 +828,17 @@ out of a furrow, the program finds the nearest position within a furrow.
 \subsubsection{Advanced parameters configuration panel}
 
 The panel shown in figure~\ref{param} contains advanced options to configure
-the numerical simulation, as follow:
+the numerical simulation, as follows:
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=1118\UNIT]{confParamEN.eps}
+\includegraphics[width=923\UNIT]{confParamEN-2.eps}
 \caption{Advanced parameters configuration panel.}\label{param}
 \end{center}
 \end{figure}
 
 \begin{description}
-\item{Maximum simulation time}: Usually, \emph{surcos} runs the
+\item{Maximum simulation time}: Usually, \emph{SURCOS} runs the
 simulation from the initial conditions up to the moment all the applied water
 has infiltrated in the terrain. In order to avoid excessively long simulation
 times, this parameter can be used to state a horizon or target time. From that
@@ -917,7 +912,7 @@ saved in a \emph{png} format.
 \end{center}
 \end{figure}
 
-Program \emph{surcos} produces three types of plots. The first is a plan view of
+\emph{SURCOS} produces three types of plots. The first is a plan view of
 the furrow network, with the possibility to display the distribution in the
 network. The second graphical option is a Cartesian $xy$-plot of the
 longitudinal profile along different furrows. The third graphical option is a
@@ -1203,7 +1198,7 @@ surface water depth in scenario 10 at $t=43200$~s.
 %\includegraphics[width=674\UNIT]{evo1EN.eps}
 \includegraphics[width=\textwidth]{evo1EN.eps}
 \caption{Map of the water depth for scenario 10 at
-$t=43200$~s as displayed by the program \emph{surcos}.}\label{evo1}
+$t=43200$~s as displayed by \emph{SURCOS}.}\label{evo1}
 \end{center}
 \end{figure}
 
@@ -1217,7 +1212,7 @@ $t=3240$~s.
 \includegraphics[width=\textwidth]{evoSurcoEN.eps}
 \caption{Longitudinal profile of the surface and infiltrated
 water in the 60th irrigation furrow for the scenario 10 at $t=32400$~s displayed by
-the program \emph{surcos}.}\label{evo2}
+\emph{SURCOS}.}\label{evo2}
 \end{center}
 \end{figure}
 
@@ -1229,7 +1224,7 @@ the distribution furrow for scenario 10.
 %\includegraphics[width=674\UNIT]{evoSondaEN.eps}
 \includegraphics[width=\textwidth]{evoSondaEN.eps}
 \caption{Time evolution at a probe located at the center of the distribution
-furrow for scenario 10 as displayed by the program \emph{surcos}.}\label{evoSonda}
+furrow for scenario 10 as displayed by \emph{SURCOS}.}\label{evoSonda}
 \end{center}
 \end{figure}
 
@@ -1280,7 +1275,7 @@ CPU cores, was 14~h~:~02~min, about one hour per simulation.
 
 \section{Conclusions}
 
-This work has presented program \emph{surcos}. The core of the program is a well
+This work has presented \emph{SURCOS}. The core of the program is a well
 tested mathematical model including shallow water flow and solute transport
 solved using a second order TVD scheme. The verification and validation of the
 numerical model can be found in previous publications
@@ -1311,7 +1306,7 @@ conclusion that it works well, it is reliable, fast and very easy to use. This
 program can be a useful tool for the optimization of surface irrigation and
 fertigation in furrows and furrow networks.
 
-The present model \emph{surcos} improves previous developments by offering the
+The present model improves previous developments by offering the
 possibility to model water flow and solute transport in furrow junctions and
 furrow networks. The model and the examples presented in this work are
 distributed \citep{Surcos,SurcosGit} as free software under a BSD type license
