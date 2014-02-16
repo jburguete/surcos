@@ -5,7 +5,7 @@
 # make
 
 # To work in Microsoft Windows (64 bits) with MinGW/MSYS:
-# aclocal -I /mingw/share/aclocal
+# aclocal
 # autoconf
 # CPPFLAGS='-I/mingw/include -I/mingw/x86_64-w64-mingw32/include' configure --host=x86_64-w64-mingw32
 # make
@@ -13,7 +13,7 @@
 # To work in Microsoft Windows (32 bits) with MinGW/MSYS:
 # aclocal
 # autoconf
-# LDFLAGS='-lglut -lopengl32' configure --host=mingw32
+# LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include -I/mingw/i686-w64-mingw32/include' configure --host=i686-w64-mingw32
 # make
 
 # To work in NetBSD:
@@ -60,7 +60,7 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
-elif test $host = "mingw32"; then
+elif test $host = "i686-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win32/obj/])
