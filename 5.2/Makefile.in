@@ -278,12 +278,18 @@ dll = $(dlldir)libatk-1.0-0.dll $(dlldir)libcairo-2.dll \
 	$(dlldir)zlib1.dll
 modir = $(sysdir)share/locale/
 dist: $(exe) $(dll) $(manuals)
+	test -d $(bindir) || mkdir -p $(bindir)
 	cp $(dll) $(png) $(bindir)
+	test -d $(libdir)gdk-pixbuf-2.0/2.10.0/loaders || \
+		mkdir -p $(libdir)gdk-pixbuf-2.0/2.10.0/loaders
 	cp $(sysdir)lib/gdk-pixbuf-2.0/2.10.0/loaders.cache \
 		$(libdir)gdk-pixbuf-2.0/2.10.0
 	cp $(sysdir)lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.dll \
 		$(libdir)gdk-pixbuf-2.0/2.10.0/loaders
+	test -d $(etcdir)pango || mkdir -p $(etcdir)pango
 	cp $(sysdir)etc/pango/pango.modules $(etcdir)pango
+	test -d $(libdir)/pango/1.8.0/modules || \
+		mkdir -p $(libdir)/pango/1.8.0/modules
 	cp $(sysdir)lib/pango/1.8.0/modules/*.dll \
 		$(libdir)pango/1.8.0/modules
 	strip $(bindir)*.dll $(libdir)gdk-pixbuf-2.0/2.10.0/loaders/*.dll \
@@ -292,14 +298,17 @@ dist: $(exe) $(dll) $(manuals)
 	cp manual/ppal.pdf $(basedir)user-manual-es.pdf
 	cp manual/ppal_EN.pdf $(basedir)user-manual-en.pdf
 	cp --parents examples/*/*.in @basedir@
+	test -d $(localdir)$(es) || mkdir -p $(localdir)$(es)
 	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
 		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
 		$(modir)$(es)gtk20.mo $(modir)$(es)gtk20-properties.mo \
 		$(localdir)$(es)
+	test -d $(localdir)$(fr) || mkdir -p $(localdir)$(fr)
 	cp $(modir)$(fr)atk10.mo $(modir)$(fr)gdk-pixbuf.mo \
 		$(modir)$(fr)gettext-runtime.mo $(modir)$(fr)glib20.mo \
 		$(modir)$(fr)gtk20.mo $(modir)$(fr)gtk20-properties.mo \
 		$(localdir)$(fr)
+	test -d $(localdir)$(it) || mkdir -p $(localdir)$(it)
 	cp $(modir)$(it)atk10.mo $(modir)$(it)gdk-pixbuf.mo \
 		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
 		$(modir)$(it)gtk20.mo $(modir)$(it)gtk20-properties.mo \
