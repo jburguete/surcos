@@ -265,16 +265,17 @@ basedir = @basedir@
 sysdir = @sysdir@
 dlldir = $(sysdir)bin/
 dll = $(dlldir)libatk-1.0-0.dll $(dlldir)libcairo-2.dll \
-	$(dlldir)libffi-6.dll $(dlldir)libfontconfig-1.dll \
-	$(dlldir)libfreetype-6.dll $(dlldir)@libgcc@.dll \
-	$(dlldir)libgdk_pixbuf-2.0-0.dll $(dlldir)libgdk-win32-2.0-0.dll \
-	$(dlldir)libgio-2.0-0.dll $(dlldir)libglib-2.0-0.dll \
-	$(dlldir)libglut-0.dll $(dlldir)libgmodule-2.0-0.dll \
-	$(dlldir)libgobject-2.0-0.dll $(dlldir)libgthread-2.0-0.dll \
-	$(dlldir)libgtk-win32-2.0-0.dll $(dlldir)libiconv-2.dll \
-	$(dlldir)libintl-8.dll $(dlldir)libpango-1.0-0.dll \
-	$(dlldir)libpangocairo-1.0-0.dll $(dlldir)libpangowin32-1.0-0.dll \
-	$(dlldir)libpixman-1-0.dll $(dlldir)libpng16-16.dll $(dlldir)libxml2-2.dll \
+	$(dlldir)libcairo-gobject-2.dll $(dlldir)libffi-6.dll \
+	$(dlldir)libfontconfig-1.dll $(dlldir)libfreetype-6.dll \
+	$(dlldir)@libgcc@.dll $(dlldir)libgdk_pixbuf-2.0-0.dll \
+	$(dlldir)libgdk-3-0.dll $(dlldir)libgio-2.0-0.dll \
+	$(dlldir)libglib-2.0-0.dll $(dlldir)libglut-0.dll \
+	$(dlldir)libgmodule-2.0-0.dll $(dlldir)libgobject-2.0-0.dll \
+	$(dlldir)libgthread-2.0-0.dll $(dlldir)libgtk-3-0.dll \
+	$(dlldir)libiconv-2.dll $(dlldir)libintl-8.dll \
+	$(dlldir)libpango-1.0-0.dll $(dlldir)libpangocairo-1.0-0.dll \
+	$(dlldir)libpangowin32-1.0-0.dll $(dlldir)libpixman-1-0.dll \
+	$(dlldir)libpng16-16.dll $(dlldir)libxml2-2.dll \
 	$(dlldir)zlib1.dll
 modir = $(sysdir)share/locale/
 dist: $(exe) $(dll) $(manuals)
