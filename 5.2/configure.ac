@@ -73,7 +73,7 @@ elif test $host = "i686-w64-mingw32"; then
 	AC_SUBST(icon, [win32/obj/logo.o])
 	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_dw2-1")
+	AC_SUBST(libgcc, "libgcc_s_sjlj-1")
 	win=1
 else
 	AC_MSG_NOTICE([Unix type system])
@@ -109,16 +109,13 @@ fi
 # Checks for libraries.
 if test $win = 0; then
 	AC_SUBST(latex, "pdflatex -shell-escape")
-	AC_MSG_NOTICE([GTK+ version 3])
-	PKG_CHECK_MODULES([GTK], [gtk+-3.0], gtk3=1, gtk3=0)
-	if test $gtk3 = 0; then
-		AC_MSG_NOTICE([GTK+ version 2])
-		PKG_CHECK_MODULES([GTK], [gtk+-2.0])
-	fi
 else
 	AC_CHECK_TOOL(WINDRES, windres)
 	AC_SUBST(latex, "pdflatex -enable-write18")
-	# On Microsof Windows GTK+2 works better than GTK+3
+fi
+AC_MSG_NOTICE([GTK+ version 3])
+PKG_CHECK_MODULES([GTK], [gtk+-3.0], gtk3=1, gtk3=0)
+if test $gtk3 = 0; then
 	AC_MSG_NOTICE([GTK+ version 2])
 	PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 fi
