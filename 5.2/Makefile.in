@@ -77,6 +77,7 @@ all: $(exe) $(exebin) $(manuals) $(podir)surcos_gui.pot $(podir)surcos.pot \
 
 ## Our main object (GUI)
 $(exe): $(obj)
+	test -d $(bindir) || mkdir -p $(bindir)
 	$(CC) $(obj) $(LDFLAGS) -o $(exe)
 
 ## Our main object (no GUI)
@@ -85,6 +86,7 @@ $(exebin): $(objbin)
 
 ## Objects!
 $(objdir)jb_def.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
+	test -d $(objdir) || mkdir -p $(objdir)
 	$(CC) $(CFLAGS) $(srcdir)jb/jb_def.c -o $(objdir)jb_def.o
 
 $(objdir)jb_def_bin.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
@@ -216,6 +218,7 @@ $(podir)surcos.pot: Makefile $(srcbin)
 
 ## Compiling the spanish language
 $(localdir)$(es)surcos_gui.mo: $(podir)$(es)surcos_gui.po $(podir)surcos_gui.pot
+	test -d $(localdir)$(es) || mkdir -p $(localdir)$(es)
 	msgfmt -c -v -o $(localdir)$(es)surcos_gui.mo $(podir)$(es)surcos_gui.po
 
 $(localdir)$(es)surcos.mo: $(podir)$(es)surcos.po $(podir)surcos.pot
@@ -223,6 +226,7 @@ $(localdir)$(es)surcos.mo: $(podir)$(es)surcos.po $(podir)surcos.pot
 
 ## Compiling the french language
 $(localdir)$(fr)surcos_gui.mo: $(podir)$(fr)surcos_gui.po $(podir)surcos_gui.pot
+	test -d $(localdir)$(fr) || mkdir -p $(localdir)$(fr)
 	msgfmt -c -v -o $(localdir)$(fr)surcos_gui.mo $(podir)$(fr)surcos_gui.po
 
 $(localdir)$(fr)surcos.mo: $(podir)$(fr)surcos.po $(podir)surcos.pot
@@ -230,6 +234,7 @@ $(localdir)$(fr)surcos.mo: $(podir)$(fr)surcos.po $(podir)surcos.pot
 
 ## Compiling the italian language
 $(localdir)$(it)surcos_gui.mo: $(podir)$(it)surcos_gui.po $(podir)surcos_gui.pot
+	test -d $(localdir)$(it) || mkdir -p $(localdir)$(it)
 	msgfmt -c -v -o $(localdir)$(it)surcos_gui.mo $(podir)$(it)surcos_gui.po
 
 $(localdir)$(it)surcos.mo: $(podir)$(it)surcos.po $(podir)surcos.pot
@@ -299,17 +304,14 @@ dist: $(exe) $(dll) $(manuals)
 	cp manual/ppal.pdf $(basedir)user-manual-es.pdf
 	cp manual/ppal_EN.pdf $(basedir)user-manual-en.pdf
 	cp --parents examples/*/*.in @basedir@
-	test -d $(localdir)$(es) || mkdir -p $(localdir)$(es)
 	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
 		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
 		$(modir)$(es)gtk20.mo $(modir)$(es)gtk20-properties.mo \
 		$(localdir)$(es)
-	test -d $(localdir)$(fr) || mkdir -p $(localdir)$(fr)
 	cp $(modir)$(fr)atk10.mo $(modir)$(fr)gdk-pixbuf.mo \
 		$(modir)$(fr)gettext-runtime.mo $(modir)$(fr)glib20.mo \
 		$(modir)$(fr)gtk20.mo $(modir)$(fr)gtk20-properties.mo \
 		$(localdir)$(fr)
-	test -d $(localdir)$(it) || mkdir -p $(localdir)$(it)
 	cp $(modir)$(it)atk10.mo $(modir)$(it)gdk-pixbuf.mo \
 		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
 		$(modir)$(it)gtk20.mo $(modir)$(it)gtk20-properties.mo \
