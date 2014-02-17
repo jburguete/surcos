@@ -3,7 +3,8 @@ objdir = @objdir@
 bindir = @bindir@
 etcdir = @etcdir@
 libdir = @libdir@
-localdir = @localdir@
+sharedir = @sharedir@
+localdir = $(sharedir)locale/
 podir = locale/
 mandir = manual/
 es = es/LC_MESSAGES/
@@ -298,6 +299,8 @@ dist: $(exe) $(dll) $(manuals)
 		mkdir -p $(libdir)/pango/1.8.0/modules
 	cp $(sysdir)lib/pango/1.8.0/modules/*.dll \
 		$(libdir)pango/1.8.0/modules
+	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas
+	cp $(sysdir)share/glib-2.0/schemas/* $(sharedir)glib-2.0/schemas
 	strip $(bindir)*.dll $(libdir)gdk-pixbuf-2.0/2.10.0/loaders/*.dll \
 		$(libdir)pango/1.8.0/modules/*.dll
 	cp doc/latex/refman.pdf $(basedir)reference-manual.pdf
