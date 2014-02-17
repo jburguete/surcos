@@ -309,15 +309,15 @@ dist: $(exe) $(dll) $(manuals)
 	cp --parents examples/*/*.in @basedir@
 	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
 		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
-		$(modir)$(es)gtk20.mo $(modir)$(es)gtk20-properties.mo \
+		$(modir)$(es)gtk30.mo $(modir)$(es)gtk30-properties.mo \
 		$(localdir)$(es)
 	cp $(modir)$(fr)atk10.mo $(modir)$(fr)gdk-pixbuf.mo \
 		$(modir)$(fr)gettext-runtime.mo $(modir)$(fr)glib20.mo \
-		$(modir)$(fr)gtk20.mo $(modir)$(fr)gtk20-properties.mo \
+		$(modir)$(fr)gtk30.mo $(modir)$(fr)gtk30-properties.mo \
 		$(localdir)$(fr)
 	cp $(modir)$(it)atk10.mo $(modir)$(it)gdk-pixbuf.mo \
 		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
-		$(modir)$(it)gtk20.mo $(modir)$(it)gtk20-properties.mo \
+		$(modir)$(it)gtk30.mo $(modir)$(it)gtk30-properties.mo \
 		$(localdir)$(it)
 	zip -r surcos $(bindir)*.exe $(bindir)*.dll $(bindir)*.png \
 		$(localdir)*/*/*.mo $(basedir)examples/*/*.in $(etcdir) $(libdir)
