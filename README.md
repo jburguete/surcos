@@ -14,7 +14,7 @@ AUTHORS
 REQUIRED
 --------
 
-* gcc or clang (to compile the surce code)
+* gcc or clang (to compile the source code)
 * autoconf (to generate the Makefile in different systems)
 * automake (to detect the system)
 * pkg-config (to find the libraries to compile)
@@ -74,7 +74,7 @@ ___________________________
 Microsoft Windows XP 32 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libr4yyaries and
+* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
 utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
 * download the latest [JB library](https://github.com/jburguete/jb)
@@ -93,7 +93,7 @@ ___________________________
 Microsoft Windows XP 64 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libr4yyaries and
+* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
 utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
 * download the latest [JB library](https://github.com/jburguete/jb)
@@ -118,6 +118,7 @@ __________
 * sudo ln -s /usr/X11R7/lib/libGL.so.2 /usr/pkg/lib
 * aclocal
 * autoconf
+* automake --add-missing
 * CPPFLAGS=-I/usr/pkg/include LDFLAGS=-L/usr/pkg/lib ./configure --host=x86_64--netbsd
 * make
 * strip surcos surcos_gui (optional: to make a final version)
@@ -131,6 +132,7 @@ __________
 * cd ..
 * AUTOCONF_VERSION=2.69 aclocal-1.11
 * autoconf-2.69
+* automake --add-missing
 * CPPFLAGS='-I/usr/local/include -I/usr/X11R6/include' LDFLAGS='-L/usr/local/lib -L/usr/X11R6/lib' ./configure
 * make
 * strip surcos surcos_gui (optional: to make a final version)
