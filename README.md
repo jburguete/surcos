@@ -16,6 +16,7 @@ REQUIRED
 
 * gcc or clang (to compile the surce code)
 * autoconf (to generate the Makefile in different systems)
+* automake (to detect the system)
 * pkg-config (to find the libraries to compile)
 * gettext (to work with different international locales and languages)
 * gthreads (to use multicores in shared memory machines)
@@ -57,12 +58,13 @@ _______________
 FreeBSD 9.2
 ___________
 
-* download the latest JB library (github.com:jburguete/jb.git)
+* download the latest [JB library](/jb.git)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
 * aclocal
 * autoconf
+* automake --add-missing
 * ./configure
 * make
 * strip surcos surcos_gui (optional: to make a final version)
@@ -72,14 +74,16 @@ ___________________________
 Microsoft Windows XP 32 bits
 ____________________________
 
-* install MSYS/MinGW (http://www.mingw.org) and the required libraries and
-utilities
-* download the latest JB library (github.com:jburguete/jb.git)
+* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+utilities. You can follow detailed instructions in
+[MinGW-64-Make](/MinGW-64-Make)
+* download the latest [JB library](/jb.git)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
 * aclocal
 * autoconf
+* automake --add-missing
 * LDFLAGS='-lglut -lopengl32' configure --host=mingw32
 * make
 * strip win32/bin/*.exe (optional: to make a final version)
@@ -89,14 +93,17 @@ ___________________________
 Microsoft Windows XP 64 bits
 ____________________________
 
-* install MSYS/MinGW (http://www.mingw.org and http://mingw-w64.sourceforge.net) and the required libraries and utilities
-* download the latest JB library (github.com:jburguete/jb.git)
+* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+utilities. You can follow detailed instructions in
+[MinGW-64-Make](/MinGW-64-Make)
+* download the latest [JB library](/jb.git)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
-* aclocal -I/mingw/share/aclocal
+* aclocal
 * autoconf
-* CPPFLAGS='-I/mingw/include -I/mingw/x86_64-w64-mingw32/include' configure --host=x86_64-w64-mingw32
+* automake --add-missing
+* CPPFLAGS='-I/mingw/include' configure --host=x86_64-w64-mingw32
 * make
 * strip win64/bin/*.exe (optional: to make a final version)
 
