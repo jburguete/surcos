@@ -43,7 +43,9 @@ AC_PREREQ([2.67])
 AC_INIT(surcos, [5.2])
 
 # Checks for operative systems
-#AC_CANONICAL_HOST: Requires automake
+AC_CANONICAL_SYSTEM
+AM_INIT_AUTOMAKE
+AC_MSG_NOTICE([System: $build])
 AC_MSG_NOTICE([System: $host])
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
@@ -60,7 +62,7 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
-elif test $host = "i686-w64-mingw32"; then
+elif test $host = "i686-pc-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win32/obj/])
