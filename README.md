@@ -58,7 +58,7 @@ _______________
 FreeBSD 9.2
 ___________
 
-* download the latest [JB library](/jb.git)
+* download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
