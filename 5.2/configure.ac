@@ -87,6 +87,12 @@ else
 	AC_SUBST(ccflags, [-march=native])
 	win=0
 fi
+if test $win = 0; then
+	AC_SUBST(latex, "pdflatex -shell-escape")
+else
+	AC_CHECK_TOOL(WINDRES, windres)
+	AC_SUBST(latex, "pdflatex -enable-write18")
+fi
 
 # Checks for programs
 AC_PROG_CC([gcc48 gcc47 gcc46 egcc gcc clang])
@@ -109,34 +115,33 @@ else
 fi
 
 # Checks for libraries.
-if test $win = 0; then
-	AC_SUBST(latex, "pdflatex -shell-escape")
-else
-	AC_CHECK_TOOL(WINDRES, windres)
-	AC_SUBST(latex, "pdflatex -enable-write18")
-fi
+AC_SEARCH_LIBS([pow], [m])
+PKG_CHECK_MODULES([GLIB], [glib-2.0])
+PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
+AC_SEARCH_LIBS([textdomain], [intl])
+PKG_CHECK_MODULES([PNG], [libpng])
 AC_MSG_NOTICE([GTK+ version 3])
 PKG_CHECK_MODULES([GTK], [gtk+-3.0], gtk3=1, gtk3=0)
 if test $gtk3 = 0; then
 	AC_MSG_NOTICE([GTK+ version 2])
 	PKG_CHECK_MODULES([GTK], [gtk+-2.0])
 fi
-AC_SEARCH_LIBS([glutInit], [freeglut glut])
 AC_SEARCH_LIBS([glEnd], [GL opengl32])
-PKG_CHECK_MODULES([PNG], [libpng])
-PKG_CHECK_MODULES([GLIB], [glib-2.0])
-PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
-AC_SEARCH_LIBS([textdomain], [intl])
-AC_SEARCH_LIBS([sqrt], [m])
-AC_SEARCH_LIBS([pow], [m])
+AC_SEARCH_LIBS([glutInit], [freeglut glut])
 
 # Checks for header files.
-AC_CHECK_HEADERS([libintl.h GL/freeglut.h])
+AC_CHECK_HEADERS([fcntl.h locale.h sys/param.h libintl.h GL/freeglut.h])
 
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([setlocale])
+AC_FUNC_MKTIME
+AC_CHECK_FUNCS([floor pow sqrt setlocale])
+
+# Checks for types
+AC_C_INLINE
+AC_TYPE_SIZE_T
+AC_TYPE_UINT32_T
 
 # Output
 AC_CONFIG_HEADERS([src/config.h])
