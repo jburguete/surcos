@@ -49,11 +49,11 @@ FILES
 BUILDING INSTRUCTIONS
 ---------------------
 
-Debian Linux 7.0
+Debian Linux 7.4
 ________________
-Debian kFreeBSD 7.0
+Debian kFreeBSD 7.4
 ___________________
-Debian Hurd 7.0
+Debian Hurd 7.4
 _______________
 FreeBSD 9.2
 ___________
@@ -74,17 +74,17 @@ ___________________________
 Microsoft Windows XP 32 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+* install [MSYS/MinGW](http://www.mingw.org) and the required libr4yyaries and
 utilities. You can follow detailed instructions in
-[MinGW-64-Make](/MinGW-64-Make)
-* download the latest [JB library](/jb.git)
+[MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
+* download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
 * aclocal
 * autoconf
 * automake --add-missing
-* LDFLAGS='-lglut -lopengl32' configure --host=mingw32
+* LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include' configure
 * make
 * strip win32/bin/*.exe (optional: to make a final version)
 
@@ -93,10 +93,10 @@ ___________________________
 Microsoft Windows XP 64 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+* install [MSYS/MinGW](http://www.mingw.org) and the required libr4yyaries and
 utilities. You can follow detailed instructions in
-[MinGW-64-Make](/MinGW-64-Make)
-* download the latest [JB library](/jb.git)
+[MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
+* download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
@@ -110,7 +110,7 @@ utilities. You can follow detailed instructions in
 NetBSD 6.1
 __________
 
-* download the latest JB library (github.com:jburguete/jb.git)
+* download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
@@ -125,7 +125,7 @@ __________
 OpenBSD 5.2
 __________
 
-* download the latest JB library (github.com:jburguete/jb.git)
+* download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
