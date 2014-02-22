@@ -1,8 +1,8 @@
 SURCOS (5.2 version)
 ====================
 
-A program to solve irrigation and fertigation in isolated furrows and furrow
-networks.
+A software tool to solve irrigation and fertigation in isolated furrows and
+furrow networks.
 
 AUTHORS
 -------
