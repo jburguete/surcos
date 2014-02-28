@@ -13,7 +13,7 @@
 # To work in Microsoft Windows (32 bits) with MinGW/MSYS:
 # aclocal
 # autoconf
-# LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include -I/mingw/i686-w64-mingw32/include' configure --host=i686-w64-mingw32
+# LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include -I/mingw/i686-w64-mingw32/include' configure
 # make
 
 # To work in NetBSD:
