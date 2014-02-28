@@ -55,7 +55,7 @@ Debian kFreeBSD 7.4
 ___________________
 Debian Hurd 7.4
 _______________
-FreeBSD 9.2
+FreeBSD 10.0
 ___________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
@@ -84,7 +84,7 @@ utilities. You can follow detailed instructions in
 * aclocal
 * autoconf
 * automake --add-missing
-* LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include' configure
+* configure
 * make
 * strip win32/bin/*.exe (optional: to make a final version)
 

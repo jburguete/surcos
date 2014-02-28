@@ -1,19 +1,21 @@
-# To work in Debian (Linux, kFreeBSD or Hurd) or in FreeBSD:
+# To work in:
+#	- Debian 7.4 (Linux, kFreeBSD or Hurd)
+#	- FreeBSD 10.0
+#	- Microsoft Windows XP 32 bits
+#	- Microsoft Windows 7 32 bits
+#
 # aclocal
 # autoconf
+# automake --add-missing
 # ./configure
 # make
 
-# To work in Microsoft Windows (64 bits) with MinGW/MSYS:
+# To work in Microsoft Windows (64 bits):
+#
 # aclocal
 # autoconf
-# CPPFLAGS='-I/mingw/include -I/mingw/x86_64-w64-mingw32/include' configure --host=x86_64-w64-mingw32
-# make
-
-# To work in Microsoft Windows (32 bits) with MinGW/MSYS:
-# aclocal
-# autoconf
-# LDFLAGS='-lglut -lopengl32' CPPFLAGS='-I/mingw/include -I/mingw/i686-w64-mingw32/include' configure
+# automake --add-missing
+# ./configure --host=x86_64-w64-mingw32
 # make
 
 # To work in NetBSD:
@@ -49,6 +51,7 @@ AC_MSG_NOTICE([System: $build])
 AC_MSG_NOTICE([System: $host])
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
+	CPPFLAGS="$CPPFLAGS -I/mingw/include"
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win64/obj/])
 	AC_SUBST(bindir, [win64/bin/])
@@ -64,6 +67,8 @@ if test $host = "x86_64-w64-mingw32"; then
 	win=1
 elif test $host = "i686-pc-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
+	LDFLAGS="$LDFLAGS -lglut -lopengl32"
+	CPPFLAGS="$CPPFLAGS -I/mingw/include"
 	AC_SUBST(srcdir, [src/])
 	AC_SUBST(objdir, [win32/obj/])
 	AC_SUBST(bindir, [win32/bin/])
