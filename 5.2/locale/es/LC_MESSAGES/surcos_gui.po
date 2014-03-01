@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:58+0200\n"
+"POT-Creation-Date: 2014-03-01 20:19+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/furrow.c:55
@@ -618,4 +618,3 @@ msgstr "Gráficos de resultados"
 #: src/mainWindow.c:791
 msgid "Show summary"
 msgstr "Muestra resumen"
-

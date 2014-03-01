@@ -3,6 +3,7 @@
 #	- FreeBSD 10.0
 #	- Microsoft Windows XP 32 bits
 #	- Microsoft Windows 7 32 bits
+#	- NetBSD (with modular xorg)
 #
 # aclocal
 # autoconf
@@ -16,14 +17,6 @@
 # autoconf
 # automake --add-missing
 # ./configure --host=x86_64-w64-mingw32
-# make
-
-# To work in NetBSD:
-# ln -s /usr/X11R7/include/GL/glu.h /usr/pkg/include/GL
-# ln -s /usr/X11R7/lib/libGL.so.2 /usr/pkg/lib
-# aclocal
-# autoconf
-# CPPFLAGS=-I/usr/pkg/include LDFLAGS=-L/usr/pkg/lib ./configure --host=x86_64--netbsd
 # make
 
 # To work in OpenBSD:
@@ -52,59 +45,57 @@ AC_MSG_NOTICE([System: $host])
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	CPPFLAGS="$CPPFLAGS -I/mingw/include"
-	AC_SUBST(srcdir, [src/])
-	AC_SUBST(objdir, [win64/obj/])
-	AC_SUBST(bindir, [win64/bin/])
-	AC_SUBST(etcdir, [win64/etc/])
-	AC_SUBST(libdir, [win64/lib/])
-	AC_SUBST(sharedir, [win64/share/])
-	AC_SUBST(sysdir, [/mingw/])
-	AC_SUBST(basedir, [win64/])
-	AC_SUBST(icon, [win64/obj/logo.o])
-	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
+	windir=win64
 elif test $host = "i686-pc-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	LDFLAGS="$LDFLAGS -lglut -lopengl32"
 	CPPFLAGS="$CPPFLAGS -I/mingw/include"
-	AC_SUBST(srcdir, [src/])
-	AC_SUBST(objdir, [win32/obj/])
-	AC_SUBST(bindir, [win32/bin/])
-	AC_SUBST(etcdir, [win32/etc/])
-	AC_SUBST(libdir, [win32/lib/])
-	AC_SUBST(sharedir, [win32/share/])
-	AC_SUBST(sysdir, [/mingw/])
-	AC_SUBST(basedir, [win32/])
-	AC_SUBST(icon, [win32/obj/logo.o])
-	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_sjlj-1")
 	win=1
+	windir=win32
+elif test `uname -s` = "NetBSD"; then
+	AC_MSG_NOTICE([NetBSD])
+	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
+	CPPFLAGS="$CPPFLAGS -I/usr/pkg/include"
+	PATH="/usr/pkg/gcc48/bin:$PATH"
+	win=0
 else
+	win=0
+fi
+if test $win = 0; then
 	AC_MSG_NOTICE([Unix type system])
-	AC_SUBST(srcdir, [src/])
+	AC_SUBST(latex, "pdflatex -shell-escape")
 	AC_SUBST(objdir, [src/])
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
 	AC_SUBST(exegui, surcos_gui)
 	AC_SUBST(ccflags, [-march=native])
-	win=0
-fi
-if test $win = 0; then
-	AC_SUBST(latex, "pdflatex -shell-escape")
 else
 	AC_CHECK_TOOL(WINDRES, windres)
 	AC_SUBST(latex, "pdflatex -enable-write18")
+	AC_SUBST(exegui, winsurcos)
+	AC_SUBST(sysdir, [/mingw/])
+	AC_SUBST(objdir, [$windir/obj/])
+	AC_SUBST(bindir, [$windir/bin/])
+	AC_SUBST(etcdir, [$windir/etc/])
+	AC_SUBST(libdir, [$windir/lib/])
+	AC_SUBST(sharedir, [$windir/share/])
+	AC_SUBST(basedir, [$windir/])
+	AC_SUBST(icon, [$windir/obj/logo.o])
 fi
+AC_SUBST(srcdir, [src/])
 
 # Checks for programs
-AC_PROG_CC([gcc48 gcc47 gcc46 egcc gcc clang])
+AC_PROG_CC([gcc48 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG
 AC_MSG_NOTICE([Compiler: $CC])
+$CC -v
 
 # Checks for compiler flags
 compiler=$CC
