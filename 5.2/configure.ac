@@ -63,6 +63,11 @@ elif test `uname -s` = "NetBSD"; then
 	CPPFLAGS="$CPPFLAGS -I/usr/pkg/include"
 	PATH="/usr/pkg/gcc48/bin:$PATH"
 	win=0
+elif test `uname -s` = "OpenBSD"; then
+	AC_MSG_NOTICE([NetBSD])
+	LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
+	CPPFLAGS="$CPPFLAGS -I/usr/X11R6/include"
+	win=0
 else
 	win=0
 fi
