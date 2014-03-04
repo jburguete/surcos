@@ -109,17 +109,18 @@ utilities. You can follow detailed instructions in
 * make
 * strip win64/bin/*.exe (optional: to make a final version)
 
-OpenBSD 5.2
-__________
+OpenBSD 5.4
+___________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
 * link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
 * cd ..
-* AUTOCONF_VERSION=2.69 aclocal-1.11
-* autoconf-2.69
+* export AUTOMAKE_VERSION=1.13 AUTOCONF_VERSION=2.69
+* aclocal
+* autoconf
 * automake --add-missing
-* CPPFLAGS='-I/usr/local/include -I/usr/X11R6/include' LDFLAGS='-L/usr/local/lib -L/usr/X11R6/lib' ./configure
+* ./configure
 * make
 * strip surcos surcos_gui (optional: to make a final version)
 
