@@ -250,11 +250,10 @@ doc/latex/refman.pdf: doc/latex/Makefile
 
 ## Compiling the user manuals
 $(mandir)ppal.pdf: Makefile $(man)
-	cd $(mandir); @latex@ ppal; bibtex ppal; @latex@ ppal; @latex@ ppal
+	cd $(mandir); @latex@ ppal; @latex@ ppal
 
 $(mandir)ppal_EN.pdf: Makefile $(man_en)
-	cd $(mandir); @latex@ ppal_EN; bibtex ppal_EN; @latex@ ppal_EN; \
-		@latex@ ppal_EN
+	cd $(mandir); @latex@ ppal_EN; @latex@ ppal_EN
 
 ## Clean all generated-objects
 clean:
