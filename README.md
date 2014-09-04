@@ -49,11 +49,11 @@ FILES
 BUILDING INSTRUCTIONS
 ---------------------
 
-Debian Linux 7.4
+Debian Linux 7.6
 ________________
-Debian kFreeBSD 7.4
+Debian kFreeBSD 7.6
 ___________________
-Debian Hurd 7.4
+Debian Hurd 7.6
 _______________
 FreeBSD 10.0
 ___________
