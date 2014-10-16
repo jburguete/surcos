@@ -838,7 +838,6 @@ printf("main_window_new: window\n");
 printf("main_window_new: signals\n");
 #endif
 
-	g_signal_connect(w->window, "destroy", gtk_main_quit, NULL);
 	g_signal_connect_swapped(w->button_help, "clicked",
 		(GCallback)main_window_about, w);
 
@@ -857,7 +856,7 @@ printf("main_window_new: intro window\n");
 	gtk_container_add(GTK_CONTAINER(window),
 		gtk_image_new_from_file("fondo6.png"));
 #ifndef G_OS_WIN32
-	gtk_window_set_opacity(window, 0.9);
+	gtk_widget_set_opacity(GTK_WIDGET(window), 0.9);
 #endif
 	gtk_window_set_decorated(window, FALSE);
    	gtk_widget_show_all(GTK_WIDGET(window));

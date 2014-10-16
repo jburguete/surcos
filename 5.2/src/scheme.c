@@ -160,7 +160,7 @@ void scheme_diffusion(Parameters *p, unsigned int n)
 		D[i] += k;
 		D[i+1] += k;
 	}
-	jbm_solve_tridiagonal_matrix_zero(C, D, E, H, n - 1);
+	jbm_matrix_solve_tridiagonal_zero(C, D, E, H, n - 1);
 	for (i = 0; i < n; ++i)
 	{
 		p[i].c = H[i];
@@ -195,10 +195,10 @@ void scheme_diffusion_soil(Parameters *p, unsigned int n)
 		D1[i] = D2[i] += k;
 		D1[i+1] = D2[i+1] += k;
 	}
-	jbm_solve_tridiagonal_matrix_zero(C1, D1, E1, H1, n - 1);
+	jbm_matrix_solve_tridiagonal_zero(C1, D1, E1, H1, n - 1);
 	for (i = 0; i < n; ++i) p[i].Ai = H1[i];
 	if (!type_fertilizer) return;
-	jbm_solve_tridiagonal_matrix_zero(C2, D2, E2, H2, n - 1);
+	jbm_matrix_solve_tridiagonal_zero(C2, D2, E2, H2, n - 1);
 	for (i = 0; i < n; ++i) p[i].Aci = H2[i];
 }
 

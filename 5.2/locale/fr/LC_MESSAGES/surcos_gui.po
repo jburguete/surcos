@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 04:54+0100\n"
+"POT-Creation-Date: 2014-10-16 04:15+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -245,7 +245,7 @@ msgid "Final time (s)"
 msgstr "Temps final (s)"
 
 #: src/configIrrigation.c:297 src/graphics.c:838
-msgid "Discharge (m³/s)"
+msgid "Discharge (mے/s)"
 msgstr "Débit (m³/s)"
 
 #: src/configIrrigation.c:306
@@ -349,7 +349,7 @@ msgid "Number of probes"
 msgstr "Numéro de sondes"
 
 #: src/configWindow.c:77
-msgid "Solubility (kg/m³)"
+msgid "Solubility (kg/mے)"
 msgstr "Solubilité (kg/m³)"
 
 #: src/configWindow.c:222
@@ -382,7 +382,7 @@ msgstr "Profondeur d'eau (m)"
 
 #: src/graphics.c:519 src/graphics.c:806 src/graphics.c:840
 #: src/graphics.c:1074 src/graphics.c:1123
-msgid "Fertilizer concentration (kg/m³)"
+msgid "Fertilizer concentration (kg/mے)"
 msgstr "Concentration de fertilisant (kg/m³)"
 
 #: src/graphics.c:520 src/graphics.c:808
@@ -406,7 +406,7 @@ msgid "Superficial level (m)"
 msgstr "Niveau superficiel (m)"
 
 #: src/graphics.c:841
-msgid "Superficial water area (m²)"
+msgid "Superficial water area (mے)"
 msgstr "Surface d'eau superficielle (m²)"
 
 #: src/graphics.c:842
@@ -422,7 +422,7 @@ msgid "Bottom level (m)"
 msgstr "Niveau du fond (m)"
 
 #: src/graphics.c:850
-msgid "Infiltrated water area (m²)"
+msgid "Infiltrated water area (mے)"
 msgstr "Surface d'eau infiltrée (m²)"
 
 #: src/graphics.c:851
@@ -443,7 +443,7 @@ msgid "Position (m)"
 msgstr "Position (m)"
 
 #: src/graphics.c:1071
-msgid "Water discharge (m³/s)"
+msgid "Water discharge (mے/s)"
 msgstr "Débit d'eau (m³/s)"
 
 #: src/graphics.c:1072
