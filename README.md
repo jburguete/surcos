@@ -62,7 +62,7 @@ ____________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
+* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.6.0 jb)
 * cd ..
 * aclocal
 * autoconf
@@ -81,7 +81,7 @@ utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
+* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.6.0 jb)
 * cd ..
 * aclocal
 * autoconf
@@ -100,7 +100,7 @@ utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
+* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.6.0 jb)
 * cd ..
 * aclocal
 * autoconf
@@ -114,7 +114,7 @@ ___________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.2/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.4.2 jb)
+* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.6.0 jb)
 * cd ..
 * export AUTOMAKE_VERSION=1.13 AUTOCONF_VERSION=2.69
 * aclocal
