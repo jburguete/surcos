@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-17 04:58+0200\n"
+"POT-Creation-Date: 2014-10-17 17:22+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -264,7 +264,7 @@ msgstr "Número de entradas de fertilizante"
 msgid "Point"
 msgstr "Punto"
 
-#: src/configGeometry.c:131
+#: src/configGeometry.c:132
 msgid "diagram_geometry_en.png"
 msgstr "diagram_geometry_es.png"
 

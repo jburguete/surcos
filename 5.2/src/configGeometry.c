@@ -117,6 +117,7 @@ printf("config_geometry_new: start\n");
 	{
 		w->button[i] = (GtkButton*)gtk_button_new_with_label(label_point[i]);
 		gtk_widget_set_can_focus(GTK_WIDGET(w->button[i]), FALSE);
+		gtk_widget_set_vexpand(GTK_WIDGET(w->button[i]), FALSE);
 		gtk_grid_attach(w->table, GTK_WIDGET(w->button[i]), i, 0, 1, 1);
 	}
 	for (j = 0; j < 4; ++j)
@@ -129,10 +130,7 @@ printf("config_geometry_new: start\n");
 	}
 	w->image = (GtkImage*)gtk_image_new_from_file
 		(gettext("diagram_geometry_en.png"));
-	gtk_grid_attach(w->table, GTK_WIDGET(w->image), 4, 0, 1, 1);
-	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 5, 4, 1);
-	gtk_grid_attach(w->table, gtk_label_new(NULL), 5, 0, 1, 6);
-	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 6, 6, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->image), 4, 0, 1, 6);
 #if DEBUG_CONFIG_GEOMETRY_NEW
 printf("config_geometry_new: end\n");
 #endif
