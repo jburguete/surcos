@@ -111,29 +111,28 @@ void config_geometry_new(ConfigGeometry *w)
 #if DEBUG_CONFIG_GEOMETRY_NEW
 printf("config_geometry_new: start\n");
 #endif
-	for (i=0; i<4; ++i) config_point_new(w->point + i, label_id[i]);
-	w->table = (GtkTable*)gtk_table_new(0, 0, FALSE);
-	for (i=0; i<4; ++i)
+	for (i = 0; i < 4; ++i) config_point_new(w->point + i, label_id[i]);
+	w->table = (GtkGrid*)gtk_grid_new();
+	for (i = 0; i < 4; ++i)
 	{
 		w->button[i] = (GtkButton*)gtk_button_new_with_label(label_point[i]);
 		gtk_widget_set_can_focus(GTK_WIDGET(w->button[i]), FALSE);
-		gtk_table_attach(w->table, GTK_WIDGET(w->button[i]),
-			i, i+1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->button[i]), i, 0, 1, 1);
 	}
-	for (j=0; j<4; ++j)
+	for (j = 0; j < 4; ++j)
 	{
-		gtk_table_attach(w->table, GTK_WIDGET(w->point[j].button),
-			0, 1, j+1, j+2, GTK_FILL, GTK_FILL, 0, 0);
-		for (i=0; i<3; ++i)
-			gtk_table_attach(w->table, GTK_WIDGET(w->point[j].spin[i]),
-				i+1, i+2, j+1, j+2, GTK_FILL, GTK_FILL, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->point[j].button),
+			0, j + 1, 1, 1);
+		for (i = 0; i < 3; ++i)
+			gtk_grid_attach(w->table, GTK_WIDGET(w->point[j].spin[i]),
+				i + 1, j + 1, 1, 1);
 	}
 	w->image = (GtkImage*)gtk_image_new_from_file
 		(gettext("diagram_geometry_en.png"));
-	gtk_table_attach(w->table, GTK_WIDGET(w->image), 4, 5, 0, 6, 0, 0, 0, 0);
-	gtk_table_attach_defaults(w->table, gtk_label_new(NULL), 0, 4, 5, 6);
-	gtk_table_attach_defaults(w->table, gtk_label_new(NULL), 5, 6, 0, 6);
-	gtk_table_attach_defaults(w->table, gtk_label_new(NULL), 0, 6, 6, 7);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->image), 4, 0, 1, 1);
+	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 5, 4, 1);
+	gtk_grid_attach(w->table, gtk_label_new(NULL), 5, 0, 1, 6);
+	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 6, 6, 1);
 #if DEBUG_CONFIG_GEOMETRY_NEW
 printf("config_geometry_new: end\n");
 #endif

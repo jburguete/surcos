@@ -154,7 +154,7 @@ void table_config_furrows_new(TableConfigFurrows *w)
 		"f0 (m/s)",
 	};
 	for (i=0; i<3; ++i) config_furrow_new(w->furrow + i, label_channel[i]);
-	w->table = (GtkTable*)gtk_table_new(0, 0, FALSE);
+	w->table = (GtkGrid*)gtk_grid_new();
 	w->box_image = (GtkHBox*)gtk_hbox_new(FALSE, 0);
 	w->image = (GtkImage*)gtk_image_new_from_file("diagram_furrow.png");
 	gtk_container_add(GTK_CONTAINER(w->box_image), GTK_WIDGET(w->image));
@@ -169,8 +169,7 @@ void table_config_furrows_new(TableConfigFurrows *w)
 			"f0: infiltration velocity in saturated soil"));
 	gtk_box_pack_start(GTK_BOX(w->box_image),
 		GTK_WIDGET(w->label_models), FALSE, TRUE, 0);
-	gtk_table_attach(w->table, GTK_WIDGET(w->box_image),
-		0, 11, 0, 1, 0, 0, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->box_image), 0, 0, 11, 1);
 	w->label_furrow = (GtkLabel*)gtk_label_new
 		(gettext("Number of irrigation furrows"));
 	w->spin = (GtkSpinButton*)gtk_spin_button_new_with_range(0., 1000., 1.);
@@ -183,48 +182,42 @@ void table_config_furrows_new(TableConfigFurrows *w)
 		FALSE, TRUE, 10);
 	gtk_container_add(GTK_CONTAINER(w->box_furrows),
 		GTK_WIDGET(w->button_recirculation));
-	gtk_table_attach(w->table, GTK_WIDGET(w->box_furrows),
-		0, 11, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->box_furrows), 0, 1, 11, 1);
 	w->button_furrow = (GtkButton*)gtk_button_new_with_label(gettext("Furrow"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_furrow), FALSE);
-	gtk_table_attach(w->table, GTK_WIDGET(w->button_furrow),
-		0, 1, 2, 4, GTK_FILL, GTK_FILL, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_furrow), 0, 2, 1, 2);
 	w->button_geometry = (GtkButton*)gtk_button_new_with_label
 		(gettext("Geometry"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_geometry), FALSE);
-	gtk_table_attach(w->table, GTK_WIDGET(w->button_geometry),
-		1, 5, 2, 3, GTK_FILL, 0, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_geometry), 1, 2, 4, 1);
 	w->button_soil = (GtkButton*)gtk_button_new_with_label(gettext("Soil"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_soil), FALSE);
-	gtk_table_attach(w->table, GTK_WIDGET(w->button_soil),
-		5, 6, 2, 3, GTK_FILL, 0, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_soil), 5, 2, 1, 1);
 	w->button_friction = (GtkButton*)gtk_button_new_with_label
 		(gettext("Friction model"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_friction), FALSE);
-	gtk_table_attach(w->table, GTK_WIDGET(w->button_friction),
-		6, 8, 2, 3, GTK_FILL, 0, 0, 0);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_friction), 6, 2, 2, 1);
 	w->button_infiltration = (GtkButton*)gtk_button_new_with_label
 		(gettext("Infiltration model"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_infiltration), FALSE);
-	gtk_table_attach(w->table, GTK_WIDGET(w->button_infiltration),
-		8, 11, 2, 3, GTK_FILL, 0, 0, 0);
-	for (i=0; i<10; ++i)
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_infiltration), 8, 2, 3, 1);
+	for (i = 0; i < 10; ++i)
 	{
 		w->button_coefficient[i] =
 			(GtkButton*)gtk_button_new_with_label(label_coefficient[i]);
 		gtk_widget_set_can_focus(GTK_WIDGET(w->button_coefficient[i]), FALSE);
-		gtk_table_attach(w->table, GTK_WIDGET(w->button_coefficient[i]),
-			i+1, i+2, 3, 4, GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->button_coefficient[i]),
+			i + 1, 3, 1, 1);
 	}
-	for (j=0; j<3; ++j)
+	for (j = 0; j < 3; ++j)
 	{
-		gtk_table_attach(w->table, GTK_WIDGET(w->furrow[j].label),
-			0, 1, j+4, j+5, GTK_FILL, 0, 0, 0);
-		for (i=0; i<10; ++i)
-			gtk_table_attach(w->table, GTK_WIDGET(w->furrow[j].spin[i]),
-				i+1, i+2, j+4, j+5, GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->furrow[j].label),
+			0, j + 4, 1, 1);
+		for (i = 0; i < 10; ++i)
+			gtk_grid_attach(w->table, GTK_WIDGET(w->furrow[j].spin[i]),
+				i + 1, j + 4, 1, 1);
 	}
-	gtk_table_attach_defaults(w->table, gtk_label_new(NULL), 0, 11, 7, 8);
+	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 7, 11, 1);
 	g_signal_connect_swapped(w->spin, "changed",
 		(GCallback)table_config_furrows_update, w);
 	g_signal_connect_swapped(w->button_recirculation, "clicked",

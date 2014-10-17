@@ -91,7 +91,7 @@ struct _TableConfigFurrows
  * \var image
  * \brief GtkImage displaying an illustration of the furrow characteristics.
  * \var table
- * \brief GtkTable containing all configuration widgets.
+ * \brief GtkGrid containing all configuration widgets.
  */
 	ConfigFurrow furrow[3];
 	GtkLabel *label_furrow, *label_models;
@@ -101,7 +101,7 @@ struct _TableConfigFurrows
 	GtkButton *button_furrow, *button_geometry, *button_soil, *button_friction,
 		*button_infiltration, *button_coefficient[10];
 	GtkImage *image;
-	GtkTable *table;
+	GtkGrid *table;
 };
 
 /**

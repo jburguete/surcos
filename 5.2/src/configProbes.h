@@ -50,7 +50,7 @@ struct _ConfigProbes
  * \var button
  * \brief Array of GtkButton labels showing the probes characteristics.
  * \var table
- * \brief GtkTable containing the probes configurations.
+ * \brief GtkGrid containing the probes configurations.
  * \var hbox
  * \brief GtkHBox containing the probes number configuration.
  * \var vbox
@@ -60,7 +60,7 @@ struct _ConfigProbes
 	GtkLabel *label;
 	GtkSpinButton *spin;
 	GtkButton *button[3];
-	GtkTable *table;
+	GtkGrid *table;
 	GtkHBox *hbox;
 	GtkVBox *vbox;
 };

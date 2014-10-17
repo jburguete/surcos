@@ -52,7 +52,7 @@ struct _ConfigIrrigation
  * \brief Matrix of GtkSpinButtons to define the water and fertilizer inputs
  * 	parameters.
  * \var table
- * \brief Array of GtkTables containing the water and fertilizer inputs.
+ * \brief Array of GtkGrids containing the water and fertilizer inputs.
  * \var frame
  * \brief Array of GtkFrames containing the water and fertilizer inputs tables.
  * \var image
@@ -73,7 +73,7 @@ struct _ConfigIrrigation
 	GtkLabel *label[2], *label_image;
 	GtkSpinButton *spin[2];
 	GtkButton *button[6][2];
-	GtkTable *table[2];
+	GtkGrid *table[2];
 	GtkFrame *frame[2];
 	GtkImage *image;
 	GtkVBox *box_image, *box_input;

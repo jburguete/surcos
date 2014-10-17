@@ -46,11 +46,11 @@ struct _ConfigTimes
  * \var spin
  * \brief Array of GtkSpinButtons to configure the advanced options.
  * \var table
- * \brief GtkTable containing all the advanced options widgets.
+ * \brief GtkGrid containing all the advanced options widgets.
  */
 	GtkLabel *label[5];
 	GtkSpinButton *spin[5];
-	GtkTable *table;
+	GtkGrid *table;
 };
 
 /**

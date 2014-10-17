@@ -137,7 +137,7 @@ printf("creating the spin buttons\n");
 printf("creating the table\n");
 #endif
 	// Creating a table and adding to the dialog
-	w->table = (GtkTable*)gtk_table_new (0, 0, FALSE);
+	w->table = (GtkGrid*)gtk_grid_new();
 
 #if DEBUG_CONFIG_TIMES_NEW
 printf("adding labels and spin buttons\n");
@@ -145,12 +145,10 @@ printf("adding labels and spin buttons\n");
 	// Adding labels and spin buttons
 	for (i=0; i<5; ++i)
 	{
-		gtk_table_attach(w->table, GTK_WIDGET(w->label[i]), 0, 1, i, i+1,
-			0, 0, 0, 0);
-		gtk_table_attach(w->table, GTK_WIDGET(w->spin[i]), 1, 2, i, i+1,
-			GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->label[i]), 0, i, 1, 1);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->spin[i]), 1, i, 1, 1);
 	}
-	gtk_table_attach_defaults(w->table, gtk_label_new(NULL), 0, 3, 5, 6);
+	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 5, 3, 1);
 
 #if DEBUG_CONFIG_TIMES_NEW
 printf("reading the data\n");

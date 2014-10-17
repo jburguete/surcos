@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-16 04:15+0200\n"
+"POT-Creation-Date: 2014-10-17 04:58+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -48,15 +48,15 @@ msgstr "Datos de entradas incorrectos"
 msgid "Bad input"
 msgstr "Entrada incorrecta"
 
-#: src/field.c:140 src/configIrrigation.c:332 src/mainWindow.c:203
+#: src/field.c:140 src/configIrrigation.c:331 src/mainWindow.c:203
 msgid "Initial time"
 msgstr "Tiempo inicial"
 
-#: src/field.c:146 src/configIrrigation.c:332 src/mainWindow.c:206
+#: src/field.c:146 src/configIrrigation.c:331 src/mainWindow.c:206
 msgid "Final time"
 msgstr "Tiempo final"
 
-#: src/field.c:152 src/configIrrigation.c:331 src/mainWindow.c:207
+#: src/field.c:152 src/configIrrigation.c:330 src/mainWindow.c:207
 #: src/mainWindow.c:210
 msgid "Discharge"
 msgstr "Caudal"
@@ -155,7 +155,7 @@ msgstr "Tiempo de cálculo"
 msgid "IRRIGATION QUALITY"
 msgstr "CALIDAD DE RIEGO"
 
-#: src/kernel.c:151 src/configIrrigation.c:313 src/mainWindow.c:406
+#: src/kernel.c:151 src/configIrrigation.c:312 src/mainWindow.c:406
 msgid "Water"
 msgstr "Agua"
 
@@ -167,7 +167,7 @@ msgstr "Uniformidad"
 msgid "Efficiency"
 msgstr "Eficiencia"
 
-#: src/kernel.c:159 src/configIrrigation.c:313 src/configWindow.c:226
+#: src/kernel.c:159 src/configIrrigation.c:312 src/configWindow.c:226
 #: src/mainWindow.c:415
 msgid "Fertilizer"
 msgstr "Fertilizante"
@@ -184,8 +184,8 @@ msgstr "VOLUMEN DE AGUA"
 msgid "Total"
 msgstr "Total"
 
-#: src/kernel.c:173 src/kernel.c:230 src/configIrrigation.c:292
-#: src/configIrrigation.c:301 src/mainWindow.c:432 src/mainWindow.c:494
+#: src/kernel.c:173 src/kernel.c:230 src/configIrrigation.c:291
+#: src/configIrrigation.c:300 src/mainWindow.c:432 src/mainWindow.c:494
 #: src/mainWindow.c:582
 msgid "Input"
 msgstr "Entrada"
@@ -236,27 +236,27 @@ msgstr "Sólida"
 msgid "Running the numerical simulation ..."
 msgstr "Calculando la simulación numérica ..."
 
-#: src/configIrrigation.c:295 src/configIrrigation.c:304
+#: src/configIrrigation.c:294 src/configIrrigation.c:303
 msgid "Initial time (s)"
 msgstr "Tiempo inicial (s)"
 
-#: src/configIrrigation.c:296 src/configIrrigation.c:305
+#: src/configIrrigation.c:295 src/configIrrigation.c:304
 msgid "Final time (s)"
 msgstr "Tiempo final (s)"
 
-#: src/configIrrigation.c:297 src/graphics.c:838
+#: src/configIrrigation.c:296 src/graphics.c:838
 msgid "Discharge (mے/s)"
 msgstr "Caudal (m³/s)"
 
-#: src/configIrrigation.c:306
+#: src/configIrrigation.c:305
 msgid "Discharge (kg/s)"
 msgstr "Caudal (kg/s)"
 
-#: src/configIrrigation.c:310 src/mainWindow.c:336
+#: src/configIrrigation.c:309 src/mainWindow.c:336
 msgid "Number of water inputs"
 msgstr "Número de entradas de agua"
 
-#: src/configIrrigation.c:311 src/mainWindow.c:339
+#: src/configIrrigation.c:310 src/mainWindow.c:339
 msgid "Number of fertilizer inputs"
 msgstr "Número de entradas de fertilizante"
 
@@ -264,7 +264,7 @@ msgstr "Número de entradas de fertilizante"
 msgid "Point"
 msgstr "Punto"
 
-#: src/configGeometry.c:132
+#: src/configGeometry.c:131
 msgid "diagram_geometry_en.png"
 msgstr "diagram_geometry_es.png"
 
@@ -276,7 +276,7 @@ msgstr "Distribución"
 msgid "Irrigation"
 msgstr "Riego"
 
-#: src/configFurrows.c:141 src/configFurrows.c:178
+#: src/configFurrows.c:141 src/configFurrows.c:177
 msgid "Recirculation"
 msgstr "Recirculación"
 
@@ -300,27 +300,27 @@ msgstr ""
 "a: exponente de Kostiakov\n"
 "f0: velocidad de infiltración en suelo saturado"
 
-#: src/configFurrows.c:175 src/mainWindow.c:320
+#: src/configFurrows.c:174 src/mainWindow.c:320
 msgid "Number of irrigation furrows"
 msgstr "Número de surcos de riego"
 
-#: src/configFurrows.c:188
+#: src/configFurrows.c:186
 msgid "Furrow"
 msgstr "Surco"
 
-#: src/configFurrows.c:193 src/configWindow.c:220
+#: src/configFurrows.c:190 src/configWindow.c:220
 msgid "Geometry"
 msgstr "Geometrí­a"
 
-#: src/configFurrows.c:197
+#: src/configFurrows.c:193
 msgid "Soil"
 msgstr "Suelo"
 
-#: src/configFurrows.c:202 src/mainWindow.c:138 src/mainWindow.c:150
+#: src/configFurrows.c:197 src/mainWindow.c:138 src/mainWindow.c:150
 msgid "Friction model"
 msgstr "Modelo de fricción"
 
-#: src/configFurrows.c:207
+#: src/configFurrows.c:201
 msgid "Infiltration model"
 msgstr "Modelo de infiltración"
 
@@ -340,11 +340,11 @@ msgstr "Número de celdas del canal de distribución (entre surcos)"
 msgid "Cells number for irrigation channels"
 msgstr "Número de celdas de los surcos de riego"
 
-#: src/configProbes.c:238 src/graphics.c:1118 src/mainWindow.c:231
+#: src/configProbes.c:235 src/graphics.c:1118 src/mainWindow.c:231
 msgid "Probe"
 msgstr "Sonda"
 
-#: src/configProbes.c:240 src/mainWindow.c:359
+#: src/configProbes.c:237 src/mainWindow.c:359
 msgid "Number of probes"
 msgstr "Número de sondas"
 

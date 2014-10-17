@@ -78,18 +78,15 @@ void config_probes_insert(ConfigProbes *w, int nProbesOld, int nProbes)
 		widget = gtk_button_new_with_label(buffer);
 		gtk_widget_set_can_focus(widget, FALSE);
 		gtk_widget_show(widget);
-		gtk_table_attach(w->table, widget, 0, 1, i+1, i+2,
-			GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, widget, 0, i + 1, 1, 1);
 		w->list = g_list_append(w->list, widget);
 		widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
 		gtk_widget_show(widget);
-		gtk_table_attach(w->table, widget, 1, 2, i+1, i+2,
-			GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, widget, 1, i + 1, 1, 1);
 		w->list = g_list_append(w->list, widget);
 		widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
 		gtk_widget_show(widget);
-		gtk_table_attach(w->table, widget, 2, 3, i+1, i+2,
-			GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, widget, 2, i + 1, 1, 1);
 		w->list = g_list_append(w->list, widget);
 	}
 }
@@ -242,13 +239,12 @@ void config_probes_new(ConfigProbes *w)
 	w->hbox = (GtkHBox*)gtk_hbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(w->hbox), GTK_WIDGET(w->label), FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(w->hbox), GTK_WIDGET(w->spin), FALSE, FALSE, 0);
-	w->table = (GtkTable*)gtk_table_new(0, 0, FALSE);
+	w->table = (GtkGrid*)gtk_grid_new();
 	for (i=0; i<3; ++i)
 	{
 		w->button[i] = (GtkButton*)gtk_button_new_with_label(label[i]);
 		gtk_widget_set_can_focus(GTK_WIDGET(w->button[i]), FALSE);
-		gtk_table_attach(w->table, GTK_WIDGET(w->button[i]),
-			i, i+1, 0, 1, GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->button[i]), i, 0, 1, 1);
 	}
 	w->vbox = (GtkVBox*)gtk_vbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(w->vbox), GTK_WIDGET(w->hbox), FALSE, FALSE, 0);

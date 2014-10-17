@@ -59,7 +59,7 @@ extern char *input_dir;
 
 /**
  * \fn void input_insert\
- * 	(GList **list, int nInputsOld, int nInputs, GtkTable *table)
+ * 	(GList **list, int nInputsOld, int nInputs, GtkGrid *table)
  * \brief Function to insert inputs.
  * \param list
  * \brief List of inputs.
@@ -68,9 +68,9 @@ extern char *input_dir;
  * \param nInputs
  * \brief New inputs number.
  * \param table
- * \brief configuration GtkTable.
+ * \brief configuration GtkGrid.
  */
-void input_insert(GList **list, int nInputsOld, int nInputs, GtkTable *table)
+void input_insert(GList **list, int nInputsOld, int nInputs, GtkGrid *table)
 {
 	int i, j;
 	char buffer[32];
@@ -84,14 +84,13 @@ void input_insert(GList **list, int nInputsOld, int nInputs, GtkTable *table)
 		widget = gtk_button_new_with_label(buffer);
 		gtk_widget_set_can_focus(widget, FALSE);
 		gtk_widget_show(widget);
-		gtk_table_attach(table, widget, 0, 1, i+1, i+2, GTK_FILL, 0, 0, 0);
+		gtk_grid_attach(table, widget, 0, i + 1, 1, 1);
 		*list = g_list_append(*list, widget);
 		for (j = 0; j < 5; ++j)
 		{
 			widget = gtk_spin_button_new_with_range(min[j], max[j], step[j]);
 			gtk_widget_show(widget);
-			gtk_table_attach(table, widget, j+1, j+2, i+1, i+2,
-				GTK_FILL, 0, 0, 0);
+			gtk_grid_attach(table, widget, j + 1, i + 1, 1, 1);
 			*list = g_list_append(*list, widget);
 		}
 	}
@@ -126,7 +125,7 @@ void input_remove(GList **list, int nInputsOld, int nInputs)
 
 /**
  * \fn void input_update\
- * 	(GList **list, int *nInputs, GtkSpinButton *spin, GtkTable *table)
+ * 	(GList **list, int *nInputs, GtkSpinButton *spin, GtkGrid *table)
  * \brief Function to update the inputs number.
  * \param list
  * \brief List of inputs.
@@ -135,10 +134,10 @@ void input_remove(GList **list, int nInputsOld, int nInputs)
  * \param spin
  * \brief GtkSpinButton defining the inputs number.
  * \param table
- * \brief configuration GtkTable.
+ * \brief configuration GtkGrid.
  */
 void input_update
-(GList **list, int *nInputs, GtkSpinButton *spin, GtkTable *table)
+(GList **list, int *nInputs, GtkSpinButton *spin, GtkGrid *table)
 {
 	int nInputsOld;
 	nInputsOld = *nInputs;
@@ -356,15 +355,15 @@ printf("adding frames\n");
 		w->frame[i] = (GtkFrame*)gtk_frame_new(label_frame[i]);
 		gtk_box_pack_start(GTK_BOX(w->box_input), GTK_WIDGET(w->frame[i]),
 			FALSE, FALSE, 0);
-		w->table[i] = (GtkTable*)gtk_table_new(0, 0, FALSE);
+		w->table[i] = (GtkGrid*)gtk_grid_new();
 		gtk_container_add(GTK_CONTAINER(w->frame[i]), GTK_WIDGET(w->table[i]));
 		for (j = 0; j < 6; ++j)
 		{
 			w->button[j][i] = (GtkButton*)gtk_button_new_with_label
 				(label_input[i][j]);
 			gtk_widget_set_can_focus(GTK_WIDGET(w->button[j][i]), FALSE);
-			gtk_table_attach(w->table[i], GTK_WIDGET(w->button[j][i]),
-				j, j+1, 0, 1, GTK_FILL, 0, 0, 0);
+			gtk_grid_attach(w->table[i], GTK_WIDGET(w->button[j][i]),
+				j, 0, 1, 1);
 		}
 		w->list[i] = NULL;
 	}

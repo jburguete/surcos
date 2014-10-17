@@ -70,7 +70,7 @@ struct _ConfigGeometry
  * \var button
  * \brief Array of GtkButton labels of field corner points configuration.
  * \var table
- * \brief GtkTable containing the arrays of points and buttons.
+ * \brief GtkGrid containing the arrays of points and buttons.
  * \var image
  * \brief GtkImage displaying a field geometry illustration.
  * \var box
@@ -78,7 +78,7 @@ struct _ConfigGeometry
  */
 	ConfigPoint point[4];
 	GtkButton *button[4];
-	GtkTable *table;
+	GtkGrid *table;
 	GtkImage *image;
 	GtkHBox *box;
 };
