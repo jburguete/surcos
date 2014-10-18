@@ -41,12 +41,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 struct _ConfigFurrow
 {
 /**
- * \var label
- * \brief GtkLabel to show the furrow label.
+ * \var button
+ * \brief GtkButton to show the furrow label.
  * \var spin
  * \brief Array of GtkSpinButtons to set the furrow parameters.
  */
-	GtkLabel *label;
+	GtkButton *button;
 	GtkSpinButton *spin[10];
 };
 

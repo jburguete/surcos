@@ -835,10 +835,10 @@ void graphic_furrows_draw()
 	char *label_y[6]=
 	{
 		gettext("Superficial depth (m)"),
-		gettext("Discharge (m\302\263/s)"),
+		gettext("Discharge (m³/s)"),
 		gettext("Superficial level (m)"),
-		gettext("Fertilizer concentration (kg/m\302\263)"),
-		gettext("Superficial water area (m\302\262)"),
+		gettext("Fertilizer concentration (kg/m³)"),
+		gettext("Superficial water area (m²)"),
 		gettext("Advance time (s)")
 	};
 	char *label_yy[6]=
@@ -847,7 +847,7 @@ void graphic_furrows_draw()
 		NULL,
 		gettext("Bottom level (m)"),
 		NULL,
-		gettext("Infiltrated water area (m\302\262)"),
+		gettext("Infiltrated water area (m²)"),
 		gettext("Recession time (s)")
 	};
 	char *label_z[6]=
@@ -1068,10 +1068,10 @@ printf("nfurrows=%d nsteps=%d\n", nfurrows, ny);
 	gtk_combo_box_text_append_text
 		(g->combo_variable, gettext("Water depth (m)"));
 	gtk_combo_box_text_append_text(g->combo_variable,
-		gettext("Water discharge (m\302\263/s)"));
+		gettext("Water discharge (m³/s)"));
 	gtk_combo_box_text_append_text(g->combo_variable, gettext("Level (m)"));
 	gtk_combo_box_text_append_text(g->combo_variable,
-		gettext("Fertilizer concentration (kg/m\302\263)"));
+		gettext("Fertilizer concentration (kg/m³)"));
 	gtk_combo_box_text_append_text(g->combo_variable,
 		gettext("Mass per unit length (kg/m)"));
 	gtk_combo_box_text_append_text(g->combo_variable,

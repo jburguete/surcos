@@ -74,7 +74,7 @@ extern GtkWidget *windowMain;
 void config_fertilizer_new(ConfigFertilizer *cf)
 {
 	cf->box = (GtkHBox*)gtk_hbox_new(FALSE, 0);
-	cf->label = (GtkLabel*)gtk_label_new(gettext("Solubility (kg/m\302\263)"));
+	cf->label = (GtkLabel*)gtk_label_new(gettext("Solubility (kg/m³)"));
 	gtk_box_pack_start(GTK_BOX(cf->box), GTK_WIDGET(cf->label),
 		FALSE, FALSE, 0);
 	cf->spin = (GtkSpinButton*)gtk_spin_button_new_with_range

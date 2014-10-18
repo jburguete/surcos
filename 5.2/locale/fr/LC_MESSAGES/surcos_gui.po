@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-17 17:22+0200\n"
+"POT-Creation-Date: 2014-10-18 02:52+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -245,7 +245,7 @@ msgid "Final time (s)"
 msgstr "Temps final (s)"
 
 #: src/configIrrigation.c:296 src/graphics.c:838
-msgid "Discharge (mے/s)"
+msgid "Discharge (m³/s)"
 msgstr "Débit (m³/s)"
 
 #: src/configIrrigation.c:305
@@ -264,23 +264,23 @@ msgstr "Numéro d'entrées de fertilisant"
 msgid "Point"
 msgstr "Point"
 
-#: src/configGeometry.c:132
+#: src/configGeometry.c:117
 msgid "diagram_geometry_en.png"
 msgstr "diagram_geometry_fr.png"
 
-#: src/configFurrows.c:139
+#: src/configFurrows.c:140
 msgid "Distribution"
 msgstr "Distribution"
 
-#: src/configFurrows.c:140
+#: src/configFurrows.c:141
 msgid "Irrigation"
 msgstr "Irrigation"
 
-#: src/configFurrows.c:141 src/configFurrows.c:177
+#: src/configFurrows.c:142 src/configFurrows.c:178
 msgid "Recirculation"
 msgstr "Recirculation"
 
-#: src/configFurrows.c:162
+#: src/configFurrows.c:163
 msgid ""
 "R: water retention capacity\n"
 "e=0: Gauckler-Manning's model\n"
@@ -300,27 +300,27 @@ msgstr ""
 "a: exponent de Kostiakov\n"
 "f0: vitesse d'infiltration en sol saturé"
 
-#: src/configFurrows.c:174 src/mainWindow.c:320
+#: src/configFurrows.c:175 src/mainWindow.c:320
 msgid "Number of irrigation furrows"
 msgstr "Numéro de sillons d'irrigation"
 
-#: src/configFurrows.c:186
+#: src/configFurrows.c:187
 msgid "Furrow"
 msgstr "Sillon"
 
-#: src/configFurrows.c:190 src/configWindow.c:220
+#: src/configFurrows.c:191 src/configWindow.c:220
 msgid "Geometry"
 msgstr "Géométrie"
 
-#: src/configFurrows.c:193
+#: src/configFurrows.c:194
 msgid "Soil"
 msgstr "Sol"
 
-#: src/configFurrows.c:197 src/mainWindow.c:138 src/mainWindow.c:150
+#: src/configFurrows.c:198 src/mainWindow.c:138 src/mainWindow.c:150
 msgid "Friction model"
 msgstr "Modèle de friction"
 
-#: src/configFurrows.c:201
+#: src/configFurrows.c:202
 msgid "Infiltration model"
 msgstr "Modèle d'infiltration"
 
@@ -349,7 +349,7 @@ msgid "Number of probes"
 msgstr "Numéro de sondes"
 
 #: src/configWindow.c:77
-msgid "Solubility (kg/mے)"
+msgid "Solubility (kg/m³)"
 msgstr "Solubilité (kg/m³)"
 
 #: src/configWindow.c:222
@@ -380,8 +380,7 @@ msgstr "On peut pas ouvrir le logo"
 msgid "Water depth (m)"
 msgstr "Profondeur d'eau (m)"
 
-#: src/graphics.c:519 src/graphics.c:806 src/graphics.c:840
-#: src/graphics.c:1074 src/graphics.c:1123
+#: src/graphics.c:519 src/graphics.c:806 src/graphics.c:1123
 msgid "Fertilizer concentration (kg/mے)"
 msgstr "Concentration de fertilisant (kg/m³)"
 
@@ -405,8 +404,12 @@ msgstr "Profondeur superficielle (m)"
 msgid "Superficial level (m)"
 msgstr "Niveau superficiel (m)"
 
+#: src/graphics.c:840 src/graphics.c:1074
+msgid "Fertilizer concentration (kg/m³)"
+msgstr "Concentration de fertilisant (kg/m³)"
+
 #: src/graphics.c:841
-msgid "Superficial water area (mے)"
+msgid "Superficial water area (m²)"
 msgstr "Surface d'eau superficielle (m²)"
 
 #: src/graphics.c:842
@@ -422,7 +425,7 @@ msgid "Bottom level (m)"
 msgstr "Niveau du fond (m)"
 
 #: src/graphics.c:850
-msgid "Infiltrated water area (mے)"
+msgid "Infiltrated water area (m²)"
 msgstr "Surface d'eau infiltrée (m²)"
 
 #: src/graphics.c:851
@@ -443,7 +446,7 @@ msgid "Position (m)"
 msgstr "Position (m)"
 
 #: src/graphics.c:1071
-msgid "Water discharge (mے/s)"
+msgid "Water discharge (m³/s)"
 msgstr "Débit d'eau (m³/s)"
 
 #: src/graphics.c:1072

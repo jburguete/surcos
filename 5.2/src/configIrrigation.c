@@ -293,7 +293,7 @@ void config_irrigation_new(ConfigIrrigation *w)
 		"y (m)",
 		gettext("Initial time (s)"),
 		gettext("Final time (s)"),
-		gettext("Discharge (m\302\263/s)")
+		gettext("Discharge (m³/s)")
 	};
 	char *label2[]=
 	{

@@ -48,7 +48,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 void config_furrow_set_sensitive(ConfigFurrow *w, int sensitive)
 {
 	int i;
-	gtk_widget_set_sensitive(GTK_WIDGET(w->label), sensitive);
+	gtk_widget_set_sensitive(GTK_WIDGET(w->button), sensitive);
 	for (i=0; i<10; ++i)
 		gtk_widget_set_sensitive(GTK_WIDGET(w->spin[i]), sensitive);
 }
@@ -102,7 +102,8 @@ void config_furrow_new(ConfigFurrow *w, char *label)
 	double max[10]={100.,100.,10.,100.,10.,1.,1.,1e6,1.,1.};
 	double step[10]={0.01,0.01,0.01,0.01,0.001,0.001,0.001,1e-5,0.01,1e-7};
 
-	w->label = (GtkLabel*)gtk_label_new(label);
+	w->button = (GtkButton*)gtk_button_new_with_label(label);
+	gtk_widget_set_can_focus(GTK_WIDGET(w->button), FALSE);
 	for (i=0; i<10; ++i)
 		w->spin[i] = (GtkSpinButton*)gtk_spin_button_new_with_range
 			(min[i], max[i], step[i]);
@@ -169,7 +170,7 @@ void table_config_furrows_new(TableConfigFurrows *w)
 			"f0: infiltration velocity in saturated soil"));
 	gtk_box_pack_start(GTK_BOX(w->box_image),
 		GTK_WIDGET(w->label_models), FALSE, TRUE, 0);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->box_image), 0, 0, 11, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->box_image), 0, 0, 4, 1);
 	w->label_furrow = (GtkLabel*)gtk_label_new
 		(gettext("Number of irrigation furrows"));
 	w->spin = (GtkSpinButton*)gtk_spin_button_new_with_range(0., 1000., 1.);
@@ -182,40 +183,40 @@ void table_config_furrows_new(TableConfigFurrows *w)
 		FALSE, TRUE, 10);
 	gtk_container_add(GTK_CONTAINER(w->box_furrows),
 		GTK_WIDGET(w->button_recirculation));
-	gtk_grid_attach(w->table, GTK_WIDGET(w->box_furrows), 0, 1, 11, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->box_furrows), 0, 1, 4, 1);
 	w->button_furrow = (GtkButton*)gtk_button_new_with_label(gettext("Furrow"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_furrow), FALSE);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->button_furrow), 0, 2, 1, 2);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_furrow), 2, 2, 3, 1);
 	w->button_geometry = (GtkButton*)gtk_button_new_with_label
 		(gettext("Geometry"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_geometry), FALSE);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->button_geometry), 1, 2, 4, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_geometry), 0, 4, 1, 4);
 	w->button_soil = (GtkButton*)gtk_button_new_with_label(gettext("Soil"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_soil), FALSE);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->button_soil), 5, 2, 1, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_soil), 0, 8, 1, 1);
 	w->button_friction = (GtkButton*)gtk_button_new_with_label
 		(gettext("Friction model"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_friction), FALSE);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->button_friction), 6, 2, 2, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_friction), 0, 9, 1, 2);
 	w->button_infiltration = (GtkButton*)gtk_button_new_with_label
 		(gettext("Infiltration model"));
 	gtk_widget_set_can_focus(GTK_WIDGET(w->button_infiltration), FALSE);
-	gtk_grid_attach(w->table, GTK_WIDGET(w->button_infiltration), 8, 2, 3, 1);
+	gtk_grid_attach(w->table, GTK_WIDGET(w->button_infiltration), 0, 11, 1, 3);
 	for (i = 0; i < 10; ++i)
 	{
 		w->button_coefficient[i] =
 			(GtkButton*)gtk_button_new_with_label(label_coefficient[i]);
 		gtk_widget_set_can_focus(GTK_WIDGET(w->button_coefficient[i]), FALSE);
 		gtk_grid_attach(w->table, GTK_WIDGET(w->button_coefficient[i]),
-			i + 1, 3, 1, 1);
+			1, 4 + i, 1, 1);
 	}
 	for (j = 0; j < 3; ++j)
 	{
-		gtk_grid_attach(w->table, GTK_WIDGET(w->furrow[j].label),
-			0, j + 4, 1, 1);
+		gtk_grid_attach(w->table, GTK_WIDGET(w->furrow[j].button),
+			2 + j, 3, 1, 1);
 		for (i = 0; i < 10; ++i)
 			gtk_grid_attach(w->table, GTK_WIDGET(w->furrow[j].spin[i]),
-				i + 1, j + 4, 1, 1);
+				j + 2, i + 4, 1, 1);
 	}
 	gtk_grid_attach(w->table, gtk_label_new(NULL), 0, 7, 11, 1);
 	g_signal_connect_swapped(w->spin, "changed",
