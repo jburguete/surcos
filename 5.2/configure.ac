@@ -1,5 +1,5 @@
 # To work in:
-#	- Debian 7.4 (Linux, kFreeBSD or Hurd)
+#	- Debian 7.6 (Linux, kFreeBSD or Hurd)
 #	- FreeBSD 10.0
 #	- Microsoft Windows XP 32 bits
 #	- Microsoft Windows 7 32 bits
@@ -64,7 +64,7 @@ elif test `uname -s` = "NetBSD"; then
 	PATH="/usr/pkg/gcc48/bin:$PATH"
 	win=0
 elif test `uname -s` = "OpenBSD"; then
-	AC_MSG_NOTICE([NetBSD])
+	AC_MSG_NOTICE([OpenBSD])
 	LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/X11R6/include"
 	win=0
@@ -95,7 +95,7 @@ fi
 AC_SUBST(srcdir, [src/])
 
 # Checks for programs
-AC_PROG_CC([gcc48 egcc gcc clang])
+AC_PROG_CC([gcc49 gcc48 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG
@@ -131,7 +131,7 @@ AC_SEARCH_LIBS([glEnd], [GL opengl32])
 AC_SEARCH_LIBS([glutInit], [freeglut glut])
 
 # Checks for header files.
-AC_CHECK_HEADERS([fcntl.h locale.h sys/param.h libintl.h GL/freeglut.h])
+AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h GL/freeglut.h])
 
 # Checks for library functions.
 AC_FUNC_MALLOC
@@ -145,6 +145,7 @@ AC_TYPE_SIZE_T
 AC_TYPE_UINT32_T
 
 # Output
+AC_CONFIG_SRCDIR([src/field.c])
 AC_CONFIG_HEADERS([src/config.h])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
