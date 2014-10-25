@@ -1,4 +1,4 @@
-SURCOS (5.2 version)
+SURCOS (5.3 version)
 ====================
 
 A software tool to solve irrigation and fertigation in isolated furrows and
