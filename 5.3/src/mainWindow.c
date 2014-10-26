@@ -1,5 +1,6 @@
 /*
-SURCOS - A program to simulate furrow fertigation.
+SURCOS - A software tool to solve irrigation and fertigation in isolated furrows
+and furrow networks.
 
 Copyright 2011-2014, Javier Burguete Tolosa.
 
@@ -706,11 +707,16 @@ void main_window_about(MainWindow *w)
 	gchar *artists[] = {"Carlos Aliaga Badal (caliaga.87@gmail.com)", NULL};
 	gtk_show_about_dialog(GTK_WINDOW(windowMain),
 		"program_name",
-		"surcos",
+		"SURCOS",
+		"comments",
+		gettext("A software tool to solve irrigation and fertigation in "
+			"isolated furrows and furrow networks"),
 		"authors",
 		authors,
 		"artists",
 		artists,
+		"translator-credits",
+		gettext("translator-credits"),
 		"version",
 		"5.3",
 		"copyright",
@@ -833,7 +839,7 @@ printf("main_window_new: window\n");
 	w->window = (GtkWindow*)windowMain;
 	gtk_container_add(GTK_CONTAINER(w->window), GTK_WIDGET(w->box));
 	gtk_window_set_icon(w->window, w->pixbuf);
-	gtk_window_set_title (w->window, ":: Surcos");
+	gtk_window_set_title (w->window, "SURCOS");
 	gtk_widget_set_size_request(GTK_WIDGET(w->window), 640, 70);
 	gtk_widget_show_all(GTK_WIDGET(w->window));
  

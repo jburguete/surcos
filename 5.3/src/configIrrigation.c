@@ -1,5 +1,6 @@
 /*
-SURCOS - A program to simulate furrow fertigation.
+SURCOS - A software tool to solve irrigation and fertigation in isolated furrows
+and furrow networks.
 
 Copyright 2011-2014, Javier Burguete Tolosa.
 
