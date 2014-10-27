@@ -56,9 +56,11 @@ ___________________
 Debian Hurd 7.6
 _______________
 FreeBSD 10.0
-___________
-NetBSD 6.1.3 (with modular xorg)
 ____________
+NetBSD 6.1.5 (with modular xorg)
+________________________________
+DragonFly BSD 3.8.2
+___________________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.3/src

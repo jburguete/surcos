@@ -3,7 +3,8 @@
 #	- FreeBSD 10.0
 #	- Microsoft Windows XP 32 bits
 #	- Microsoft Windows 7 32 bits
-#	- NetBSD (with modular xorg)
+#	- NetBSD 6.1.5 (with modular xorg)
+#	- DragonFly BSD 3.8.2
 #
 # aclocal
 # autoconf
@@ -19,22 +20,12 @@
 # ./configure --host=x86_64-w64-mingw32
 # make
 
-# To work in OpenBSD:
+# To work in OpenBSD 5.5:
 #
 # export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
 # aclocal
 # autoconf
 # automake --add-missing
-# ./configure
-# make
-# AUTOCONF_VERSION=2.69 aclocal-1.11
-
-# To work in DragonflyBSD:
-# setenv CPPFLAGS '-I/usr/pkg/include -I/usr/pkg/include/gettext'
-# setenv CFLAGS '-I/usr/pkg/include -I/usr/pkg/include/gettext'
-# setenv LDFLAGS '-L/usr/pkg/lib'
-# aclocal
-# autoconf
 # ./configure
 # make
 
@@ -71,6 +62,11 @@ elif test `uname -s` = "OpenBSD"; then
 	AC_MSG_NOTICE([OpenBSD])
 	LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/X11R6/include"
+	win=0
+elif test `uname -s` = "DragonFly"; then
+	AC_MSG_NOTICE([DragonFly BSD])
+	LDFLAGS="$LDFLAGS -L/usr/local/lib"
+	CPPFLAGS="$CPPFLAGS -I/usr/local/include"
 	win=0
 else
 	win=0
@@ -124,13 +120,8 @@ AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SEARCH_LIBS([textdomain], [intl])
+PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([PNG], [libpng])
-AC_MSG_NOTICE([GTK+ version 3])
-PKG_CHECK_MODULES([GTK], [gtk+-3.0], gtk3=1, gtk3=0)
-if test $gtk3 = 0; then
-	AC_MSG_NOTICE([GTK+ version 2])
-	PKG_CHECK_MODULES([GTK], [gtk+-2.0])
-fi
 AC_SEARCH_LIBS([glEnd], [GL opengl32])
 AC_SEARCH_LIBS([glutInit], [freeglut glut])
 
