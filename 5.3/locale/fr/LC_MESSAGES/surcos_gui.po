@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-26 05:18+0100\n"
+"POT-Creation-Date: 2014-10-27 09:08+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -392,8 +392,9 @@ msgstr "On peut pas ouvrir le logo"
 msgid "Water depth (m)"
 msgstr "Profondeur d'eau (m)"
 
-#: src/graphics.c:520 src/graphics.c:802 src/graphics.c:1112
-msgid "Fertilizer concentration (kg/mے)"
+#: src/graphics.c:520 src/graphics.c:802 src/graphics.c:834
+#: src/graphics.c:1066 src/graphics.c:1112
+msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentration de fertilisant (kg/m³)"
 
 #: src/graphics.c:521 src/graphics.c:804
@@ -415,10 +416,6 @@ msgstr "Profondeur superficielle (m)"
 #: src/graphics.c:833
 msgid "Superficial level (m)"
 msgstr "Niveau superficiel (m)"
-
-#: src/graphics.c:834 src/graphics.c:1066
-msgid "Fertilizer concentration (kg/m³)"
-msgstr "Concentration de fertilisant (kg/m³)"
 
 #: src/graphics.c:835
 msgid "Superficial water area (m²)"
@@ -677,3 +674,6 @@ msgstr "Aïde"
 #: src/mainWindow.c:805 src/mainWindow.c:807
 msgid "Exit"
 msgstr "Sortir"
+
+#~ msgid "Fertilizer concentration (kg/mے)"
+#~ msgstr "Concentration de fertilisant (kg/m³)"

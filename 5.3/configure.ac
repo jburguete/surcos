@@ -20,10 +20,14 @@
 # make
 
 # To work in OpenBSD:
-# AUTOCONF_VERSION=2.69 aclocal-1.11
-# autoconf-2.69
-# CPPFLAGS='-I/usr/local/include -I/usr/X11R6/include' LDFLAGS='-L/usr/local/lib -L/usr/X11R6/lib' ./configure
+#
+# export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
+# aclocal
+# autoconf
+# automake --add-missing
+# ./configure
 # make
+# AUTOCONF_VERSION=2.69 aclocal-1.11
 
 # To work in DragonflyBSD:
 # setenv CPPFLAGS '-I/usr/pkg/include -I/usr/pkg/include/gettext'

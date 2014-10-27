@@ -62,7 +62,7 @@ ____________
 
 * download the latest [JB library](https://github.com/jburguete/jb)
 * cd 5.3/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.2 jb)
+* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.3 jb)
 * cd ..
 * aclocal
 * autoconf
