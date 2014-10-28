@@ -65,7 +65,7 @@ CPPFLAGSBIN = @CPPFLAGS@ -DJBW=1
 CFLAGSBIN = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ -Wall -c -O3
 LDFLAGSBIN = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@
 
-CC = @CC@ -std=gnu99 @LTO@ @ccflags@ -g #-pg
+CC = @CC@ @LTO@ @STD@ @ccflags@ -g #-pg
 
 exe = $(bindir)@exegui@
 exebin = $(bindir)surcos

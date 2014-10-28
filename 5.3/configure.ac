@@ -115,6 +115,28 @@ else
 	AC_SUBST(LTO, "-flto")
 fi
 
+compiler=$CC
+CC="$CC -std=gnu11"
+AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [std=1], [std=0])
+CC=$compiler
+if test $std = 0; then
+	AC_MSG_NOTICE("checking for -std=gnu11... no")
+	CC="$CC -std=gnu99"
+	AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [std=1],
+		[std=0])
+	CC=$compiler
+	if test $std = 0; then
+		AC_MSG_NOTICE("checking for -std=gnu99... no")
+		AC_SUBST(STD, "")
+	else
+		AC_MSG_NOTICE("checking for -std=gnu99... yes")
+		AC_SUBST(STD, "-std=gnu99")
+	fi
+else
+	AC_MSG_NOTICE("checking for -std=gnu11... yes")
+	AC_SUBST(STD, "-std=gnu11")
+fi
+
 # Checks for libraries.
 AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])

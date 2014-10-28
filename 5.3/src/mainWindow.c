@@ -818,12 +818,6 @@ printf("main_window_new: buttons\n");
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_help), -1);
 	gtk_toolbar_insert(w->toolbar, GTK_TOOL_ITEM(w->button_exit), -1);
 
-	w->label = (GtkLabel*)gtk_label_new("");
-
-	w->box = (GtkGrid*)gtk_grid_new();
-	gtk_grid_attach(w->box, GTK_WIDGET(w->toolbar), 0, 0, 1, 1);
-	gtk_grid_attach(w->box, GTK_WIDGET(w->label), 0, 1, 1, 1);
-
 #if DEBUG_MAIN_WINDOW_NEW
 printf("main_window_new: logo2\n");
 #endif
@@ -837,7 +831,7 @@ printf("main_window_new: window\n");
 
 	windowMain = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	w->window = (GtkWindow*)windowMain;
-	gtk_container_add(GTK_CONTAINER(w->window), GTK_WIDGET(w->box));
+	gtk_container_add(GTK_CONTAINER(w->window), GTK_WIDGET(w->toolbar));
 	gtk_window_set_icon(w->window, w->pixbuf);
 	gtk_window_set_title (w->window, "SURCOS");
 	gtk_widget_set_size_request(GTK_WIDGET(w->window), 640, 70);

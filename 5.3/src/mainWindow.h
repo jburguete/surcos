@@ -96,10 +96,6 @@ struct _MainWindow
  * \brief GtkToolButton to display the program help.
  * \var toolbar
  * \brief GtkToolBar containing the tool buttons.
- * \var label
- * \brief GtkLabel used to pack the toolbar.
- * \var box
- * \brief GtkGrid used to pack the toolbar
  * \var pixbuf
  * \brief GdkPixbuf of the logo.
  * \var window
@@ -108,8 +104,6 @@ struct _MainWindow
 	GtkToolButton *button_exit, *button_open, *button_config, *button_run,
 		*button_plot, *button_summary, *button_help;
 	GtkToolbar *toolbar;
-	GtkLabel *label;
-	GtkGrid *box;
 	GdkPixbuf *pixbuf;
 	GtkWindow *window;
 };
