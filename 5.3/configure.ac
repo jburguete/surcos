@@ -1,5 +1,5 @@
 # To work in:
-#	- Debian 7.6 (Linux, kFreeBSD or Hurd)
+#	- Debian 7.7 (Linux, kFreeBSD or Hurd)
 #	- FreeBSD 10.0
 #	- Microsoft Windows XP 32 bits
 #	- Microsoft Windows 7 32 bits
