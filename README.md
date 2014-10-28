@@ -49,6 +49,8 @@ FILES
 BUILDING INSTRUCTIONS
 ---------------------
 
+This software has been built and tested in the following operative systems:
+
 Debian Linux 7.7
 ________________
 Debian kFreeBSD 7.7
