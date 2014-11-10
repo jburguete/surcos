@@ -64,74 +64,133 @@ ____________
 NetBSD 6.1.5 (with modular xorg)
 ________________________________
 
-* download the latest [JB library](https://github.com/jburguete/jb)
-* cd 5.3/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.3 jb)
-* cd ..
-* aclocal
-* autoconf
-* automake --add-missing
-* ./configure
-* make
-* strip surcos surcos_gui (optional: to make a final version)
+1. Download the latest [JB library](https://github.com/jburguete/jb)
+
+2. Download this repository
+
+3. Link the JB library on the source directory to jb doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3/src
+>
+> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+
+4. Build SURCOS doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3
+>
+> $ aclocal
+>
+> $ autoconf
+>
+> $ automake --add-missing
+>
+> $ ./configure
+>
+> $ make
+>
+> $ strip surcos surcos_gui (optional: to make a final version)
 
 Microsoft Windows 7 32 bits
 ___________________________
 Microsoft Windows XP 32 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+1. Install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
 utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
-* download the latest [JB library](https://github.com/jburguete/jb)
-* cd 5.3/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.3 jb)
-* cd ..
-* aclocal
-* autoconf
-* automake --add-missing
-* configure
-* make
-* strip win32/bin/*.exe (optional: to make a final version)
+
+2. Download the latest [JB library](https://github.com/jburguete/jb)
+
+3. Download this repository
+
+4. Link the JB library on the source directory to jb doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3/src
+>
+> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+
+5. Build SURCOS doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3
+>
+> $ aclocal
+>
+> $ autoconf
+>
+> $ automake --add-missing
+>
+> $ configure
+>
+> $ make
+>
+> $ strip win32/bin/*.exe (optional: to make a final version)
 
 Microsoft Windows 7 64 bits
 ___________________________
 Microsoft Windows XP 64 bits
 ____________________________
 
-* install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
+1. Install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
 utilities. You can follow detailed instructions in
 [MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
-* download the latest [JB library](https://github.com/jburguete/jb)
-* cd 5.3/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.3 jb)
-* cd ..
-* aclocal
-* autoconf
-* automake --add-missing
-* configure --host=x86_64-w64-mingw32
-* make
-* strip win64/bin/*.exe (optional: to make a final version)
 
-OpenBSD 5.5
+2. Download the latest [JB library](https://github.com/jburguete/jb)
+
+3. Download this repository
+
+4. Link the JB library on the source directory to jb doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3/src
+>
+> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+
+5. Build SURCOS doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3
+>
+> $ aclocal
+>
+> $ autoconf
+>
+> $ automake --add-missing
+>
+> $ configure --host=x86_64-w64-mingw32
+>
+> $ make
+>
+> $ strip win64/bin/*.exe (optional: to make a final version)
+
+OpenBSD 5.6
 ___________
 
-* download the latest [JB library](https://github.com/jburguete/jb)
-* cd 5.3/src
-* link the latest JB library to jb (i.e. ln -s PATH_TO_THE_JB_LIBRARY/1.8.3 jb)
-* cd ..
-* export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
-* aclocal
-* autoconf
-* automake --add-missing
-* ./configure
-* make
-* strip surcos surcos_gui (optional: to make a final version)
+1. Download the latest [JB library](https://github.com/jburguete/jb)
 
-MAKING REFERENCE MANUAL INSTRUCTIONS
-------------------------------------
+2. Download this repository
 
-* cd 5.3
-* doxygen
-* cd doc/latex
-* make
+3. Link the JB library on the source directory to jb doing on a terminal:
+> $ cd PATH_TO_SURCOS/5.3/src
+>
+> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+
+4. Build SURCOS doing on a terminal:
+> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
+>
+> $ cd PATH_TO_SURCOS/5.3
+>
+> $ aclocal
+>
+> $ autoconf
+>
+> $ automake --add-missing
+>
+> $ ./configure
+>
+> $ make
+>
+> $ strip surcos surcos_gui (optional: to make a final version)
+
+MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
+----------------------------------------------------------------
+
+Execute on a terminal:
+> $ cd PATH_TO_SURCOS/5.3
+>
+> $ doxygen
+>
+> $ cd doc/latex
+>
+> $ make
