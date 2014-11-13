@@ -517,7 +517,7 @@ void graphic_map_draw()
 	char *label[]=
 	{
 		gettext("Water depth (m)"),
-		gettext("Fertilizer concentration (kg/m\302\263)"),
+		gettext("Fertilizer concentration (kg/m³)"),
 		gettext("Infiltrated water mass per unit length (kg/m)"),
 		gettext("Infiltrated fertilizer mass per unit length (kg/m)")
 	};
@@ -799,7 +799,7 @@ void graphic_map_new(GraphicMap *g, JBWGraphic *graphic)
 	g->combo = (GtkComboBoxText*)gtk_combo_box_text_new();
 	gtk_combo_box_text_append_text(g->combo, gettext("Water depth (m)"));
 	gtk_combo_box_text_append_text(g->combo,
-		gettext("Fertilizer concentration (kg/m\302\263)"));
+		gettext("Fertilizer concentration (kg/m³)"));
 	gtk_combo_box_text_append_text(g->combo,
 		gettext("Infiltrated water mass per unit length (kg/m)"));
 	gtk_combo_box_text_append_text(g->combo,
@@ -1109,7 +1109,7 @@ printf("probe=%d\n",probe);
 	jbw_graphic_set_xlabel(window_plot->graphic, gettext("Time (s)"));
 	jbw_graphic_set_ylabel(window_plot->graphic, gettext("Depth (m)"));
 	jbw_graphic_set_zlabel(window_plot->graphic,
-		gettext("Fertilizer concentration (kg/m\302\263)"));
+		gettext("Fertilizer concentration (kg/m³)"));
 	jbw_graphic_set_yylabel(window_plot->graphic, NULL);
 	jbw_graphic_set_zzlabel(window_plot->graphic, NULL);
 	snprintf(buffer, 512, "%s/probes.out", input_dir);
