@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 5.3\n"
+"Project-Id-Version: 5.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-26 04:59+0100\n"
+"POT-Creation-Date: 2014-11-20 23:32+0100\n"
 "PO-Revision-Date: 2011-10-10 17:22+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,29 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/furrow.c:56
-msgid "Unable to open the coefficients file"
-msgstr "No se pudo abrir el fichero de coeficientes"
-
-#: src/furrow.c:62
-msgid "Bad coefficients file"
-msgstr "Fichero de coeficientes incorrecto"
-
-#: src/furrow.c:82 src/furrow.c:87 src/furrow.c:92 src/furrow.c:97
+#: src/furrow.c:52 src/furrow.c:57 src/furrow.c:62 src/furrow.c:67
 msgid "Bad initial conditions"
 msgstr "Condiciones iniciales incorrectas"
 
-#: src/furrow.c:129
+#: src/furrow.c:99
 msgid "Bad furrow data"
 msgstr "Datos de surcos incorrectos"
 
-#: src/furrow.c:136 src/furrow.c:141 src/furrow.c:146 src/furrow.c:151
-#: src/furrow.c:156 src/furrow.c:161 src/furrow.c:166 src/furrow.c:171
-#: src/furrow.c:176 src/furrow.c:181
+#: src/furrow.c:106 src/furrow.c:111 src/furrow.c:116 src/furrow.c:121
+#: src/furrow.c:126 src/furrow.c:131 src/furrow.c:136 src/furrow.c:141
+#: src/furrow.c:146 src/furrow.c:151
 msgid "Bad furrow"
 msgstr "Surco incorrecto"
 
-#: src/field.c:125 src/field.c:536 src/field.c:552
+#: src/field.c:125 src/field.c:511 src/field.c:527
 msgid "Bad input data"
 msgstr "Datos de entrada incorrectos"
 
@@ -60,78 +52,78 @@ msgstr "Tiempo final"
 msgid "Discharge"
 msgstr "Caudal"
 
-#: src/field.c:240
+#: src/field.c:238
 msgid "Unable to open the geometry data file"
 msgstr "No se pudo abrir el fichero de datos de geometría"
 
-#: src/field.c:256 src/field.c:262 src/field.c:268 src/field.c:273
-#: src/field.c:278 src/field.c:283 src/field.c:288 src/field.c:293
-#: src/field.c:298 src/field.c:303 src/field.c:308 src/field.c:313
-#: src/field.c:318 src/field.c:323
+#: src/field.c:254 src/field.c:260 src/field.c:266 src/field.c:271
+#: src/field.c:276 src/field.c:281 src/field.c:286 src/field.c:291
+#: src/field.c:296 src/field.c:301 src/field.c:306 src/field.c:311
+#: src/field.c:316 src/field.c:321
 msgid "Bad data"
 msgstr "Datos incorrectos"
 
-#: src/field.c:262
+#: src/field.c:260
 msgid "solubility"
 msgstr "solubilidad"
 
-#: src/field.c:334 src/kernel.c:199 src/kernel.c:273
+#: src/field.c:332 src/kernel.c:199 src/kernel.c:273
 msgid "Distribution furrow"
 msgstr "Surco de distribución"
 
-#: src/field.c:350
+#: src/field.c:348
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Falta memoria para abrir los surcos de riego"
 
-#: src/field.c:357 src/kernel.c:189 src/kernel.c:256
+#: src/field.c:355 src/kernel.c:189 src/kernel.c:256
 msgid "Irrigation furrows"
 msgstr "Surcos de riego"
 
-#: src/field.c:373 src/kernel.c:212 src/kernel.c:293
+#: src/field.c:371 src/kernel.c:212 src/kernel.c:293
 msgid "Recirculation furrow"
 msgstr "Surco de recirculación"
 
-#: src/field.c:472
+#: src/field.c:470
 msgid "Bad data set"
 msgstr "Datos de campo incorrectos"
 
-#: src/field.c:527
+#: src/field.c:502
 msgid "Unable to open the input file"
 msgstr "No se pudo abrir el fichero de entradas"
 
-#: src/field.c:544
+#: src/field.c:519
 msgid "Not enough memory to open the input data"
 msgstr "Falta memoria para abrir el fichero de entradas"
 
-#: src/field.c:592
+#: src/field.c:567
 msgid "Unable to open the mesh data file"
 msgstr "No se pudo abrir el fichero de datos de la malla"
 
-#: src/field.c:603
+#: src/field.c:578
 msgid "Bad mesh data"
 msgstr "Datos de la malla incorrectos"
 
-#: src/field.c:627
+#: src/field.c:602
 msgid "Unable to open the times data file"
 msgstr "No se pudo abrir el fichero de datos temporales"
 
-#: src/field.c:633
+#: src/field.c:608
 msgid "Bad times data"
 msgstr "Datos temporales incorrectos"
 
-#: src/field.c:657
+#: src/field.c:632
 msgid "Unable to open the model data file"
 msgstr "No se pudo abrir el fichero de modelos"
 
-#: src/field.c:664
+#: src/field.c:639
 msgid "Bad model data"
 msgstr "Datos de modelos incorrectos"
 
-#: src/field.c:689
+#: src/field.c:664
 msgid "Unable to open the probes data file"
 msgstr "No se pudo abrir el fichero de sondas"
 
-#: src/field.c:696 src/field.c:710
+#: src/field.c:671 src/field.c:685
 msgid "Bad probes data"
 msgstr "Datos de sondas incorrectos"
 
@@ -215,14 +207,19 @@ msgstr "Calculando la solución numérica ..."
 msgid "_Stop"
 msgstr "_Parar"
 
-#: src/surcos.c:133
-msgid "Not enough memory to calibrate the coefficients"
-msgstr "Falta memoria para calibrar los coeficientess"
-
-#: src/surcos.c:144
+#: src/surcos.c:122
 msgid "Usage is"
 msgstr "La sintaxis es"
 
-#: src/surcos.c:145
-msgid "surcos input_directory [-calibrate]"
-msgstr "surcos directorio_de_entrada [-calibrate]"
+#: src/surcos.c:123
+msgid "surcos input_directory"
+msgstr "surcos directorio_de_entrada"
+
+#~ msgid "Unable to open the coefficients file"
+#~ msgstr "No se pudo abrir el fichero de coeficientes"
+
+#~ msgid "Bad coefficients file"
+#~ msgstr "Fichero de coeficientes incorrecto"
+
+#~ msgid "Not enough memory to calibrate the coefficients"
+#~ msgstr "Falta memoria para calibrar los coeficientess"

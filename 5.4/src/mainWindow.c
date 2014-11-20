@@ -651,7 +651,7 @@ void main_window_open(MainWindow *w)
 		input_dir = (char*)gtk_file_chooser_get_filename
 			(GTK_FILE_CHOOSER(dlg));
 	gtk_widget_destroy(GTK_WIDGET(dlg));
-	if (input_dir && !kernel_open(input_dir, 1, NULL))
+	if (input_dir && !kernel_open(input_dir, 1))
 	{
 		g_free(input_dir);
 		input_dir = NULL;
@@ -686,7 +686,7 @@ void main_window_run(MainWindow *w)
 		snprintf(buffer, 512, "rm %s/*.out", input_dir);
 	#endif
 	system(buffer);
-	plot_show = kernel(input_dir, 1, NULL);
+	plot_show = kernel(input_dir, 1);
 	main_window_update(w);
 }
 
@@ -718,7 +718,7 @@ void main_window_about(MainWindow *w)
 		"translator-credits",
 		gettext("translator-credits"),
 		"version",
-		"5.3",
+		"5.4",
 		"copyright",
 		"Copyright 2011-2014 Javier Burguete Tolosa",
 		"logo",

@@ -37,36 +37,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "furrow.h"
 
 /**
- * \fn int calibrate_coefficients_read(CalibrateCoefficients *c, char *dir)
- * \brief Function to read the coefficients to calibrate.
- * \param c
- * \brief CalibrateCoefficients structure.
- * \param dir
- * \brief Directory name of the input file.
- * \return 0 on error, 1 on success.
- */
-int calibrate_coefficients_read(CalibrateCoefficients *c, char *dir)
-{
-	char buffer[512];
-	FILE *file;
-	snprintf(buffer, 512, "%s/coefficients.in", dir);
-	file = g_fopen(buffer, "r");
-	if (!file)
-	{
-		message = g_strdup(gettext("Unable to open the coefficients file"));
-		return 0;
-	}
-	if (fscanf(file, "%u"FRL FRL FRL FRL FRL FRL,
-		&c->input, &c->epsilon, &c->n, &c->i1, &c->i2, &c->i3, &c->d) != 7)
-	{
-		message = g_strdup(gettext("Bad coefficients file"));
-		return 0;
-	}
-	fclose(file);
-	return 1;
-}
-
-/**
  * \fn int initial_conditions_read(InitialConditions *ci, FILE *file)
  * \brief Function to read the initial conditions in a file.
  * \param ci
@@ -182,26 +152,6 @@ int furrow_read(Furrow *s, FILE *file)
 		return 0;
 	}
 	return 1;
-}
-
-/**
- * \fn void furrow_set(Furrow *s, CalibrateCoefficients *calibrate)
- * \brief Function to set the empirical coefficients of a furrow.
- * \param s
- * \brief Furrow structure.
- * \param calibrate
- * \brief CalibrateCoefficients structure.
- */
-void furrow_set(Furrow *s, CalibrateCoefficients *calibrate)
-{
-	if (calibrate->epsilon > 0.) s->friction = TYPE_FRICTION_POTENTIAL;
-	else s->friction = TYPE_FRICTION_MANNING;
-	s->epsilon = calibrate->epsilon;
-	s->n = calibrate->n;
-	s->i1 = calibrate->i1;
-	s->i2 = calibrate->i2;
-	s->i3 = calibrate->i3;
-	s->d = calibrate->d;
 }
 
 /**

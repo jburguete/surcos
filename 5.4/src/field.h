@@ -177,7 +177,7 @@ JBDOUBLE field_uniformity_fertilizer();
 JBDOUBLE field_efficiency_water();
 JBDOUBLE field_efficiency_fertilizer();
 void field_destroy();
-int field_open(char *dir, CalibrateCoefficients *calibrate);
+int field_open(char *dir);
 
 void travel_furrows(void (*function)(Parameters*, unsigned int));
 void travel_mesh(void (*function)(Parameters*));

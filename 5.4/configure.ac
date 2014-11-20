@@ -30,7 +30,7 @@
 # make
 
 AC_PREREQ([2.67])
-AC_INIT(surcos, [5.3])
+AC_INIT(surcos, [5.4])
 
 # Checks for operative systems
 AC_CANONICAL_SYSTEM

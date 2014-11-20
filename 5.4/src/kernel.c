@@ -383,17 +383,15 @@ void window_run_new()
 #endif
 
 /**
- * \fn int kernel_open(char *dir, int gui, CalibrateCoefficients *calibrate)
+ * \fn int kernel_open(char *dir, int gui)
  * \brief Function to open a simulation.
  * \param dir
  * \brief Directory where the input data files are located.
  * \param gui
  * \brief 1 on graphical GUI, 0 on else.
- * \param calibrate
- * \brief Calibrate coefficientes structure.
  * \return 0 on error, 1 on success.
  */
-int kernel_open(char *dir, int gui, CalibrateCoefficients *calibrate)
+int kernel_open(char *dir, int gui)
 {
 #if DEBUG_KERNEL_OPEN
 printf("kernel_open: start\n");
@@ -404,7 +402,7 @@ printf("kernel_open: start\n");
 #if DEBUG_KERNEL_OPEN
 printf("Reading field\n");
 #endif
-	if (!field_open(dir, calibrate)) goto exit_error;
+	if (!field_open(dir)) goto exit_error;
 
 #if PARALLELIZING
 	parallel_open();
@@ -495,17 +493,15 @@ printf("kernel_step: end\n");
 }
 
 /**
- * \fn int kernel(char *dir, int gui, CalibrateCoefficients *calibrate)
+ * \fn int kernel(char *dir, int gui)
  * \brief Function to perform a simulation.
  * \param dir
  * \brief Directory where the input data files are located.
  * \param gui
  * \brief 1 on graphical GUI, 0 on else.
- * \param calibrate
- * \brief Calibrate coefficientes structure.
  * \return 0 on error, 1 on success.
  */
-int kernel(char *dir, int gui, CalibrateCoefficients *calibrate)
+int kernel(char *dir, int gui)
 {
 	int i, j, n;
 	char buffer[512];
@@ -519,7 +515,7 @@ printf("Opening kernel\n");
 #endif
 	field_destroy(field);
 	field->cpu = clock();
-	if (!kernel_open(dir, gui, calibrate)) return 0;
+	if (!kernel_open(dir, gui)) return 0;
 
 	simulating = 1;
 #if JBW != JBW_NO

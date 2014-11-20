@@ -66,7 +66,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 int main(int argn, char *argc[])
 {
 	char *buffer, *buffer2;
-	CalibrateCoefficients *calibrate = NULL;
 
 #if DEBUG_MAIN
 printf("main: start\n");
@@ -118,32 +117,11 @@ printf("codeset = %s\n", buffer2);
 printf("textdomain = %s\n", buffer2);
 #endif
 
-	switch (argn)
+	if (argn != 2)
 	{
-		case 2:
-			break;
-		case 3:
-			if (!strcmp(argc[2], "-calibrate"))
-			{
-				calibrate = (CalibrateCoefficients*)
-					malloc(sizeof(CalibrateCoefficients));
-				if (!calibrate)
-				{
-					printf("%s\n", gettext
-						("Not enough memory to calibrate the coefficients"));
-					return 2;
-				}
-				if (!calibrate_coefficients_read(calibrate, argc[1]))
-				{
-					printf("%s\n", message);
-					return 3;
-				}
-				break;
-			}
-		default:
-			printf("%s:\n%s\n", gettext("Usage is"),
-				gettext("surcos input_directory [-calibrate]"));
-			return 4;
+		printf("%s:\n%s\n", gettext("Usage is"),
+			gettext("surcos input_directory"));
+		return 4;
 	}
-	return kernel(argc[1], 0, calibrate);
+	return kernel(argc[1], 0);
 }

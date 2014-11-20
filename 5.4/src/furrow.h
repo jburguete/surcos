@@ -53,34 +53,6 @@ enum TypeFriction
 };
 
 /**
- * \struct _CalibrateCoefficients
- * \brief Struct to define the empirical coefficients to calibrate.
- */
-struct _CalibrateCoefficients
-{
-/**
- * \var epsilon
- * \brief If 0 Gauckler-Manning's friction model,
- *   if >0 aerodynamical coefficient of Burguete's friction model.
- * \var n
- * \brief Gauckler-Manning's number (if #epsilon = 0),
- *   Burguete's characteristic roughness length (if #epsilon > 0).
- * \var i1
- * \brief Constant of the Kostiakov's infiltration model.
- * \var i2
- * \brief Exponent of the Kostiakov's infiltration model.
- * \var i3
- * \brief Infiltration velocity in saturated soil.
- * \var d
- * \brief Diffusion coefficient.
- * \var input
- * \brief Number of the calibration test.
- */
-	JBDOUBLE epsilon, n, i1, i2, i3, d;	
-	unsigned int input;
-};
-
-/**
  * \struct _InitialConditions
  * \brief Struct to define the furrow initial conditions.
  */
@@ -189,14 +161,11 @@ extern char *message;
  */
 #define furrow_copy(s, sc) (memcpy(s, sc, sizeof(Furrow)))
 
-int calibrate_coefficients_read(CalibrateCoefficients *c, char *dir);
-
 int initial_conditions_read(InitialConditions *ci, FILE *file);
 void initial_conditions_dry(InitialConditions *ci);
 
 void furrow_show(Furrow *s, FILE *file);
 int furrow_read(Furrow *s, FILE *file);
-void furrow_set(Furrow *s, CalibrateCoefficients *calibrate);
 void furrow_position(Furrow *s, JBDOUBLE x0, JBDOUBLE y0, JBDOUBLE z0,
 	JBDOUBLE xf, JBDOUBLE yf, JBDOUBLE zf);
 void furrow_open(Furrow *s);

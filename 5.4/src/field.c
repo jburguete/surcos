@@ -213,15 +213,13 @@ int field_isnan(Field *T)
 #endif
 
 /**
- * \fn int field_read_data(char *directory, CalibrateCoefficients *calibrate)
+ * \fn int field_read_data(char *directory)
  * \brief Function to read a furrows network.
  * \param directory
  * \brief Directory locating the input files.
- * \param calibrate
- * \brief Calibration coefficients structure.
  * \return 0 on error, 1 on success.
  */
-int field_read_data(char *directory, CalibrateCoefficients *calibrate)
+int field_read_data(char *directory)
 {
 	int i, j=0;
 	char buffer[512], *buffer2;
@@ -476,24 +474,6 @@ exit0:
 printf("message=%s\n", message);
 #endif
 	}
-	if (calibrate)
-	{
-#if DEBUG_FIELD_READ_DATA
-printf("calibrate coefficients\n");
-#endif
-		furrow_set(field->sb, calibrate);
-		initial_conditions_dry(field->cib);
-		if (field->nfurrows <= 0) return 1;
-		furrow_set(field->si, calibrate);
-		initial_conditions_dry(field->cii);
-		for (i = 0; ++i < field->nfurrows;)
-			furrow_copy(field->si + i, field->si);
-		if (field->open)
-		{
-			furrow_set(field->sc, calibrate);
-			initial_conditions_dry(field->cic);
-		}
-	}
 #if DEBUG_FIELD_READ_DATA
 printf("field_read_data: end\n");
 #endif
@@ -501,15 +481,13 @@ printf("field_read_data: end\n");
 }
 
 /**
- * \fn int field_read_input(char *directory, CalibrateCoefficients *calibrate)
+ * \fn int field_read_input(char *directory)
  * \brief Function to read the water and fertilizer inputs.
  * \param directory
  * \brief Directory locating the input files.
- * \param calibrate
- * \brief Calibration coefficients structure.
  * \return 0 on error, 1 on success.
  */
-int field_read_input(char *directory, CalibrateCoefficients *calibrate)
+int field_read_input(char *directory)
 {
 	int i, n;
 	char buffer[512];
@@ -517,10 +495,7 @@ int field_read_input(char *directory, CalibrateCoefficients *calibrate)
 #if DEBUG_FIELD_READ_INPUT
 printf("field_read_input: start\n");
 #endif
-	if (calibrate)
-		snprintf(buffer, 512, "%s/%dinput.in", directory, calibrate->input);
-	else
-		snprintf(buffer, 512, "%s/input.in", directory);
+	snprintf(buffer, 512, "%s/input.in", directory);
 	file=g_fopen(buffer, "r");
 	if (!file)
 	{
@@ -1326,15 +1301,13 @@ printf("field_destroy: end\n");
 }
 
 /**
- * \fn int field_open(char *dir, CalibrateCoefficients *calibrate)
+ * \fn int field_open(char *dir)
  * \brief Function to open a furrows network.
  * \param dir
  * \brief Directory locating the input files.
- * \param calibrate
- * \brief Calibration coefficients structure.
  * \return 0 on error, 1 on success.
  */
-int field_open(char *dir, CalibrateCoefficients *calibrate)
+int field_open(char *dir)
 {
 #if DEBUG_FIELD_OPEN
 printf("field_open: start\n");
@@ -1345,7 +1318,7 @@ printf("field_open: start\n");
 #if DEBUG_FIELD_OPEN
 printf("Reading set\n");
 #endif
-	if (!field_read_data(dir, calibrate)) goto exit_error;
+	if (!field_read_data(dir)) goto exit_error;
 #if DEBUG_FIELD_OPEN
 printf("Reading time\n");
 #endif
@@ -1365,7 +1338,7 @@ printf("Creating mesh\n");
 #if DEBUG_FIELD_OPEN
 printf("Reading input\n");
 #endif
-	if (!field_read_input(dir, calibrate)) goto exit_error;
+	if (!field_read_input(dir)) goto exit_error;
 #if DEBUG_FIELD_OPEN
 printf("Reading probe\n");
 #endif
