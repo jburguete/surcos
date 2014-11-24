@@ -65,6 +65,6 @@ typedef struct _WindowRun WindowRun;
 #endif
 
 int kernel_open(char *dir, int gui);
-int kernel(char *dir, int gui);
+int kernel(char *dir, int gui, int msg);
 
 #endif

@@ -493,15 +493,17 @@ printf("kernel_step: end\n");
 }
 
 /**
- * \fn int kernel(char *dir, int gui)
+ * \fn int kernel(char *dir, int gui, int msg)
  * \brief Function to perform a simulation.
  * \param dir
  * \brief Directory where the input data files are located.
  * \param gui
  * \brief 1 on graphical GUI, 0 on else.
+ * \param msg
+ * \brief 1 on periodic messages, 0 on else.
  * \return 0 on error, 1 on success.
  */
-int kernel(char *dir, int gui)
+int kernel(char *dir, int gui, int msg)
 {
 	int i, j, n;
 	char buffer[512];
@@ -546,7 +548,7 @@ printf("Saving parameters\n");
 #endif
 		field_save_parameters(++i, dir);
 #ifndef G_OS_WIN32
-		fprintf(stdout,"t="FWL" m="FWL" mc="FWL"\n",
+		if (msg) fprintf(stdout,"t="FWL" m="FWL" mc="FWL"\n",
 			t,
 			volume_water_total(field->p, field->n),
 			mass_fertilizer_total(field->p,field->n));

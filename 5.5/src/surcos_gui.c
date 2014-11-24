@@ -38,7 +38,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include "jb/jb_win.h"
-#include "field.h"
+#include "kernel.h"
 #include "mainWindow.h"
 
 /**
@@ -164,6 +164,14 @@ printf("main window\n");
 #endif
 	window = main_window_new();
 #endif
+
+	// Opening a case if specified
+	if (argn >= 2)
+	{
+		input_dir = argc[argn - 1];
+		kernel_open(input_dir,  1);
+		main_window_update(window);
+	}
 
 	// Starting the main bucle
 	gtk_main();

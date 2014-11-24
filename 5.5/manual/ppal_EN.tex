@@ -10,7 +10,7 @@
 
 \usepackage[usenames,dvipsnames]{pstricks}
 \usepackage{auto-pst-pdf}
-\usepackage[spanish,english]{babel}  % texto autogenerado en español o inglés
+\usepackage[british]{babel}  % texto autogenerado en español o inglés
 \usepackage[utf8]{inputenc} % Para linux, utf8
 
 \setlength{\parskip}{0.3cm}
@@ -20,33 +20,36 @@
 
 \bibliographystyle{plain}
 \nocite{*}
-\selectlanguage{spanish}
 
-\renewcommand{\tablename}{Tabla}
-\renewcommand{\listtablename}{Índice de tablas}
-\renewcommand{\bibname}{Bibliografía}
+%\renewcommand{\tablename}{Tabla}
+%\renewcommand{\listtablename}{Índice de tablas}
+
+%\selectlanguage{spanish}
+
+%\renewcommand{\listtablename}{Índice de tablas}
+%\renewcommand{\bibname}{Bibliografía}
 
 \pagestyle{empty}
 
 \begin{titlepage} 
 \begin{center} 
  
-\includegraphics*[height=3.5cm]{images/logo_surcos.png} 
+\includegraphics*[height=3.5cm]{images/logo_surcos.png}\\ 
 
 \vspace*{3.5cm} 
-{\Huge \textbf{SURCOS: manual de usuario\\}}
+{\Huge \textbf{SURCOS: user manual\\}}
 \vspace*{1cm} 
-{\normalsize Versión 5.4}\\
+{\normalsize Version 5.5}\\
 \vspace*{1cm} 
-{\Large Javier Burguete$^1$, Asier Lacasta$^2$ y Pilar García-Navarro$^2$}\\ 
+{\Large Javier Burguete$^1$, Asier Lacasta$^2$ and Pilar García-Navarro$^2$}\\ 
 \vspace*{2.5cm} 
-{\normalsize (1) Departamento de Suelo y Agua}\\
+{\normalsize (1) Departament of Soil and Water}\\
 {Estación Experimental de Aula Dei / CSIC}\\ 
-{Avda. Montañana 1005, 50059 Zaragoza, España}\\ 
+{Avda. Montañana 1005, 50059 Zaragoza, Spain}\\ 
 \vspace*{1cm} 
-{\normalsize (2) Área de Mecánica de Fluidos}\\ 
-{Centro Politécnico Superior, Universidad de Zaragoza}\\
-{María de Luna 3, 50018 Zaragoza, España}\\
+{\normalsize (2) Fluid Mechanics}\\ 
+{CPS, University of Zaragoza}\\ 
+{María de Luna 3, 50018 Zaragoza, Spain}\\
 \vspace*{1cm} 
 {\normalsize \today}\\ 
 \end{center} 
@@ -64,14 +67,14 @@
 \pagestyle{headings}
 \pagenumbering{arabic} % las primeras paginas las numeramos con numeros romanos
 
-\include{capitulos/Capitulo1}
+\include{capitulos/Chapter1}
 \cleardoublepage
 
-\include{capitulos/Capitulo2}
+\include{capitulos/Chapter2}
 \cleardoublepage
 
-\include{capitulos/Capitulo3}
-\cleardoublepage
+\include{capitulos/Chapter3}
+%\cleardoublepage
 
 %\bibliography{bib/references}
 %\cleardoublepage

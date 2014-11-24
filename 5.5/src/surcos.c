@@ -117,11 +117,20 @@ printf("codeset = %s\n", buffer2);
 printf("textdomain = %s\n", buffer2);
 #endif
 
-	if (argn != 2)
+	switch (argn)
 	{
-		printf("%s:\n%s\n", gettext("Usage is"),
-			gettext("surcos input_directory"));
-		return 4;
+		case 2:
+			kernel(argc[1], 0, 0);
+			break;
+		case 3:
+			if (!strcmp(argc[2], "-v"))
+			{
+				kernel(argc[1], 0, 1);
+				break;
+			}
+		default:
+			printf("%s:\n%s\n", gettext("Usage is"),
+				gettext("surcos [-v] input_directory"));
+			return 4;
 	}
-	return kernel(argc[1], 0);
 }

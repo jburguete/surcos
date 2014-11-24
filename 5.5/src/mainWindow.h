@@ -113,6 +113,9 @@ struct _MainWindow
  */
 typedef struct _MainWindow MainWindow;
 
+extern char *input_dir;
+
+void main_window_update(MainWindow *w);
 MainWindow* main_window_new();
 
 #endif

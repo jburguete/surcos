@@ -686,7 +686,7 @@ void main_window_run(MainWindow *w)
 		snprintf(buffer, 512, "rm %s/*.out", input_dir);
 	#endif
 	system(buffer);
-	plot_show = kernel(input_dir, 1);
+	plot_show = kernel(input_dir, 1, 0);
 	main_window_update(w);
 }
 
@@ -718,7 +718,7 @@ void main_window_about(MainWindow *w)
 		"translator-credits",
 		gettext("translator-credits"),
 		"version",
-		"5.4",
+		"5.5",
 		"copyright",
 		"Copyright 2011-2014 Javier Burguete Tolosa",
 		"logo",

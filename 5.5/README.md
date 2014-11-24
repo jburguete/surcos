@@ -1,4 +1,4 @@
-SURCOS (5.4 version)
+SURCOS (5.5 version)
 ====================
 
 A software tool to solve irrigation and fertigation in isolated furrows and
@@ -69,12 +69,12 @@ ________________________________
 2. Download this repository
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4/src
+> $ cd PATH_TO_SURCOS/5.5/src
 >
 > $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
 
 4. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4
+> $ cd PATH_TO_SURCOS/5.5
 >
 > $ aclocal
 >
@@ -102,12 +102,12 @@ utilities. You can follow detailed instructions in
 3. Download this repository
 
 4. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4/src
+> $ cd PATH_TO_SURCOS/5.5/src
 >
 > $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
 
 5. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4
+> $ cd PATH_TO_SURCOS/5.5
 >
 > $ aclocal
 >
@@ -135,12 +135,12 @@ utilities. You can follow detailed instructions in
 3. Download this repository
 
 4. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4/src
+> $ cd PATH_TO_SURCOS/5.5/src
 >
 > $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
 
 5. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4
+> $ cd PATH_TO_SURCOS/5.5
 >
 > $ aclocal
 >
@@ -162,14 +162,14 @@ ___________
 2. Download this repository
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.4/src
+> $ cd PATH_TO_SURCOS/5.5/src
 >
 > $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
 
 4. Build SURCOS doing on a terminal:
 > $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
 >
-> $ cd PATH_TO_SURCOS/5.4
+> $ cd PATH_TO_SURCOS/5.5
 >
 > $ aclocal
 >
@@ -187,7 +187,7 @@ MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd PATH_TO_SURCOS/5.4
+> $ cd PATH_TO_SURCOS/5.5
 >
 > $ doxygen
 >
