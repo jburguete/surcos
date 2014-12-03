@@ -858,8 +858,8 @@ printf("main_window_new: intro window\n");
 	window = (GtkWindow*)gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_container_add(GTK_CONTAINER(window),
 		gtk_image_new_from_file("fondo6.png"));
-#ifndef G_OS_WIN32
-	gtk_widget_set_opacity(GTK_WIDGET(window), 0.9);
+#if GTK_MAJOR_VERSION >= 3 && GTK_MINOR_VERSION >=8
+	gtk_widget_set_opacity(GTK_WIDGET(window), 0.5);
 #endif
 	gtk_window_set_decorated(window, FALSE);
    	gtk_widget_show_all(GTK_WIDGET(window));
