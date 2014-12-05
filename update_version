@@ -1,0 +1,4 @@
+#!/bin/bash
+sed -i "s/"$1"\."$2"/"$3"\."$4"/g" $1.$2/{configure.ac,Doxyfile,README.md,src/mainWindow.c,manual/*.tex,locale/*/*/*.po}
+cp $1.$2/README.md .
+git mv $1.$2 $3.$4
