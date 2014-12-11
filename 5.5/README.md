@@ -57,7 +57,7 @@ Debian kFreeBSD 7.7
 ___________________
 Debian Hurd 7.7
 _______________
-DragonFly BSD 3.8.2
+DragonFly BSD 4.0.1
 ___________________
 FreeBSD 10.0
 ____________
