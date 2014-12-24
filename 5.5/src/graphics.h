@@ -77,29 +77,6 @@ struct _FurrowOutput
 typedef struct _FurrowOutput FurrowOutput;
 
 /**
- * \struct _Logo
- * \brief Structure of the program logo.
- */
-struct _Logo
-{
-/**
- * \var width
- * \brief Logo width.
- * \var height
- * \brief Logo height.
- * \var image
- * \brief Array of pixels.
- */
-	int width, height;
-	GLubyte *image;
-};
-
-/**
- * \typedef Logo
- */
-typedef struct _Logo Logo;
-
-/**
  * \struct _GraphicMap
  * \brief Structure to draw a furrow map.
  */

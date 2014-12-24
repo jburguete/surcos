@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 23:32+0100\n"
+"POT-Creation-Date: 2014-12-24 14:59+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -68,8 +68,8 @@ msgstr "Datos incorrectos"
 msgid "solubility"
 msgstr "solubilidad"
 
-#: src/field.c:332 src/kernel.c:199 src/kernel.c:273 src/graphics.c:874
-#: src/graphics.c:1047 src/mainWindow.c:323 src/mainWindow.c:459
+#: src/field.c:332 src/kernel.c:199 src/kernel.c:273 src/graphics.c:796
+#: src/graphics.c:969 src/mainWindow.c:323 src/mainWindow.c:459
 #: src/mainWindow.c:538
 #, c-format
 msgid "Distribution furrow"
@@ -84,8 +84,8 @@ msgstr "Falta memoria para abrir los surcos de riego"
 msgid "Irrigation furrows"
 msgstr "Surcos de riego"
 
-#: src/field.c:371 src/kernel.c:212 src/kernel.c:293 src/graphics.c:878
-#: src/graphics.c:1049 src/mainWindow.c:317 src/mainWindow.c:329
+#: src/field.c:371 src/kernel.c:212 src/kernel.c:293 src/graphics.c:800
+#: src/graphics.c:971 src/mainWindow.c:317 src/mainWindow.c:329
 #: src/mainWindow.c:473 src/mainWindow.c:559
 #, c-format
 msgid "Recirculation furrow"
@@ -240,7 +240,7 @@ msgstr "Tiempo inicial (s)"
 msgid "Final time (s)"
 msgstr "Tiempo final (s)"
 
-#: src/configIrrigation.c:297 src/graphics.c:832
+#: src/configIrrigation.c:297 src/graphics.c:754
 msgid "Discharge (m³/s)"
 msgstr "Caudal (m³/s)"
 
@@ -336,7 +336,7 @@ msgstr "Número de celdas del canal de distribución (entre surcos)"
 msgid "Cells number for irrigation channels"
 msgstr "Número de celdas de los surcos de riego"
 
-#: src/configProbes.c:236 src/graphics.c:1107 src/mainWindow.c:232
+#: src/configProbes.c:236 src/graphics.c:1029 src/mainWindow.c:232
 msgid "Probe"
 msgstr "Sonda"
 
@@ -376,126 +376,122 @@ msgstr "_Cancelar"
 msgid "_OK"
 msgstr "_Aceptar"
 
-#: src/graphics.c:358 src/graphics.c:364
-msgid "Reading logo"
-msgstr "Leyendo logo"
-
-#: src/graphics.c:519 src/graphics.c:800 src/graphics.c:1061
+#: src/graphics.c:441 src/graphics.c:722 src/graphics.c:983
 msgid "Water depth (m)"
 msgstr "Calado (m)"
 
-#: src/graphics.c:520 src/graphics.c:802 src/graphics.c:834
-#: src/graphics.c:1066 src/graphics.c:1112
+#: src/graphics.c:442 src/graphics.c:724 src/graphics.c:756 src/graphics.c:988
+#: src/graphics.c:1034
 msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentración de fertilizante (kg/m³)"
 
-#: src/graphics.c:521 src/graphics.c:804
+#: src/graphics.c:443 src/graphics.c:726
 msgid "Infiltrated water mass per unit length (kg/m)"
 msgstr "Masa de agua infiltrada por unidad de longitud (kg/m)"
 
-#: src/graphics.c:522 src/graphics.c:806 src/graphics.c:862
+#: src/graphics.c:444 src/graphics.c:728 src/graphics.c:784
 msgid "Infiltrated fertilizer mass per unit length (kg/m)"
 msgstr "Masa de fertilizante infiltrado por unidad de longitud (kg/m)"
 
-#: src/graphics.c:789 src/graphics.c:1035
+#: src/graphics.c:711 src/graphics.c:957
 msgid "Time step"
 msgstr "Paso de tiempo"
 
-#: src/graphics.c:831
+#: src/graphics.c:753
 msgid "Superficial depth (m)"
 msgstr "Calado (m)"
 
-#: src/graphics.c:833
+#: src/graphics.c:755
 msgid "Superficial level (m)"
 msgstr "Cota superficial (m)"
 
-#: src/graphics.c:835
+#: src/graphics.c:757
 msgid "Superficial water area (m²)"
 msgstr "Área de agua superficial (m²)"
 
-#: src/graphics.c:836
+#: src/graphics.c:758
 msgid "Advance time (s)"
 msgstr "Tiempo de avance (s)"
 
-#: src/graphics.c:840
+#: src/graphics.c:762
 msgid "Infiltrated depth (m)"
 msgstr "Profundidad infiltrada (m)"
 
-#: src/graphics.c:842
+#: src/graphics.c:764
 msgid "Bottom level (m)"
 msgstr "Nivel inferior (m)"
 
-#: src/graphics.c:844
+#: src/graphics.c:766
 msgid "Infiltrated water area (m²)"
 msgstr "Área de agua infiltrada (m²)"
 
-#: src/graphics.c:845
+#: src/graphics.c:767
 msgid "Recession time (s)"
 msgstr "Tiempo de receso (s)"
 
-#: src/graphics.c:853
+#: src/graphics.c:775
 msgid "Superficial fertilizer mass per unit length (kg/m)"
 msgstr "Masa de fertilizante superficial por unidad de longitud (kg/m)"
 
-#: src/graphics.c:879 src/graphics.c:881 src/graphics.c:1052
+#: src/graphics.c:801 src/graphics.c:803 src/graphics.c:974
 #, c-format
 msgid "Furrow %d"
 msgstr "Surco %d"
 
-#: src/graphics.c:884
+#: src/graphics.c:806
 msgid "Position (m)"
 msgstr "Posición (m)"
 
-#: src/graphics.c:1063
+#: src/graphics.c:985
 msgid "Water discharge (m³/s)"
 msgstr "Caudal de agua (m³/s)"
 
-#: src/graphics.c:1064
+#: src/graphics.c:986
 msgid "Level (m)"
 msgstr "Nivel (m)"
 
-#: src/graphics.c:1068
+#: src/graphics.c:990
 msgid "Mass per unit length (kg/m)"
 msgstr "Masa por unidad de longitud (kg/m)"
 
-#: src/graphics.c:1070
+#: src/graphics.c:992
 msgid "Advance and recession times (s)"
 msgstr "Tiempos de avance y receso (s)"
 
-#: src/graphics.c:1109
+#: src/graphics.c:1031
 msgid "Time (s)"
 msgstr "Tiempo (s)"
 
-#: src/graphics.c:1110
+#: src/graphics.c:1032
 msgid "Depth (m)"
 msgstr "Calado (m)"
 
-#: src/graphics.c:1194
+#: src/graphics.c:1116
 #, c-format
 msgid "Probe %d"
 msgstr "Sonda %d"
 
-#: src/graphics.c:1319
+#: src/graphics.c:1240
 msgid "Map Furrows Representation"
 msgstr "Representación de mapa de surcos"
 
-#: src/graphics.c:1322
+#: src/graphics.c:1243
 msgid "Furrow Representation"
 msgstr "Representación de surco"
 
-#: src/graphics.c:1332
+#: src/graphics.c:1253
 msgid "Probes Time Evolution"
 msgstr "Evolución temporal de sondas"
 
-#: src/graphics.c:1340
+#: src/graphics.c:1261
 msgid "Plotting results"
 msgstr "Gráfico de resultados"
 
-#: src/graphics.c:1343
+#: src/graphics.c:1264
 msgid "_Save"
 msgstr "_Guardar"
 
-#: src/graphics.c:1344 src/mainWindow.c:594
+#: src/graphics.c:1265 src/mainWindow.c:594
 msgid "_Close"
 msgstr "_Cerrar"
 
@@ -666,6 +662,9 @@ msgstr "Ayuda"
 #: src/mainWindow.c:805 src/mainWindow.c:807
 msgid "Exit"
 msgstr "Salir"
+
+#~ msgid "Reading logo"
+#~ msgstr "Leyendo logo"
 
 #~ msgid "Unable to open the coefficients file"
 #~ msgstr "No se pudo abrir el fichero de coeficientes"

@@ -125,8 +125,6 @@ extern char *input_dir;
  * \brief Number of time steps with dumped data.
  * \var time_step
  * \brief Time interval to dump results data.
- * \var logo
- * \brief Program logo.
  * \var window_plot
  * \brief Results plot structure.
  */
@@ -135,7 +133,6 @@ int recirculation=1;
 int numProbes=0;
 int ny=0;
 double time_step;
-Logo logo[1];
 WindowPlot window_plot[1];
 
 /**
@@ -326,81 +323,6 @@ void furrow_output_read(FurrowOutput *fo, char *name, int variable)
 		++fo->n;
 	}
 	fclose(file);
-}
-
-/**
- * \fn void logo_read(Logo *logo, char *name)
- * \brief Function to read the program logo.
- * \param logo
- * \brief Logo structure.
- * \param name
- * \brief File name.
- */
-void logo_read(Logo *logo, char *name)
-{
-	unsigned int row_bytes;
-    int i;
-    FILE *file;
-    png_struct *png;
-    png_info *info;
-    png_byte **row_pointers;
-
-	// starting png structs
-	png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
-    info= png_create_info_struct(png);
-
-	// opening file
-	file = g_fopen(name, "rb");
-
-	// reading file and transforming to 8 bits RGBA format
-	if (setjmp(png_jmpbuf(png)))
-	{
-		jbw_show_error(gettext("Reading logo"));
-		exit(0);
-	}
-	png_init_io(png, file);
-	if (setjmp(png_jmpbuf(png)))
-	{
-		jbw_show_error(gettext("Reading logo"));
-		exit(0);
-	}
-	png_read_png(png,
-		info,
-		PNG_TRANSFORM_STRIP_16 | PNG_TRANSFORM_PACKING | PNG_TRANSFORM_EXPAND,
-		NULL);
-
-	// closing file
-	fclose(file);
-
-	// copying pixels in the OpenGL order
-	logo->width = png_get_image_width(png, info);
-	logo->height = png_get_image_height(png, info);
-	row_bytes = png_get_rowbytes(png, info);
-	logo->image = (GLubyte*)malloc(row_bytes * logo->height);
-	row_pointers = png_get_rows(png, info);
-	for (i = 0; i < logo->height; i++)
-		memcpy(logo->image + (row_bytes * (logo->height - 1 - i)),
-			row_pointers[i],
-			row_bytes);
-
-	// freeing memory
-	png_destroy_read_struct(&png, &info, NULL);
-}
-
-/**
- * \fn void logo_draw(Logo *logo)
- * \brief Function to draw the program logo.
- * \param logo
- * \brief Logo structure.
- */
-void logo_draw(Logo *logo)
-{
-	// drawing pixels
-	glViewport(0, 0, window_plot->graphic->x2, window_plot->graphic->y2);
-	glLoadIdentity();
-	glRasterPos2f(-1.f,-1.f);
-	glDrawPixels(logo->width, logo->height, GL_RGBA, GL_UNSIGNED_BYTE,
-		logo->image);
 }
 
 #if JBW_GRAPHIC == JBW_GRAPHIC_GLUT
@@ -1224,7 +1146,7 @@ printf("window_plot_draw: start\n");
 		default:
 			graphic_probes_draw();
 	}
-	logo_draw(logo);
+	jbw_graphic_draw_logo(window_plot->graphic);
 #if DEBUG_WINDOW_PLOT_DRAW
 printf("window_plot_draw: end\n");
 #endif
@@ -1271,9 +1193,7 @@ void window_plot_new()
 	WindowPlot *w = window_plot;
 #if DEBUG_WINDOW_PLOT_NEW
 printf("window_plot_new: start\n");
-printf("reading logo\n");
 #endif
-	logo_read(logo, "logo3.png");
 
 #if DEBUG_WINDOW_PLOT_NEW
 printf("starting the graphic\n");
@@ -1281,6 +1201,7 @@ printf("starting the graphic\n");
 #if JBW_GRAPHIC == JBW_GRAPHIC_GLUT
 	w->graphic = jbw_graphic_new(0, 6, 6, 6, window_plot_draw);
 #endif
+	w->graphic->logo = jbw_logo_new("logo3.png");
 	w->graphic->resize = 1;
 	w->graphic->grid = 1;
 
