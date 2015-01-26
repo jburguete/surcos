@@ -52,14 +52,22 @@ elif test $host = "x86_64-pc-mingw64"; then
 	win=1
 	windir=win64
 	mingw=mingw64
+elif test $host = "x86_64-pc-mingw32"; then
+	AC_MSG_NOTICE([Microsoft Windows 32 bits])
+	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
+	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
+	AC_SUBST(libgcc, "libgcc_s_dw2-1")
+	win=1
+	windir=win32
+	mingw=mingw32
 elif test $host = "i686-pc-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_sjlj-1")
+	AC_SUBST(libgcc, "libgcc_s_dw2-1")
 	win=1
 	windir=win32
-	mingw=mingw
+	mingw=mingw32
 elif test `uname -s` = "NetBSD"; then
 	AC_MSG_NOTICE([NetBSD])
 	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
