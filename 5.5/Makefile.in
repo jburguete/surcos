@@ -1,12 +1,17 @@
-srcdir = @srcdir@
-objdir = @objdir@
+basedir = @basedir@
+sysdir = @sysdir@
 bindir = @bindir@
-etcdir = @etcdir@
-libdir = @libdir@
-sharedir = @sharedir@
+icondir = $(basedir)share/icons/
+dlldir = $(sysdir)bin/
+modir = $(sysdir)share/locale/
+srcdir = src/
+objdir = @objdir@
+sharedir = $(basedir)share/
 localdir = $(sharedir)locale/
 podir = locale/
 mandir = manual/
+dlldir = $(sysdir)bin/
+modir = $(sysdir)share/locale/
 es = es/LC_MESSAGES/
 fr = fr/LC_MESSAGES/
 it = it/LC_MESSAGES/
@@ -45,6 +50,20 @@ man_en = $(mandir)ppal_EN.tex $(mandir)bib/references.bib \
 png = curve32.png fondo6.png logo2.png logo3.png diagram_furrow.png \
 	  diagram_geometry_en.png diagram_geometry_es.png diagram_geometry_fr.png \
 	  diagram_geometry_it.png diagram_input.png
+
+dll = $(dlldir)libatk-1.0-0.dll $(dlldir)libbz2-1.dll $(dlldir)libcairo-2.dll \
+	$(dlldir)libcairo-gobject-2.dll $(dlldir)libexpat-1.dll \
+	$(dlldir)libffi-6.dll $(dlldir)libfontconfig-1.dll \
+	$(dlldir)libfreeglut.dll $(dlldir)libfreetype-6.dll $(dlldir)@libgcc@.dll \
+	$(dlldir)libgdk_pixbuf-2.0-0.dll $(dlldir)libgdk-3-0.dll \
+	$(dlldir)libgio-2.0-0.dll $(dlldir)libglib-2.0-0.dll \
+	$(dlldir)libgmodule-2.0-0.dll $(dlldir)libgobject-2.0-0.dll \
+	$(dlldir)libgthread-2.0-0.dll $(dlldir)libgtk-3-0.dll \
+	$(dlldir)libharfbuzz-0.dll $(dlldir)libiconv-2.dll $(dlldir)libintl-8.dll \
+	$(dlldir)libpango-1.0-0.dll $(dlldir)libpangocairo-1.0-0.dll \
+	$(dlldir)libpangoft2-1.0-0.dll $(dlldir)libpangowin32-1.0-0.dll \
+	$(dlldir)libpixman-1-0.dll $(dlldir)libpng16-16.dll \
+	$(dlldir)libwinpthread-1.dll $(dlldir)zlib1.dll
 
 dep = Makefile $(srcdir)jb/jb_config.h
 depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
@@ -266,42 +285,14 @@ clean:
 rebuild: clean $(exe)
 
 ## Making Microsoft Windows distribution
-basedir = @basedir@
-sysdir = @sysdir@
-dlldir = $(sysdir)bin/
-dll = $(dlldir)libatk-1.0-0.dll $(dlldir)libcairo-2.dll \
-	$(dlldir)libcairo-gobject-2.dll $(dlldir)libffi-6.dll \
-	$(dlldir)libfontconfig-1.dll $(dlldir)libfreetype-6.dll \
-	$(dlldir)@libgcc@.dll $(dlldir)libgdk_pixbuf-2.0-0.dll \
-	$(dlldir)libgdk-3-0.dll $(dlldir)libgio-2.0-0.dll \
-	$(dlldir)libglib-2.0-0.dll $(dlldir)libglut-0.dll \
-	$(dlldir)libgmodule-2.0-0.dll $(dlldir)libgobject-2.0-0.dll \
-	$(dlldir)libgthread-2.0-0.dll $(dlldir)libgtk-3-0.dll \
-	$(dlldir)libiconv-2.dll $(dlldir)libintl-8.dll \
-	$(dlldir)libpango-1.0-0.dll $(dlldir)libpangocairo-1.0-0.dll \
-	$(dlldir)libpangowin32-1.0-0.dll $(dlldir)libpixman-1-0.dll \
-	$(dlldir)libpng16-16.dll $(dlldir)libxml2-2.dll \
-	$(dlldir)zlib1.dll
-modir = $(sysdir)share/locale/
 dist: $(exe) $(dll) $(manuals)
 	test -d $(bindir) || mkdir -p $(bindir)
+	test -d $(icondir) || mkdir -p $(icondir)
 	cp $(dll) $(png) $(bindir)
-	test -d $(libdir)gdk-pixbuf-2.0/2.10.0/loaders || \
-		mkdir -p $(libdir)gdk-pixbuf-2.0/2.10.0/loaders
-	cp $(sysdir)lib/gdk-pixbuf-2.0/2.10.0/loaders.cache \
-		$(libdir)gdk-pixbuf-2.0/2.10.0
-	cp $(sysdir)lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.dll \
-		$(libdir)gdk-pixbuf-2.0/2.10.0/loaders
-	test -d $(etcdir)pango || mkdir -p $(etcdir)pango
-	cp $(sysdir)etc/pango/pango.modules $(etcdir)pango
-	test -d $(libdir)/pango/1.8.0/modules || \
-		mkdir -p $(libdir)/pango/1.8.0/modules
-	cp $(sysdir)lib/pango/1.8.0/modules/*.dll \
-		$(libdir)pango/1.8.0/modules
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas
 	cp $(sysdir)share/glib-2.0/schemas/* $(sharedir)glib-2.0/schemas
-	strip $(bindir)*.dll $(libdir)gdk-pixbuf-2.0/2.10.0/loaders/*.dll \
-		$(libdir)pango/1.8.0/modules/*.dll
+	cp -r $(sysdir)share/icons/Adwaita $(icondir)
+	strip $(bindir)*.exe $(bindir)*.dll
 	cp doc/latex/refman.pdf $(basedir)reference-manual.pdf
 	cp manual/ppal.pdf $(basedir)user-manual-es.pdf
 	cp manual/ppal_EN.pdf $(basedir)user-manual-en.pdf
@@ -318,5 +309,3 @@ dist: $(exe) $(dll) $(manuals)
 		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
 		$(modir)$(it)gtk30.mo $(modir)$(it)gtk30-properties.mo \
 		$(localdir)$(it)
-	zip -r surcos $(bindir)*.exe $(bindir)*.dll $(bindir)*.png \
-		$(localdir)*/*/*.mo $(basedir)examples/*/*.in $(etcdir) $(libdir)

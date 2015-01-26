@@ -44,14 +44,22 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 	windir=win64
+	mingw=mingw
+elif test $host = "x86_64-pc-mingw64"; then
+	AC_MSG_NOTICE([Microsoft Windows 64 bits])
+	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
+	AC_SUBST(libgcc, "libgcc_s_seh-1")
+	win=1
+	windir=win64
+	mingw=mingw64
 elif test $host = "i686-pc-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
-	LDFLAGS="$LDFLAGS -lglut -lopengl32"
-	CPPFLAGS="$CPPFLAGS -I/mingw/include"
+	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
 	AC_SUBST(libgcc, "libgcc_s_sjlj-1")
 	win=1
 	windir=win32
+	mingw=mingw
 elif test `uname -s` = "NetBSD"; then
 	AC_MSG_NOTICE([NetBSD])
 	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
@@ -83,7 +91,7 @@ else
 	AC_CHECK_TOOL(WINDRES, windres)
 	AC_SUBST(latex, "pdflatex -enable-write18")
 	AC_SUBST(exegui, winsurcos)
-	AC_SUBST(sysdir, [/mingw/])
+	AC_SUBST(sysdir, [/$mingw/])
 	AC_SUBST(objdir, [$windir/obj/])
 	AC_SUBST(bindir, [$windir/bin/])
 	AC_SUBST(etcdir, [$windir/etc/])
