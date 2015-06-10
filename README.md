@@ -49,32 +49,38 @@ FILES
 BUILDING INSTRUCTIONS
 ---------------------
 
-This software has been built and tested in the following operative systems:
+This software has been built and tested in the following operative systems.
+Probably, it can be built in other systems, distributions, or versions but it
+has not been tested.
 
-Debian Linux 7.7
+Debian Linux 8.0
 ________________
-Debian kFreeBSD 7.7
+Debian kFreeBSD 8.0
 ___________________
-Debian Hurd 7.7
+Debian Hurd 8.0
 _______________
-DragonFly BSD 4.0.1
+DragonFly BSD 4.0.5
 ___________________
-FreeBSD 10.0
+Dyson
+_____
+FreeBSD 10.1
 ____________
 NetBSD 6.1.5 (with modular xorg)
 ________________________________
 
 1. Download the latest [JB library](https://github.com/jburguete/jb)
+> $ git clone https://github.com/jburguete/jb.git
 
 2. Download this repository
+> $ git clone https://github.com/jburguete/surcos.git
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5/src
+> $ cd surcos/5.5/src
 >
-> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+> $ ln -s ../../../jb/1.14.2 jb
 
 4. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5
+> $ cd ..
 >
 > $ aclocal
 >
@@ -85,109 +91,33 @@ ________________________________
 > $ ./configure
 >
 > $ make
->
-> $ strip surcos surcos_gui (optional: to make a final version)
 
-Microsoft Windows 7 32 bits
-___________________________
-Microsoft Windows XP 32 bits
-____________________________
-
-1. Install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
-utilities. You can follow detailed instructions in
-[MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
-
-2. Download the latest [JB library](https://github.com/jburguete/jb)
-
-3. Download this repository
-
-4. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5/src
->
-> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
-
-5. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5
->
-> $ aclocal
->
-> $ autoconf
->
-> $ automake --add-missing
->
-> $ configure
->
-> $ make
->
-> $ strip win32/bin/*.exe (optional: to make a final version)
-
-Microsoft Windows 7 64 bits
-___________________________
-Microsoft Windows XP 64 bits
-____________________________
-
-1. Install [MSYS/MinGW](http://www.mingw.org) and the required libraries and
-utilities. You can follow detailed instructions in
-[MinGW-64-Make](https://github.com/jburguete/MinGW-64-Make)
-
-2. Download the latest [JB library](https://github.com/jburguete/jb)
-
-3. Download this repository
-
-4. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5/src
->
-> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
-
-5. Build SURCOS doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5
->
-> $ aclocal
->
-> $ autoconf
->
-> $ automake --add-missing
->
-> $ configure --host=x86_64-w64-mingw32
->
-> $ make
->
-> $ strip win64/bin/*.exe (optional: to make a final version)
-
-OpenBSD 5.6
+OpenBSD 5.7
 ___________
 
-1. Download the latest [JB library](https://github.com/jburguete/jb)
+1. Select adequate versions:
+> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.15
 
-2. Download this repository
+2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
 
-3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd PATH_TO_SURCOS/5.5/src
->
-> $ ln -s PATH_TO_THE_JB_LIBRARY/1.8.4 jb
+Microsoft Windows 7 (with MSYS2)
+________________________________
+Microsoft Windows 8.1 (with MSYS2)
+__________________________________
 
-4. Build SURCOS doing on a terminal:
-> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
->
-> $ cd PATH_TO_SURCOS/5.5
->
-> $ aclocal
->
-> $ autoconf
->
-> $ automake --add-missing
->
-> $ ./configure
->
-> $ make
->
-> $ strip surcos surcos_gui (optional: to make a final version)
+1. Install [MSYS2](http://sourceforge.net/projects/msys2) and the required
+libraries and utilities. You can follow detailed instructions in
+[install-unix]
+(https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
+
+2. Then, in a MSYS2 terminal, follow steps 1 to 4 of the previous Debian Linux
+8.0 section.
 
 MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd PATH_TO_SURCOS/5.5
+> $ cd surcos/5.5
 >
 > $ doxygen
 >
