@@ -1,34 +1,3 @@
-# To work in:
-#	- Debian 7.7 (Linux, kFreeBSD or Hurd)
-#	- FreeBSD 10.0
-#	- Microsoft Windows XP 32 bits
-#	- Microsoft Windows 7 32 bits
-#	- NetBSD 6.1.5 (with modular xorg)
-#	- DragonFly BSD 3.8.2
-#
-# aclocal
-# autoconf
-# automake --add-missing
-# ./configure
-# make
-
-# To work in Microsoft Windows (64 bits):
-#
-# aclocal
-# autoconf
-# automake --add-missing
-# ./configure --host=x86_64-w64-mingw32
-# make
-
-# To work in OpenBSD 5.5:
-#
-# export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.14
-# aclocal
-# autoconf
-# automake --add-missing
-# ./configure
-# make
-
 AC_PREREQ([2.67])
 AC_INIT(surcos, [5.5])
 
@@ -111,7 +80,7 @@ fi
 AC_SUBST(srcdir, [src/])
 
 # Checks for programs
-AC_PROG_CC([gcc49 gcc48 egcc gcc clang])
+AC_PROG_CC([gcc5 gcc49 gcc48 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG

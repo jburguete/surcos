@@ -53,17 +53,17 @@ This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
 has not been tested.
 
-Debian Linux 8.0
+Debian Linux 8.2
 ________________
-Debian kFreeBSD 8.0
+Debian kFreeBSD 8.2
 ___________________
-Debian Hurd 8.0
+Debian Hurd 8.2
 _______________
-DragonFly BSD 4.0.5
+DragonFly BSD 4.2.4
 ___________________
 Dyson
 _____
-FreeBSD 10.1
+FreeBSD 10.2
 ____________
 NetBSD 6.1.5 (with modular xorg)
 ________________________________
@@ -82,15 +82,7 @@ ________________________________
 4. Build SURCOS doing on a terminal:
 > $ cd ..
 >
-> $ aclocal
->
-> $ autoconf
->
-> $ automake --add-missing
->
-> $ ./configure
->
-> $ make
+> $ ./build
 
 OpenBSD 5.7
 ___________
@@ -111,7 +103,7 @@ libraries and utilities. You can follow detailed instructions in
 (https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
 
 2. Then, in a MSYS2 terminal, follow steps 1 to 4 of the previous Debian Linux
-8.0 section.
+8.2 section.
 
 MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
