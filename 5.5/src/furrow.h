@@ -6,10 +6,10 @@ Copyright 2011-2014, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
 1. Redistributions of source code must retain the above copyright notice, this
 	list of conditions and the following disclaimer.
- 
+
 2. Redistributions in binary form must reproduce the above copyright notice,
 	this list of conditions and the following disclaimer in the documentation
 	and/or other materials provided with the distribution.
@@ -22,7 +22,7 @@ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
 BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -48,8 +48,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 enum TypeFriction
 {
-	TYPE_FRICTION_MANNING=0,
-	TYPE_FRICTION_POTENTIAL=1
+    TYPE_FRICTION_MANNING=0,
+    TYPE_FRICTION_POTENTIAL=1
 };
 
 /**
@@ -58,15 +58,15 @@ enum TypeFriction
  */
 struct _InitialConditions
 {
-/**
- * \var h
- * \brief Depth.
- * \var Q
- * \brief Discharge.
- * \var c
- * \brief Fertilizer concentration.
- */
-	JBFLOAT h, Q, c;
+    /**
+     * \var h
+     * \brief Depth.
+     * \var Q
+     * \brief Discharge.
+     * \var c
+     * \brief Fertilizer concentration.
+     */
+    JBFLOAT h, Q, c;
 };
 
 /**
@@ -75,63 +75,63 @@ struct _InitialConditions
  */
 struct _Furrow
 {
-/**
- * \var b
- * \brief Base width.
- * \var z
- * \brief Angle slope of the lateral wall with the vertical.
- * \var h
- * \brief Furrow depth.
- * \var D
- * \brief Distance between furrows.
- * \var H
- * \brief Soil water retention capacity.
- * \var epsilon
- * \brief If 0, Gauckler-Manning's friction model;
- *   if >0, aerodynamical coefficient of Burguete's friction model.
- * \var n
- * \brief Gauckler-Manning's number (if epsilon = 0),
- *   characteristic roughness length of Burguete (if epsilon > 0).
- * \var d
- * \brief Diffusion coefficient.
- * \var i1
- * \brief Constant of the Kostiakov's infiltration model.
- * \var i2
- * \brief Exponent of the Kostiakov's infiltration model.
- * \var i3
- * \brief Infiltration velocity in saturated soil.
- * \var x0
- * \brief Initial spatial x-coordinate.
- * \var y0
- * \brief Initial spatial y-coordinate.
- * \var z0
- * \brief Initial spatial z-coordinate.
- * \var xf
- * \brief Final spatial x-coordinate.
- * \var yf
- * \brief Final spatial y-coordinate.
- * \var zf
- * \brief Final spatial z-coordinate.
- * \var S0
- * \brief Longitudinal slope.
- * \var Amax
- * \brief Retention area: \f$D\cdot H\f$.
- * \var fz
- * \brief Geometrical factor: \f$\sqrt{1+z^2}\f$.
- * \var l
- * \brief Length.
- * \var gn2
- * \brief Gauckler-Manning friction factor: \f$g\cdot n^2\f$.
- * \var i4
- * \brief Infiltration factor: \f$\frac{1}{i2}\f$.
- * \var fb
- * \brief Exponent of the Burguete's friction model.
- * \var friction
- * \brief Type of model friction (0: Gauckler-Manning, 1: Burguete).
- */
-	JBFLOAT b, z, h, D, H, epsilon, n, d, i1, i2, i3, x0, y0, z0, xf, yf, zf,
-		S0, Amax, fz, l, gn2, i4, fb;
-	unsigned int friction;
+    /**
+     * \var b
+     * \brief Base width.
+     * \var z
+     * \brief Angle slope of the lateral wall with the vertical.
+     * \var h
+     * \brief Furrow depth.
+     * \var D
+     * \brief Distance between furrows.
+     * \var H
+     * \brief Soil water retention capacity.
+     * \var epsilon
+     * \brief If 0, Gauckler-Manning's friction model;
+     *   if >0, aerodynamical coefficient of Burguete's friction model.
+     * \var n
+     * \brief Gauckler-Manning's number (if epsilon = 0),
+     *   characteristic roughness length of Burguete (if epsilon > 0).
+     * \var d
+     * \brief Diffusion coefficient.
+     * \var i1
+     * \brief Constant of the Kostiakov's infiltration model.
+     * \var i2
+     * \brief Exponent of the Kostiakov's infiltration model.
+     * \var i3
+     * \brief Infiltration velocity in saturated soil.
+     * \var x0
+     * \brief Initial spatial x-coordinate.
+     * \var y0
+     * \brief Initial spatial y-coordinate.
+     * \var z0
+     * \brief Initial spatial z-coordinate.
+     * \var xf
+     * \brief Final spatial x-coordinate.
+     * \var yf
+     * \brief Final spatial y-coordinate.
+     * \var zf
+     * \brief Final spatial z-coordinate.
+     * \var S0
+     * \brief Longitudinal slope.
+     * \var Amax
+     * \brief Retention area: \f$D\cdot H\f$.
+     * \var fz
+     * \brief Geometrical factor: \f$\sqrt{1+z^2}\f$.
+     * \var l
+     * \brief Length.
+     * \var gn2
+     * \brief Gauckler-Manning friction factor: \f$g\cdot n^2\f$.
+     * \var i4
+     * \brief Infiltration factor: \f$\frac{1}{i2}\f$.
+     * \var fb
+     * \brief Exponent of the Burguete's friction model.
+     * \var friction
+     * \brief Type of model friction (0: Gauckler-Manning, 1: Burguete).
+     */
+    JBFLOAT b, z, h, D, H, epsilon, n, d, i1, i2, i3, x0, y0, z0, xf, yf, zf,
+            S0, Amax, fz, l, gn2, i4, fb;
+    unsigned int friction;
 };
 
 /**
@@ -167,7 +167,7 @@ void initial_conditions_dry(InitialConditions *ci);
 void furrow_show(Furrow *s, FILE *file);
 int furrow_read(Furrow *s, FILE *file);
 void furrow_position(Furrow *s, JBDOUBLE x0, JBDOUBLE y0, JBDOUBLE z0,
-	JBDOUBLE xf, JBDOUBLE yf, JBDOUBLE zf);
+                     JBDOUBLE xf, JBDOUBLE yf, JBDOUBLE zf);
 void furrow_open(Furrow *s);
 
 #endif

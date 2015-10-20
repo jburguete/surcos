@@ -6,10 +6,10 @@ Copyright 2011-2014, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
 1. Redistributions of source code must retain the above copyright notice, this
 	list of conditions and the following disclaimer.
- 
+
 2. Redistributions in binary form must reproduce the above copyright notice,
 	this list of conditions and the following disclaimer in the documentation
 	and/or other materials provided with the distribution.
@@ -22,7 +22,7 @@ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
 BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -70,26 +70,26 @@ int nProbes;
  */
 void config_probes_insert(ConfigProbes *w, int nProbesOld, int nProbes)
 {
-	int i;
-	char buffer[32];
-	GtkWidget *widget;
-	for (i = nProbesOld; i < nProbes; ++i)
-	{
-		snprintf(buffer, 32, "%d", i+1); 
-		widget = gtk_button_new_with_label(buffer);
-		gtk_widget_set_can_focus(widget, FALSE);
-		gtk_widget_show(widget);
-		gtk_grid_attach(w->table, widget, 0, i + 1, 1, 1);
-		w->list = g_list_append(w->list, widget);
-		widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
-		gtk_widget_show(widget);
-		gtk_grid_attach(w->table, widget, 1, i + 1, 1, 1);
-		w->list = g_list_append(w->list, widget);
-		widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
-		gtk_widget_show(widget);
-		gtk_grid_attach(w->table, widget, 2, i + 1, 1, 1);
-		w->list = g_list_append(w->list, widget);
-	}
+    int i;
+    char buffer[32];
+    GtkWidget *widget;
+    for (i = nProbesOld; i < nProbes; ++i)
+        {
+            snprintf(buffer, 32, "%d", i+1);
+            widget = gtk_button_new_with_label(buffer);
+            gtk_widget_set_can_focus(widget, FALSE);
+            gtk_widget_show(widget);
+            gtk_grid_attach(w->table, widget, 0, i + 1, 1, 1);
+            w->list = g_list_append(w->list, widget);
+            widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
+            gtk_widget_show(widget);
+            gtk_grid_attach(w->table, widget, 1, i + 1, 1, 1);
+            w->list = g_list_append(w->list, widget);
+            widget = gtk_spin_button_new_with_range(-1e6, 1e6, 0.01);
+            gtk_widget_show(widget);
+            gtk_grid_attach(w->table, widget, 2, i + 1, 1, 1);
+            w->list = g_list_append(w->list, widget);
+        }
 }
 
 /**
@@ -104,19 +104,19 @@ void config_probes_insert(ConfigProbes *w, int nProbesOld, int nProbes)
  */
 void config_probes_remove(ConfigProbes *w, int nProbesOld, int nProbes)
 {
-	int i, j;
-	GList *element, *next;
-	element = g_list_nth(w->list, 3 * nProbes);
-	for (i=nProbes; i<nProbesOld; ++i)
-	{
-		for (j=0; j<3; ++j)
-		{
-			next = element->next;
-			gtk_widget_destroy(GTK_WIDGET(element->data));
-			w->list = g_list_remove_link(w->list, element);
-			element = next;
-		}
-	}
+    int i, j;
+    GList *element, *next;
+    element = g_list_nth(w->list, 3 * nProbes);
+    for (i=nProbes; i<nProbesOld; ++i)
+        {
+            for (j=0; j<3; ++j)
+                {
+                    next = element->next;
+                    gtk_widget_destroy(GTK_WIDGET(element->data));
+                    w->list = g_list_remove_link(w->list, element);
+                    element = next;
+                }
+        }
 }
 
 /**
@@ -129,23 +129,23 @@ void config_probes_remove(ConfigProbes *w, int nProbesOld, int nProbes)
  */
 void config_probes_update(GtkSpinButton *spin, ConfigProbes *w)
 {
-	int nProbesOld;
-	nProbesOld = nProbes;
+    int nProbesOld;
+    nProbesOld = nProbes;
 #if DEBUG_CONFIG_PROBES_UPDATE
-printf("config_probes_update: start\n");
+    printf("config_probes_update: start\n");
 #endif
-	nProbes = gtk_spin_button_get_value_as_int(spin);
+    nProbes = gtk_spin_button_get_value_as_int(spin);
 #if DEBUG_CONFIG_PROBES_UPDATE
-printf("nProbes = %d\n", nProbes);
-printf("Inserting rows\n");
+    printf("nProbes = %d\n", nProbes);
+    printf("Inserting rows\n");
 #endif
-	config_probes_insert(w, nProbesOld, nProbes);
+    config_probes_insert(w, nProbesOld, nProbes);
 #if DEBUG_CONFIG_PROBES_UPDATE
-printf("Removing extra rows\n");
+    printf("Removing extra rows\n");
 #endif
-	config_probes_remove(w, nProbesOld, nProbes);
+    config_probes_remove(w, nProbesOld, nProbes);
 #if DEBUG_CONFIG_PROBES_UPDATE
-printf("config_probes_update: end\n");
+    printf("config_probes_update: end\n");
 #endif
 }
 
@@ -157,41 +157,41 @@ printf("config_probes_update: end\n");
  */
 void config_probes_read(ConfigProbes *w)
 {
-	int i;
-	double x, y;
-	char buffer[512];
-	FILE* f;
-	GList *list;
+    int i;
+    double x, y;
+    char buffer[512];
+    FILE* f;
+    GList *list;
 #if DEBUG_CONFIG_PROBES_READ
-printf("config_probes_read: start\n");
+    printf("config_probes_read: start\n");
 #endif
-	snprintf(buffer, 512, "%s/probe.in", input_dir);
-	f = g_fopen(buffer, "r");
-	fscanf(f, "%d", &nProbes);
+    snprintf(buffer, 512, "%s/probe.in", input_dir);
+    f = g_fopen(buffer, "r");
+    fscanf(f, "%d", &nProbes);
 #if DEBUG_CONFIG_PROBES_READ
-printf("nProbes = %d\n", nProbes);
+    printf("nProbes = %d\n", nProbes);
 #endif
-	gtk_spin_button_set_value(w->spin, nProbes);
-	config_probes_insert(w, 0, nProbes);
-	list = w->list;
-	for (i=0; i<nProbes; i++)
-	{
+    gtk_spin_button_set_value(w->spin, nProbes);
+    config_probes_insert(w, 0, nProbes);
+    list = w->list;
+    for (i=0; i<nProbes; i++)
+        {
 #if DEBUG_CONFIG_PROBES_READ
-printf("i = %d\n", i);
+            printf("i = %d\n", i);
 #endif
-		fscanf(f, "%lf%lf", &x, &y);
+            fscanf(f, "%lf%lf", &x, &y);
 #if DEBUG_CONFIG_PROBES_READ
-printf("Probe %i: x=%f y=%f\n", i, x, y);
+            printf("Probe %i: x=%f y=%f\n", i, x, y);
 #endif
-		list = list->next;
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(list->data), x);
-		list = list->next;
-		gtk_spin_button_set_value(GTK_SPIN_BUTTON(list->data), y);
-		list = list->next;
-	}
-	fclose(f);
+            list = list->next;
+            gtk_spin_button_set_value(GTK_SPIN_BUTTON(list->data), x);
+            list = list->next;
+            gtk_spin_button_set_value(GTK_SPIN_BUTTON(list->data), y);
+            list = list->next;
+        }
+    fclose(f);
 #if DEBUG_CONFIG_PROBES_READ
-printf("config_probes_read: end\n");
+    printf("config_probes_read: end\n");
 #endif
 }
 
@@ -203,25 +203,25 @@ printf("config_probes_read: end\n");
  */
 void config_probes_write(ConfigProbes *w)
 {
-	int i;
-	double x, y;
-	char buffer[512];
-	FILE* f;
-	GList *list;
-	snprintf(buffer, 512, "%s/probe.in", input_dir);
-	f = g_fopen(buffer, "w");
-	fprintf(f, "%d\n", nProbes);
-	list = w->list;
-	for(i=0;i<nProbes;i++)
-	{
-		list = list->next;
-		x = gtk_spin_button_get_value(GTK_SPIN_BUTTON(list->data));
-		list = list->next;
-		y = gtk_spin_button_get_value(GTK_SPIN_BUTTON(list->data));
-		list = list->next;
-		fprintf(f, "%g %g\n", x, y);
-	}
-	fclose(f);
+    int i;
+    double x, y;
+    char buffer[512];
+    FILE* f;
+    GList *list;
+    snprintf(buffer, 512, "%s/probe.in", input_dir);
+    f = g_fopen(buffer, "w");
+    fprintf(f, "%d\n", nProbes);
+    list = w->list;
+    for(i=0; i<nProbes; i++)
+        {
+            list = list->next;
+            x = gtk_spin_button_get_value(GTK_SPIN_BUTTON(list->data));
+            list = list->next;
+            y = gtk_spin_button_get_value(GTK_SPIN_BUTTON(list->data));
+            list = list->next;
+            fprintf(f, "%g %g\n", x, y);
+        }
+    fclose(f);
 }
 
 /**
@@ -232,26 +232,26 @@ void config_probes_write(ConfigProbes *w)
  */
 void config_probes_new(ConfigProbes *w)
 {
-	int i;
-	char *label[]={gettext("Probe"), "x (m)", "y (m)"};
-	w->list = NULL;
-	w->label = (GtkLabel*)gtk_label_new(gettext("Number of probes"));
-	w->spin = (GtkSpinButton*)gtk_spin_button_new_with_range(0., 100., 1.);
-	w->hbox = (GtkGrid*)gtk_grid_new();
-	gtk_grid_attach(w->hbox, GTK_WIDGET(w->label), 0, 0, 1, 1);
-	gtk_grid_attach(w->hbox, GTK_WIDGET(w->spin), 1, 0, 1, 1);
-	w->table = (GtkGrid*)gtk_grid_new();
-	for (i=0; i<3; ++i)
-	{
-		w->button[i] = (GtkButton*)gtk_button_new_with_label(label[i]);
-		gtk_widget_set_can_focus(GTK_WIDGET(w->button[i]), FALSE);
-		gtk_grid_attach(w->table, GTK_WIDGET(w->button[i]), i, 0, 1, 1);
-	}
-	w->vbox = (GtkGrid*)gtk_grid_new();
-	gtk_grid_attach(w->vbox, GTK_WIDGET(w->hbox), 0, 0, 1, 1);
-	gtk_grid_attach(w->vbox, GTK_WIDGET(w->table), 0, 1, 1, 1);
+    int i;
+    char *label[]= {gettext("Probe"), "x (m)", "y (m)"};
+    w->list = NULL;
+    w->label = (GtkLabel*)gtk_label_new(gettext("Number of probes"));
+    w->spin = (GtkSpinButton*)gtk_spin_button_new_with_range(0., 100., 1.);
+    w->hbox = (GtkGrid*)gtk_grid_new();
+    gtk_grid_attach(w->hbox, GTK_WIDGET(w->label), 0, 0, 1, 1);
+    gtk_grid_attach(w->hbox, GTK_WIDGET(w->spin), 1, 0, 1, 1);
+    w->table = (GtkGrid*)gtk_grid_new();
+    for (i=0; i<3; ++i)
+        {
+            w->button[i] = (GtkButton*)gtk_button_new_with_label(label[i]);
+            gtk_widget_set_can_focus(GTK_WIDGET(w->button[i]), FALSE);
+            gtk_grid_attach(w->table, GTK_WIDGET(w->button[i]), i, 0, 1, 1);
+        }
+    w->vbox = (GtkGrid*)gtk_grid_new();
+    gtk_grid_attach(w->vbox, GTK_WIDGET(w->hbox), 0, 0, 1, 1);
+    gtk_grid_attach(w->vbox, GTK_WIDGET(w->table), 0, 1, 1, 1);
 
-	config_probes_read(w);
-	g_signal_connect_after(w->spin, "value-changed",
-		(GCallback)config_probes_update, w);
+    config_probes_read(w);
+    g_signal_connect_after(w->spin, "value-changed",
+                           (GCallback)config_probes_update, w);
 }

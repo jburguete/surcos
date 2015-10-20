@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 14:59+0100\n"
+"POT-Creation-Date: 2015-09-27 18:35+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -368,11 +368,11 @@ msgstr "Parametri avanzati"
 msgid "Configure irrigation"
 msgstr "Configurare l'irrigazione"
 
-#: src/configWindow.c:238 src/mainWindow.c:647
+#: src/configWindow.c:238 src/mainWindow.c:648
 msgid "_Cancel"
 msgstr "_Cancellare"
 
-#: src/configWindow.c:239 src/mainWindow.c:648
+#: src/configWindow.c:239 src/mainWindow.c:649
 msgid "_OK"
 msgstr "_Acceptare"
 
@@ -603,11 +603,11 @@ msgstr "Periodo di scarico dati"
 msgid "Results"
 msgstr "Risultati"
 
-#: src/mainWindow.c:591 src/mainWindow.c:790
+#: src/mainWindow.c:591 src/mainWindow.c:791
 msgid "Summary"
 msgstr "Sommario"
 
-#: src/mainWindow.c:712
+#: src/mainWindow.c:713
 msgid ""
 "A software tool to solve irrigation and fertigation in isolated furrows and "
 "furrow networks"
@@ -615,51 +615,51 @@ msgstr ""
 "Un attrezzo informatico per risolvere irrigazione e fertirrigazione in "
 "solchi isolati e in reti di solchi"
 
-#: src/mainWindow.c:719
+#: src/mainWindow.c:720
 msgid "translator-credits"
 msgstr "Sofiane Ouazaa (sofiane.ouazaa@eead.csic.es)"
 
-#: src/mainWindow.c:756
+#: src/mainWindow.c:757
 msgid "Open"
 msgstr "Aprire"
 
-#: src/mainWindow.c:758
+#: src/mainWindow.c:759
 msgid "Open furrows system"
 msgstr "Aprire sistema di solchi"
 
-#: src/mainWindow.c:765
+#: src/mainWindow.c:766
 msgid "Configure"
 msgstr "Configurare"
 
-#: src/mainWindow.c:767
+#: src/mainWindow.c:768
 msgid "Simulation configure"
 msgstr "Configurare la simulazione"
 
-#: src/mainWindow.c:774
+#: src/mainWindow.c:775
 msgid "Run"
 msgstr "Iniziare"
 
-#: src/mainWindow.c:776
+#: src/mainWindow.c:777
 msgid "Run the simulation"
 msgstr "Iniziare la simulazione"
 
-#: src/mainWindow.c:782
+#: src/mainWindow.c:783
 msgid "Plot"
 msgstr "Grafici"
 
-#: src/mainWindow.c:784
+#: src/mainWindow.c:785
 msgid "Plot results"
 msgstr "Tracer il grafico"
 
-#: src/mainWindow.c:792
+#: src/mainWindow.c:793
 msgid "Show summary"
 msgstr "Mostrare il sommario"
 
-#: src/mainWindow.c:798 src/mainWindow.c:800
+#: src/mainWindow.c:799 src/mainWindow.c:801
 msgid "Help"
 msgstr "Aiuto"
 
-#: src/mainWindow.c:805 src/mainWindow.c:807
+#: src/mainWindow.c:806 src/mainWindow.c:808
 msgid "Exit"
 msgstr "Uscire"
 

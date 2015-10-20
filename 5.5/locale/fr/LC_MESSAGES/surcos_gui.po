@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 14:59+0100\n"
+"POT-Creation-Date: 2015-09-27 18:35+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -55,7 +55,7 @@ msgstr "Débit"
 
 #: src/field.c:238
 msgid "Unable to open the geometry data file"
-msgstr "On peut pas ouvrir le fichier des données de géométrie"
+msgstr "On ne peut pas ouvrir le fichier des données de géométrie"
 
 #: src/field.c:254 src/field.c:260 src/field.c:266 src/field.c:271
 #: src/field.c:276 src/field.c:281 src/field.c:286 src/field.c:291
@@ -97,7 +97,7 @@ msgstr "Données de champ incorrectes"
 
 #: src/field.c:502
 msgid "Unable to open the input file"
-msgstr "On peut pas ouvrir le fichier des entrées"
+msgstr "On ne peut pas ouvrir le fichier des entrées"
 
 #: src/field.c:519
 msgid "Not enough memory to open the input data"
@@ -105,7 +105,7 @@ msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
 
 #: src/field.c:567
 msgid "Unable to open the mesh data file"
-msgstr "On peut pas ouvrir le fichier des données de maille"
+msgstr "On ne peut pas ouvrir le fichier des données de maille"
 
 #: src/field.c:578
 msgid "Bad mesh data"
@@ -113,7 +113,7 @@ msgstr "Données de maille incorrectes"
 
 #: src/field.c:602
 msgid "Unable to open the times data file"
-msgstr "On peut pas ouvrir le fichier des données de temps"
+msgstr "On ne peut pas ouvrir le fichier des données de temps"
 
 #: src/field.c:608
 msgid "Bad times data"
@@ -121,7 +121,7 @@ msgstr "Données des temps incorrectes"
 
 #: src/field.c:632
 msgid "Unable to open the model data file"
-msgstr "On peut pas ouvrir le fichier des données des modèles"
+msgstr "On ne peut pas ouvrir le fichier des données des modèles"
 
 #: src/field.c:639
 msgid "Bad model data"
@@ -129,7 +129,7 @@ msgstr "Données des modèles incorrectes"
 
 #: src/field.c:664
 msgid "Unable to open the probes data file"
-msgstr "On peut pas ouvrir le fichier des données des sondes"
+msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 
 #: src/field.c:671 src/field.c:685
 msgid "Bad probes data"
@@ -368,11 +368,11 @@ msgstr "Paramètres avancés"
 msgid "Configure irrigation"
 msgstr "Configurer irrigation"
 
-#: src/configWindow.c:238 src/mainWindow.c:647
+#: src/configWindow.c:238 src/mainWindow.c:648
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/configWindow.c:239 src/mainWindow.c:648
+#: src/configWindow.c:239 src/mainWindow.c:649
 msgid "_OK"
 msgstr "_Accepter"
 
@@ -603,11 +603,11 @@ msgstr "Période de renversé des données"
 msgid "Results"
 msgstr "Résultats"
 
-#: src/mainWindow.c:591 src/mainWindow.c:790
+#: src/mainWindow.c:591 src/mainWindow.c:791
 msgid "Summary"
 msgstr "Sommaire"
 
-#: src/mainWindow.c:712
+#: src/mainWindow.c:713
 msgid ""
 "A software tool to solve irrigation and fertigation in isolated furrows and "
 "furrow networks"
@@ -615,59 +615,59 @@ msgstr ""
 "Un outil informatique pour resolver irrigation et fertirrigation en sillons "
 "isolés et en réseaux de sillons"
 
-#: src/mainWindow.c:719
+#: src/mainWindow.c:720
 msgid "translator-credits"
 msgstr "Javier Burguete Tolosa (jburguete@eead.csic.es)"
 
-#: src/mainWindow.c:756
+#: src/mainWindow.c:757
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/mainWindow.c:758
+#: src/mainWindow.c:759
 msgid "Open furrows system"
 msgstr "Ouvrir système de sillons"
 
-#: src/mainWindow.c:765
+#: src/mainWindow.c:766
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/mainWindow.c:767
+#: src/mainWindow.c:768
 msgid "Simulation configure"
 msgstr "Configurer simulation"
 
-#: src/mainWindow.c:774
+#: src/mainWindow.c:775
 msgid "Run"
 msgstr "Commencer"
 
-#: src/mainWindow.c:776
+#: src/mainWindow.c:777
 msgid "Run the simulation"
 msgstr "Commencer la simulation"
 
-#: src/mainWindow.c:782
+#: src/mainWindow.c:783
 msgid "Plot"
 msgstr "Graphiques"
 
-#: src/mainWindow.c:784
+#: src/mainWindow.c:785
 msgid "Plot results"
 msgstr "Montrer graphiques"
 
-#: src/mainWindow.c:792
+#: src/mainWindow.c:793
 msgid "Show summary"
 msgstr "Montrer le sommaire"
 
-#: src/mainWindow.c:798 src/mainWindow.c:800
+#: src/mainWindow.c:799 src/mainWindow.c:801
 msgid "Help"
 msgstr "Aïde"
 
-#: src/mainWindow.c:805 src/mainWindow.c:807
+#: src/mainWindow.c:806 src/mainWindow.c:808
 msgid "Exit"
 msgstr "Sortir"
 
 #~ msgid "Reading logo"
-#~ msgstr "On peut pas ouvrir le logo"
+#~ msgstr "On ne peut pas ouvrir le logo"
 
 #~ msgid "Unable to open the coefficients file"
-#~ msgstr "On peut pas ouvrir le fichier des coefficients"
+#~ msgstr "On ne peut pas ouvrir le fichier des coefficients"
 
 #~ msgid "Bad coefficients file"
 #~ msgstr "Fichier de coefficients incorrect"

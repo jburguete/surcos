@@ -6,10 +6,10 @@ Copyright 2011-2014, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
 1. Redistributions of source code must retain the above copyright notice, this
 	list of conditions and the following disclaimer.
- 
+
 2. Redistributions in binary form must reproduce the above copyright notice,
 	this list of conditions and the following disclaimer in the documentation
 	and/or other materials provided with the distribution.
@@ -22,7 +22,7 @@ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
 BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -43,29 +43,29 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 struct _Summary
 {
-/**
- * \var scrolled_input
- * \brief GtkScrolledWindow to scroll the summary input window.
- * \var scrolled_output
- * \brief GtkScrolledWindow to scroll the summary output window.
- * \var view_input
- * \brief GtkTextView to view the summary input data.
- * \var view_output
- * \brief GtkTextView to view the summary output data.
- * \var text_input
- * \brief GtkTextBuffer to write the summary input data.
- * \var text_output
- * \brief GtkTextBuffer to write the summary output data.
- * \var notebook
- * \brief GtkNotebook containing the summary widgets.
- * \var dialog
- * \brief GtkDialog to display the summary.
- */
-	GtkScrolledWindow *scrolled_input, *scrolled_output;
-	GtkTextView *view_input, *view_output;
-	GtkTextBuffer *text_input, *text_output;
-	GtkNotebook *notebook;
-	GtkDialog *dialog;
+    /**
+     * \var scrolled_input
+     * \brief GtkScrolledWindow to scroll the summary input window.
+     * \var scrolled_output
+     * \brief GtkScrolledWindow to scroll the summary output window.
+     * \var view_input
+     * \brief GtkTextView to view the summary input data.
+     * \var view_output
+     * \brief GtkTextView to view the summary output data.
+     * \var text_input
+     * \brief GtkTextBuffer to write the summary input data.
+     * \var text_output
+     * \brief GtkTextBuffer to write the summary output data.
+     * \var notebook
+     * \brief GtkNotebook containing the summary widgets.
+     * \var dialog
+     * \brief GtkDialog to display the summary.
+     */
+    GtkScrolledWindow *scrolled_input, *scrolled_output;
+    GtkTextView *view_input, *view_output;
+    GtkTextBuffer *text_input, *text_output;
+    GtkNotebook *notebook;
+    GtkDialog *dialog;
 };
 
 /**
@@ -79,33 +79,33 @@ typedef struct _Summary Summary;
  */
 struct _MainWindow
 {
-/**
- * \var button_exit
- * \brief GtkToolButton to exit the program.
- * \var button_open
- * \brief GtkToolButton to open a fertigation problem.
- * \var button_config
- * \brief GtkToolButton to configure the fertigation problem.
- * \var button_run
- * \brief GtkToolButton to run the simulation.
- * \var button_plot
- * \brief GtkToolButton to plot the simulation results.
- * \var button_summary
- * \brief GtkToolButton to display a summary with the input and results data.
- * \var button_help
- * \brief GtkToolButton to display the program help.
- * \var toolbar
- * \brief GtkToolBar containing the tool buttons.
- * \var pixbuf
- * \brief GdkPixbuf of the logo.
- * \var window
- * \brief Main GtkWindow.
- */
-	GtkToolButton *button_exit, *button_open, *button_config, *button_run,
-		*button_plot, *button_summary, *button_help;
-	GtkToolbar *toolbar;
-	GdkPixbuf *pixbuf;
-	GtkWindow *window;
+    /**
+     * \var button_exit
+     * \brief GtkToolButton to exit the program.
+     * \var button_open
+     * \brief GtkToolButton to open a fertigation problem.
+     * \var button_config
+     * \brief GtkToolButton to configure the fertigation problem.
+     * \var button_run
+     * \brief GtkToolButton to run the simulation.
+     * \var button_plot
+     * \brief GtkToolButton to plot the simulation results.
+     * \var button_summary
+     * \brief GtkToolButton to display a summary with the input and results data.
+     * \var button_help
+     * \brief GtkToolButton to display the program help.
+     * \var toolbar
+     * \brief GtkToolBar containing the tool buttons.
+     * \var pixbuf
+     * \brief GdkPixbuf of the logo.
+     * \var window
+     * \brief Main GtkWindow.
+     */
+    GtkToolButton *button_exit, *button_open, *button_config, *button_run,
+                  *button_plot, *button_summary, *button_help;
+    GtkToolbar *toolbar;
+    GdkPixbuf *pixbuf;
+    GtkWindow *window;
 };
 
 /**

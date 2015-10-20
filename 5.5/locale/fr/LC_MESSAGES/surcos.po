@@ -54,7 +54,7 @@ msgstr "Débit"
 
 #: src/field.c:238
 msgid "Unable to open the geometry data file"
-msgstr "On peut pas ouvrir le fichier des données de géométrie"
+msgstr "On ne peut pas ouvrir le fichier des données de géométrie"
 
 #: src/field.c:254 src/field.c:260 src/field.c:266 src/field.c:271
 #: src/field.c:276 src/field.c:281 src/field.c:286 src/field.c:291
@@ -89,7 +89,7 @@ msgstr "Données de champ incorrectes"
 
 #: src/field.c:502
 msgid "Unable to open the input file"
-msgstr "On peut pas ouvrir le fichier des entrées"
+msgstr "On ne peut pas ouvrir le fichier des entrées"
 
 #: src/field.c:519
 msgid "Not enough memory to open the input data"
@@ -97,7 +97,7 @@ msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
 
 #: src/field.c:567
 msgid "Unable to open the mesh data file"
-msgstr "On peut pas ouvrir le fichier des données de maille"
+msgstr "On ne peut pas ouvrir le fichier des données de maille"
 
 #: src/field.c:578
 msgid "Bad mesh data"
@@ -105,7 +105,7 @@ msgstr "Données de maille incorrectes"
 
 #: src/field.c:602
 msgid "Unable to open the times data file"
-msgstr "On peut pas ouvrir le fichier des données de temps"
+msgstr "On ne peut pas ouvrir le fichier des données de temps"
 
 #: src/field.c:608
 msgid "Bad times data"
@@ -113,7 +113,7 @@ msgstr "Données des temps incorrectes"
 
 #: src/field.c:632
 msgid "Unable to open the model data file"
-msgstr "On peut pas ouvrir le fichier des données des modèles"
+msgstr "On ne peut pas ouvrir le fichier des données des modèles"
 
 #: src/field.c:639
 msgid "Bad model data"
@@ -121,7 +121,7 @@ msgstr "Données des modèles incorrectes"
 
 #: src/field.c:664
 msgid "Unable to open the probes data file"
-msgstr "On peut pas ouvrir le fichier des données des sondes"
+msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 
 #: src/field.c:671 src/field.c:685
 msgid "Bad probes data"
@@ -216,7 +216,7 @@ msgid "surcos [-v] input_directory"
 msgstr "surcos [-v] répertoire_d'entrée"
 
 #~ msgid "Unable to open the coefficients file"
-#~ msgstr "On peut pas ouvrir le fichier des coefficients"
+#~ msgstr "On ne peut pas ouvrir le fichier des coefficients"
 
 #~ msgid "Bad coefficients file"
 #~ msgstr "Fichier des coefficients incorrect"

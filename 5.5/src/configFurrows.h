@@ -6,10 +6,10 @@ Copyright 2011-2014, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
 1. Redistributions of source code must retain the above copyright notice, this
 	list of conditions and the following disclaimer.
- 
+
 2. Redistributions in binary form must reproduce the above copyright notice,
 	this list of conditions and the following disclaimer in the documentation
 	and/or other materials provided with the distribution.
@@ -22,7 +22,7 @@ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
 BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
 DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -41,14 +41,14 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 struct _ConfigFurrow
 {
-/**
- * \var button
- * \brief GtkButton to show the furrow label.
- * \var spin
- * \brief Array of GtkSpinButtons to set the furrow parameters.
- */
-	GtkButton *button;
-	GtkSpinButton *spin[10];
+    /**
+     * \var button
+     * \brief GtkButton to show the furrow label.
+     * \var spin
+     * \brief Array of GtkSpinButtons to set the furrow parameters.
+     */
+    GtkButton *button;
+    GtkSpinButton *spin[10];
 };
 
 /**
@@ -62,47 +62,47 @@ typedef struct _ConfigFurrow ConfigFurrow;
  */
 struct _TableConfigFurrows
 {
-/**
- * \var furrow
- * \brief Array of furrow configurations.
- * \var label_furrow
- * \brief GtkLabel to show the furrows number.
- * \var label_models
- * \brief GtkLabel to show the main of the model coefficients symbols.
- * \var spin
- * \brief GtkSpinButton to configure the furrows number.
- * \var button_recirculation
- * \brief GtkCheckButton to configure the recirculation furrow.
- * \var box_image
- * \brief GtkGrid containing the image and the label.
- * \var box_furrows
- * \brief GtkGrid containing the furrows number configuration. 
- * \var button_furrow
- * \brief GtkButton label to show the furrow type.
- * \var button_geometry
- * \brief GtkButton label to show the furrow geometry.
- * \var button_soil
- * \brief GtkButton label to show the furrow soil properties.
- * \var button_friction
- * \brief GtkButton label to show the furrow friction.
- * \var button_infiltration
- * \brief GtkButton label to show the furrow infiltration porperties.
- * \var button_coefficient
- * \brief GtkButton label to show the furrow coefficients.
- * \var image
- * \brief GtkImage displaying an illustration of the furrow characteristics.
- * \var table
- * \brief GtkGrid containing all configuration widgets.
- */
-	ConfigFurrow furrow[3];
-	GtkLabel *label_furrow, *label_models;
-	GtkSpinButton *spin;
-	GtkCheckButton *button_recirculation;
-	GtkGrid *box_image, *box_furrows;
-	GtkButton *button_furrow, *button_geometry, *button_soil, *button_friction,
-		*button_infiltration, *button_coefficient[10];
-	GtkImage *image;
-	GtkGrid *table;
+    /**
+     * \var furrow
+     * \brief Array of furrow configurations.
+     * \var label_furrow
+     * \brief GtkLabel to show the furrows number.
+     * \var label_models
+     * \brief GtkLabel to show the main of the model coefficients symbols.
+     * \var spin
+     * \brief GtkSpinButton to configure the furrows number.
+     * \var button_recirculation
+     * \brief GtkCheckButton to configure the recirculation furrow.
+     * \var box_image
+     * \brief GtkGrid containing the image and the label.
+     * \var box_furrows
+     * \brief GtkGrid containing the furrows number configuration.
+     * \var button_furrow
+     * \brief GtkButton label to show the furrow type.
+     * \var button_geometry
+     * \brief GtkButton label to show the furrow geometry.
+     * \var button_soil
+     * \brief GtkButton label to show the furrow soil properties.
+     * \var button_friction
+     * \brief GtkButton label to show the furrow friction.
+     * \var button_infiltration
+     * \brief GtkButton label to show the furrow infiltration porperties.
+     * \var button_coefficient
+     * \brief GtkButton label to show the furrow coefficients.
+     * \var image
+     * \brief GtkImage displaying an illustration of the furrow characteristics.
+     * \var table
+     * \brief GtkGrid containing all configuration widgets.
+     */
+    ConfigFurrow furrow[3];
+    GtkLabel *label_furrow, *label_models;
+    GtkSpinButton *spin;
+    GtkCheckButton *button_recirculation;
+    GtkGrid *box_image, *box_furrows;
+    GtkButton *button_furrow, *button_geometry, *button_soil, *button_friction,
+              *button_infiltration, *button_coefficient[10];
+    GtkImage *image;
+    GtkGrid *table;
 };
 
 /**
