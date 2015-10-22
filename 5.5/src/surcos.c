@@ -63,74 +63,75 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \param argc
  * \brief Argument strings.
  */
-int main(int argn, char *argc[])
+int
+main (int argn, char *argc[])
 {
-    char *buffer, *buffer2;
+  char *buffer, *buffer2;
 
 #if DEBUG_MAIN
-    printf("main: start\n");
+  printf ("main: start\n");
 #endif
 
-    // Initing field arrays
-    field->si = NULL;
-    field->input = NULL;
-    field->probe = NULL;
+  // Initing field arrays
+  field->si = NULL;
+  field->input = NULL;
+  field->probe = NULL;
 
-    // LIBRARY AND LANGUAGE INITIALIZATIONS
+  // LIBRARY AND LANGUAGE INITIALIZATIONS
 #if PARALLELIZING
-    g_thread_init(NULL);
-    parallel->mutex = g_mutex_new();
+  g_thread_init (NULL);
+  parallel->mutex = g_mutex_new ();
 #endif
 
-    // Setting locale to system default
-    buffer = setlocale(LC_ALL, "");
+  // Setting locale to system default
+  buffer = setlocale (LC_ALL, "");
 #if DEBUG_MAIN
-    printf("locale = %s\n", buffer);
+  printf ("locale = %s\n", buffer);
 #endif
 
-    // Setting numerical locale to international standard
-    buffer = setlocale(LC_NUMERIC, "C");
+  // Setting numerical locale to international standard
+  buffer = setlocale (LC_NUMERIC, "C");
 #if DEBUG_MAIN
-    printf("LC_NUMERIC = %s\n", buffer);
+  printf ("LC_NUMERIC = %s\n", buffer);
 #endif
 
-    // Setting the program name and locale directory to find locale files
-    buffer2 = g_get_current_dir();
-    buffer = g_build_filename(buffer2, LOCALE_DIR, NULL);
-    g_free(buffer2);
-    buffer2 = bindtextdomain(PROGRAM_NAME, buffer);
+  // Setting the program name and locale directory to find locale files
+  buffer2 = g_get_current_dir ();
+  buffer = g_build_filename (buffer2, LOCALE_DIR, NULL);
+  g_free (buffer2);
+  buffer2 = bindtextdomain (PROGRAM_NAME, buffer);
 #if DEBUG_MAIN
-    printf("Locale dir = %s\n", buffer);
-    printf("bindtextdomain = %s\n", buffer2);
+  printf ("Locale dir = %s\n", buffer);
+  printf ("bindtextdomain = %s\n", buffer2);
 #endif
-    g_free(buffer);
+  g_free (buffer);
 
-    // Setting the format of the codeset files (UTF-8)
-    buffer2 = bind_textdomain_codeset(PROGRAM_NAME, "UTF-8");
+  // Setting the format of the codeset files (UTF-8)
+  buffer2 = bind_textdomain_codeset (PROGRAM_NAME, "UTF-8");
 #if DEBUG_MAIN
-    printf("codeset = %s\n", buffer2);
+  printf ("codeset = %s\n", buffer2);
 #endif
 
-    // Loading the locale strings
-    buffer2 = textdomain(PROGRAM_NAME);
+  // Loading the locale strings
+  buffer2 = textdomain (PROGRAM_NAME);
 #if DEBUG_MAIN
-    printf("textdomain = %s\n", buffer2);
+  printf ("textdomain = %s\n", buffer2);
 #endif
 
-    switch (argn)
+  switch (argn)
+    {
+    case 2:
+      kernel (argc[1], 0, 0);
+      break;
+    case 3:
+      if (!strcmp (argc[2], "-v"))
         {
-        case 2:
-            kernel(argc[1], 0, 0);
-            break;
-        case 3:
-            if (!strcmp(argc[2], "-v"))
-                {
-                    kernel(argc[1], 0, 1);
-                    break;
-                }
-        default:
-            printf("%s:\n%s\n", gettext("Usage is"),
-                   gettext("surcos [-v] input_directory"));
-            return 4;
+          kernel (argc[1], 0, 1);
+          break;
         }
+    default:
+      printf ("%s:\n%s\n", gettext ("Usage is"),
+              gettext ("surcos [-v] input_directory"));
+      return 4;
+    }
 }

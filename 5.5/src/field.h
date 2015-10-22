@@ -57,8 +57,8 @@ struct _Input
      * \var node
      * \brief Number of the nearest node to the input position.
      */
-    JBDOUBLE x, y, t0, tf, q;
-    unsigned int node;
+  JBDOUBLE x, y, t0, tf, q;
+  unsigned int node;
 };
 
 /**
@@ -80,8 +80,8 @@ struct _Probe
      * \var node
      * \brief Number of the nearest node to the input position.
      */
-    JBDOUBLE x, y;
-    unsigned int node;
+  JBDOUBLE x, y;
+  unsigned int node;
 };
 
 /**
@@ -148,13 +148,13 @@ struct _Field
      * \var nprobes
      * \brief Number of probes.
      */
-    Furrow sb[1], sc[1], *si;
-    InitialConditions cib[1], cic[1], cii[1];
-    Input *input;
-    Probe *probe;
-    Parameters *p;
-    JBDOUBLE x[8], y[8], z[8], tm, tf, cfl, cpu;
-    unsigned int open, nfurrows, nb, nbi, ni, n, nwinputs, nsinputs, nprobes;
+  Furrow sb[1], sc[1], *si;
+  InitialConditions cib[1], cic[1], cii[1];
+  Input *input;
+  Probe *probe;
+  Parameters *p;
+  JBDOUBLE x[8], y[8], z[8], tm, tf, cfl, cpu;
+  unsigned int open, nfurrows, nb, nbi, ni, n, nwinputs, nsinputs, nprobes;
 };
 
 /**
@@ -164,35 +164,35 @@ typedef struct _Field Field;
 
 extern Field field[1];
 
-void field_save_parameters(int t, char *directory);
-void field_save_probes(FILE *file);
-void field_save_advances(char *dir);
-void field_dtmax();
-void field_step(JBDOUBLE dt);
-void field_parameters();
-JBDOUBLE field_input_water();
-JBDOUBLE field_input_fertilizer();
-JBDOUBLE field_uniformity_water();
-JBDOUBLE field_uniformity_fertilizer();
-JBDOUBLE field_efficiency_water();
-JBDOUBLE field_efficiency_fertilizer();
-void field_destroy();
-int field_open(char *dir);
+void field_save_parameters (int t, char *directory);
+void field_save_probes (FILE * file);
+void field_save_advances (char *dir);
+void field_dtmax ();
+void field_step (JBDOUBLE dt);
+void field_parameters ();
+JBDOUBLE field_input_water ();
+JBDOUBLE field_input_fertilizer ();
+JBDOUBLE field_uniformity_water ();
+JBDOUBLE field_uniformity_fertilizer ();
+JBDOUBLE field_efficiency_water ();
+JBDOUBLE field_efficiency_fertilizer ();
+void field_destroy ();
+int field_open (char *dir);
 
-void travel_furrows(void (*function)(Parameters*, unsigned int));
-void travel_mesh(void (*function)(Parameters*));
+void travel_furrows (void (*function) (Parameters *, unsigned int));
+void travel_mesh (void (*function) (Parameters *));
 
 #if !PARALLELIZING
 
-JBDOUBLE volume_water_total(Parameters *p, unsigned int n);
-JBDOUBLE volume_water_surface(Parameters *p, unsigned int n);
-JBDOUBLE volume_water_soil(Parameters *p, unsigned int n);
-JBDOUBLE volume_water_loss(Parameters *p, unsigned int n);
-JBDOUBLE mass_fertilizer_total(Parameters *p, unsigned int n);
-JBDOUBLE mass_fertilizer_surface(Parameters *p, unsigned int n);
-JBDOUBLE mass_fertilizer_soil(Parameters *p, unsigned int n);
-JBDOUBLE mass_fertilizer_loss(Parameters *p, unsigned int n);
-JBDOUBLE mass_fertilizer_solid(Parameters *p, unsigned int n);
+JBDOUBLE volume_water_total (Parameters * p, unsigned int n);
+JBDOUBLE volume_water_surface (Parameters * p, unsigned int n);
+JBDOUBLE volume_water_soil (Parameters * p, unsigned int n);
+JBDOUBLE volume_water_loss (Parameters * p, unsigned int n);
+JBDOUBLE mass_fertilizer_total (Parameters * p, unsigned int n);
+JBDOUBLE mass_fertilizer_surface (Parameters * p, unsigned int n);
+JBDOUBLE mass_fertilizer_soil (Parameters * p, unsigned int n);
+JBDOUBLE mass_fertilizer_loss (Parameters * p, unsigned int n);
+JBDOUBLE mass_fertilizer_solid (Parameters * p, unsigned int n);
 
 #else
 
@@ -229,13 +229,13 @@ struct _Parallel
      * \brief Node numbers array corresponding to each thread
      *   (calculated in a local region of the mesh).
      */
-    GMutex *mutex;
-    void (*function_node)(Parameters*);
-    void (*function_furrow)(Parameters*, unsigned int);
-    JBDOUBLE (*function_mass)(Parameters*);
-    Parameters *parameter;
-    JBDOUBLE mass;
-    unsigned int nthreads, nfurrows, *node, *furrow, *thread;
+  GMutex *mutex;
+  void (*function_node) (Parameters *);
+  void (*function_furrow) (Parameters *, unsigned int);
+    JBDOUBLE (*function_mass) (Parameters *);
+  Parameters *parameter;
+  JBDOUBLE mass;
+  unsigned int nthreads, nfurrows, *node, *furrow, *thread;
 };
 
 /**
@@ -245,9 +245,9 @@ typedef struct _Parallel Parallel;
 
 extern Parallel parallel[1];
 
-void parallel_open();
+void parallel_open ();
 JBDOUBLE mass_parallel
-(Parameters *p, unsigned int n, JBDOUBLE (*function)(Parameters*));
+  (Parameters * p, unsigned int n, JBDOUBLE (*function) (Parameters *));
 
 #define volume_water_total(p, n) \
 	(mass_parallel(p, n, parameters_volume_water_total))

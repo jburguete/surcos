@@ -53,8 +53,8 @@ struct _WindowRun
      * \var dialog
      * \brief GtkDialog dialog.
      */
-    GtkProgressBar *progress;
-    GtkDialog *dialog;
+  GtkProgressBar *progress;
+  GtkDialog *dialog;
 };
 
 /**
@@ -64,7 +64,7 @@ typedef struct _WindowRun WindowRun;
 
 #endif
 
-int kernel_open(char *dir, int gui);
-int kernel(char *dir, int gui, int msg);
+int kernel_open (char *dir, int gui);
+int kernel (char *dir, int gui, int msg);
 
 #endif

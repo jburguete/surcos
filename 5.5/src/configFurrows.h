@@ -47,8 +47,8 @@ struct _ConfigFurrow
      * \var spin
      * \brief Array of GtkSpinButtons to set the furrow parameters.
      */
-    GtkButton *button;
-    GtkSpinButton *spin[10];
+  GtkButton *button;
+  GtkSpinButton *spin[10];
 };
 
 /**
@@ -94,15 +94,15 @@ struct _TableConfigFurrows
      * \var table
      * \brief GtkGrid containing all configuration widgets.
      */
-    ConfigFurrow furrow[3];
-    GtkLabel *label_furrow, *label_models;
-    GtkSpinButton *spin;
-    GtkCheckButton *button_recirculation;
-    GtkGrid *box_image, *box_furrows;
-    GtkButton *button_furrow, *button_geometry, *button_soil, *button_friction,
-              *button_infiltration, *button_coefficient[10];
-    GtkImage *image;
-    GtkGrid *table;
+  ConfigFurrow furrow[3];
+  GtkLabel *label_furrow, *label_models;
+  GtkSpinButton *spin;
+  GtkCheckButton *button_recirculation;
+  GtkGrid *box_image, *box_furrows;
+  GtkButton *button_furrow, *button_geometry, *button_soil, *button_friction,
+    *button_infiltration, *button_coefficient[10];
+  GtkImage *image;
+  GtkGrid *table;
 };
 
 /**
@@ -110,9 +110,9 @@ struct _TableConfigFurrows
  */
 typedef struct _TableConfigFurrows TableConfigFurrows;
 
-void config_furrow_read(ConfigFurrow *w, FILE *file);
-void config_furrow_write(ConfigFurrow *w, FILE *file);
+void config_furrow_read (ConfigFurrow * w, FILE * file);
+void config_furrow_write (ConfigFurrow * w, FILE * file);
 
-void table_config_furrows_new(TableConfigFurrows *w);
+void table_config_furrows_new (TableConfigFurrows * w);
 
 #endif

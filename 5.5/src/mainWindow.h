@@ -61,11 +61,11 @@ struct _Summary
      * \var dialog
      * \brief GtkDialog to display the summary.
      */
-    GtkScrolledWindow *scrolled_input, *scrolled_output;
-    GtkTextView *view_input, *view_output;
-    GtkTextBuffer *text_input, *text_output;
-    GtkNotebook *notebook;
-    GtkDialog *dialog;
+  GtkScrolledWindow *scrolled_input, *scrolled_output;
+  GtkTextView *view_input, *view_output;
+  GtkTextBuffer *text_input, *text_output;
+  GtkNotebook *notebook;
+  GtkDialog *dialog;
 };
 
 /**
@@ -101,11 +101,11 @@ struct _MainWindow
      * \var window
      * \brief Main GtkWindow.
      */
-    GtkToolButton *button_exit, *button_open, *button_config, *button_run,
-                  *button_plot, *button_summary, *button_help;
-    GtkToolbar *toolbar;
-    GdkPixbuf *pixbuf;
-    GtkWindow *window;
+  GtkToolButton *button_exit, *button_open, *button_config, *button_run,
+    *button_plot, *button_summary, *button_help;
+  GtkToolbar *toolbar;
+  GdkPixbuf *pixbuf;
+  GtkWindow *window;
 };
 
 /**
@@ -115,7 +115,7 @@ typedef struct _MainWindow MainWindow;
 
 extern char *input_dir;
 
-void main_window_update(MainWindow *w);
-MainWindow* main_window_new();
+void main_window_update (MainWindow * w);
+MainWindow *main_window_new ();
 
 #endif

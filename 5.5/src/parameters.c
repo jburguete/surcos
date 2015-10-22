@@ -42,23 +42,24 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \param file
  * \brief Output file.
  */
-void parameters_show(Parameters *p, FILE *file)
+void
+parameters_show (Parameters * p, FILE * file)
 {
-    fprintf(file, "parameters_show: start\n");
-    fprintf(file, "h="FWF" A="FWF" Q="FWF" Ai="FWF"\n",
-            p->h, p->A, p->Q, p->Ai);
-    fprintf(file, "c="FWF" Ac="FWF" Aci="FWF" Ap="FWF" dx="FWF"\n",
-            p->c, p->Ac, p->Aci, p->Ap, p->dx);
-    fprintf(file, "B="FWF" P="FWF" u="FWF" uc="FWF"\n",
-            p->B, p->P, p->u, p->uc);
-    fprintf(file, "F="FWF" H="FWF" Kx="FWF" Kf="FWF"\n",
-            p->F, p->H, p->Kx, p->Kf);
-    fprintf(file, "la="FWF" lb="FWF" zs="FWF" zf="FWF"\n",
-            p->la, p->lb, p->zs, p->zf);
-    fprintf(file, "x="FWF" Amin="FWF" zmin="FWF" sA="FWF"\n",
-            p->x, p->Amin, p->zmin, p->sA);
-    fprintf(file, "dQp="FWF" dQm="FWF" dFp="FWF" dFm="FWF"\n",
-            p->dQp, p->dQm, p->dFp, p->dFm);
-    fprintf(file, "dTp="FWF" dTm="FWF"\n", p->dTp, p->dTm);
-    fprintf(file, "parameters_show: end\n");
+  fprintf (file, "parameters_show: start\n");
+  fprintf (file, "h=" FWF " A=" FWF " Q=" FWF " Ai=" FWF "\n",
+           p->h, p->A, p->Q, p->Ai);
+  fprintf (file, "c=" FWF " Ac=" FWF " Aci=" FWF " Ap=" FWF " dx=" FWF "\n",
+           p->c, p->Ac, p->Aci, p->Ap, p->dx);
+  fprintf (file, "B=" FWF " P=" FWF " u=" FWF " uc=" FWF "\n",
+           p->B, p->P, p->u, p->uc);
+  fprintf (file, "F=" FWF " H=" FWF " Kx=" FWF " Kf=" FWF "\n",
+           p->F, p->H, p->Kx, p->Kf);
+  fprintf (file, "la=" FWF " lb=" FWF " zs=" FWF " zf=" FWF "\n",
+           p->la, p->lb, p->zs, p->zf);
+  fprintf (file, "x=" FWF " Amin=" FWF " zmin=" FWF " sA=" FWF "\n",
+           p->x, p->Amin, p->zmin, p->sA);
+  fprintf (file, "dQp=" FWF " dQm=" FWF " dFp=" FWF " dFm=" FWF "\n",
+           p->dQp, p->dQm, p->dFp, p->dFm);
+  fprintf (file, "dTp=" FWF " dTm=" FWF "\n", p->dTp, p->dTm);
+  fprintf (file, "parameters_show: end\n");
 }

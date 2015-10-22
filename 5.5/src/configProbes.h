@@ -57,13 +57,13 @@ struct _ConfigProbes
      * \var vbox
      * \brief GtkGrid containing all probes configuration widgets.
      */
-    GList *list;
-    GtkLabel *label;
-    GtkSpinButton *spin;
-    GtkButton *button[3];
-    GtkGrid *table;
-    GtkGrid *hbox;
-    GtkGrid *vbox;
+  GList *list;
+  GtkLabel *label;
+  GtkSpinButton *spin;
+  GtkButton *button[3];
+  GtkGrid *table;
+  GtkGrid *hbox;
+  GtkGrid *vbox;
 };
 
 /**
@@ -71,7 +71,7 @@ struct _ConfigProbes
  */
 typedef struct _ConfigProbes ConfigProbes;
 
-void config_probes_write(ConfigProbes *w);
-void config_probes_new(ConfigProbes *w);
+void config_probes_write (ConfigProbes * w);
+void config_probes_new (ConfigProbes * w);
 
 #endif

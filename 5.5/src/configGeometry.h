@@ -50,8 +50,8 @@ struct _ConfigPoint
      * \var spin
      * \brief GtkSpinButton array to define the point coordinates.
      */
-    GtkButton *button;
-    GtkSpinButton *spin[3];
+  GtkButton *button;
+  GtkSpinButton *spin[3];
 };
 
 /**
@@ -77,11 +77,11 @@ struct _ConfigGeometry
      * \var box
      * \brief GtkGrid containing the table and the image.
      */
-    ConfigPoint point[4];
-    GtkButton *button[4];
-    GtkGrid *table;
-    GtkImage *image;
-    GtkGrid *box;
+  ConfigPoint point[4];
+  GtkButton *button[4];
+  GtkGrid *table;
+  GtkImage *image;
+  GtkGrid *box;
 };
 
 /**
@@ -89,9 +89,9 @@ struct _ConfigGeometry
  */
 typedef struct _ConfigGeometry ConfigGeometry;
 
-void config_point_read(ConfigPoint *w, FILE *file);
-void config_point_write(ConfigPoint *w, FILE *file);
+void config_point_read (ConfigPoint * w, FILE * file);
+void config_point_write (ConfigPoint * w, FILE * file);
 
-void config_geometry_new(ConfigGeometry *w);
+void config_geometry_new (ConfigGeometry * w);
 
 #endif

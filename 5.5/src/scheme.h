@@ -37,18 +37,18 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "parameters.h"
 
-void scheme_save(Parameters *p, unsigned int n, char *name);
+void scheme_save (Parameters * p, unsigned int n, char *name);
 unsigned int scheme_search_node
-(Parameters *p,  unsigned int n,  JBDOUBLE x,  JBDOUBLE y);
+  (Parameters * p, unsigned int n, JBDOUBLE x, JBDOUBLE y);
 void scheme_mesh
-(Parameters *p, unsigned int n, Furrow *s, InitialConditions *ci);
-void scheme_diffusion(Parameters *p, unsigned int n);
-void scheme_diffusion_soil(Parameters *p, unsigned int n);
-void scheme_infiltration(Parameters *p, unsigned int n);
-void scheme_step(Parameters *p, unsigned int n);
-void scheme_ix(Parameters *p, unsigned int n);
-void scheme_save_advance(Parameters *p, unsigned int n, FILE *file);
-JBDOUBLE uniformity_water(Parameters *p, unsigned int n);
-JBDOUBLE uniformity_fertilizer(Parameters *p, unsigned int n);
+  (Parameters * p, unsigned int n, Furrow * s, InitialConditions * ci);
+void scheme_diffusion (Parameters * p, unsigned int n);
+void scheme_diffusion_soil (Parameters * p, unsigned int n);
+void scheme_infiltration (Parameters * p, unsigned int n);
+void scheme_step (Parameters * p, unsigned int n);
+void scheme_ix (Parameters * p, unsigned int n);
+void scheme_save_advance (Parameters * p, unsigned int n, FILE * file);
+JBDOUBLE uniformity_water (Parameters * p, unsigned int n);
+JBDOUBLE uniformity_fertilizer (Parameters * p, unsigned int n);
 
 #endif

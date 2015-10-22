@@ -48,8 +48,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 enum TypeFriction
 {
-    TYPE_FRICTION_MANNING=0,
-    TYPE_FRICTION_POTENTIAL=1
+  TYPE_FRICTION_MANNING = 0,
+  TYPE_FRICTION_POTENTIAL = 1
 };
 
 /**
@@ -66,7 +66,7 @@ struct _InitialConditions
      * \var c
      * \brief Fertilizer concentration.
      */
-    JBFLOAT h, Q, c;
+  JBFLOAT h, Q, c;
 };
 
 /**
@@ -129,9 +129,9 @@ struct _Furrow
      * \var friction
      * \brief Type of model friction (0: Gauckler-Manning, 1: Burguete).
      */
-    JBFLOAT b, z, h, D, H, epsilon, n, d, i1, i2, i3, x0, y0, z0, xf, yf, zf,
-            S0, Amax, fz, l, gn2, i4, fb;
-    unsigned int friction;
+  JBFLOAT b, z, h, D, H, epsilon, n, d, i1, i2, i3, x0, y0, z0, xf, yf, zf,
+    S0, Amax, fz, l, gn2, i4, fb;
+  unsigned int friction;
 };
 
 /**
@@ -161,13 +161,13 @@ extern char *message;
  */
 #define furrow_copy(s, sc) (memcpy(s, sc, sizeof(Furrow)))
 
-int initial_conditions_read(InitialConditions *ci, FILE *file);
-void initial_conditions_dry(InitialConditions *ci);
+int initial_conditions_read (InitialConditions * ci, FILE * file);
+void initial_conditions_dry (InitialConditions * ci);
 
-void furrow_show(Furrow *s, FILE *file);
-int furrow_read(Furrow *s, FILE *file);
-void furrow_position(Furrow *s, JBDOUBLE x0, JBDOUBLE y0, JBDOUBLE z0,
-                     JBDOUBLE xf, JBDOUBLE yf, JBDOUBLE zf);
-void furrow_open(Furrow *s);
+void furrow_show (Furrow * s, FILE * file);
+int furrow_read (Furrow * s, FILE * file);
+void furrow_position (Furrow * s, JBDOUBLE x0, JBDOUBLE y0, JBDOUBLE z0,
+                      JBDOUBLE xf, JBDOUBLE yf, JBDOUBLE zf);
+void furrow_open (Furrow * s);
 
 #endif

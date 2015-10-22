@@ -75,9 +75,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \var dtmax
  * \brief Maximum time step size.
  */
-unsigned int type_fertilizer,type_infiltration,type_diffusion_soil,
-         type_beta,simulating;
-JBDOUBLE dt,dtmax;
+unsigned int type_fertilizer, type_infiltration, type_diffusion_soil,
+  type_beta, simulating;
+JBDOUBLE dt, dtmax;
 
 #if JBW != JBW_NO
 extern GtkWidget *windowMain;
@@ -95,7 +95,7 @@ WindowRun windowRun[1];
  * \brief Pointer to the function to show the error messages.
  */
 char *message = NULL;
-void (*show_error)(char *msg);
+void (*show_error) (char *msg);
 
 /**
  * \fn void print_error(char *msg)
@@ -103,9 +103,10 @@ void (*show_error)(char *msg);
  * \param msg
  * \brief Error message string.
  */
-void print_error(char *msg)
+void
+print_error (char *msg)
 {
-    printf("Error!\n%s\n", msg);
+  printf ("Error!\n%s\n", msg);
 }
 
 /**
@@ -118,11 +119,12 @@ void print_error(char *msg)
  * \param mass
  * \brief mass.
  */
-void results_mass(FILE *file, char *label, double mass)
+void
+results_mass (FILE * file, char *label, double mass)
 {
-    char buffer[512];
-    snprintf(buffer, 512, "\t\t%s = %g m\302\263\n", label, mass);
-    fprintf(file, buffer);
+  char buffer[512];
+  snprintf (buffer, 512, "\t\t%s = %g m\302\263\n", label, mass);
+  fprintf (file, buffer);
 }
 
 /**
@@ -131,186 +133,184 @@ void results_mass(FILE *file, char *label, double mass)
  * \param dir
  * \brief directory.
  */
-void results_save(char *dir)
+void
+results_save (char *dir)
 {
-    int n;
-    char buffer[512];
-    double m1, m2;
-    FILE *file;
+  int n;
+  char buffer[512];
+  double m1, m2;
+  FILE *file;
 
-    snprintf(buffer, 512, "%s/summary.out", dir);
-    file = g_fopen(buffer, "w");
+  snprintf (buffer, 512, "%s/summary.out", dir);
+  file = g_fopen (buffer, "w");
 
-    snprintf(buffer, 512, "%s = %g s\n", gettext("Irrigation life time"), t);
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "%s = %g s\n\n", gettext("Calculation time"),
-             field->cpu);
-    fprintf(file, buffer);
+  snprintf (buffer, 512, "%s = %g s\n", gettext ("Irrigation life time"), t);
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "%s = %g s\n\n", gettext ("Calculation time"),
+            field->cpu);
+  fprintf (file, buffer);
 
-    snprintf(buffer, 512, "%s\n", gettext("IRRIGATION QUALITY"));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t%s\n", gettext("Water"));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n", gettext("Uniformity"),
-             field_uniformity_water(field));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n", gettext("Efficiency"),
-             field_efficiency_water(field));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t%s\n", gettext("Fertilizer"));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n", gettext("Uniformity"),
-             field_uniformity_fertilizer(field));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n\n", gettext("Efficiency"),
-             field_efficiency_fertilizer(field));
-    fprintf(file, buffer);
+  snprintf (buffer, 512, "%s\n", gettext ("IRRIGATION QUALITY"));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t%s\n", gettext ("Water"));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n", gettext ("Uniformity"),
+            field_uniformity_water (field));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n", gettext ("Efficiency"),
+            field_efficiency_water (field));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t%s\n", gettext ("Fertilizer"));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n", gettext ("Uniformity"),
+            field_uniformity_fertilizer (field));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n\n", gettext ("Efficiency"),
+            field_efficiency_fertilizer (field));
+  fprintf (file, buffer);
 
-    snprintf(buffer, 512, "%s\n", gettext("WATER VOLUME"));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t%s\n", gettext("Total"));
-    fprintf(file, buffer);
-    m1 = field_input_water(field);
-    results_mass(file, gettext("Input"), m1);
-    m2 = volume_water_total(field->p, field->n);
-    results_mass(file, gettext("Calculated"), m2);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n",
-             gettext("Conservation error"), 100. * fabs(m2 - m1) / m1);
-    fprintf(file, buffer);
-    results_mass(file, gettext("Superficial"),
-                 volume_water_surface(field->p, field->n));
-    results_mass(file, gettext("Infiltrated"),
-                 volume_water_soil(field->p, field->n));
-    results_mass(file, gettext("Percolated"),
-                 volume_water_loss(field->p, field->n));
-    if (field->nfurrows > 0)
+  snprintf (buffer, 512, "%s\n", gettext ("WATER VOLUME"));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t%s\n", gettext ("Total"));
+  fprintf (file, buffer);
+  m1 = field_input_water (field);
+  results_mass (file, gettext ("Input"), m1);
+  m2 = volume_water_total (field->p, field->n);
+  results_mass (file, gettext ("Calculated"), m2);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n",
+            gettext ("Conservation error"), 100. * fabs (m2 - m1) / m1);
+  fprintf (file, buffer);
+  results_mass (file, gettext ("Superficial"),
+                volume_water_surface (field->p, field->n));
+  results_mass (file, gettext ("Infiltrated"),
+                volume_water_soil (field->p, field->n));
+  results_mass (file, gettext ("Percolated"),
+                volume_water_loss (field->p, field->n));
+  if (field->nfurrows > 0)
+    {
+      n = field->nfurrows * field->ni;
+      snprintf (buffer, 512, "\t%s\n", gettext ("Irrigation furrows"));
+      fprintf (file, buffer);
+      results_mass (file, gettext ("Total"), volume_water_total (field->p, n));
+      results_mass (file, gettext ("Superficial"),
+                    volume_water_surface (field->p, n));
+      results_mass (file, gettext ("Infiltrated"),
+                    volume_water_soil (field->p, n));
+      results_mass (file, gettext ("Percolated"),
+                    volume_water_loss (field->p, n));
+      snprintf (buffer, 512, "\t%s\n", gettext ("Distribution furrow"));
+      fprintf (file, buffer);
+      results_mass (file, gettext ("Total"),
+                    volume_water_total (field->p + n, field->nb));
+      results_mass (file, gettext ("Superficial"),
+                    volume_water_surface (field->p + n, field->nb));
+      results_mass (file, gettext ("Infiltrated"),
+                    volume_water_soil (field->p + n, field->nb));
+      results_mass (file, gettext ("Percolated"),
+                    volume_water_loss (field->p + n, field->nb));
+      if (field->open)
         {
-            n = field->nfurrows * field->ni;
-            snprintf(buffer, 512, "\t%s\n", gettext("Irrigation furrows"));
-            fprintf(file, buffer);
-            results_mass(file, gettext("Total"),
-                         volume_water_total(field->p, n));
-            results_mass(file, gettext("Superficial"),
-                         volume_water_surface(field->p, n));
-            results_mass(file, gettext("Infiltrated"),
-                         volume_water_soil(field->p, n));
-            results_mass(file, gettext("Percolated"),
-                         volume_water_loss(field->p, n));
-            snprintf(buffer, 512, "\t%s\n", gettext("Distribution furrow"));
-            fprintf(file, buffer);
-            results_mass(file, gettext("Total"),
-                         volume_water_total(field->p + n, field->nb));
-            results_mass(file, gettext("Superficial"),
-                         volume_water_surface(field->p + n, field->nb));
-            results_mass(file, gettext("Infiltrated"),
-                         volume_water_soil(field->p + n, field->nb));
-            results_mass(file, gettext("Percolated"),
-                         volume_water_loss(field->p + n, field->nb));
-            if (field->open)
-                {
-                    n += field->nb;
-                    snprintf(buffer, 512, "\t%s\n", gettext("Recirculation furrow"));
-                    fprintf(file, buffer);
-                    results_mass(file, gettext("Total"),
-                                 volume_water_total(field->p + n, field->nb));
-                    results_mass(file, gettext("Superficial"),
-                                 volume_water_surface(field->p + n, field->nb));
-                    results_mass(file, gettext("Infiltrated"),
-                                 volume_water_soil(field->p + n, field->nb));
-                    results_mass(file, gettext("Percolated"),
-                                 volume_water_loss(field->p + n, field->nb));
-                }
+          n += field->nb;
+          snprintf (buffer, 512, "\t%s\n", gettext ("Recirculation furrow"));
+          fprintf (file, buffer);
+          results_mass (file, gettext ("Total"),
+                        volume_water_total (field->p + n, field->nb));
+          results_mass (file, gettext ("Superficial"),
+                        volume_water_surface (field->p + n, field->nb));
+          results_mass (file, gettext ("Infiltrated"),
+                        volume_water_soil (field->p + n, field->nb));
+          results_mass (file, gettext ("Percolated"),
+                        volume_water_loss (field->p + n, field->nb));
         }
-    fprintf(file, "\n");
+    }
+  fprintf (file, "\n");
 
-    snprintf(buffer, 512, "%s\n", gettext("FERTILIZER MASS"));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t%s\n", gettext("Total"));
-    fprintf(file, buffer);
-    m1 = field_input_fertilizer(field);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Input"),
-             m1);
-    fprintf(file, buffer);
-    m2 = mass_fertilizer_total(field->p, field->n);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Calculated"),
-             m2);
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g %%\n", gettext("Conservation error"),
-             100. * fabs(m2 - m1) / m1);
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Superficial"),
-             mass_fertilizer_surface(field->p, field->n));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Infiltrated"),
-             mass_fertilizer_soil(field->p, field->n));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Percolated"),
-             mass_fertilizer_loss(field->p, field->n));
-    fprintf(file, buffer);
-    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Solid"),
-             mass_fertilizer_solid(field->p, field->n));
-    fprintf(file, buffer);
-    if (field->nfurrows > 0)
+  snprintf (buffer, 512, "%s\n", gettext ("FERTILIZER MASS"));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t%s\n", gettext ("Total"));
+  fprintf (file, buffer);
+  m1 = field_input_fertilizer (field);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Input"), m1);
+  fprintf (file, buffer);
+  m2 = mass_fertilizer_total (field->p, field->n);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Calculated"), m2);
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g %%\n", gettext ("Conservation error"),
+            100. * fabs (m2 - m1) / m1);
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Superficial"),
+            mass_fertilizer_surface (field->p, field->n));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Infiltrated"),
+            mass_fertilizer_soil (field->p, field->n));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Percolated"),
+            mass_fertilizer_loss (field->p, field->n));
+  fprintf (file, buffer);
+  snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Solid"),
+            mass_fertilizer_solid (field->p, field->n));
+  fprintf (file, buffer);
+  if (field->nfurrows > 0)
+    {
+      n = field->nfurrows * field->ni;
+      snprintf (buffer, 512, "\t%s\n", gettext ("Irrigation furrows"));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Total"),
+                mass_fertilizer_total (field->p, n));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Superficial"),
+                mass_fertilizer_surface (field->p, n));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Infiltrated"),
+                mass_fertilizer_soil (field->p, n));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Percolated"),
+                mass_fertilizer_loss (field->p, n));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Solid"),
+                mass_fertilizer_solid (field->p, n));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t%s\n", gettext ("Distribution furrow"));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Total"),
+                mass_fertilizer_total (field->p + n, field->nb));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Superficial"),
+                mass_fertilizer_surface (field->p + n, field->nb));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Infiltrated"),
+                mass_fertilizer_soil (field->p + n, field->nb));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Percolated"),
+                mass_fertilizer_loss (field->p + n, field->nb));
+      fprintf (file, buffer);
+      snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Solid"),
+                mass_fertilizer_solid (field->p + n, field->nb));
+      fprintf (file, buffer);
+      if (field->open)
         {
-            n = field->nfurrows * field->ni;
-            snprintf(buffer, 512, "\t%s\n", gettext("Irrigation furrows"));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Total"),
-                     mass_fertilizer_total(field->p, n));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Superficial"),
-                     mass_fertilizer_surface(field->p, n));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Infiltrated"),
-                     mass_fertilizer_soil(field->p, n));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Percolated"),
-                     mass_fertilizer_loss(field->p, n));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Solid"),
-                     mass_fertilizer_solid(field->p, n));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t%s\n", gettext("Distribution furrow"));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Total"),
-                     mass_fertilizer_total(field->p + n, field->nb));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Superficial"),
-                     mass_fertilizer_surface(field->p + n, field->nb));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Infiltrated"),
-                     mass_fertilizer_soil(field->p + n, field->nb));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Percolated"),
-                     mass_fertilizer_loss(field->p + n, field->nb));
-            fprintf(file, buffer);
-            snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Solid"),
-                     mass_fertilizer_solid(field->p + n, field->nb));
-            fprintf(file, buffer);
-            if (field->open)
-                {
-                    n += field->nb;
-                    snprintf(buffer, 512, "\t%s\n", gettext("Recirculation furrow"));
-                    fprintf(file, buffer);
-                    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Total"),
-                             mass_fertilizer_total(field->p + n, field->nb));
-                    fprintf(file, buffer);
-                    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Superficial"),
-                             mass_fertilizer_surface(field->p + n, field->nb));
-                    fprintf(file, buffer);
-                    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Infiltrated"),
-                             mass_fertilizer_soil(field->p + n, field->nb));
-                    fprintf(file, buffer);
-                    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Percolated"),
-                             mass_fertilizer_loss(field->p + n, field->nb));
-                    fprintf(file, buffer);
-                    snprintf(buffer, 512, "\t\t%s = %g kg\n", gettext("Solid"),
-                             mass_fertilizer_solid(field->p + n, field->nb));
-                    fprintf(file, buffer);
-                }
+          n += field->nb;
+          snprintf (buffer, 512, "\t%s\n", gettext ("Recirculation furrow"));
+          fprintf (file, buffer);
+          snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Total"),
+                    mass_fertilizer_total (field->p + n, field->nb));
+          fprintf (file, buffer);
+          snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Superficial"),
+                    mass_fertilizer_surface (field->p + n, field->nb));
+          fprintf (file, buffer);
+          snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Infiltrated"),
+                    mass_fertilizer_soil (field->p + n, field->nb));
+          fprintf (file, buffer);
+          snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Percolated"),
+                    mass_fertilizer_loss (field->p + n, field->nb));
+          fprintf (file, buffer);
+          snprintf (buffer, 512, "\t\t%s = %g kg\n", gettext ("Solid"),
+                    mass_fertilizer_solid (field->p + n, field->nb));
+          fprintf (file, buffer);
         }
+    }
 
-    fclose(file);
+  fclose (file);
 }
 
 #if JBW != JBW_NO
@@ -319,19 +319,22 @@ void results_save(char *dir)
  * \fn void window_run_close()
  * \brief Function to close a simulation running.
  */
-void window_run_close()
+void
+window_run_close ()
 {
-    simulating=0;
+  simulating = 0;
 }
 
 /**
  * \fn void window_run_destroy()
  * \brief Function to close a simulation running dialog.
  */
-void window_run_destroy()
+void
+window_run_destroy ()
 {
-    while (gtk_events_pending()) gtk_main_iteration();
-    gtk_widget_destroy(GTK_WIDGET(windowRun->dialog));
+  while (gtk_events_pending ())
+    gtk_main_iteration ();
+  gtk_widget_destroy (GTK_WIDGET (windowRun->dialog));
 }
 
 /**
@@ -340,44 +343,47 @@ void window_run_destroy()
  * \param T
  * \brief Field data structure.
  */
-void window_run_update(Field *T)
+void
+window_run_update (Field * T)
 {
-    char buffer[32];
-    gtk_progress_bar_set_fraction(windowRun->progress, t / T->tf);
-    snprintf(buffer,32,"(%.2f/%.2f)", t, T->tf);
-    gtk_progress_bar_set_text(windowRun->progress, buffer);
-    while (gtk_events_pending()) gtk_main_iteration();
+  char buffer[32];
+  gtk_progress_bar_set_fraction (windowRun->progress, t / T->tf);
+  snprintf (buffer, 32, "(%.2f/%.2f)", t, T->tf);
+  gtk_progress_bar_set_text (windowRun->progress, buffer);
+  while (gtk_events_pending ())
+    gtk_main_iteration ();
 }
 
 /**
  * \fn void window_run_new()
  * \brief Function to open a simulation running dialog.
  */
-void window_run_new()
+void
+window_run_new ()
 {
-    char buffer[32];
-    windowRun->progress = (GtkProgressBar*)gtk_progress_bar_new();
+  char buffer[32];
+  windowRun->progress = (GtkProgressBar *) gtk_progress_bar_new ();
 
-    windowRun->dialog = (GtkDialog*)gtk_dialog_new_with_buttons(
-                            gettext("Running the numerical simulation ..."),
-                            GTK_WINDOW(windowMain), GTK_DIALOG_MODAL,
-                            gettext("_Stop"), GTK_RESPONSE_CLOSE,
-                            NULL);
-    gtk_window_set_position(GTK_WINDOW(windowRun->dialog),
-                            GTK_WIN_POS_CENTER_ALWAYS);
-    gtk_widget_set_size_request(GTK_WIDGET(windowRun->dialog), 500, 80);
-    gtk_container_add(
-        GTK_CONTAINER(gtk_dialog_get_content_area(windowRun->dialog)),
-        GTK_WIDGET(windowRun->progress));
-    g_signal_connect_after(windowRun->dialog, "response",
-                           G_CALLBACK(window_run_destroy), NULL);
-    g_signal_connect_after(windowRun->dialog, "destroy", window_run_close,
-                           NULL);
-    gtk_progress_bar_set_fraction(windowRun->progress, 0.);
-    snprintf(buffer,32,"(0.0/0.0)");
-    gtk_progress_bar_set_text(windowRun->progress, buffer);
-    gtk_widget_show_all(GTK_WIDGET(windowRun->dialog));
-    gtk_widget_show_all(gtk_dialog_get_content_area(windowRun->dialog));
+  windowRun->dialog =
+    (GtkDialog *)
+    gtk_dialog_new_with_buttons (gettext
+                                 ("Running the numerical simulation ..."),
+                                 GTK_WINDOW (windowMain), GTK_DIALOG_MODAL,
+                                 gettext ("_Stop"), GTK_RESPONSE_CLOSE, NULL);
+  gtk_window_set_position (GTK_WINDOW (windowRun->dialog),
+                           GTK_WIN_POS_CENTER_ALWAYS);
+  gtk_widget_set_size_request (GTK_WIDGET (windowRun->dialog), 500, 80);
+  gtk_container_add (GTK_CONTAINER
+                     (gtk_dialog_get_content_area (windowRun->dialog)),
+                     GTK_WIDGET (windowRun->progress));
+  g_signal_connect_after (windowRun->dialog, "response",
+                          G_CALLBACK (window_run_destroy), NULL);
+  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
+  gtk_progress_bar_set_fraction (windowRun->progress, 0.);
+  snprintf (buffer, 32, "(0.0/0.0)");
+  gtk_progress_bar_set_text (windowRun->progress, buffer);
+  gtk_widget_show_all (GTK_WIDGET (windowRun->dialog));
+  gtk_widget_show_all (gtk_dialog_get_content_area (windowRun->dialog));
 }
 
 #endif
@@ -391,38 +397,42 @@ void window_run_new()
  * \brief 1 on graphical GUI, 0 on else.
  * \return 0 on error, 1 on success.
  */
-int kernel_open(char *dir, int gui)
+int
+kernel_open (char *dir, int gui)
 {
 #if DEBUG_KERNEL_OPEN
-    printf("kernel_open: start\n");
+  printf ("kernel_open: start\n");
 #endif
-    if (gui) show_error = jbw_show_error;
-    else show_error = print_error;
-    g_free(message);
-    message = NULL;
+  if (gui)
+    show_error = jbw_show_error;
+  else
+    show_error = print_error;
+  g_free (message);
+  message = NULL;
 #if DEBUG_KERNEL_OPEN
-    printf("Reading field\n");
+  printf ("Reading field\n");
 #endif
-    if (!field_open(dir)) goto exit_error;
+  if (!field_open (dir))
+    goto exit_error;
 
 #if PARALLELIZING
-    parallel_open();
+  parallel_open ();
 #endif
 
 #if DEBUG_KERNEL_OPEN
-    printf("kernel_open: end\n");
+  printf ("kernel_open: end\n");
 #endif
-    return 1;
+  return 1;
 
 exit_error:
 #if DEBUG_KERNEL_OPEN
-    printf("message=%s\n", message);
+  printf ("message=%s\n", message);
 #endif
-    show_error(message);
+  show_error (message);
 #if DEBUG_KERNEL_OPEN
-    printf("kernel_open: end\n");
+  printf ("kernel_open: end\n");
 #endif
-    return 0;
+  return 0;
 }
 
 /**
@@ -434,63 +444,65 @@ exit_error:
  * \brief 1 on graphical GUI, 0 on else.
  * \return 0 on ending the simulation, 1 on a simple simulation step.
  */
-int kernel_step(FILE *file_probes, int gui)
+int
+kernel_step (FILE * file_probes, int gui)
 {
-    JBDOUBLE tmax;
+  JBDOUBLE tmax;
 #if DEBUG_KERNEL_STEP
-    printf("kernel_step: start\n");
-    printf("gui=%d\n", gui);
+  printf ("kernel_step: start\n");
+  printf ("gui=%d\n", gui);
 #endif
-    tmax = fmin(field->tf, t + field->tm);
-    while (t < tmax)
+  tmax = fmin (field->tf, t + field->tm);
+  while (t < tmax)
+    {
+#if DEBUG_KERNEL_STEP
+      printf ("t=" FWL " tmax=" FWL "\n", t, tmax);
+#endif
+      field_dtmax ();
+#if DEBUG_KERNEL_STEP
+      printf ("dtmax=" FWL "\n", dtmax);
+#endif
+      if (t + dtmax > tmax)
         {
-#if DEBUG_KERNEL_STEP
-            printf("t="FWL" tmax="FWL"\n", t, tmax);
-#endif
-            field_dtmax();
-#if DEBUG_KERNEL_STEP
-            printf("dtmax="FWL"\n", dtmax);
-#endif
-            if (t + dtmax > tmax)
-                {
-                    dt = tmax - t;
-                    t = tmax;
-                }
-            else
-                {
-                    dt = dtmax;
-                    t = t + dt;
-                }
-#if DEBUG_KERNEL_STEP
-            printf("Numerical step\n");
-#endif
-            field_step(dt);
-#if DEBUG_KERNEL_STEP
-            printf("Field parameters\n");
-#endif
-            field_parameters();
-#if DEBUG_KERNEL_STEP
-            printf("Saving probes\n");
-#endif
-            field_save_probes(file_probes);
-#if DEBUG_KERNEL_STEP
-            printf("Saving advances\n");
-#endif
-            if (!simulating || !volume_water_surface(field->p, field->n))
-                {
-#if DEBUG_KERNEL_STEP
-                    printf("kernel_step: end\n");
-#endif
-                    return 0;
-                }
-#if JBW != JBW_NO
-            if (gui && gtk_events_pending()) gtk_main_iteration();
-#endif
+          dt = tmax - t;
+          t = tmax;
+        }
+      else
+        {
+          dt = dtmax;
+          t = t + dt;
         }
 #if DEBUG_KERNEL_STEP
-    printf("kernel_step: end\n");
+      printf ("Numerical step\n");
 #endif
-    return 1;
+      field_step (dt);
+#if DEBUG_KERNEL_STEP
+      printf ("Field parameters\n");
+#endif
+      field_parameters ();
+#if DEBUG_KERNEL_STEP
+      printf ("Saving probes\n");
+#endif
+      field_save_probes (file_probes);
+#if DEBUG_KERNEL_STEP
+      printf ("Saving advances\n");
+#endif
+      if (!simulating || !volume_water_surface (field->p, field->n))
+        {
+#if DEBUG_KERNEL_STEP
+          printf ("kernel_step: end\n");
+#endif
+          return 0;
+        }
+#if JBW != JBW_NO
+      if (gui && gtk_events_pending ())
+        gtk_main_iteration ();
+#endif
+    }
+#if DEBUG_KERNEL_STEP
+  printf ("kernel_step: end\n");
+#endif
+  return 1;
 }
 
 /**
@@ -504,84 +516,93 @@ int kernel_step(FILE *file_probes, int gui)
  * \brief 1 on periodic messages, 0 on else.
  * \return 0 on error, 1 on success.
  */
-int kernel(char *dir, int gui, int msg)
+int
+kernel (char *dir, int gui, int msg)
 {
-    int i, j, n;
-    char buffer[512];
-    FILE *file_probes;
+  int i, j, n;
+  char buffer[512];
+  FILE *file_probes;
 
 #if DEBUG_KERNEL
-    JBDOUBLE ud, uds, ef, efs;
-    printf("kernel: start\n");
-    printf("gui=%d\n", gui);
-    printf("Opening kernel\n");
+  JBDOUBLE ud, uds, ef, efs;
+  printf ("kernel: start\n");
+  printf ("gui=%d\n", gui);
+  printf ("Opening kernel\n");
 #endif
-    field_destroy(field);
-    field->cpu = clock();
-    if (!kernel_open(dir, gui)) return 0;
+  field_destroy (field);
+  field->cpu = clock ();
+  if (!kernel_open (dir, gui))
+    return 0;
 
-    simulating = 1;
+  simulating = 1;
 #if JBW != JBW_NO
-    if (gui) window_run_new();
+  if (gui)
+    window_run_new ();
 #endif
 
 #if DEBUG_KERNEL
-    printf("Openning field parameters\n");
+  printf ("Openning field parameters\n");
 #endif
-    field_parameters();
+  field_parameters ();
 #if DEBUG_KERNEL
-    printf("Saving parameters\n");
+  printf ("Saving parameters\n");
 #endif
-    field_save_parameters(0, dir);
+  field_save_parameters (0, dir);
 #if DEBUG_KERNEL
-    printf("Opening files\n");
+  printf ("Opening files\n");
 #endif
-    snprintf(buffer, 512, "%s/probes.out", dir);
-    file_probes = g_fopen(buffer, "w");
+  snprintf (buffer, 512, "%s/probes.out", dir);
+  file_probes = g_fopen (buffer, "w");
 #if DEBUG_KERNEL
-    printf("Calculating\n");
+  printf ("Calculating\n");
 #endif
-    for (t=0, i=0; t<field->tf;)
-        {
-            j = kernel_step(file_probes, gui);
+  for (t = 0, i = 0; t < field->tf;)
+    {
+      j = kernel_step (file_probes, gui);
 #if DEBUG_KERNEL
-            printf("Saving parameters\n");
+      printf ("Saving parameters\n");
 #endif
-            field_save_parameters(++i, dir);
+      field_save_parameters (++i, dir);
 #ifndef G_OS_WIN32
-            if (msg) fprintf(stdout,"t="FWL" m="FWL" mc="FWL"\n",
-                                 t,
-                                 volume_water_total(field->p, field->n),
-                                 mass_fertilizer_total(field->p,field->n));
+      if (msg)
+        fprintf (stdout, "t=" FWL " m=" FWL " mc=" FWL "\n",
+                 t,
+                 volume_water_total (field->p, field->n),
+                 mass_fertilizer_total (field->p, field->n));
 #endif
 #if JBW != JBW_NO
-            if (gui && simulating) window_run_update(field);
+      if (gui && simulating)
+        window_run_update (field);
 #endif
-            if (!j) break;
-        }
+      if (!j)
+        break;
+    }
 #if JBW != JBW_NO
-    if (gui && simulating) window_run_destroy();
+  if (gui && simulating)
+    window_run_destroy ();
 #endif
-    fclose(file_probes);
-    n = field->n;
-    if (field->nfurrows > 0)
-        {
-            n -= field->nb;
-            if (field->open) n -= field->nb;
-        }
+  fclose (file_probes);
+  n = field->n;
+  if (field->nfurrows > 0)
+    {
+      n -= field->nb;
+      if (field->open)
+        n -= field->nb;
+    }
 #if DEBUG_KERNEL
-    ud = field_uniformity_water(field);
-    uds = field_uniformity_fertilizer(field);
-    ef = field_efficiency_water(field);
-    efs = field_efficiency_fertilizer(field);
-    printf("Water uniformity: "FGL"%%\nFertilizer uniformity: "FGL"%%\n"
-           "Water efficiency: "FGL"%%\nFertilizer efficiency: "FGL"%%\n",ud,uds,ef,efs);
+  ud = field_uniformity_water (field);
+  uds = field_uniformity_fertilizer (field);
+  ef = field_efficiency_water (field);
+  efs = field_efficiency_fertilizer (field);
+  printf ("Water uniformity: " FGL "%%\nFertilizer uniformity: " FGL "%%\n"
+          "Water efficiency: " FGL "%%\nFertilizer efficiency: " FGL "%%\n", ud,
+          uds, ef, efs);
 #endif
-    field_save_advances(dir);
-    results_save(dir);
-    field->cpu = (clock() - field->cpu) / CLOCKS_PER_SEC;
+  field_save_advances (dir);
+  results_save (dir);
+  field->cpu = (clock () - field->cpu) / CLOCKS_PER_SEC;
 #if DEBUG_KERNEL
-    printf("kernel: end\n");
+  printf ("kernel: end\n");
 #endif
-    return 1;
+  return 1;
 }

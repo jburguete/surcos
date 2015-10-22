@@ -49,9 +49,9 @@ struct _ConfigFertilizer
      * \var spin
      * \brief GtkSpinButton to configure the fertilizer solubility.
      */
-    GtkGrid *box;
-    GtkLabel *label;
-    GtkSpinButton *spin;
+  GtkGrid *box;
+  GtkLabel *label;
+  GtkSpinButton *spin;
 };
 
 /**
@@ -83,14 +83,14 @@ struct _WindowConfig
      * \var dialog
      * \brief GtkDialog to do the configuration.
      */
-    ConfigIrrigation irrigation[1];
-    ConfigGeometry geometry[1];
-    TableConfigFurrows furrows[1];
-    ConfigTimes times[1];
-    ConfigFertilizer fertilizer[1];
-    ConfigProbes probes[1];
-    GtkNotebook *notebook;
-    GtkDialog *dialog;
+  ConfigIrrigation irrigation[1];
+  ConfigGeometry geometry[1];
+  TableConfigFurrows furrows[1];
+  ConfigTimes times[1];
+  ConfigFertilizer fertilizer[1];
+  ConfigProbes probes[1];
+  GtkNotebook *notebook;
+  GtkDialog *dialog;
 };
 
 /**
@@ -98,6 +98,6 @@ struct _WindowConfig
  */
 typedef struct _WindowConfig WindowConfig;
 
-void window_config_new();
+void window_config_new ();
 
 #endif

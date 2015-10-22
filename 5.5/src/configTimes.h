@@ -49,9 +49,9 @@ struct _ConfigTimes
      * \var table
      * \brief GtkGrid containing all the advanced options widgets.
      */
-    GtkLabel *label[5];
-    GtkSpinButton *spin[5];
-    GtkGrid *table;
+  GtkLabel *label[5];
+  GtkSpinButton *spin[5];
+  GtkGrid *table;
 };
 
 /**
@@ -59,7 +59,7 @@ struct _ConfigTimes
  */
 typedef struct _ConfigTimes ConfigTimes;
 
-void config_times_write(ConfigTimes *w);
-void config_times_new(ConfigTimes *w);
+void config_times_write (ConfigTimes * w);
+void config_times_new (ConfigTimes * w);
 
 #endif

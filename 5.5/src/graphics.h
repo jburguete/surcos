@@ -67,8 +67,8 @@ struct _FurrowOutput
      * \var n
      * \brief Number of furrow mesh nodes.
      */
-    double x1, y1, x2, y2, x3, y3, x4, y4, *x, *y;
-    int n;
+  double x1, y1, x2, y2, x3, y3, x4, y4, *x, *y;
+  int n;
 };
 
 /**
@@ -98,12 +98,12 @@ struct _GraphicMap
      * \var box
      * \brief GtkGrid containing the configuration widgets.
      */
-    int variable, step;
-    JBWGraphic *graphic;
-    GtkLabel *label;
-    GtkScale *scale;
-    GtkComboBoxText *combo;
-    GtkGrid *box;
+  int variable, step;
+  JBWGraphic *graphic;
+  GtkLabel *label;
+  GtkScale *scale;
+  GtkComboBoxText *combo;
+  GtkGrid *box;
 };
 
 /**
@@ -137,12 +137,12 @@ struct _GraphicFurrows
      * \var box
      * \brief GtkGrid containing the configuration widgets.
      */
-    int furrow, variable, step;
-    JBWGraphic *graphic;
-    GtkLabel *label;
-    GtkScale *scale;
-    GtkComboBoxText *combo_furrow, *combo_variable;
-    GtkGrid *box;
+  int furrow, variable, step;
+  JBWGraphic *graphic;
+  GtkLabel *label;
+  GtkScale *scale;
+  GtkComboBoxText *combo_furrow, *combo_variable;
+  GtkGrid *box;
 };
 
 /**
@@ -162,8 +162,8 @@ struct _GraphicProbes
      * \var graphic
      * \brief Graphic structure.
      */
-    GtkComboBoxText *combo;
-    JBWGraphic *graphic;
+  GtkComboBoxText *combo;
+  JBWGraphic *graphic;
 };
 
 /**
@@ -193,12 +193,12 @@ struct _WindowPlot
      * \var dialog
      * \brief GtkDialog to show the plot configuration.
      */
-    GraphicMap graphic_map[1];
-    GraphicFurrows graphic_furrows[1];
-    GraphicProbes graphic_probes[1];
-    GtkNotebook *notebook;
-    JBWGraphic *graphic;
-    GtkDialog *dialog;
+  GraphicMap graphic_map[1];
+  GraphicFurrows graphic_furrows[1];
+  GraphicProbes graphic_probes[1];
+  GtkNotebook *notebook;
+  JBWGraphic *graphic;
+  GtkDialog *dialog;
 };
 
 /**
@@ -206,6 +206,6 @@ struct _WindowPlot
  */
 typedef struct _WindowPlot WindowPlot;
 
-void window_plot_new();
+void window_plot_new ();
 
 #endif

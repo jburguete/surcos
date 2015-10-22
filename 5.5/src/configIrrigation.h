@@ -71,16 +71,16 @@ struct _ConfigIrrigation
      * \var n
      * \brief Array of water and fertilizer inputs numbers.
      */
-    GtkLabel *label[2], *label_image;
-    GtkSpinButton *spin[2];
-    GtkButton *button[6][2];
-    GtkGrid *table[2];
-    GtkFrame *frame[2];
-    GtkImage *image;
-    GtkGrid *box_image, *box_input;
-    GtkGrid *box_number, *box;
-    GList *list[2];
-    int n[2];
+  GtkLabel *label[2], *label_image;
+  GtkSpinButton *spin[2];
+  GtkButton *button[6][2];
+  GtkGrid *table[2];
+  GtkFrame *frame[2];
+  GtkImage *image;
+  GtkGrid *box_image, *box_input;
+  GtkGrid *box_number, *box;
+  GList *list[2];
+  int n[2];
 };
 
 /**
@@ -88,7 +88,7 @@ struct _ConfigIrrigation
  */
 typedef struct _ConfigIrrigation ConfigIrrigation;
 
-void config_irrigation_write(ConfigIrrigation *w);
-void config_irrigation_new(ConfigIrrigation *w);
+void config_irrigation_write (ConfigIrrigation * w);
+void config_irrigation_new (ConfigIrrigation * w);
 
 #endif
