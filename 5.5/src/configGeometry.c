@@ -1435,11 +1435,11 @@ config_geometry_new (ConfigGeometry * w)
     config_point_new (w->point + i, label_id[i]);
   w->table = (GtkGrid *) gtk_grid_new ();
   buffer = setlocale (LC_ALL, NULL);
-  if (strncmp (buffer, "es", 2))
+  if (!strncmp (buffer, "es", 2))
 	pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_es);
-  else if (strncmp (buffer, "fr", 2))
+  else if (!strncmp (buffer, "fr", 2))
 	pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_fr);
-  else if (strncmp (buffer, "it", 2))
+  else if (!strncmp (buffer, "it", 2))
 	pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_it);
   else
 	pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_en);
