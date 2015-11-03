@@ -55,6 +55,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define LOCALE_DIR "./locale"
 #endif
 
+#define DEBUG_MAIN 1
+
 /**
  * \fn int main(int argn, char *argc[])
  * \brief Main function.

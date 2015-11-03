@@ -94,6 +94,8 @@ struct _MainWindow
      * \brief GtkToolButton to display a summary with the input and results data.
      * \var button_help
      * \brief GtkToolButton to display the program help.
+     * \var button_about
+     * \brief GtkToolButton to display the about dialog.
      * \var toolbar
      * \brief GtkToolBar containing the tool buttons.
      * \var pixbuf
@@ -102,7 +104,7 @@ struct _MainWindow
      * \brief Main GtkWindow.
      */
   GtkToolButton *button_exit, *button_open, *button_config, *button_run,
-    *button_plot, *button_summary, *button_help;
+    *button_plot, *button_summary, *button_help, *button_about;
   GtkToolbar *toolbar;
   GdkPixbuf *pixbuf;
   GtkWindow *window;

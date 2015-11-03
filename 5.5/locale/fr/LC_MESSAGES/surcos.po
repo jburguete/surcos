@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-21 19:27+0200\n"
+"POT-Creation-Date: 2015-11-03 02:47+0100\n"
 "PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -207,11 +207,11 @@ msgstr "Calculant la simulation numérique ..."
 msgid "_Stop"
 msgstr "_Arrêter"
 
-#: src/surcos.c:133
+#: src/surcos.c:135
 msgid "Usage is"
 msgstr "La sintaxe est"
 
-#: src/surcos.c:134
+#: src/surcos.c:136
 msgid "surcos [-v] input_directory"
 msgstr "surcos [-v] répertoire_d'entrée"
 

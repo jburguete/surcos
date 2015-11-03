@@ -1428,6 +1428,23 @@ main_window_run (MainWindow * w)
 }
 
 /**
+ * \fn void main_window_help ()
+ * \brief Function to open an instruccions manual.
+ */
+void
+main_window_help ()
+{
+  char *buffer, *buffer2;
+  buffer = g_get_current_dir ();
+  buffer2 = g_build_filename (buffer, "manual", gettext ("ppal_EN.pdf"), NULL);
+  g_free (buffer);
+  buffer = g_filename_to_uri (buffer2, NULL, NULL);
+  g_free (buffer2);
+  gtk_show_uri (NULL, buffer, GDK_CURRENT_TIME, NULL);
+  g_free (buffer);
+}
+
+/**
  * \fn void main_window_about(MainWindow *w)
  * \brief Function to open an about help dialog.
  * \param w
@@ -1447,8 +1464,8 @@ main_window_about (MainWindow * w)
                          "SURCOS",
                          "comments",
                          gettext
-                         ("A software tool to solve irrigation and fertigation in "
-                          "isolated furrows and furrow networks"), "authors",
+                         ("A software tool to solve irrigation and fertigation"
+                          "in isolated furrows and furrow networks"), "authors",
                          authors, "artists", artists, "translator-credits",
                          gettext ("translator-credits"), "version", "5.5",
                          "copyright",
@@ -1520,9 +1537,13 @@ main_window_new ()
                                gettext ("Show summary"));
   g_signal_connect (w->button_summary, "clicked", summary_new, NULL);
 
-  w->button_help = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("help-about", GTK_ICON_SIZE_LARGE_TOOLBAR),     // icon
+  w->button_help = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR),     // icon
                                                           gettext ("Help"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), gettext ("Help"));
+
+  w->button_about = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("help-about", GTK_ICON_SIZE_LARGE_TOOLBAR),     // icon
+                                                          gettext ("About"));
+  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), gettext ("About"));
 
   w->button_exit = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("application-exit", GTK_ICON_SIZE_LARGE_TOOLBAR),       // icon
                                                           gettext ("Exit"));
@@ -1538,6 +1559,7 @@ main_window_new ()
   gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_plot), -1);
   gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_summary), -1);
   gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_help), -1);
+  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_about), -1);
   gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_exit), -1);
 
 #if DEBUG_MAIN_WINDOW_NEW
@@ -1562,7 +1584,9 @@ main_window_new ()
   printf ("main_window_new: signals\n");
 #endif
 
-  g_signal_connect_swapped (w->button_help, "clicked",
+  g_signal_connect (w->button_help, "clicked",
+                    (GCallback) main_window_help, NULL);
+  g_signal_connect_swapped (w->button_about, "clicked",
                             (GCallback) main_window_about, w);
 
 #if DEBUG_MAIN_WINDOW_NEW

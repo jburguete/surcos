@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-21 20:08+0200\n"
+"POT-Creation-Date: 2015-11-03 05:51+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -260,13 +260,9 @@ msgstr "Numéro d'entrées d'eau"
 msgid "Number of fertilizer inputs"
 msgstr "Numéro d'entrées de fertilisant"
 
-#: src/configGeometry.c:117
+#: src/configGeometry.c:1428
 msgid "Point"
 msgstr "Point"
-
-#: src/configGeometry.c:125
-msgid "diagram_geometry_en.png"
-msgstr "diagram_geometry_fr.png"
 
 #: src/configFurrows.c:322
 msgid "Distribution"
@@ -607,65 +603,76 @@ msgstr "Période de renversé des données"
 msgid "Results"
 msgstr "Résultats"
 
-#: src/mainWindow.c:1316 src/mainWindow.c:1518
+#: src/mainWindow.c:1316 src/mainWindow.c:1535
 msgid "Summary"
 msgstr "Sommaire"
 
-#: src/mainWindow.c:1450
+#: src/mainWindow.c:1439
+msgid "ppal_EN.pdf"
+msgstr ""
+
+#: src/mainWindow.c:1467
 msgid ""
-"A software tool to solve irrigation and fertigation in isolated furrows and "
+"A software tool to solve irrigation and fertigationin isolated furrows and "
 "furrow networks"
 msgstr ""
 "Un outil informatique pour resolver irrigation et fertirrigation en sillons "
 "isolés et en réseaux de sillons"
 
-#: src/mainWindow.c:1453
+#: src/mainWindow.c:1470
 msgid "translator-credits"
 msgstr "Javier Burguete Tolosa (jburguete@eead.csic.es)"
 
-#: src/mainWindow.c:1484
+#: src/mainWindow.c:1501
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/mainWindow.c:1486
+#: src/mainWindow.c:1503
 msgid "Open furrows system"
 msgstr "Ouvrir système de sillons"
 
-#: src/mainWindow.c:1493
+#: src/mainWindow.c:1510
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/mainWindow.c:1495
+#: src/mainWindow.c:1512
 msgid "Simulation configure"
 msgstr "Configurer simulation"
 
-#: src/mainWindow.c:1502
+#: src/mainWindow.c:1519
 msgid "Run"
 msgstr "Commencer"
 
-#: src/mainWindow.c:1504
+#: src/mainWindow.c:1521
 msgid "Run the simulation"
 msgstr "Commencer la simulation"
 
-#: src/mainWindow.c:1511
+#: src/mainWindow.c:1528
 msgid "Plot"
 msgstr "Graphiques"
 
-#: src/mainWindow.c:1513
+#: src/mainWindow.c:1530
 msgid "Plot results"
 msgstr "Montrer graphiques"
 
-#: src/mainWindow.c:1520
+#: src/mainWindow.c:1537
 msgid "Show summary"
 msgstr "Montrer le sommaire"
 
-#: src/mainWindow.c:1524 src/mainWindow.c:1525
+#: src/mainWindow.c:1541 src/mainWindow.c:1542
 msgid "Help"
 msgstr "Aïde"
 
-#: src/mainWindow.c:1528 src/mainWindow.c:1529
+#: src/mainWindow.c:1545 src/mainWindow.c:1546
+msgid "About"
+msgstr "A propos"
+
+#: src/mainWindow.c:1549 src/mainWindow.c:1550
 msgid "Exit"
 msgstr "Sortir"
+
+#~ msgid "diagram_geometry_en.png"
+#~ msgstr "diagram_geometry_fr.png"
 
 #~ msgid "Reading logo"
 #~ msgstr "On ne peut pas ouvrir le logo"
