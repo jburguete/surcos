@@ -75,10 +75,11 @@ depconfig = $(depkernel) $(srcdir)configIrrigation.h $(srcdir)configGeometry.h \
 	$(srcdir)configWindow.h
 dep_gui = $(depconfig) $(srcdir)graphics.h $(srcdir)mainWindow.h
 
-CPPFLAGS = @CPPFLAGS@ -DJBW=2 -DJBW_DRAW=2 -DJBW_GRAPHIC=2
+CPPFLAGS = @CPPFLAGS@ -DJBW=2 -DJBW_GRAPHIC=1
 CFLAGS = $(CPPFLAGS) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ \
-	-Wall -c -O3
-LDFLAGS = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @PNG_LIBS@ @GTK_LIBS@
+	@GLEW_CFLAGS@ -Wall -c -O3
+LDFLAGS = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @PNG_LIBS@ @GTK_LIBS@ \
+	@GLEW_LIBS@
 
 CPPFLAGSBIN = @CPPFLAGS@ -DJBW=1
 CFLAGSBIN = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ -Wall -c -O3

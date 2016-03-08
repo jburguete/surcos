@@ -129,6 +129,7 @@ PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SEARCH_LIBS([textdomain], [intl])
 PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([PNG], [libpng])
+PKG_CHECK_MODULES([GLEW], [glew])
 AC_SEARCH_LIBS([glEnd], [GL opengl32])
 AC_SEARCH_LIBS([glutInit], [freeglut glut])
 
