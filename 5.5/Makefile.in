@@ -77,7 +77,11 @@ dep_gui = $(depconfig) $(srcdir)graphics.h $(srcdir)mainWindow.h
 
 CPPFLAGS = @CPPFLAGS@ -DJBW=2 -DJBW_GRAPHIC=1
 CFLAGS = $(CPPFLAGS) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ \
+<<<<<<< HEAD
 	@GLEW_CFLAGS@-Wall -c -O3
+=======
+	@GLEW_CFLAGS@ -Wall -c -O3
+>>>>>>> 03bd271558b75f28ad008df6c1412162910a8633
 LDFLAGS = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @PNG_LIBS@ @GTK_LIBS@ \
 	@GLEW_LIBS@
 
