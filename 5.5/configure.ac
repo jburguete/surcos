@@ -127,14 +127,21 @@ AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SEARCH_LIBS([textdomain], [intl])
-PKG_CHECK_MODULES([GTK], [gtk+-3.0])
-PKG_CHECK_MODULES([PNG], [libpng])
-PKG_CHECK_MODULES([GLEW], [glew])
-AC_SEARCH_LIBS([glEnd], [GL opengl32])
-AC_SEARCH_LIBS([glutInit], [freeglut glut])
 
 # Checks for header files.
-AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h GL/freeglut.h])
+AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h])
+
+# Checks fot GTK+ interface
+AC_ARG_WITH([gtk], AS_HELP_STRING([--with-gtk], [Build with GTK+ interface]))
+if test "x$with_gtk" == "xyes"; then
+	PKG_CHECK_MODULES([GTK], [gtk+-3.0])
+	PKG_CHECK_MODULES([PNG], [libpng])
+	PKG_CHECK_MODULES([GLEW], [glew])
+	AC_SEARCH_LIBS([glEnd], [GL opengl32])
+	AC_SEARCH_LIBS([glutInit], [freeglut glut])
+	AC_CHECK_HEADERS([GL/freeglut.h])
+	AC_SUBST(SURCOS_GUI, [$(bindir)@exegui@])
+fi
 
 # Checks for library functions.
 AC_FUNC_MALLOC
