@@ -87,19 +87,34 @@ PKG_PROG_PKG_CONFIG
 AC_MSG_NOTICE([Compiler: $CC])
 $CC -v
 
-# Checks for compiler flags
+# Checking -march=native compiler flag
+compiler=$CC
+CC="$CC -march=native"
+AC_TRY_LINK([],
+	[int main(int argc, char **argv){return 0;}], [arch=1], [arch=0])
+CC=$compiler
+if test $arch = 0; then
+	AC_MSG_NOTICE([checking for -march=native... no])
+	AC_SUBST(ARCH, "")
+else
+	AC_MSG_NOTICE([checking for -march=native... yes])
+	AC_SUBST(ARCH, "-march=native")
+fi
+
+# Checking -flto compiler flag
 compiler=$CC
 CC="$CC -flto"
 AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [lto=1], [lto=0])
 CC=$compiler
 if test $lto = 0; then
-	AC_MSG_NOTICE("checking for -flto... no")
+	AC_MSG_NOTICE([checking for -flto... no])
 	AC_SUBST(LTO, "")
 else
-	AC_MSG_NOTICE("checking for -flto... yes")
+	AC_MSG_NOTICE([checking for -flto... yes])
 	AC_SUBST(LTO, "-flto")
 fi
 
+# Checking -std compiler flag
 compiler=$CC
 CC="$CC -std=gnu11"
 AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [std=1], [std=0])
