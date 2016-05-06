@@ -87,7 +87,7 @@ LDFLAGSBIN = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@
 
 CC = @CC@ @LTO@ @STD@ @ccflags@ -g #-pg
 
-exe = $(bindir)@exegui@
+exe = @SURCOS_GUI@
 exebin = $(bindir)surcos
 manuals = doc/latex/refman.pdf $(mandir)ppal.pdf $(mandir)ppal_EN.pdf
 

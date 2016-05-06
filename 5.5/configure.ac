@@ -62,12 +62,11 @@ if test $win = 0; then
 	AC_SUBST(objdir, [src/])
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
-	AC_SUBST(exegui, surcos_gui)
 	AC_SUBST(ccflags, [-march=native])
+	$exegui="surcos_gui"
 else
 	AC_CHECK_TOOL(WINDRES, windres)
 	AC_SUBST(latex, "pdflatex -enable-write18")
-	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(sysdir, [/$mingw/])
 	AC_SUBST(objdir, [$windir/obj/])
 	AC_SUBST(bindir, [$windir/bin/])
@@ -76,6 +75,7 @@ else
 	AC_SUBST(sharedir, [$windir/share/])
 	AC_SUBST(basedir, [$windir/])
 	AC_SUBST(icon, [$windir/obj/logo.o])
+	$exegui="winsurcos"
 fi
 AC_SUBST(srcdir, [src/])
 
@@ -140,7 +140,7 @@ if test "x$with_gtk" == "xyes"; then
 	AC_SEARCH_LIBS([glEnd], [GL opengl32])
 	AC_SEARCH_LIBS([glutInit], [freeglut glut])
 	AC_CHECK_HEADERS([GL/freeglut.h])
-	AC_SUBST(SURCOS_GUI, [$(bindir)@exegui@])
+	AC_SUBST(SURCOS_GUI, [$(bindir)$(exegui)])
 fi
 
 # Checks for library functions.
