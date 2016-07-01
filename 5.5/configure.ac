@@ -62,10 +62,12 @@ if test $win = 0; then
 	AC_SUBST(objdir, [src/])
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
-	$exegui="surcos_gui"
+	AC_SUBST(exegui, surcos_gui)
+	AC_SUBST(ccflags, [-march=native])
 else
 	AC_CHECK_TOOL(WINDRES, windres)
 	AC_SUBST(latex, "pdflatex -enable-write18")
+	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(sysdir, [/$mingw/])
 	AC_SUBST(objdir, [$windir/obj/])
 	AC_SUBST(bindir, [$windir/bin/])
@@ -74,7 +76,6 @@ else
 	AC_SUBST(sharedir, [$windir/share/])
 	AC_SUBST(basedir, [$windir/])
 	AC_SUBST(icon, [$windir/obj/logo.o])
-	$exegui="winsurcos"
 fi
 AC_SUBST(srcdir, [src/])
 
@@ -86,35 +87,20 @@ PKG_PROG_PKG_CONFIG
 AC_MSG_NOTICE([Compiler: $CC])
 $CC -v
 
-# Checking -march=native compiler flag
+# Checks for compiler flags
 compiler=$CC
-CC="$CC -march=native"
-AC_TRY_LINK([],
-	[int main(int argc, char **argv){return 0;}], [arch=1], [arch=0])
-CC=$compiler
-if test $arch = 0; then
-	AC_MSG_NOTICE([checking for -march=native... no])
-	AC_SUBST(ARCH, "")
-else
-	AC_MSG_NOTICE([checking for -march=native... yes])
-	AC_SUBST(ARCH, "-march=native")
-fi
 
-# Checking -flto compiler flag
-compiler=$CC
 CC="$CC -flto"
 AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [lto=1], [lto=0])
 CC=$compiler
 if test $lto = 0; then
-	AC_MSG_NOTICE([checking for -flto... no])
+	AC_MSG_NOTICE("checking for -flto... no")
 	AC_SUBST(LTO, "")
 else
-	AC_MSG_NOTICE([checking for -flto... yes])
+	AC_MSG_NOTICE("checking for -flto... yes")
 	AC_SUBST(LTO, "-flto")
 fi
 
-# Checking -std compiler flag
-compiler=$CC
 CC="$CC -std=gnu11"
 AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [std=1], [std=0])
 CC=$compiler
@@ -136,26 +122,61 @@ else
 	AC_SUBST(STD, "-std=gnu11")
 fi
 
+if test $win = 0; then
+	CC="$CC -march=native"
+	AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [native=1],
+		[native=0])
+	CC=$compiler
+	if test $native = 0; then
+		AC_MSG_NOTICE("checking for -march=native... no")
+		AC_SUBST(NATIVE, "")
+	else
+		AC_MSG_NOTICE("checking for -march=native... yes")
+		AC_SUBST(NATIVE, "-march=native")
+	fi
+fi
+
 # Checks for libraries.
 AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SEARCH_LIBS([textdomain], [intl])
+PKG_CHECK_MODULES([GTK], [gtk+-3.0])
+PKG_CHECK_MODULES([PNG], [libpng])
+PKG_CHECK_MODULES([FREETYPE], [freetype2])
+PKG_CHECK_MODULES([GLEW], [glew])
+AC_SEARCH_LIBS([glViewport], [GL opengl32])
+
+# Checks for FreeGLUT, SDL or GLFW to draw the graphic window
+AC_ARG_WITH([sdl],
+	AS_HELP_STRING([--with-sdl], [Build graphic window with SDL]))
+AC_ARG_WITH([glfw],
+	AS_HELP_STRING([--with-glfw], [Build graphic window with GLFW]))
+if test "x$with_sdl" == "xyes"; then
+	AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
+	PKG_CHECK_MODULES([SDL], [sdl2])
+else
+	if test "x$with_glfw" == "xyes"; then
+		AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
+		PKG_CHECK_MODULES([GLFW], [glfw3])
+	else
+		AC_SEARCH_LIBS([glutInit], [freeglut glut], glut="yes", glut="no")
+		if test $glut == "yes"; then
+			AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=1")
+		else
+			PKG_CHECK_MODULES([SDL], [sdl2], sdl="yes", sdl="no")
+			if test $sdl == "yes"; then
+				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
+			else
+				PKG_CHECK_MODULES([GLFW], [glfw3])
+				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
+			fi
+		fi
+	fi
+fi
 
 # Checks for header files.
 AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h])
-
-# Checks fot GTK+ interface
-AC_ARG_WITH([gtk], AS_HELP_STRING([--with-gtk], [Build with GTK+ interface]))
-if test "x$with_gtk" == "xyes"; then
-	PKG_CHECK_MODULES([GTK], [gtk+-3.0])
-	PKG_CHECK_MODULES([PNG], [libpng])
-	PKG_CHECK_MODULES([GLEW], [glew])
-	AC_SEARCH_LIBS([glEnd], [GL opengl32])
-	AC_SEARCH_LIBS([glutInit], [freeglut glut])
-	AC_CHECK_HEADERS([GL/freeglut.h])
-	AC_SUBST(SURCOS_GUI, [$(bindir)$(exegui)])
-fi
 
 # Checks for library functions.
 AC_FUNC_MALLOC

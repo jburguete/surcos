@@ -135,36 +135,14 @@ main (int argn, char *argc[])
   printf ("textdomain = %s\n", buffer2);
 #endif
 
-  // Init the GTK+ library
-#if DEBUG_MAIN
-  printf ("gtk_init\n");
-#endif
-  gtk_init (&argn, &argc);
-
-  // Init the GLUT library
-#if DEBUG_MAIN
-  printf ("glutInit\n");
-#endif
-  glutInit (&argn, argc);
-
-#if JBW_GRAPHIC == JBW_GRAPHIC_GLUT
-  // Some FREEGLUT options
-  glutInitDisplayMode (GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-  glutSetOption (GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
-  // Showing the main window
-#if DEBUG_MAIN
-  printf ("main window\n");
-#endif
-  window = main_window_new ();
-#else
   // Initing graphical libraries
   jbw_graphic_init (&argn, &argc);
+
   // Showing the main window
 #if DEBUG_MAIN
   printf ("main window\n");
 #endif
   window = main_window_new ();
-#endif
 
   // Opening a case if specified
   if (argn >= 2)
