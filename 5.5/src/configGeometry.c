@@ -34,6 +34,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #define _GNU_SOURCE
 #include <string.h>
+#include <locale.h>
 #include <libintl.h>
 #include "configGeometry.h"
 
