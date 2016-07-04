@@ -53,20 +53,16 @@ This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
 has not been tested.
 
-Debian Linux 8.2
-________________
-Debian kFreeBSD 8.2
-___________________
-Debian Hurd 8.2
-_______________
-DragonFly BSD 4.2.4
+Debian 8 (Hurd, Linux and kFreeBSD)
+___________________________________
+DragonFly BSD 4.4
 ___________________
 Dyson
 _____
-FreeBSD 10.2
+FreeBSD 10.3
 ____________
-NetBSD 6.1.5 (with modular xorg)
-________________________________
+NetBSD 7.0 (with modular xorg)
+______________________________
 
 1. Download the latest [JB library](https://github.com/jburguete/jb)
 > $ git clone https://github.com/jburguete/jb.git
@@ -84,7 +80,7 @@ ________________________________
 >
 > $ ./build
 
-OpenBSD 5.7
+OpenBSD 5.9
 ___________
 
 1. Select adequate versions:
