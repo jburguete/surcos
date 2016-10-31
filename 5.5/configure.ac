@@ -13,7 +13,7 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 	windir=win64
-	mingw=mingw
+	mingw=mingw64
 elif test $host = "x86_64-pc-mingw64"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")

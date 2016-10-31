@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-04 13:23+0200\n"
+"POT-Creation-Date: 2016-10-31 09:20+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/furrow.c:53 src/furrow.c:58 src/furrow.c:63 src/furrow.c:68
@@ -380,8 +380,8 @@ msgstr "_Accepter"
 msgid "Water depth (m)"
 msgstr "Profondeur d'eau (m)"
 
-#: src/graphics.c:457 src/graphics.c:749 src/graphics.c:783
-#: src/graphics.c:1019 src/graphics.c:1067
+#: src/graphics.c:457 src/graphics.c:749 src/graphics.c:783 src/graphics.c:1019
+#: src/graphics.c:1067
 msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentration de fertilisant (kg/m³)"
 
