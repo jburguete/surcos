@@ -55,7 +55,7 @@ has not been tested.
 
 Debian 8 (Hurd, Linux and kFreeBSD)
 ___________________________________
-DragonFly BSD 4.4
+DragonFly BSD 4.6
 ___________________
 Dyson
 _____
