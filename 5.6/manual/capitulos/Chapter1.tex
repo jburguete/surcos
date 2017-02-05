@@ -12,14 +12,16 @@ overriding locale settings, separating the integer and decimal parts by ''.''.
 
 The program has been tested in the following operative systems of Microsoft:
 \begin{itemize}
-\item Windows XP 32 bits.
-\item Windows XP 64 bits.
 \item Windows 7 32 bits.
 \item Windows 7 64 bits.
+\item Windows 8.1 32 bits.
+\item Windows 8.1 64 bits.
+\item Windows 10 32 bits.
+\item Windows 10 64 bits.
 \end{itemize}
 
 The language activation is perfomed through the regional configuration in the 
-operative system. Version 5.5 is offered in English, Spanish, French and Italian. 
+operative system. Version 5.6 is offered in English, Spanish, French and Italian. 
 
 Some problems with graphic representation have been reported due to OpenGL 
 configuration failure in the graphical card driver. In that case, the latest driver
@@ -29,7 +31,7 @@ Other failures have been reported when saving the graphical file if Windows is
 executed in a VirtualBox. In that case, the graphical acceleration should be desactivated
 in the VirtualBox configuration.
 
-Windows XP and Windows 7 are trademarks of Microsoft.
+Windows 7, Windows 8.1 and Windows 10 are trademarks of Microsoft.
 
 \setcounter{page}{1}
 
@@ -78,7 +80,7 @@ The program contains the following folders:
 \section{Source code compilation}
 
 The source code is written in C and has been compiled using the GNU free tools: gcc, gmake, 
-aclocal, autoconf and pkg-config. The Windows version has been compiled using also msys/mingw.
+aclocal, autoconf and pkg-config. The Windows version has been compiled using also msys2.
 
 Program \emph{surcos} uses the following libraries:
 \begin{description}
@@ -114,15 +116,19 @@ where more detailed instructions are provided.
 The program \emph{surcos} has been compiled and tested in the following
 operative systems:
 \begin{itemize}
-\item Debian Linux 7.6
-\item Debian kFreeBSD 7.6
-\item Debian Hurd 7.6
-\item DragonFly BSD 3.8.2
-\item FreeBSD 10.0
-\item Microsoft Windows XP 32 bits
-\item Microsoft Windows XP 64 bits
+\item Debian Linux 8
+\item Debian kFreeBSD 8
+\item Debian Hurd 8
+\item DragonFly BSD 4.6
+\item FreeBSD 11.0
 \item Microsoft Windows 7 32 bits
 \item Microsoft Windows 7 64 bits
-\item NetBSD 6.1.5
-\item OpenBSD 5.5
+\item Microsoft Windows 8.1 32 bits
+\item Microsoft Windows 8.1 64 bits
+\item Microsoft Windows 10 32 bits
+\item Microsoft Windows 10 64 bits
+\item NetBSD 7.0
+\item OpenBSD 6.0
+\item OpenIndiana Hipster
+\item Ubuntu Linux 16.10
 \end{itemize}
