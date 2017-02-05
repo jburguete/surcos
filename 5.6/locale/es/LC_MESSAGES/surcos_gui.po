@@ -1,0 +1,684 @@
+# Spanish translations for SURCOS package.
+# Copyright (C) 2011 THE SURCOS'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the SURCOS package.
+# Automatically generated, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 5.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-05 11:58+0100\n"
+"PO-Revision-Date: 2011-10-21 17:51+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/furrow.c:53 src/furrow.c:58 src/furrow.c:63 src/furrow.c:68
+msgid "Bad initial conditions"
+msgstr "Condiciones iniciales incorrectas"
+
+#: src/furrow.c:102
+msgid "Bad furrow data"
+msgstr "Datos de surco incorrectos"
+
+#: src/furrow.c:111 src/furrow.c:116 src/furrow.c:121 src/furrow.c:126
+#: src/furrow.c:131 src/furrow.c:136 src/furrow.c:141 src/furrow.c:146
+#: src/furrow.c:151 src/furrow.c:156
+msgid "Bad furrow"
+msgstr "Surco incorrecto"
+
+#: src/field.c:126 src/field.c:516 src/field.c:532
+msgid "Bad input data"
+msgstr "Datos de entradas incorrectos"
+
+#: src/field.c:131 src/field.c:136 src/field.c:141 src/field.c:147
+#: src/field.c:153
+msgid "Bad input"
+msgstr "Entrada incorrecta"
+
+#: src/field.c:142 src/configIrrigation.c:496 src/mainWindow.c:927
+msgid "Initial time"
+msgstr "Tiempo inicial"
+
+#: src/field.c:148 src/configIrrigation.c:496 src/mainWindow.c:930
+msgid "Final time"
+msgstr "Tiempo final"
+
+#: src/field.c:154 src/configIrrigation.c:495 src/mainWindow.c:932
+#: src/mainWindow.c:936
+msgid "Discharge"
+msgstr "Caudal"
+
+#: src/field.c:243
+msgid "Unable to open the geometry data file"
+msgstr "No se pudo abrir el fichero de datos de geometría"
+
+#: src/field.c:259 src/field.c:264 src/field.c:270 src/field.c:275
+#: src/field.c:280 src/field.c:285 src/field.c:290 src/field.c:295
+#: src/field.c:300 src/field.c:305 src/field.c:310 src/field.c:315
+#: src/field.c:320 src/field.c:325
+msgid "Bad data"
+msgstr "Datos incorrectos"
+
+#: src/field.c:264
+msgid "solubility"
+msgstr "solubilidad"
+
+#: src/field.c:336 src/kernel.c:201 src/kernel.c:273 src/graphics.c:821
+#: src/graphics.c:998 src/mainWindow.c:1051 src/mainWindow.c:1187
+#: src/mainWindow.c:1264
+#, c-format
+msgid "Distribution furrow"
+msgstr "Surco de distribución"
+
+#: src/field.c:352
+msgid "Not enough memory to open the irrigation furrows"
+msgstr "Falta memoria para abrir los surcos de riego"
+
+#: src/field.c:359 src/kernel.c:192 src/kernel.c:256 src/mainWindow.c:1054
+#: src/mainWindow.c:1176 src/mainWindow.c:1246
+msgid "Irrigation furrows"
+msgstr "Surcos de riego"
+
+#: src/field.c:375 src/kernel.c:214 src/kernel.c:293 src/graphics.c:825
+#: src/graphics.c:1001 src/mainWindow.c:1045 src/mainWindow.c:1057
+#: src/mainWindow.c:1201 src/mainWindow.c:1285
+#, c-format
+msgid "Recirculation furrow"
+msgstr "Surco de recirculación"
+
+#: src/field.c:474
+msgid "Bad data set"
+msgstr "Datos de campo incorrectos"
+
+#: src/field.c:507
+msgid "Unable to open the input file"
+msgstr "No se pudo abrir el fichero de entradas"
+
+#: src/field.c:524
+msgid "Not enough memory to open the input data"
+msgstr "Falta memoria para abrir el fichero de entradas"
+
+#: src/field.c:574
+msgid "Unable to open the mesh data file"
+msgstr "No se pudo abrir el fichero de datos de la malla"
+
+#: src/field.c:589
+msgid "Bad mesh data"
+msgstr "Datos de la malla incorrectos"
+
+#: src/field.c:614
+msgid "Unable to open the times data file"
+msgstr "No se pudo abrir el fichero de datos temporales"
+
+#: src/field.c:620
+msgid "Bad times data"
+msgstr "Datos temporales incorrectos"
+
+#: src/field.c:646
+msgid "Unable to open the model data file"
+msgstr "No se pudo abrir el fichero de modelos"
+
+#: src/field.c:653
+msgid "Bad model data"
+msgstr "Datos de modelos incorrectos"
+
+#: src/field.c:680
+msgid "Unable to open the probes data file"
+msgstr "No se pudo abrir el fichero de sondas"
+
+#: src/field.c:687 src/field.c:701
+msgid "Bad probes data"
+msgstr "Datos de sondas incorrectos"
+
+#: src/kernel.c:147 src/mainWindow.c:1126
+msgid "Irrigation life time"
+msgstr "Tiempo de duración del riego"
+
+#: src/kernel.c:149 src/mainWindow.c:1128
+msgid "Calculation time"
+msgstr "Tiempo de cálculo"
+
+#: src/kernel.c:153 src/mainWindow.c:1132
+msgid "IRRIGATION QUALITY"
+msgstr "CALIDAD DE RIEGO"
+
+#: src/kernel.c:155 src/configIrrigation.c:478 src/mainWindow.c:1135
+msgid "Water"
+msgstr "Agua"
+
+#: src/kernel.c:157 src/kernel.c:165 src/mainWindow.c:1138
+#: src/mainWindow.c:1147
+msgid "Uniformity"
+msgstr "Uniformidad"
+
+#: src/kernel.c:160 src/kernel.c:168 src/mainWindow.c:1141
+#: src/mainWindow.c:1150
+msgid "Efficiency"
+msgstr "Eficiencia"
+
+#: src/kernel.c:163 src/configIrrigation.c:478 src/configWindow.c:221
+#: src/mainWindow.c:1144
+msgid "Fertilizer"
+msgstr "Fertilizante"
+
+#: src/kernel.c:172 src/mainWindow.c:1154
+msgid "WATER VOLUME"
+msgstr "VOLUMEN DE AGUA"
+
+#: src/kernel.c:174 src/kernel.c:194 src/kernel.c:203 src/kernel.c:216
+#: src/kernel.c:230 src/kernel.c:258 src/kernel.c:275 src/kernel.c:295
+#: src/mainWindow.c:1157 src/mainWindow.c:1179 src/mainWindow.c:1190
+#: src/mainWindow.c:1204 src/mainWindow.c:1219 src/mainWindow.c:1249
+#: src/mainWindow.c:1267 src/mainWindow.c:1288
+msgid "Total"
+msgstr "Total"
+
+#: src/kernel.c:177 src/kernel.c:233 src/configIrrigation.c:459
+#: src/configIrrigation.c:467 src/mainWindow.c:1161 src/mainWindow.c:1223
+#: src/mainWindow.c:1309
+msgid "Input"
+msgstr "Entrada"
+
+#: src/kernel.c:179 src/kernel.c:236 src/mainWindow.c:1163
+#: src/mainWindow.c:1226
+msgid "Calculated"
+msgstr "Calculada"
+
+#: src/kernel.c:181 src/kernel.c:238 src/mainWindow.c:1165
+#: src/mainWindow.c:1228
+msgid "Conservation error"
+msgstr "Error de conservación"
+
+#: src/kernel.c:183 src/kernel.c:195 src/kernel.c:205 src/kernel.c:218
+#: src/kernel.c:241 src/kernel.c:261 src/kernel.c:278 src/kernel.c:298
+#: src/mainWindow.c:1167 src/mainWindow.c:1181 src/mainWindow.c:1192
+#: src/mainWindow.c:1206 src/mainWindow.c:1231 src/mainWindow.c:1252
+#: src/mainWindow.c:1270 src/mainWindow.c:1291
+msgid "Superficial"
+msgstr "Superficial"
+
+#: src/kernel.c:185 src/kernel.c:197 src/kernel.c:207 src/kernel.c:220
+#: src/kernel.c:244 src/kernel.c:264 src/kernel.c:281 src/kernel.c:301
+#: src/mainWindow.c:1169 src/mainWindow.c:1183 src/mainWindow.c:1194
+#: src/mainWindow.c:1208 src/mainWindow.c:1234 src/mainWindow.c:1255
+#: src/mainWindow.c:1273 src/mainWindow.c:1294
+msgid "Infiltrated"
+msgstr "Infiltrada"
+
+#: src/kernel.c:187 src/kernel.c:199 src/kernel.c:209 src/kernel.c:222
+#: src/kernel.c:247 src/kernel.c:267 src/kernel.c:284 src/kernel.c:304
+#: src/mainWindow.c:1171 src/mainWindow.c:1185 src/mainWindow.c:1196
+#: src/mainWindow.c:1210 src/mainWindow.c:1237 src/mainWindow.c:1258
+#: src/mainWindow.c:1276 src/mainWindow.c:1297
+msgid "Percolated"
+msgstr "Percolada"
+
+#: src/kernel.c:228 src/mainWindow.c:1216
+msgid "FERTILIZER MASS"
+msgstr "MASA DE FERTILIZANTE"
+
+#: src/kernel.c:250 src/kernel.c:270 src/kernel.c:287 src/kernel.c:307
+#: src/mainWindow.c:1240 src/mainWindow.c:1261 src/mainWindow.c:1279
+#: src/mainWindow.c:1300
+msgid "Solid"
+msgstr "Sólida"
+
+#: src/kernel.c:370
+msgid "Running the numerical simulation ..."
+msgstr "Calculando la simulación numérica ..."
+
+#: src/kernel.c:372
+msgid "_Stop"
+msgstr "_Parar"
+
+#: src/configIrrigation.c:462 src/configIrrigation.c:470
+msgid "Initial time (s)"
+msgstr "Tiempo inicial (s)"
+
+#: src/configIrrigation.c:463 src/configIrrigation.c:471
+msgid "Final time (s)"
+msgstr "Tiempo final (s)"
+
+#: src/configIrrigation.c:464 src/graphics.c:781
+msgid "Discharge (m³/s)"
+msgstr "Caudal (m³/s)"
+
+#: src/configIrrigation.c:472
+msgid "Discharge (kg/s)"
+msgstr "Caudal (kg/s)"
+
+#: src/configIrrigation.c:475 src/mainWindow.c:1065
+msgid "Number of water inputs"
+msgstr "Número de entradas de agua"
+
+#: src/configIrrigation.c:476 src/mainWindow.c:1068
+msgid "Number of fertilizer inputs"
+msgstr "Número de entradas de fertilizante"
+
+#: src/configGeometry.c:1429
+msgid "Point"
+msgstr "Punto"
+
+#: src/configFurrows.c:319
+msgid "Distribution"
+msgstr "Distribución"
+
+#: src/configFurrows.c:320
+msgid "Irrigation"
+msgstr "Riego"
+
+#: src/configFurrows.c:321 src/configFurrows.c:357
+msgid "Recirculation"
+msgstr "Recirculación"
+
+#: src/configFurrows.c:343
+msgid ""
+"R: water retention capacity\n"
+"e=0: Gauckler-Manning's model\n"
+"e>0: Burguete's aerodynamical coefficient\n"
+"n(e=0): Gauckler-Manning's number\n"
+"n(e>0): Burguete's characteristic roughness length\n"
+"K: Kostiakov's constant\n"
+"a: Kostiakov's exponent\n"
+"f0: infiltration velocity in saturated soil"
+msgstr ""
+"R: capacidad de retención de agua\n"
+"e=0: modelo de Gauckler-Manning\n"
+"e>0: coeficiente aerodinámico de Burguete\n"
+"n(e=0): número de Gauckler-Manning\n"
+"n(e>0): longitud caracterí­stica de rugosidad de Burguete\n"
+"K: constante de Kostiakov\n"
+"a: exponente de Kostiakov\n"
+"f0: velocidad de infiltración en suelo saturado"
+
+#: src/configFurrows.c:354 src/mainWindow.c:1049
+msgid "Number of irrigation furrows"
+msgstr "Número de surcos de riego"
+
+#: src/configFurrows.c:365
+msgid "Furrow"
+msgstr "Surco"
+
+#: src/configFurrows.c:369 src/configWindow.c:215
+msgid "Geometry"
+msgstr "Geometría"
+
+#: src/configFurrows.c:372
+msgid "Soil"
+msgstr "Suelo"
+
+#: src/configFurrows.c:376 src/mainWindow.c:860 src/mainWindow.c:872
+msgid "Friction model"
+msgstr "Modelo de fricción"
+
+#: src/configFurrows.c:380
+msgid "Infiltration model"
+msgstr "Modelo de infiltración"
+
+#: src/configTimes.c:120
+msgid "Maximum simulation time (s)"
+msgstr "Tiempo de simulación máximo (s)"
+
+#: src/configTimes.c:122
+msgid "Data saving cycle (s)"
+msgstr "Periodo de volcado de datos (s)"
+
+#: src/configTimes.c:124 src/mainWindow.c:1107
+msgid "Cells number for distribution channel (between furrows)"
+msgstr "Número de celdas del canal de distribución (entre surcos)"
+
+#: src/configTimes.c:126 src/mainWindow.c:1111
+msgid "Cells number for irrigation channels"
+msgstr "Número de celdas de los surcos de riego"
+
+#: src/configProbes.c:232 src/graphics.c:1062 src/mainWindow.c:956
+msgid "Probe"
+msgstr "Sonda"
+
+#: src/configProbes.c:234 src/mainWindow.c:1088
+msgid "Number of probes"
+msgstr "Número de sondas"
+
+#: src/configWindow.c:69
+msgid "Solubility (kg/m³)"
+msgstr "Solubilidad (kg/m³)"
+
+#: src/configWindow.c:217
+msgid "Furrows"
+msgstr "Surcos"
+
+#: src/configWindow.c:219
+msgid "Inputs"
+msgstr "Entradas"
+
+#: src/configWindow.c:223
+msgid "Probes"
+msgstr "Sondas"
+
+#: src/configWindow.c:225
+msgid "Advanced parameters"
+msgstr "Parámetros avanzados"
+
+#: src/configWindow.c:231
+msgid "Configure irrigation"
+msgstr "Configurar riego"
+
+#: src/configWindow.c:234 src/mainWindow.c:1381
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: src/configWindow.c:236 src/mainWindow.c:1383
+msgid "_OK"
+msgstr "_Aceptar"
+
+#: src/graphics.c:456 src/graphics.c:746 src/graphics.c:1013
+msgid "Water depth (m)"
+msgstr "Calado (m)"
+
+#: src/graphics.c:457 src/graphics.c:749 src/graphics.c:783 src/graphics.c:1019
+#: src/graphics.c:1067
+msgid "Fertilizer concentration (kg/m³)"
+msgstr "Concentración de fertilizante (kg/m³)"
+
+#: src/graphics.c:458 src/graphics.c:752
+msgid "Infiltrated water mass per unit length (kg/m)"
+msgstr "Masa de agua infiltrada por unidad de longitud (kg/m)"
+
+#: src/graphics.c:459 src/graphics.c:755 src/graphics.c:808
+msgid "Infiltrated fertilizer mass per unit length (kg/m)"
+msgstr "Masa de fertilizante infiltrado por unidad de longitud (kg/m)"
+
+#: src/graphics.c:735 src/graphics.c:986
+msgid "Time step"
+msgstr "Paso de tiempo"
+
+#: src/graphics.c:780
+msgid "Superficial depth (m)"
+msgstr "Calado (m)"
+
+#: src/graphics.c:782
+msgid "Superficial level (m)"
+msgstr "Cota superficial (m)"
+
+#: src/graphics.c:784
+msgid "Superficial water area (m²)"
+msgstr "Área de agua superficial (m²)"
+
+#: src/graphics.c:785
+msgid "Advance time (s)"
+msgstr "Tiempo de avance (s)"
+
+#: src/graphics.c:788
+msgid "Infiltrated depth (m)"
+msgstr "Profundidad infiltrada (m)"
+
+#: src/graphics.c:790
+msgid "Bottom level (m)"
+msgstr "Nivel inferior (m)"
+
+#: src/graphics.c:792
+msgid "Infiltrated water area (m²)"
+msgstr "Área de agua infiltrada (m²)"
+
+#: src/graphics.c:793
+msgid "Recession time (s)"
+msgstr "Tiempo de receso (s)"
+
+#: src/graphics.c:800
+msgid "Superficial fertilizer mass per unit length (kg/m)"
+msgstr "Masa de fertilizante superficial por unidad de longitud (kg/m)"
+
+#: src/graphics.c:827 src/graphics.c:830 src/graphics.c:1004
+#, c-format
+msgid "Furrow %d"
+msgstr "Surco %d"
+
+#: src/graphics.c:833
+msgid "Position (m)"
+msgstr "Posición (m)"
+
+#: src/graphics.c:1015
+msgid "Water discharge (m³/s)"
+msgstr "Caudal de agua (m³/s)"
+
+#: src/graphics.c:1016
+msgid "Level (m)"
+msgstr "Nivel (m)"
+
+#: src/graphics.c:1021
+msgid "Mass per unit length (kg/m)"
+msgstr "Masa por unidad de longitud (kg/m)"
+
+#: src/graphics.c:1023
+msgid "Advance and recession times (s)"
+msgstr "Tiempos de avance y receso (s)"
+
+#: src/graphics.c:1064
+msgid "Time (s)"
+msgstr "Tiempo (s)"
+
+#: src/graphics.c:1065
+msgid "Depth (m)"
+msgstr "Calado (m)"
+
+#: src/graphics.c:1153
+#, c-format
+msgid "Probe %d"
+msgstr "Sonda %d"
+
+#: src/graphics.c:1282
+msgid "Map Furrows Representation"
+msgstr "Representación de mapa de surcos"
+
+#: src/graphics.c:1284
+msgid "Furrow Representation"
+msgstr "Representación de surco"
+
+#: src/graphics.c:1295
+msgid "Probes Time Evolution"
+msgstr "Evolución temporal de sondas"
+
+#: src/graphics.c:1303
+msgid "Plotting results"
+msgstr "Gráfico de resultados"
+
+#: src/graphics.c:1306
+msgid "_Save"
+msgstr "_Guardar"
+
+#: src/graphics.c:1308 src/mainWindow.c:1320
+msgid "_Close"
+msgstr "_Cerrar"
+
+#: src/mainWindow.c:815
+msgid "Coordinates of corner"
+msgstr "Coordenadas del vértice"
+
+#: src/mainWindow.c:847
+msgid "Base width"
+msgstr "Anchura de la base"
+
+#: src/mainWindow.c:849
+msgid "Lateral slope"
+msgstr "Pendiente de las paredes laterales"
+
+#: src/mainWindow.c:851
+msgid "Depth"
+msgstr "Profundidad"
+
+#: src/mainWindow.c:853
+msgid "Distance"
+msgstr "Distancia"
+
+#: src/mainWindow.c:856
+msgid "Soil retention capacity"
+msgstr "Capacidad de retención del suelo"
+
+#: src/mainWindow.c:864
+msgid "Aerodynamical coefficient"
+msgstr "Coeficiente aerodinámico"
+
+#: src/mainWindow.c:867
+msgid "Characteristic roughness length"
+msgstr "Longitud característica de rugosidad"
+
+#: src/mainWindow.c:876
+msgid "Number of Gauckler-Manning"
+msgstr "Número de Gauckler-Manning"
+
+#: src/mainWindow.c:883
+msgid "Kostiakov's coefficient"
+msgstr "Coeficiente de Kostiakov"
+
+#: src/mainWindow.c:889
+msgid "Kostiakov's exponent"
+msgstr "Exponente de Kostiakov"
+
+#: src/mainWindow.c:893
+msgid "Infiltration velocity in saturated soil"
+msgstr "Velocidad de infiltración en suelo saturado"
+
+#: src/mainWindow.c:917
+msgid "Fertilizer input"
+msgstr "Entrada de fertilizante"
+
+#: src/mainWindow.c:919
+msgid "Water input"
+msgstr "Entrada de agua"
+
+#: src/mainWindow.c:1014
+msgid "GEOMETRY"
+msgstr "GEOMETRÍA"
+
+#: src/mainWindow.c:1042
+msgid "FURROWS"
+msgstr "SURCOS"
+
+#: src/mainWindow.c:1046
+msgid "yes"
+msgstr "sí"
+
+#: src/mainWindow.c:1046
+msgid "not"
+msgstr "no"
+
+#: src/mainWindow.c:1062
+msgid "INPUTS"
+msgstr "ENTRADAS"
+
+#: src/mainWindow.c:1078
+msgid "FERTILIZER"
+msgstr "FERTILIZANTE"
+
+#: src/mainWindow.c:1081
+msgid "Solubility"
+msgstr "Solubilidad"
+
+#: src/mainWindow.c:1085
+msgid "PROBES"
+msgstr "SONDAS"
+
+#: src/mainWindow.c:1095
+msgid "ADVANCED OPTIONS"
+msgstr "OPCIONES AVANZADAS"
+
+#: src/mainWindow.c:1098
+msgid "Maximum simulation time"
+msgstr "Tiempo de simulación máximo"
+
+#: src/mainWindow.c:1101
+msgid "CFL number"
+msgstr "Número CFL"
+
+#: src/mainWindow.c:1103
+msgid "Data saving cycle"
+msgstr "Periodo de volcado de datos"
+
+#: src/mainWindow.c:1311
+msgid "Results"
+msgstr "Resultados"
+
+#: src/mainWindow.c:1316 src/mainWindow.c:1535
+msgid "Summary"
+msgstr "Sumario"
+
+#: src/mainWindow.c:1439
+msgid "ppal_EN.pdf"
+msgstr "ppal.pdf"
+
+#: src/mainWindow.c:1467
+msgid ""
+"A software tool to solve irrigation and fertigationin isolated furrows and "
+"furrow networks"
+msgstr ""
+"Una herramienta de software para resolver riego y fertirriego en surcos "
+"aislados y redes de surcos"
+
+#: src/mainWindow.c:1470
+msgid "translator-credits"
+msgstr "Javier Burguete Tolosa (jburguete@eead.csic.es)"
+
+#: src/mainWindow.c:1501
+msgid "Open"
+msgstr "Abrir"
+
+#: src/mainWindow.c:1503
+msgid "Open furrows system"
+msgstr "Abrir sistema de surcos"
+
+#: src/mainWindow.c:1510
+msgid "Configure"
+msgstr "Configurar"
+
+#: src/mainWindow.c:1512
+msgid "Simulation configure"
+msgstr "Configuración del riego"
+
+#: src/mainWindow.c:1519
+msgid "Run"
+msgstr "Ejecutar"
+
+#: src/mainWindow.c:1521
+msgid "Run the simulation"
+msgstr "Iniciar la simulación"
+
+#: src/mainWindow.c:1528
+msgid "Plot"
+msgstr "Gráficos"
+
+#: src/mainWindow.c:1530
+msgid "Plot results"
+msgstr "Gráficos de resultados"
+
+#: src/mainWindow.c:1537
+msgid "Show summary"
+msgstr "Muestra resumen"
+
+#: src/mainWindow.c:1541 src/mainWindow.c:1542
+msgid "Help"
+msgstr "Ayuda"
+
+#: src/mainWindow.c:1545 src/mainWindow.c:1546
+msgid "About"
+msgstr "Acerca de"
+
+#: src/mainWindow.c:1549 src/mainWindow.c:1550
+msgid "Exit"
+msgstr "Salir"
+
+#~ msgid "diagram_geometry_en.png"
+#~ msgstr "diagram_geometry_es.png"
+
+#~ msgid "Reading logo"
+#~ msgstr "Leyendo logo"
+
+#~ msgid "Unable to open the coefficients file"
+#~ msgstr "No se pudo abrir el fichero de coeficientes"
+
+#~ msgid "Bad coefficients file"
+#~ msgstr "Fichero de coeficientes incorrecto"

@@ -1,0 +1,225 @@
+# French translations for SURCOS package.
+# Copyright (C) 2011 THE SURCOS' COPYRIGHT HOLDER
+# This file is distributed under the same license as the SURCOS package.
+# Automatically generated, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 5.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-05 15:25+0100\n"
+"PO-Revision-Date: 2011-10-11 04:25+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/furrow.c:53 src/furrow.c:58 src/furrow.c:63 src/furrow.c:68
+msgid "Bad initial conditions"
+msgstr "Condizioni iniziali non corretti"
+
+#: src/furrow.c:102
+msgid "Bad furrow data"
+msgstr "Dati di solchi non corretti"
+
+#: src/furrow.c:111 src/furrow.c:116 src/furrow.c:121 src/furrow.c:126
+#: src/furrow.c:131 src/furrow.c:136 src/furrow.c:141 src/furrow.c:146
+#: src/furrow.c:151 src/furrow.c:156
+msgid "Bad furrow"
+msgstr "Solco non corretto"
+
+#: src/field.c:126 src/field.c:516 src/field.c:532
+msgid "Bad input data"
+msgstr "Dati di input non valido"
+
+#: src/field.c:131 src/field.c:136 src/field.c:141 src/field.c:147
+#: src/field.c:153
+msgid "Bad input"
+msgstr "Input non valido"
+
+#: src/field.c:142
+msgid "Initial time"
+msgstr "Temps initial"
+
+#: src/field.c:148
+msgid "Final time"
+msgstr "Tempo finale"
+
+#: src/field.c:154
+msgid "Discharge"
+msgstr "Flusso"
+
+#: src/field.c:243
+msgid "Unable to open the geometry data file"
+msgstr "Imposible aprire il file di dati della geometria"
+
+#: src/field.c:259 src/field.c:264 src/field.c:270 src/field.c:275
+#: src/field.c:280 src/field.c:285 src/field.c:290 src/field.c:295
+#: src/field.c:300 src/field.c:305 src/field.c:310 src/field.c:315
+#: src/field.c:320 src/field.c:325
+msgid "Bad data"
+msgstr "Dati non valido"
+
+#: src/field.c:264
+msgid "solubility"
+msgstr "solubilità"
+
+#: src/field.c:336 src/kernel.c:201 src/kernel.c:273
+msgid "Distribution furrow"
+msgstr "Solco di distribuzione"
+
+#: src/field.c:352
+msgid "Not enough memory to open the irrigation furrows"
+msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
+
+#: src/field.c:359 src/kernel.c:192 src/kernel.c:256
+msgid "Irrigation furrows"
+msgstr "Solchi di irrigazione"
+
+#: src/field.c:375 src/kernel.c:214 src/kernel.c:293
+msgid "Recirculation furrow"
+msgstr "Solco di ricircolazione"
+
+#: src/field.c:474
+msgid "Bad data set"
+msgstr "Serie di dati non corretta"
+
+#: src/field.c:507
+msgid "Unable to open the input file"
+msgstr "Impossible aprire il file di input"
+
+#: src/field.c:524
+msgid "Not enough memory to open the input data"
+msgstr "Memoria insufficiente per aprire il file di input"
+
+#: src/field.c:574
+msgid "Unable to open the mesh data file"
+msgstr "Impossible aprire il file di input di maglia"
+
+#: src/field.c:589
+msgid "Bad mesh data"
+msgstr "Dati di maglia non corretti"
+
+#: src/field.c:614
+msgid "Unable to open the times data file"
+msgstr "Imposible aprire il file di dati di tempo"
+
+#: src/field.c:620
+msgid "Bad times data"
+msgstr "Dati di tempo non corretti"
+
+#: src/field.c:646
+msgid "Unable to open the model data file"
+msgstr "Impossible aprire il file di dati di modelli"
+
+#: src/field.c:653
+msgid "Bad model data"
+msgstr "Dati di modelli non corretti"
+
+#: src/field.c:680
+msgid "Unable to open the probes data file"
+msgstr "Imposible aprire il file di dati di sondi"
+
+#: src/field.c:687 src/field.c:701
+msgid "Bad probes data"
+msgstr "Dati di sondi non corretti"
+
+#: src/kernel.c:147
+msgid "Irrigation life time"
+msgstr "Durata dell’irrigazione"
+
+#: src/kernel.c:149
+msgid "Calculation time"
+msgstr "Tempo di calcolo"
+
+#: src/kernel.c:153
+msgid "IRRIGATION QUALITY"
+msgstr "QUALITA DI IRRIGAZIONE"
+
+#: src/kernel.c:155
+msgid "Water"
+msgstr "Acqua"
+
+#: src/kernel.c:157 src/kernel.c:165
+msgid "Uniformity"
+msgstr "Uniformità"
+
+#: src/kernel.c:160 src/kernel.c:168
+msgid "Efficiency"
+msgstr "Efficienza"
+
+#: src/kernel.c:163
+msgid "Fertilizer"
+msgstr "Fertilisant"
+
+#: src/kernel.c:172
+msgid "WATER VOLUME"
+msgstr "VOLUME DI ACQUA"
+
+#: src/kernel.c:174 src/kernel.c:194 src/kernel.c:203 src/kernel.c:216
+#: src/kernel.c:230 src/kernel.c:258 src/kernel.c:275 src/kernel.c:295
+msgid "Total"
+msgstr "Totale"
+
+#: src/kernel.c:177 src/kernel.c:233
+msgid "Input"
+msgstr ""
+
+#: src/kernel.c:179 src/kernel.c:236
+msgid "Calculated"
+msgstr "Calcolato"
+
+#: src/kernel.c:181 src/kernel.c:238
+msgid "Conservation error"
+msgstr "Errore di conservazione"
+
+#: src/kernel.c:183 src/kernel.c:195 src/kernel.c:205 src/kernel.c:218
+#: src/kernel.c:241 src/kernel.c:261 src/kernel.c:278 src/kernel.c:298
+msgid "Superficial"
+msgstr "Superficiale"
+
+#: src/kernel.c:185 src/kernel.c:197 src/kernel.c:207 src/kernel.c:220
+#: src/kernel.c:244 src/kernel.c:264 src/kernel.c:281 src/kernel.c:301
+msgid "Infiltrated"
+msgstr "Infiltrata"
+
+#: src/kernel.c:187 src/kernel.c:199 src/kernel.c:209 src/kernel.c:222
+#: src/kernel.c:247 src/kernel.c:267 src/kernel.c:284 src/kernel.c:304
+msgid "Percolated"
+msgstr "Filtrato"
+
+#: src/kernel.c:228
+msgid "FERTILIZER MASS"
+msgstr "MASSA DI FERTILIZZANTE"
+
+#: src/kernel.c:250 src/kernel.c:270 src/kernel.c:287 src/kernel.c:307
+msgid "Solid"
+msgstr "Solido"
+
+#: src/kernel.c:370
+msgid "Running the numerical simulation ..."
+msgstr "Correndo la simulazione numerica ..."
+
+#: src/kernel.c:372
+msgid "_Stop"
+msgstr "_Fermare"
+
+#: src/surcos.c:134
+msgid "Usage is"
+msgstr "Uso è"
+
+#: src/surcos.c:135
+msgid "surcos [-v] input_directory"
+msgstr ""
+
+#~ msgid "Unable to open the coefficients file"
+#~ msgstr "Impossible aprire il file di coefficienti"
+
+#~ msgid "Bad coefficients file"
+#~ msgstr "File di coefficienti non corretti"
+
+#~ msgid "Not enough memory to calibrate the coefficients"
+#~ msgstr "Memoria insufficiente per calibrare i coefficienti"
