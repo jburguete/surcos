@@ -4,7 +4,7 @@ SURCOS (5.6 version)
 A software tool to solve irrigation and fertigation in isolated furrows and
 furrow networks.
 
-[!logo](5.6/logo.png)
+[!logo](5.6/logo.png?raw=true "Logo")
 [!logo](5.6/logo2.png)
 [!logo](5.6/logo3.png)
 
