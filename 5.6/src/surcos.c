@@ -131,13 +131,12 @@ surcos (int argn, char *argc[])
           break;
         }
     default:
-      printf ("%s:\n%s\n", _("Usage is"),
-              _("surcos [-v] input_directory"));
+      printf ("%s:\n%s\n", _("Usage is"), _("surcos [-v] input_directory"));
       return 4;
     }
 
 #if DEBUG_SURCOS
   printf ("surcos: end\n");
 #endif
-	return 0;
+  return 0;
 }

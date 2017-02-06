@@ -38,129 +38,97 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "scheme.h"
 
 /**
- * \struct _Input
+ * \struct Input
  * \brief Input struct.
  */
-struct _Input
+typedef struct
 {
-    /**
-     * \var x
-     * \brief X-coordinate.
-     * \var y
-     * \brief Y-coordinate.
-     * \var t0
-     * \brief Initial time.
-     * \var tf
-     * \brief Final time.
-     * \var q
-     * \brief Discharge.
-     * \var node
-     * \brief Number of the nearest node to the input position.
-     */
-  JBDOUBLE x, y, t0, tf, q;
+  JBDOUBLE x;
+  ///< X-coordinate.
+  JBDOUBLE y;
+  ///< Y-coordinate.
+  JBDOUBLE t0;
+  ///< Initial time.
+  JBDOUBLE tf;
+  ///< Final time.
+  JBDOUBLE q;
+  ///< Discharge.
   unsigned int node;
-};
+  ///< Number of the nearest node to the input position.
+} Input;
 
 /**
- * \typedef Input
- */
-typedef struct _Input Input;
-
-/**
- * \struct _Probe
+ * \struct Probe
  * \brief Probe struct.
  */
-struct _Probe
+typedef struct
 {
-    /**
-     * \var x
-     * \brief X-coordinate.
-     * \var y
-     * \brief Y-coordinate.
-     * \var node
-     * \brief Number of the nearest node to the input position.
-     */
-  JBDOUBLE x, y;
+  JBDOUBLE x;
+  ///< X-coordinate.
+  JBDOUBLE y;
+  ///< Y-coordinate.
   unsigned int node;
-};
+  ///< Number of the nearest node to the input position.
+} Probe;
 
 /**
- * \typedef Probe
- */
-typedef struct _Probe Probe;
-
-/**
- * \struct _Field
+ * \struct Field
  * \brief Field struct.
  */
-struct _Field
+typedef struct
 {
-    /**
-     * \var sb
-     * \brief Distribution furrow structure.
-     * \var sc
-     * \brief Recirculation furrow structure.
-     * \var si
-     * \brief Irrigation furrow structure array.
-     * \var cib
-     * \brief Distribution furrow initial conditions structure.
-     * \var cic
-     * \brief Recirculation furrow initial conditions structure.
-     * \var cii
-     * \brief Irrigation furrows initial conditions structure.
-     * \var input
-     * \brief Array of input structures.
-     * \var probe
-     * \brief Array of probe structures.
-     * \var p
-     * \brief Array of mesh node date structures.
-     * \var x
-     * \brief Array of x-coordinates of the 8 points limiting the field.
-     * \var y
-     * \brief Array of y-coordinates of the 8 points limiting the field.
-     * \var z
-     * \brief Array of z-coordinates of the 8 points limiting the field.
-     * \var tm
-     * \brief Time interval of data dump the results in a file.
-     * \var tf
-     * \brief Simulation maximum total time.
-     * \var cfl
-     * \brief Courant-Friedrichs-Levy number controlling the time step size.
-     * \var cpu
-     * \brief Time of computation.
-     * \var open
-     * \brief 1 on recirculation furrow presence, 0 else.
-     * \var nfurrows
-     * \brief Irrigation furrows number.
-     * \var nb
-     * \brief Node cells number at the distribution and recirculation furrows.
-     * \var nbi
-     * \brief Node cells number between irrgation furrows at the distribution and
-     * 	recirculation furrows.
-     * \var ni
-     * \brief Node cells number at each irrigation furrow.
-     * \var n
-     * \brief Total node cells number.
-     * \var nwinputs
-     * \brief Number of water inputs.
-     * \var nsinputs
-     * \brief Number of fertilizer inputs.
-     * \var nprobes
-     * \brief Number of probes.
-     */
-  Furrow sb[1], sc[1], *si;
-  InitialConditions cib[1], cic[1], cii[1];
+  Furrow sb[1];
+  ///< Distribution furrow structure.
+  Furrow sc[1];
+  ///< Recirculation furrow structure.
+  Furrow *si;
+  ///< Irrigation furrow structure array.
+  InitialConditions cib[1];
+  ///< Distribution furrow initial conditions structure.
+  InitialConditions cic[1];
+  ///< Recirculation furrow initial conditions structure.
+  InitialConditions cii[1];
+  ///< Irrigation furrows initial conditions structure.
   Input *input;
+  ///< Array of input structures.
   Probe *probe;
+  ///< Array of probe structures.
   Parameters *p;
-  JBDOUBLE x[8], y[8], z[8], tm, tf, cfl, cpu;
-  unsigned int open, nfurrows, nb, nbi, ni, n, nwinputs, nsinputs, nprobes;
-};
-
-/**
- * \typedef Field
- */
-typedef struct _Field Field;
+  ///< Array of mesh node date structures.
+  JBDOUBLE x[8];
+  ///< Array of x-coordinates of the 8 points limiting the field.
+  JBDOUBLE y[8];
+  ///< Array of y-coordinates of the 8 points limiting the field.
+  JBDOUBLE z[8];
+  ///< Array of z-coordinates of the 8 points limiting the field.
+  JBDOUBLE tm;
+  ///< Time interval of data dump the results in a file.
+  JBDOUBLE tf;
+  ///< Simulation maximum total time.
+  JBDOUBLE cfl;
+  ///< Courant-Friedrichs-Levy number controlling the time step size.
+  JBDOUBLE cpu;
+  ///< Time of computation.
+  unsigned int open;
+  ///< 1 on recirculation furrow presence, 0 else.
+  unsigned int nfurrows;
+  ///< Irrigation furrows number.
+  unsigned int nb;
+  ///< Node cells number at the distribution and recirculation furrows.
+  unsigned int nbi;
+  ///< Node cells number between irrgation furrows at the distribution and
+  ///< recirculation furrows.
+  unsigned int ni;
+  ///< Node cells number at each irrigation furrow.
+  unsigned int n;
+  ///< Total node cells number.
+  unsigned int nwinputs;
+  ///< Number of water inputs.
+  unsigned int nsinputs;
+  ///< Number of fertilizer inputs.
+  unsigned int nprobes;
+  ///< Number of probes.
+} Field;
 
 extern Field field[1];
 
@@ -196,59 +164,6 @@ JBDOUBLE mass_fertilizer_solid (Parameters * p, unsigned int n);
 
 #else
 
-/**
- * \struct _Parallel
- * \brief Parallelization structure.
- */
-struct _Parallel
-{
-    /**
-     * \var GMutex mutex
-     * \brief Structure to lock memory writting.
-     * \var function_node
-     * \brief Pointer to function making parallelized nodal operations.
-     * \var function_furrow
-     * \brief Pointer to function making parallelized furrow operations.
-     * \var function_mass
-     * \brief Pointer to function to calculate parallelized mass.
-     * \var Parameter parameter
-     * \brief Pointer to the mesh node parameter struct to start parallelized
-     *   operations.
-     * \var JBDOUBLE mass
-     * \brief Parallelized mass calculation.
-     * \var unsigned int nthreads
-     * \brief Parallelized threads number.
-     * \var unsigned int nfurrows
-     * \brief Furrows number.
-     * \var unsigned int *node
-     * \brief Node numbers array corresponding to each thread
-     *   (calculated in the total field mesh).
-     * \var unsigned int *furrow
-     * \brief Furrow numbers array corresponding to each thread.
-     * \var unsigned int *thread
-     * \brief Node numbers array corresponding to each thread
-     *   (calculated in a local region of the mesh).
-     */
-  GMutex *mutex;
-  void (*function_node) (Parameters *);
-  void (*function_furrow) (Parameters *, unsigned int);
-    JBDOUBLE (*function_mass) (Parameters *);
-  Parameters *parameter;
-  JBDOUBLE mass;
-  unsigned int nthreads, nfurrows, *node, *furrow, *thread;
-};
-
-/**
- * \typedef Parallel
- */
-typedef struct _Parallel Parallel;
-
-extern Parallel parallel[1];
-
-void parallel_open ();
-JBDOUBLE mass_parallel
-  (Parameters * p, unsigned int n, JBDOUBLE (*function) (Parameters *));
-
 #define volume_water_total(p, n) \
 	(mass_parallel(p, n, parameters_volume_water_total))
 #define volume_water_surface(p, n) \
@@ -267,6 +182,46 @@ JBDOUBLE mass_parallel
 	(mass_parallel(p, n, parameters_mass_fertilizer_loss))
 #define mass_fertilizer_solid(p, n) \
 	(mass_parallel(p, n, parameters_mass_fertilizer_solid))
+
+/**
+ * \struct Parallel
+ * \brief Parallelization structure.
+ */
+typedef struct
+{
+  GMutex *mutex;
+  ///< Structure to lock memory writting.
+  void (*function_node) (Parameters *);
+  ///< Pointer to function making parallelized nodal operations.
+  void (*function_furrow) (Parameters *, unsigned int);
+  ///< Pointer to function making parallelized furrow operations.
+    JBDOUBLE (*function_mass) (Parameters *);
+  ///< Pointer to function to calculate parallelized mass.
+  Parameters *parameter;
+  ///< Pointer to the mesh node parameter struct to start parallelized
+  ///< operations.
+  JBDOUBLE mass;
+  ///< Parallelized mass calculation.
+  unsigned int nthreads;
+  ///< Parallelized threads number.
+  unsigned int nfurrows;
+  ///< Furrows number.
+  unsigned int *node;
+  ///< Node numbers array corresponding to each thread
+  ///< (calculated in the total field mesh).
+  unsigned int *furrow;
+  ///< Furrow numbers array corresponding to each thread.
+  unsigned int *thread;
+  ///< Node numbers array corresponding to each thread
+  ///< (calculated in a local region of the mesh).
+} Parallel;
+
+extern Parallel parallel[1];
+
+void parallel_open ();
+JBDOUBLE mass_parallel (Parameters * p, unsigned int n,
+                        JBDOUBLE (*function) (Parameters *));
+
 #endif
 
 #endif

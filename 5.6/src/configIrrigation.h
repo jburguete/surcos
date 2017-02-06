@@ -47,10 +47,10 @@ struct _ConfigIrrigation
   ///< label of the image displaying the inputs variables.
   GtkSpinButton *spin[2];
   ///< Array of GtkSpinButtons to define the water and fertilizer inputs
-	///< numbers.
+  ///< numbers.
   GtkButton *button[6][2];
   ///< Matrix of GtkSpinButtons to define the water and fertilizer inputs
-	///< parameters.
+  ///< parameters.
   GtkGrid *table[2];
   ///< Array of GtkGrids containing the water and fertilizer inputs.
   GtkFrame *frame[2];

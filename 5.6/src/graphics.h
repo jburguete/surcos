@@ -38,173 +38,114 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "jb/jb_win.h"
 
 /**
- * \struct _FurrowOutput
+ * \struct FurrowOutput
  * \brief Structure to define the geometry of a furrow mesh.
  */
-struct _FurrowOutput
+typedef struct
 {
-    /**
-     * \var x1
-     * \brief x-coordinate of the 1st corner point limiting the furrow.
-     * \var y1
-     * \brief y-coordinate of the 1st corner point limiting the furrow.
-     * \var x2
-     * \brief x-coordinate of the 2nd corner point limiting the furrow.
-     * \var y2
-     * \brief y-coordinate of the 2nd corner point limiting the furrow.
-     * \var x3
-     * \brief x-coordinate of the 3th corner point limiting the furrow.
-     * \var y3
-     * \brief y-coordinate of the 3th corner point limiting the furrow.
-     * \var x4
-     * \brief x-coordinate of the 4th corner point limiting the furrow.
-     * \var y4
-     * \brief y-coordinate of the 4th corner point limiting the furrow.
-     * \var x
-     * \brief Array of x-coordinates of the furrow mesh nodes.
-     * \var y
-     * \brief Array of y-coordinates of the furrow mesh nodes.
-     * \var n
-     * \brief Number of furrow mesh nodes.
-     */
-  double x1, y1, x2, y2, x3, y3, x4, y4, *x, *y;
+  double x1;
+  ///< x-coordinate of the 1st corner point limiting the furrow.
+  double y1;
+  ///< y-coordinate of the 1st corner point limiting the furrow.
+  double x2;
+  ///< x-coordinate of the 2nd corner point limiting the furrow.
+  double y2;
+  ///< y-coordinate of the 2nd corner point limiting the furrow.
+  double x3;
+  ///< x-coordinate of the 3th corner point limiting the furrow.
+  double y3;
+  ///< y-coordinate of the 3th corner point limiting the furrow.
+  double x4;
+  ///< x-coordinate of the 4th corner point limiting the furrow.
+  double y4;
+  ///< y-coordinate of the 4th corner point limiting the furrow.
+  double *x;
+  ///< Array of x-coordinates of the furrow mesh nodes.
+  double *y;
+  ///< Array of y-coordinates of the furrow mesh nodes.
   int n;
-};
+  ///< Number of furrow mesh nodes.
+} FurrowOutput;
 
 /**
- * \typedef FurrowOutput
- */
-typedef struct _FurrowOutput FurrowOutput;
-
-/**
- * \struct _GraphicMap
+ * \struct GraphicMap
  * \brief Structure to draw a furrow map.
  */
-struct _GraphicMap
+typedef struct
 {
-    /**
-     * \var variable
-     * \brief Type of variable to plot.
-     * \var step
-     * \brief Time step to plot.
-     * \var graphic
-     * \brief Graphic structure.
-     * \var label
-     * \brief GtkLabel to show the time step label.
-     * \var scale
-     * \brief GtkScale to configure the time step to plot.
-     * \var combo
-     * \brief GtkComboBox to configure the variable to plot.
-     * \var box
-     * \brief GtkGrid containing the configuration widgets.
-     */
-  int variable, step;
+  int variable;
+  ///< Type of variable to plot.
+ 	int step;
+  ///< Time step to plot.
   JBWGraphic *graphic;
+  ///< Graphic structure.
   GtkLabel *label;
+  ///< GtkLabel to show the time step label.
   GtkScale *scale;
+  ///< GtkScale to configure the time step to plot.
   GtkComboBoxText *combo;
+  ///< GtkComboBox to configure the variable to plot.
   GtkGrid *box;
-};
+  ///< GtkGrid containing the configuration widgets.
+} GraphicMap;
 
 /**
- * \typedef GraphicMap
- */
-typedef struct _GraphicMap GraphicMap;
-
-/**
- * \struct _GraphicFurrows
+ * \struct GraphicFurrows
  * \brief Structure to plot a longitudinal profile of a variable in a furrow.
  */
-struct _GraphicFurrows
+typedef struct
 {
-    /**
-     * \var furrow
-     * \brief Furrow number.
-     * \var variable
-     * \brief Variable type.
-     * \var step
-     * \brief Time step number.
-     * \var graphic
-     * \brief Graphic structure.
-     * \var label
-     * \brief GtkLabel to show the time step label.
-     * \var scale
-     * \brief GtkScale to configure the time step to plot.
-     * \var combo_furrow
-     * \brief GtkComboBox to configure the furrow to plot.
-     * \var combo_variable
-     * \brief GtkComboBox to configure the variable to plot.
-     * \var box
-     * \brief GtkGrid containing the configuration widgets.
-     */
-  int furrow, variable, step;
+  int furrow;
+  ///< Furrow number.
+  int variable;
+  ///< Variable type.
+  int step;
+  ///< Time step number.
   JBWGraphic *graphic;
+  ///< Graphic structure.
   GtkLabel *label;
+  ///< GtkLabel to show the time step label.
   GtkScale *scale;
-  GtkComboBoxText *combo_furrow, *combo_variable;
+  ///< GtkScale to configure the time step to plot.
+  GtkComboBoxText *combo_furrow;
+  ///< GtkComboBox to configure the furrow to plot.
+  GtkComboBoxText *combo_variable;
+  ///< GtkComboBox to configure the variable to plot.
   GtkGrid *box;
-};
+  ///< GtkGrid containing the configuration widgets.
+} GraphicFurrows;
 
 /**
- * \typedef GraphicFurrows
- */
-typedef struct _GraphicFurrows GraphicFurrows;
-
-/**
- * \struct _GraphicProbes
+ * \struct GraphicProbes
  * \brief Structure to plot probe results.
  */
-struct _GraphicProbes
+typedef struct
 {
-    /**
-     * \var combo
-     * \brief GtkComboBoxText to select the probe results to plot.
-     * \var graphic
-     * \brief Graphic structure.
-     */
   GtkComboBoxText *combo;
+  ///< GtkComboBoxText to select the probe results to plot.
   JBWGraphic *graphic;
-};
+  ///< Graphic structure.
+} GraphicProbes;
 
 /**
- * \typedef GraphicProbes
- */
-typedef struct _GraphicProbes GraphicProbes;
-
-/**
- * \struct _WindowPlot
+ * \struct WindowPlot
  * \brief Structure to plot the results.
  */
-struct _WindowPlot
+typedef struct
 {
-    /**
-     * \var graphic_map
-     * \brief Structure to draw a furrow map.
-     * \var graphic_furrows
-     * \brief Structure to plot a longitudinal profile of a variable in a furrow.
-     * \var graphic_probes
-     * \brief Structure to plot probe results.
-     * \var notebook
-     * \brief GtkNotebook to select the plot type.
-     * \var graphic
-     * \brief Graphic structure.
-     * \var box
-     * \brief GtkGrid containing the widgets.
-     * \var dialog
-     * \brief GtkDialog to show the plot configuration.
-     */
   GraphicMap graphic_map[1];
+  ///< Structure to draw a furrow map.
   GraphicFurrows graphic_furrows[1];
+  ///< Structure to plot a longitudinal profile of a variable in a furrow.
   GraphicProbes graphic_probes[1];
+  ///< Structure to plot probe results.
   GtkNotebook *notebook;
+  ///< GtkNotebook to select the plot type.
   JBWGraphic *graphic;
+  ///< Graphic structure.
   GtkDialog *dialog;
-};
-
-/**
- * \typedef WindowPlot
- */
-typedef struct _WindowPlot WindowPlot;
+  ///< GtkDialog to show the plot configuration.
+} WindowPlot;
 
 void window_plot_new ();
 

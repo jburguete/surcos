@@ -42,25 +42,14 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "mainWindow.h"
 
 /**
- * \struct _WindowRun
+ * \struct WindowRun
  * \brief Structure to show the progression of a simulation.
  */
-struct _WindowRun
+typedef struct
 {
-    /**
-     * \var progress
-     * \brief GtkProgresBar widget.
-     * \var dialog
-     * \brief GtkDialog dialog.
-     */
-  GtkProgressBar *progress;
-  GtkDialog *dialog;
-};
-
-/**
- * \typedef WindowRun
- */
-typedef struct _WindowRun WindowRun;
+  GtkProgressBar *progress;     ///< GtkProgresBar widget.
+  GtkDialog *dialog;            ///< GtkDialog dialog.
+} WindowRun;
 
 #endif
 

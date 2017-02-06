@@ -36,77 +36,37 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <unistd.h>
 #include "field.h"
 
-/**
- * \def DEBUG_PARALLEL_OPEN
- * \brief Macro to debug the parallel_open() function.
- */
 #define DEBUG_PARALLEL_OPEN 0
-/**
- * \def DEBUG_FIELD_READ_DATA
- * \brief Macro to debug the field_read_data() function.
- */
+///< Macro to debug the parallel_open() function.
 #define DEBUG_FIELD_READ_DATA 0
-/**
- * \def DEBUG_FIELD_READ_INPUT
- * \brief Macro to debug the field_read_input() function.
- */
+///< Macro to debug the field_read_data() function.
 #define DEBUG_FIELD_READ_INPUT 0
-/**
- * \def DEBUG_FIELD_READ_MESH
- * \brief Macro to debug the field_read_mesh() function.
- */
+///< Macro to debug the field_read_input() function.
 #define DEBUG_FIELD_READ_MESH 0
-/**
- * \def DEBUG_FIELD_MESH
- * \brief Macro to debug the field_mesh() function.
- */
+///< Macro to debug the field_read_mesh() function.
 #define DEBUG_FIELD_MESH 0
-/**
- * \def DEBUG_FIELD_DTMAX
- * \brief Macro to debug the field_dtmax() function.
- */
+///< Macro to debug the field_mesh() function.
 #define DEBUG_FIELD_DTMAX 0
-/**
- * \def DEBUG_JUNCTION_LATERAL
- * \brief Macro to debug the junction_lateral() function.
- */
+///< Macro to debug the field_dtmax() function.
 #define DEBUG_JUNCTION_LATERAL 0
-/**
- * \def DEBUG_FIELD_JUNCTIONS
- * \brief Macro to debug the field_junctions() function.
- */
+///< Macro to debug the junction_lateral() function.
 #define DEBUG_FIELD_JUNCTIONS 0
-/**
- * \def DEBUG_FIELD_STEP
- * \brief Macro to debug the field_step() function.
- */
+///< Macro to debug the field_junctions() function.
 #define DEBUG_FIELD_STEP 0
-/**
- * \def DEBUG_FIELD_PARAMETERS
- * \brief Macro to debug the field_parameters() function.
- */
+///< Macro to debug the field_step() function.
 #define DEBUG_FIELD_PARAMETERS 0
-/**
- * \def DEBUG_FIELD_DESTROY
- * \brief Macro to debug the field_destroy() function.
- */
+///< Macro to debug the field_parameters() function.
 #define DEBUG_FIELD_DESTROY 0
-/**
- * \def DEBUG_FIELD_OPEN
- * \brief Macro to debug the field_open() function.
- */
+///< Macro to debug the field_destroy() function.
 #define DEBUG_FIELD_OPEN 0
+///< Macro to debug the field_open() function.
 
-/**
- * \var t
- * \brief Time.
- * \var solubility
- * \brief Fertilizer solubility.
- * \var field
- * \brief Field struct with the field, mesh and scheme data needed to simulate.
- */
-JBDOUBLE t, solubility;
+JBDOUBLE t;
+///< Time.
+JBDOUBLE solubility;
+///< Fertilizer solubility.
 Field field[1];
+///< Field struct with the field, mesh and scheme data needed to simulate.
 
 /**
  * \fn int input_read(Input *i, FILE *file)
@@ -138,20 +98,17 @@ input_read (Input * i, FILE * file)
     }
   if (JB_PROTECT (i->t0, INPUT_T0_MIN, INPUT_T0_MAX))
     {
-      message = g_strconcat (_("Bad input"), ": ",
-                             _("Initial time"), NULL);
+      message = g_strconcat (_("Bad input"), ": ", _("Initial time"), NULL);
       return 0;
     }
   if (JB_PROTECT (i->tf, INPUT_TF_MIN, INPUT_TF_MAX) || i->tf < i->t0)
     {
-      message = g_strconcat (_("Bad input"), ": ",
-                             _("Final time"), NULL);
+      message = g_strconcat (_("Bad input"), ": ", _("Final time"), NULL);
       return 0;
     }
   if (JB_PROTECT (i->x, INPUT_Q_MIN, INPUT_Q_MAX))
     {
-      message = g_strconcat (_("Bad input"), ": ",
-                             _("Discharge"), NULL);
+      message = g_strconcat (_("Bad input"), ": ", _("Discharge"), NULL);
       return 0;
     }
   return 1;
@@ -261,8 +218,7 @@ field_read_data (char *directory)
     }
   if (JB_PROTECT (solubility, FIELD_SOLUBILITY_MIN, FIELD_SOLUBILITY_MAX))
     {
-      message = g_strconcat (_("Bad data"), " ", _("solubility"),
-                             NULL);
+      message = g_strconcat (_("Bad data"), " ", _("solubility"), NULL);
       goto exit0;
     }
   if (JB_PROTECT (field->x[0], FIELD_X_MIN, FIELD_X_MAX))
@@ -333,8 +289,7 @@ field_read_data (char *directory)
       !initial_conditions_read (field->cib, file))
     {
       buffer2 = message;
-      message = g_strconcat (_("Distribution furrow"), "\n", message,
-                             NULL);
+      message = g_strconcat (_("Distribution furrow"), "\n", message, NULL);
       g_free (buffer2);
       goto exit0;
     }
@@ -529,8 +484,7 @@ field_read_input (char *directory)
     {
       if (!input_read (field->input + i, file))
         {
-          message = g_strconcat (_("Bad input data"), "\n", buffer,
-                                 NULL);
+          message = g_strconcat (_("Bad input data"), "\n", buffer, NULL);
           goto error1;
         }
       field->input[i].node = scheme_search_node (field->p, field->n,
@@ -698,8 +652,7 @@ field_read_probe (char *directory)
       if (fscanf (file, "%lf%lf", &x, &y) != 2)
         {
           j = 0;
-          message = g_strconcat (_("Bad probes data"), "\n", buffer,
-                                 NULL);
+          message = g_strconcat (_("Bad probes data"), "\n", buffer, NULL);
           goto exit0;
         }
       field->probe[i].x = x;
@@ -1127,14 +1080,19 @@ field_junctions ()
   for (i = 0, k = nfurrows * ni, j = 0; j < nfurrows; i += ni, k += nbi, ++j)
     {
 #if DEBUG_JUNCTIONS
-      printf ("i=%u k=%u a1=" FWL " c=" FWL "\n", i, k, p[i].Qv * dt, p[i].cv);
-      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac, p[i].dx);
-      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac, p[k].dx);
+      printf ("i=%u k=%u a1=" FWL " c=" FWL "\n", i, k, p[i].Qv * dt,
+              p[i].cv);
+      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac,
+              p[i].dx);
+      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac,
+              p[k].dx);
 #endif
       junction_lateral (p + i, p + k, p[i].Qv * dt, p[i].cv);
 #if DEBUG_JUNCTIONS
-      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac, p[i].dx);
-      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac, p[k].dx);
+      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac,
+              p[i].dx);
+      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac,
+              p[k].dx);
 #endif
     }
   i = nfurrows * ni + nb - 1;
@@ -1151,14 +1109,19 @@ field_junctions ()
        i += ni, k += nbi, ++j)
     {
 #if DEBUG_JUNCTIONS
-      printf ("i=%u k=%u a1=" FWL " c=" FWL "\n", i, k, -p[i].Qv * dt, p[i].cv);
-      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac, p[i].dx);
-      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac, p[k].dx);
+      printf ("i=%u k=%u a1=" FWL " c=" FWL "\n", i, k, -p[i].Qv * dt,
+              p[i].cv);
+      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac,
+              p[i].dx);
+      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac,
+              p[k].dx);
 #endif
       junction_lateral (p + i, p + k, -p[i].Qv * dt, p[i].cv);
 #if DEBUG_JUNCTIONS
-      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac, p[i].dx);
-      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac, p[k].dx);
+      printf ("A1=" FWL " Ac1=" FWL " dx1=" FWL "\n", p[i].A, p[i].Ac,
+              p[i].dx);
+      printf ("A2=" FWL " Ac2=" FWL " dx2=" FWL "\n", p[k].A, p[k].Ac,
+              p[k].dx);
 #endif
     }
 #if DEBUG_JUNCTIONS
@@ -1458,9 +1421,11 @@ parallel_open ()
   printf ("nthreads=%d\n", parallel->nthreads);
 #endif
   parallel->node =
-    (unsigned int *) malloc ((parallel->nthreads + 1) * sizeof (unsigned int));
+    (unsigned int *) malloc ((parallel->nthreads + 1) *
+                             sizeof (unsigned int));
   parallel->furrow =
-    (unsigned int *) malloc ((parallel->nthreads + 1) * sizeof (unsigned int));
+    (unsigned int *) malloc ((parallel->nthreads + 1) *
+                             sizeof (unsigned int));
   parallel->nfurrows = field->nfurrows + 1;
   if (field->open)
     ++parallel->nfurrows;
@@ -1600,8 +1565,9 @@ mass_thread (void *data)
  * \brief Pointer to the function to calculate the mass in a node.
  * \return Total mass.
  */
-JBDOUBLE mass_parallel
-  (Parameters * p, unsigned int n, JBDOUBLE (*function) (Parameters *))
+JBDOUBLE
+mass_parallel (Parameters * p, unsigned int n,
+               JBDOUBLE (*function) (Parameters *))
 {
   unsigned int i, nthread[parallel->nthreads];
   GThread *thread[parallel->nthreads];

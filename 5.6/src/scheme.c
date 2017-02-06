@@ -54,9 +54,9 @@ scheme_save (Parameters * p, unsigned int n, char *name)
   file = g_fopen (name, "w");
   for (i = 0; i < n; ++p, ++i)
     fprintf (file,
-             FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF
-             " " FWF " " FWF " " FWF "\n", p->x, p->h, p->A, p->Q, p->zs, p->zf,
-             -p->Ai, p->c, -p->Aci, -p->Ap, -p->Acp, p->beta);
+             FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " "
+             FWF " " FWF " " FWF " " FWF "\n", p->x, p->h, p->A, p->Q, p->zs,
+             p->zf, -p->Ai, p->c, -p->Aci, -p->Ap, -p->Acp, p->beta);
   fclose (file);
 }
 
@@ -74,8 +74,8 @@ scheme_save (Parameters * p, unsigned int n, char *name)
  * \brief Y-coordinate of the point.
  * \return Number of the closest mesh node.
  */
-unsigned int scheme_search_node
-  (Parameters * p, unsigned int n, JBDOUBLE x, JBDOUBLE y)
+unsigned int
+scheme_search_node (Parameters * p, unsigned int n, JBDOUBLE x, JBDOUBLE y)
 {
   unsigned int i, j;
   JBDOUBLE d, dmin;
@@ -105,8 +105,9 @@ unsigned int scheme_search_node
  * \param ci
  * \brief Furrow initial conditions structure.
  */
-void scheme_mesh
-  (Parameters * p, unsigned int n, Furrow * s, InitialConditions * ci)
+void
+scheme_mesh (Parameters * p, unsigned int n, Furrow * s,
+             InitialConditions * ci)
 {
   register unsigned int i;
   JBDOUBLE dx, hmin;

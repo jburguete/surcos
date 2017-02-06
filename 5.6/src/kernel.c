@@ -38,64 +38,40 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "field.h"
 #include "kernel.h"
 
-/**
- * \def DEBUG_KERNEL_DESTROY
- * \brief Macro to debug the kernel_destroy() function.
- */
 #define DEBUG_KERNEL_DESTROY 0
-/**
- * \def DEBUG_KERNEL_STEP
- * \brief Macro to debug the kernel_step() function.
- */
+///< Macro to debug the kernel_destroy() function.
 #define DEBUG_KERNEL_STEP 0
-/**
- * \def DEBUG_KERNEL_OPEN
- * \brief Macro to debug the kernel_open() function.
- */
+///< Macro to debug the kernel_step() function.
 #define DEBUG_KERNEL_OPEN 0
-/**
- * \def DEBUG_KERNEL
- * \brief Macro to debug the kernel() function.
- */
+///< Macro to debug the kernel_open() function.
 #define DEBUG_KERNEL 0
+///< Macro to debug the kernel() function.
 
-/**
- * \var type_fertilizer
- * \brief Type of fertilizer model.
- * \var type_infiltration
- * \brief Type of infiltration model.
- * \var type_diffusion_soil
- * \brief Type of soil diffusion model.
- * \var type_beta
- * \brief Type of advection model.
- * \var simulating
- * \brief 1 on a simulation is running, 0 else.
- * \var dt
- * \brief Time step size.
- * \var dtmax
- * \brief Maximum time step size.
- */
-unsigned int type_fertilizer, type_infiltration, type_diffusion_soil,
-  type_beta, simulating;
-JBDOUBLE dt, dtmax;
+unsigned int type_fertilizer;
+///< Type of fertilizer model.
+unsigned int type_infiltration;
+///< Type of infiltration model.
+unsigned int type_diffusion_soil;
+///< Type of soil diffusion model.
+unsigned int type_beta;
+///< Type of advection model.
+unsigned int simulating;
+///< 1 on a simulation is running, 0 else.
+JBDOUBLE dt;
+///< Time step size.
+JBDOUBLE dtmax;
+///< Maximum time step size.
 
 #if JBW != JBW_NO
 extern GtkWidget *windowMain;
-/**
- * \var windowRun
- * \brief Structure to show a simulation progression dialog.
- */
 WindowRun windowRun[1];
+///< Structure to show a simulation progression dialog.
 #endif
 
-/**
- * \var message
- * \brief Pointer to a message string.
- * \var show_error
- * \brief Pointer to the function to show the error messages.
- */
 char *message = NULL;
+///< Pointer to a message string.
 void (*show_error) (char *msg);
+///< Pointer to the function to show the error messages.
 
 /**
  * \fn void print_error(char *msg)
@@ -146,8 +122,7 @@ results_save (char *dir)
 
   snprintf (buffer, 512, "%s = %g s\n", _("Irrigation life time"), t);
   fprintf (file, buffer);
-  snprintf (buffer, 512, "%s = %g s\n\n", _("Calculation time"),
-            field->cpu);
+  snprintf (buffer, 512, "%s = %g s\n\n", _("Calculation time"), field->cpu);
   fprintf (file, buffer);
 
   snprintf (buffer, 512, "%s\n", _("IRRIGATION QUALITY"));
@@ -194,10 +169,8 @@ results_save (char *dir)
       results_mass (file, _("Total"), volume_water_total (field->p, n));
       results_mass (file, _("Superficial"),
                     volume_water_surface (field->p, n));
-      results_mass (file, _("Infiltrated"),
-                    volume_water_soil (field->p, n));
-      results_mass (file, _("Percolated"),
-                    volume_water_loss (field->p, n));
+      results_mass (file, _("Infiltrated"), volume_water_soil (field->p, n));
+      results_mass (file, _("Percolated"), volume_water_loss (field->p, n));
       snprintf (buffer, 512, "\t%s\n", _("Distribution furrow"));
       fprintf (file, buffer);
       results_mass (file, _("Total"),
@@ -378,7 +351,8 @@ window_run_new ()
                      GTK_WIDGET (windowRun->progress));
   g_signal_connect_after (windowRun->dialog, "response",
                           G_CALLBACK (window_run_destroy), NULL);
-  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
+  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close,
+                          NULL);
   gtk_progress_bar_set_fraction (windowRun->progress, 0.);
   snprintf (buffer, 32, "(0.0/0.0)");
   gtk_progress_bar_set_text (windowRun->progress, buffer);
@@ -595,8 +569,8 @@ kernel (char *dir, int gui, int msg)
   ef = field_efficiency_water (field);
   efs = field_efficiency_fertilizer (field);
   printf ("Water uniformity: " FGL "%%\nFertilizer uniformity: " FGL "%%\n"
-          "Water efficiency: " FGL "%%\nFertilizer efficiency: " FGL "%%\n", ud,
-          uds, ef, efs);
+          "Water efficiency: " FGL "%%\nFertilizer efficiency: " FGL "%%\n",
+          ud, uds, ef, efs);
 #endif
   field_save_advances (dir);
   results_save (dir);

@@ -39,101 +39,57 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "field.h"
 #include "graphics.h"
 
-/**
- * \def DEBUG_PROBES_NUMBER
- * \brief Macro to debug the probes_number() function.
- */
 #define DEBUG_PROBES_NUMBER 0
+///< Macro to debug the probes_number() function.
 
-/**
- * \def DEBUG_FURROWS_NUMBER
- * \brief Macro to debug the furrows_number() function.
- */
 #define DEBUG_FURROWS_NUMBER 0
+///< Macro to debug the furrows_number() function.
 
-/**
- * \def DEBUG_GRAPHIC_MAP_DRAW
- * \brief Macro to debug the graphic_map_draw() function.
- */
 #define DEBUG_GRAPHIC_MAP_DRAW 0
+///< Macro to debug the graphic_map_draw() function.
 
-/**
- * \def DEBUG_GRAPHIC_FURROWS_DRAW
- * \brief Macro to debug the graphic_furrows_draw() function.
- */
 #define DEBUG_GRAPHIC_FURROWS_DRAW 0
+///< Macro to debug the graphic_furrows_draw() function.
 
-/**
- * \def DEBUG_GRAPHIC_FURROWS_UPDATE
- * \brief Macro to debug the graphic_furrows_update() function.
- */
 #define DEBUG_GRAPHIC_FURROWS_UPDATE 0
+///< Macro to debug the graphic_furrows_update() function.
 
-/**
- * \def DEBUG_GRAPHIC_FURROWS_NEW
- * \brief Macro to debug the graphic_furrows_new() function.
- */
 #define DEBUG_GRAPHIC_FURROWS_NEW 0
+///< Macro to debug the graphic_furrows_new() function.
 
-/**
- * \def DEBUG_GRAPHIC_PROBES_UPDATE
- * \brief Macro to debug the graphic_probes_update() function.
- */
 #define DEBUG_GRAPHIC_PROBES_UPDATE 0
+///< Macro to debug the graphic_probes_update() function.
 
-/**
- * \def DEBUG_GRAPHIC_PROBES_DRAW
- * \brief Macro to debug the graphic_probes_draw() function.
- */
 #define DEBUG_GRAPHIC_PROBES_DRAW 0
+///< Macro to debug the graphic_probes_draw() function.
 
-/**
- * \def DEBUG_GRAPHIC_PROBES_NEW
- * \brief Macro to debug the graphic_probes_new() function.
- */
 #define DEBUG_GRAPHIC_PROBES_NEW 0
+///< Macro to debug the graphic_probes_new() function.
 
-/**
- * \def DEBUG_WINDOW_PLOT_DRAW
- * \brief Macro to debug the window_plot_draw() function.
- */
 #define DEBUG_WINDOW_PLOT_DRAW 0
+///< Macro to debug the window_plot_draw() function.
 
-/**
- * \def DEBUG_WINDOW_PLOT_UPDATE
- * \brief Macro to debug the window_plot_update() function.
- */
 #define DEBUG_WINDOW_PLOT_UPDATE 0
+///< Macro to debug the window_plot_update() function.
 
-/**
- * \def DEBUG_WINDOW_PLOT_NEW
- * \brief Macro to debug the window_plot_new() function.
- */
 #define DEBUG_WINDOW_PLOT_NEW 0
+///< Macro to debug the window_plot_new() function.
 
 extern GtkWidget *windowMain;
 extern char *input_dir;
 
-/**
- * \var nfurrows
- * \brief Irrigation furrows number.
- * \var recirculation
- * \brief 1 on presence of recirculation furrow, 0 else.
- * \var numProbes
- * \brief Probes number.
- * \var ny
- * \brief Number of time steps with dumped data.
- * \var time_step
- * \brief Time interval to dump results data.
- * \var window_plot
- * \brief Results plot structure.
- */
 int nfurrows = -1;
+///< Irrigation furrows number.
 int recirculation = 1;
+///< 1 on presence of recirculation furrow, 0 else.
 int numProbes = 0;
+///< Probes number.
 int ny = 0;
+///< Number of time steps with dumped data.
 double time_step;
+///< Time interval to dump results data.
 WindowPlot window_plot[1];
+///< Results plot structure.
 
 /**
  * \fn void probes_number()
@@ -209,7 +165,8 @@ furrows_number ()
     }
   while (1);
 #if DEBUG_FURROWS_NUMBER
-  printf ("nfurrows=%d ny=%d recirculation=%d\n", nfurrows, ny, recirculation);
+  printf ("nfurrows=%d ny=%d recirculation=%d\n", nfurrows, ny,
+          recirculation);
   printf ("furrows_number: start\n");
 #endif
 }
@@ -745,8 +702,7 @@ graphic_map_new (GraphicMap * g, JBWGraphic * graphic)
   g->combo = (GtkComboBoxText *) gtk_combo_box_text_new ();
   gtk_combo_box_text_append_text (g->combo, _("Water depth (m)"));
   gtk_combo_box_text_append_text (g->combo,
-                                  _
-                                  ("Fertilizer concentration (kg/m³)"));
+                                  _("Fertilizer concentration (kg/m³)"));
   gtk_combo_box_text_append_text (g->combo,
                                   _
                                   ("Infiltrated water mass per unit length (kg/m)"));
@@ -994,8 +950,7 @@ graphic_furrows_new (GraphicFurrows * g, JBWGraphic * graphic)
                             (GCallback) graphic_furrows_update, g);
 
   g->combo_furrow = (GtkComboBoxText *) gtk_combo_box_text_new ();
-  gtk_combo_box_text_append_text
-    (g->combo_furrow, _("Distribution furrow"));
+  gtk_combo_box_text_append_text (g->combo_furrow, _("Distribution furrow"));
   if (recirculation)
     gtk_combo_box_text_append_text (g->combo_furrow,
                                     _("Recirculation furrow"));
@@ -1009,14 +964,12 @@ graphic_furrows_new (GraphicFurrows * g, JBWGraphic * graphic)
                             (GCallback) graphic_furrows_update, g);
 
   g->combo_variable = (GtkComboBoxText *) gtk_combo_box_text_new ();
-  gtk_combo_box_text_append_text
-    (g->combo_variable, _("Water depth (m)"));
+  gtk_combo_box_text_append_text (g->combo_variable, _("Water depth (m)"));
   gtk_combo_box_text_append_text (g->combo_variable,
                                   _("Water discharge (m³/s)"));
   gtk_combo_box_text_append_text (g->combo_variable, _("Level (m)"));
   gtk_combo_box_text_append_text (g->combo_variable,
-                                  _
-                                  ("Fertilizer concentration (kg/m³)"));
+                                  _("Fertilizer concentration (kg/m³)"));
   gtk_combo_box_text_append_text (g->combo_variable,
                                   _("Mass per unit length (kg/m)"));
   gtk_combo_box_text_append_text (g->combo_variable,
@@ -1278,8 +1231,7 @@ window_plot_new ()
   w->notebook = (GtkNotebook *) gtk_notebook_new ();
   gtk_notebook_append_page (w->notebook,
                             GTK_WIDGET (w->graphic_map->box),
-                            gtk_label_new (_
-                                           ("Map Furrows Representation")));
+                            gtk_label_new (_("Map Furrows Representation")));
   gtk_notebook_append_page (w->notebook, GTK_WIDGET (w->graphic_furrows->box),
                             gtk_label_new (_("Furrow Representation")));
 
@@ -1291,8 +1243,7 @@ window_plot_new ()
       graphic_probes_new (w->graphic_probes, w->graphic);
       gtk_notebook_append_page (w->notebook,
                                 GTK_WIDGET (w->graphic_probes->combo),
-                                gtk_label_new (_
-                                               ("Probes Time Evolution")));
+                                gtk_label_new (_("Probes Time Evolution")));
     }
   gtk_widget_show_all (GTK_WIDGET (w->notebook));
 
@@ -1310,7 +1261,8 @@ window_plot_new ()
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (w->dialog)),
                      GTK_WIDGET (w->notebook));
 
-  g_signal_connect_after (w->notebook, "switch-page", window_plot_update, NULL);
+  g_signal_connect_after (w->notebook, "switch-page", window_plot_update,
+                          NULL);
 
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("waitting signal\n");

@@ -116,8 +116,7 @@ config_times_new (ConfigTimes * w)
   printf ("creating the labels\n");
 #endif
   // Creating the labels
-  w->label[0] = (GtkLabel *) gtk_label_new
-    (_("Maximum simulation time (s)"));
+  w->label[0] = (GtkLabel *) gtk_label_new (_("Maximum simulation time (s)"));
   w->label[1] = (GtkLabel *) gtk_label_new ("CFL");
   w->label[2] = (GtkLabel *) gtk_label_new (_("Data saving cycle (s)"));
   w->label[3] = (GtkLabel *) gtk_label_new
@@ -130,7 +129,8 @@ config_times_new (ConfigTimes * w)
 #endif
   // Creating the spin buttons
   w->spin[0] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1e6, 1.);
-  w->spin[1] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1., 0.01);
+  w->spin[1] =
+    (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1., 0.01);
   w->spin[2] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1e6, 1.);
   w->spin[3] = (GtkSpinButton *) gtk_spin_button_new_with_range (2., 1e5, 1.);
   w->spin[4] = (GtkSpinButton *) gtk_spin_button_new_with_range (2., 1e5, 1.);

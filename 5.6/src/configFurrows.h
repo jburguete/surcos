@@ -58,7 +58,7 @@ struct _TableConfigFurrows
   ///< Array of furrow configurations.
   GtkLabel *label_furrow;
   ///< GtkLabel to show the furrows number.
-	GtkLabel *label_models;
+  GtkLabel *label_models;
   ///< GtkLabel to show the main of the model coefficients symbols.
   GtkSpinButton *spin;
   ///< GtkSpinButton to configure the furrows number.
@@ -66,7 +66,7 @@ struct _TableConfigFurrows
   ///< GtkCheckButton to configure the recirculation furrow.
   GtkGrid *box_image;
   ///< GtkGrid containing the image and the label.
- 	GtkGrid *box_furrows;
+  GtkGrid *box_furrows;
   ///< GtkGrid containing the furrows number configuration.
   GtkButton *button_furrow;
   ///< GtkButton label to show the furrow type.

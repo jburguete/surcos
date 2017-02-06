@@ -39,222 +39,27 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "furrow.h"
 
-/**
- * \struct _Parameters
- * \brief Struct data of a mesh node.
- */
-struct _Parameters
-{
-    /**
-     * \var Furrow s
-     * \brief Furrow structure.
-     * \var A
-     * \brief Superficial cross-sectional wetted area.
-     * \var Q
-     * \brief Discharge.
-     * \var Ai
-     * \brief Infiltrated cross-sectional area.
-     * \var Ap
-     * \brief Percolated cross-sectional area.
-     * \var Ac
-     * \brief Fertilizer mass per unit length of furrow.
-     * \var Aci
-     * \brief Infiltrated fertilizer mass per unit length of furrow.
-     * \var Acp
-     * \brief Percolated fertilizer mass per unit length of furrow.
-     * \var c
-     * \brief Fertilizer concentration.
-     * \var m
-     * \brief Solid fertilizer mass.
-     * \var h
-     * \brief Depth.
-     * \var B
-     * \brief Surface width.
-     * \var P
-     * \brief Superficial cross-sectional wetted perimeter.
-     * \var I1
-     * \brief Hydrostatic pressure integral.
-     * \var u
-     * \brief Superficial water mean velocity.
-     * \var uc
-     * \brief Velocity of the superficial waves.
-     * \var Kx
-     * \brief Coefficient of fertilizer diffusion.
-     * \var KAx
-     * \brief \f$K_x\cdot A\f$.
-     * \var Kf
-     * \brief Friction factor \f$\frac{g\cdot A\cdot S_f}{Q^2}\f$.
-     * \var dx
-     * \brief Size of the mesh cell.
-     * \var x
-     * \brief Cell distance to the furrow init.
-     * \var x0
-     * \brief Cell x-coordinate.
-     * \var y0
-     * \brief Cell y-coordinate.
-     * \var zs
-     * \brief Surface level.
-     * \var zf
-     * \brief Bottom level.
-     * \var Amin
-     * \brief Minimum superficial area to enable advance.
-     * \var zmin
-     * \brief Minimum surface level to enable advance.
-     * \var F
-     * \brief Momentum flux.
-     * \var T
-     * \brief Fertilizer flux.
-     * \var H
-     * \brief Friction source term.
-     * \var beta
-     * \brief Advection coefficient.
-     * \var la
-     * \brief 1st eigenvalue of the flux jacobian \f$u+c\f$.
-     * \var lb
-     * \brief 2nd eigenvalue of the flux jacobian \f$u-c\f$.
-     * \var sA
-     * \brief \f$\sqrt{A}\f$.
-     * \var sAla
-     * \brief \f$sA\cdot la\f$.
-     * \var sAlb
-     * \brief \f$sA\dot lb\f$.
-     * \var sAu
-     * \brief \f$sA\cdot u\f$.
-     * \var sAc
-     * \brief \f$sA\cdot c\f$.
-     * \var lam
-     * \brief Averaged 1st eigenvalue of the flux jacobian.
-     * \var lbm
-     * \brief Averaged 2nd eigenvalue of the flux jacobian.
-     * \var um
-     * \brief Roe's averaged velocity.
-     * \var sm
-     * \brief Roe's averaged fertilizer concentration.
-     * \var dQ
-     * \brief Difference of discharges.
-     * \var dF
-     * \brief Difference of momentum fluxes.
-     * \var dT
-     * \brief Difference of transport fluxes.
-     * \var dQp
-     * \brief Positive difference of discharges.
-     * \var dQm
-     * \brief Negative difference of discharges.
-     * \var dFp
-     * \brief Positive difference of momentum fluxes.
-     * \var dFm
-     * \brief Negative difference of momentum fluxes.
-     * \var dTp
-     * \brief Positive difference of transport fluxes.
-     * \var dTm
-     * \brief Negative difference of transport fluxes.
-     * \var dWAp
-     * \brief Positive difference of the 1st differential characteristic variables.
-     * \var dWAm
-     * \brief Negative difference of the 1st differential characteristic variables.
-     * \var dWBp
-     * \brief Positive difference of the 2nd differential characteristic variables.
-     * \var dWBm
-     * \brief Negative difference of the 2nd differential characteristic variables.
-     * \var dWCp
-     * \brief Positive difference of the 3th differential characteristic variables.
-     * \var dWCm
-     * \brief Negative difference of the 3th differential characteristic variables.
-     * \var Qv
-     * \brief Old discharge.
-     * \var cv
-     * \brief Old fertilizer concentration.
-     * \var ix
-     * \brief Distance between 2 nodes.
-     * \var ta
-     * \brief Advance time.
-     * \var tr
-     * \brief Recession time.
-    */
-  Furrow s[1];
-  JBFLOAT A, Q, Ai, Ap, Ac, Aci, Acp, c, m, h, B, P, I1, u, uc, Kx, KAx, Kf,
-    dx, x, x0, y0, zs, zf, Amin, zmin, F, T, H, beta, la, lb, sA,
-    sAla, sAlb, sAu, sAc, lam, lbm, um, sm, dQ, dF, dT,
-    dQp, dQm, dFp, dFm, dTp, dTm, dWAp, dWAm, dWBp, dWBm, dWCp, dWCm,
-    Qv, cv, ix, ta, tr;
-};
-
-/**
- * \typedef Parameters
- */
-typedef struct _Parameters Parameters;
-
-extern unsigned int type_fertilizer, type_infiltration, type_diffusion_soil,
-  type_beta;
-extern JBDOUBLE solubility, t, dt, dtmax;
-
-/**
- * \def DTMAX
- * \brief Macro to calculate the inverse of the maximum allowed time step.
- * \param u
- * \brief Flow velocity.
- * \param c
- * \brief Velocity of the infinitesimal waves.
- * \param dx
- * \brief Mesh node size.
- */
 #define DTMAX(u, c, dx) ((ABS(u) + c) / dx)
+///< Macro to calculate the inverse of the maximum allowed time step.
 
-/**
- * \def AREA
- * \brief Macro to calculate the area of an isosceles trapezium.
- * \param b
- * \brief Trapezium base.
- * \param z
- * \brief Slope of the trapezium walls.
- * \param h
- * \brief Trapezium height.
- */
 #define AREA(h, b, z) (h * (b + z * h))
+///< Macro to calculate the area of an isosceles trapezium.
 
-/**
- * \def parameters_depth_normal
- * \brief Macro to calculate the normal depth at a mesh node.
- * \param p
- * \brief Mesh node parameters structure.
- * \param Q
- * \brief Discharge.
- */
 #define parameters_depth_normal(p, Q) \
 	(parameters_depth_function(p, Q, parameters_discharge_normal))
+///< Macro to calculate the normal depth at a mesh node.
 
-/**
- * \def parameters_area_normal
- * \brief Macro to calculate the normal area at a mesh node.
- * \param p
- * \brief Mesh node parameters structure.
- * \param Q
- * \brief Discharge.
- */
 #define parameters_area_normal(p, Q) \
 	(parameters_area(p, parameters_depth_normal(p, Q)))
+///< Macro to calculate the normal area at a mesh node.
 
-/**
- * \def parameters_depth_critical
- * \brief Macro to calculate the critical depth at a mesh node.
- * \param p
- * \brief Mesh node parameters structure.
- * \param Q
- * \brief Discharge.
- */
 #define parameters_depth_critical(p, Q) \
 	(parameters_depth_function(p, Q, parameters_discharge_critical))
+///< Macro to calculate the critical depth at a mesh node.
 
-/**
- * \def parameters_area_critical
- * \brief Macro to calculate the critical area at a mesh node.
- * \param p
- * \brief Mesh node parameters structure.
- * \param Q
- * \brief Discharge.
- */
 #define parameters_area_critical(p, Q) \
 	(parameters_area(p, parameters_depth_critical(p, Q)))
+///< Macro to calculate the critical area at a mesh node.
 
 /**
  * \def flux_limiter
@@ -274,6 +79,151 @@ extern JBDOUBLE solubility, t, dt, dtmax;
 #error "Bad flux limiter"
 #endif
 
+#define PARAMETERS_AREA(p, h) (AREA(h, p->s->b, p->s->z))
+///< Macro to calculate the area of a mesh node with the depth.
+
+#define PARAMETERS_WIDTH(p, h) (p->s->b + jbm_fdbl(p->s->z * h))
+///< Macro to calculate the width with the depth.
+
+#define PARAMETERS_PERIMETER(p, h) (p->s->b + h * p->s->fz)
+///< Macro to calculate the perimeter with the depth.
+
+/**
+ * \struct Parameters
+ * \brief Struct data of a mesh node.
+ */
+typedef struct
+{
+  Furrow s[1];
+  ///< Furrow structure.
+  JBFLOAT A;
+  ///< Superficial cross-sectional wetted area.
+  JBFLOAT Q;
+  ///< Discharge.
+  JBFLOAT Ai;
+  ///< Infiltrated cross-sectional area.
+  JBFLOAT Ap;
+  ///< Percolated cross-sectional area.
+  JBFLOAT Ac;
+  ///< Fertilizer mass per unit length of furrow.
+  JBFLOAT Aci;
+  ///< Infiltrated fertilizer mass per unit length of furrow.
+  JBFLOAT Acp;
+  ///< Percolated fertilizer mass per unit length of furrow.
+  JBFLOAT c;
+  ///< Fertilizer concentration.
+  JBFLOAT m;
+  ///< Solid fertilizer mass.
+  JBFLOAT h;
+  ///< Depth.
+  JBFLOAT B;
+  ///< Surface width.
+  JBFLOAT P;
+  ///< Superficial cross-sectional wetted perimeter.
+  JBFLOAT I1;
+  ///< Hydrostatic pressure integral.
+  JBFLOAT u;
+  ///< Superficial water mean velocity.
+  JBFLOAT uc;
+  ///< Velocity of the superficial waves.
+  JBFLOAT Kx;
+  ///< Coefficient of fertilizer diffusion.
+  JBFLOAT KAx;
+  ///< Fertilizer diffusion factor \f$K_x\cdot A\f$.
+  JBFLOAT Kf;
+  ///< Friction factor \f$\frac{g\cdot A\cdot S_f}{Q^2}\f$.
+  JBFLOAT dx;
+  ///< Size of the mesh cell.
+  JBFLOAT x;
+  ///< Cell distance to the furrow init.
+  JBFLOAT x0;
+  ///< Cell x-coordinate.
+  JBFLOAT y0;
+  ///< Cell y-coordinate.
+  JBFLOAT zs;
+  ///< Surface level.
+  JBFLOAT zf;
+  ///< Bottom level.
+  JBFLOAT Amin;
+  ///< Minimum superficial area to enable advance.
+  JBFLOAT zmin;
+  ///< Minimum surface level to enable advance.
+  JBFLOAT F;
+  ///< Momentum flux.
+  JBFLOAT T;
+  ///< Fertilizer flux.
+  JBFLOAT H;
+  ///< Friction source term.
+  JBFLOAT beta;
+  ///< Advection coefficient.
+  JBFLOAT la;
+  ///< 1st eigenvalue of the flux jacobian \f$u+c\f$.
+  JBFLOAT lb;
+  ///< 2nd eigenvalue of the flux jacobian \f$u-c\f$.
+  JBFLOAT sA;
+  ///< \f$\sqrt{A}\f$.
+  JBFLOAT sAla;
+  ///< \f$sA\cdot la\f$.
+  JBFLOAT sAlb;
+  ///< \f$sA\dot lb\f$.
+  JBFLOAT sAu;
+  ///< \f$sA\cdot u\f$.
+  JBFLOAT sAc;
+  ///< \f$sA\cdot c\f$.
+  JBFLOAT lam;
+  ///< Averaged 1st eigenvalue of the flux jacobian.
+  JBFLOAT lbm;
+  ///< Averaged 2nd eigenvalue of the flux jacobian.
+  JBFLOAT um;
+  ///< Roe's averaged velocity.
+  JBFLOAT sm;
+  ///< Roe's averaged fertilizer concentration.
+  JBFLOAT dQ;
+  ///< Difference of discharges.
+  JBFLOAT dF;
+  ///< Difference of momentum fluxes.
+  JBFLOAT dT;
+  ///< Difference of transport fluxes.
+  JBFLOAT dQp;
+  ///< Positive difference of discharges.
+  JBFLOAT dQm;
+  ///< Negative difference of discharges.
+  JBFLOAT dFp;
+  ///< Positive difference of momentum fluxes.
+  JBFLOAT dFm;
+  ///< Negative difference of momentum fluxes.
+  JBFLOAT dTp;
+  ///< Positive difference of transport fluxes.
+  JBFLOAT dTm;
+  ///< Negative difference of transport fluxes.
+  JBFLOAT dWAp;
+  ///< Positive difference of the 1st differential characteristic variables.
+  JBFLOAT dWAm;
+  ///< Negative difference of the 1st differential characteristic variables.
+  JBFLOAT dWBp;
+  ///< Positive difference of the 2nd differential characteristic variables.
+  JBFLOAT dWBm;
+  ///< Negative difference of the 2nd differential characteristic variables.
+  JBFLOAT dWCp;
+  ///< Positive difference of the 3th differential characteristic variables.
+  JBFLOAT dWCm;
+  ///< Negative difference of the 3th differential characteristic variables.
+  JBFLOAT Qv;
+  ///< Old discharge.
+  JBFLOAT cv;
+  ///< Old fertilizer concentration.
+  JBFLOAT ix;
+  ///< Distance between 2 nodes.
+  JBFLOAT ta;
+  ///< Advance time.
+  JBFLOAT tr;
+  ///< Recession time.
+} Parameters;
+
+extern unsigned int type_fertilizer, type_infiltration, type_diffusion_soil,
+  type_beta;
+extern JBDOUBLE solubility, t, dt, dtmax;
+
 /**
  * \fn INLINE_VOID parameters_ix(Parameters *p)
  * \brief Function to calculate mesh node distances.
@@ -285,16 +235,6 @@ parameters_ix (Parameters * p)
 {
   p->ix = (p + 1)->x - p->x;
 }
-
-/**
- * \def PARAMETERS_AREA
- * \brief Macro to calculate the area of a mesh node with the depth.
- * \param p
- * \brief Mesh node parameters structure.
- * \param h
- * \brief Depth.
- */
-#define PARAMETERS_AREA(p, h) (AREA(h, p->s->b, p->s->z))
 
 /**
  * \fn INLINE_JBDOUBLE parameters_area(Parameters *p, JBDOUBLE h)
@@ -313,16 +253,6 @@ parameters_area (Parameters * p, JBDOUBLE h)
 }
 
 /**
- * \def PARAMETERS_WIDTH
- * \brief Macro to calculate the width with the depth.
- * \param p
- * \brief Mesh node parameters structure.
- * \param h
- * \brief Depth.
- */
-#define PARAMETERS_WIDTH(p, h) (p->s->b + jbm_fdbl(p->s->z * h))
-
-/**
  * \fn INLINE_JBDOUBLE parameters_width(Parameters *p, JBDOUBLE h)
  * \brief Function to calculate the width with the depth for possitive depths.
  * \param p
@@ -337,16 +267,6 @@ parameters_width (Parameters * p, JBDOUBLE h)
     return 0.;
   return PARAMETERS_WIDTH (p, h);
 }
-
-/**
- * \def PARAMETERS_PERIMETER
- * \brief Macro to calculate the perimeter with the depth.
- * \param p
- * \brief Mesh node parameters structure.
- * \param h
- * \brief Depth.
- */
-#define PARAMETERS_PERIMETER(p, h) (p->s->b + h * p->s->fz)
 
 /**
  * \fn INLINE_JBDOUBLE parameters_perimeter(Parameters *p, JBDOUBLE h)
@@ -413,8 +333,9 @@ parameters_discharge_normal (Parameters * p, JBDOUBLE h)
  * \param function
  * \brief Q(h) function.
  */
-INLINE_JBDOUBLE parameters_depth_function
-  (Parameters * p, JBDOUBLE Q, JBDOUBLE (*function) (Parameters *, JBDOUBLE))
+INLINE_JBDOUBLE
+parameters_depth_function (Parameters * p, JBDOUBLE Q,
+                           JBDOUBLE (*function) (Parameters *, JBDOUBLE))
 {
   register int i;
   JBDOUBLE h1, h2, h3, Q1, Q2, Q3;
@@ -706,8 +627,9 @@ parameters_flux_scheme_upwind (Parameters * p, JBDOUBLE dt)
  * \param nu
  * \brief Artificial viscosity coefficient.
  */
-INLINE_VOID parameters_flux_scheme_entropy
-  (Parameters * p, JBDOUBLE dA, JBDOUBLE dAc, JBDOUBLE nu)
+INLINE_VOID
+parameters_flux_scheme_entropy (Parameters * p, JBDOUBLE dA, JBDOUBLE dAc,
+                                JBDOUBLE nu)
 {
   register JBDOUBLE k;
   k = nu * dA;
@@ -856,8 +778,8 @@ parameters_infiltration_base (Parameters * p)
   else
     {
       p->P = PARAMETERS_PERIMETER (p,
-                                   jbm_solve_cuadratic (p->s->z, p->s->b, -p->A,
-                                                        0., INFINITY));
+                                   jbm_solve_cuadratic (p->s->z, p->s->b,
+                                                        -p->A, 0., INFINITY));
       p->c = p->Ac / p->A;
     }
 }

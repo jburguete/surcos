@@ -46,38 +46,20 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "graphics.h"
 #include "mainWindow.h"
 
-/**
- * \def DEBUG_PLOT_CREATE
- * \brief Macro to debug the plot_create() function.
- */
 #define DEBUG_PLOT_CREATE 0
+///< Macro to debug the plot_create() function.
 
-/**
- * \def DEBUG_MAIN_WINDOW_NEW
- * \brief Macro to debug the main_window_new() function.
- */
 #define DEBUG_MAIN_WINDOW_NEW 0
+///< Macro to debug the main_window_new() function.
 
 extern GtkWidget *windowMain;
 
-/**
- * \var input_dir
- * \brief Directory where the input data files are located.
- * \var plot_show
- * \brief 1 on showing the results plot, 0 on else.
- */
 char *input_dir = NULL;
+///< Directory where the input data files are located.
 int plot_show = 0;
+///< 1 on showing the results plot, 0 on else.
 
-/**
- * \var curve32
- * \brief curve32 pixmap.
- * \var fondo6
- * \brief fondo6 pixmap.
- * \var logo2
- * \brief logo2 pixmap.
- */
-
+///> curve32 pixmap.
 const char *curve32[] = {
 /* columns rows colors chars-per-pixel */
   "32 32 51 1 ",
@@ -167,6 +149,7 @@ const char *curve32[] = {
   "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
 };
 
+///> fondo6 pixmap.
 const char *fondo6[] = {
 /* columns rows colors chars-per-pixel */
   "400 300 15 1 ",
@@ -488,6 +471,7 @@ const char *fondo6[] = {
   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 };
 
+///> logo2 pixmap.
 const char *logo2[] = {
 /* columns rows colors chars-per-pixel */
   "64 64 232 2 ",
@@ -812,8 +796,7 @@ text_corner (GtkTextBuffer * text, GtkTextIter * iter, int corner,
              double x, double y, double z)
 {
   char buffer[512];
-  snprintf (buffer, 512, "\t%s %d\n", _("Coordinates of corner"),
-            corner);
+  snprintf (buffer, 512, "\t%s %d\n", _("Coordinates of corner"), corner);
   gtk_text_buffer_insert_with_tags_by_name (text, iter, buffer, -1,
                                             "bold", NULL);
   snprintf (buffer, 512, "\t\tx = %g m\n", x);
@@ -837,8 +820,9 @@ text_corner (GtkTextBuffer * text, GtkTextIter * iter, int corner,
  * \param furrow
  * \brief Furrow structure.
  */
-void text_furrow
-  (GtkTextBuffer * text, GtkTextIter * iter, char *label, Furrow * furrow)
+void
+text_furrow (GtkTextBuffer * text, GtkTextIter * iter, char *label,
+             Furrow * furrow)
 {
   char buffer[512];
   snprintf (buffer, 512, "\t%s\n", label);
@@ -857,8 +841,7 @@ void text_furrow
   gtk_text_buffer_insert (text, iter, buffer, -1);
   if (furrow->epsilon > 0.)
     {
-      snprintf (buffer, 512, "\t\t%s = %s\n", _("Friction model"),
-                "Burguete");
+      snprintf (buffer, 512, "\t\t%s = %s\n", _("Friction model"), "Burguete");
       gtk_text_buffer_insert (text, iter, buffer, -1);
       snprintf (buffer, 512, "\t\t%s = %g\n",
                 _("Aerodynamical coefficient"), furrow->epsilon);
@@ -909,8 +892,9 @@ void text_furrow
  * \param input
  * \brief Input irrigation structure.
  */
-void text_input
-  (GtkTextBuffer * text, GtkTextIter * iter, int type, int i, Input * input)
+void
+text_input (GtkTextBuffer * text, GtkTextIter * iter, int type, int i,
+            Input * input)
 {
   char buffer[512], *label;
   if (type)
@@ -924,13 +908,11 @@ void text_input
   gtk_text_buffer_insert (text, iter, buffer, -1);
   snprintf (buffer, 512, "\t\ty = %g m\n", input->y);
   gtk_text_buffer_insert (text, iter, buffer, -1);
-  snprintf (buffer, 512, "\t\t%s = %g s\n", _("Initial time"),
-            input->t0);
+  snprintf (buffer, 512, "\t\t%s = %g s\n", _("Initial time"), input->t0);
   gtk_text_buffer_insert (text, iter, buffer, -1);
   snprintf (buffer, 512, "\t\t%s = %g s\n", _("Final time"), input->tf);
   if (type)
-    snprintf (buffer, 512, "\t\t%s = %g kg/s\n", _("Discharge"),
-              input->q);
+    snprintf (buffer, 512, "\t\t%s = %g kg/s\n", _("Discharge"), input->q);
   else
     snprintf (buffer, 512, "\t\t%s = %g m\302\263/s\n",
               _("Discharge"), input->q);
@@ -950,7 +932,8 @@ void text_input
  * \param probe
  * \brief Probe structure.
  */
-void text_probe (GtkTextBuffer * text, GtkTextIter * iter, int i, Probe * probe)
+void
+text_probe (GtkTextBuffer * text, GtkTextIter * iter, int i, Probe * probe)
 {
   char buffer[512];
   snprintf (buffer, 512, "\t%s %d\n", _("Probe"), i);
@@ -1008,8 +991,8 @@ summary_new ()
   gtk_text_buffer_create_tag (s->text_input, "bold", "weight",
                               PANGO_WEIGHT_BOLD, NULL);
   gtk_text_buffer_create_tag (s->text_input, "superscript",
-                              "rise", 5 * PANGO_SCALE, "size", 8 * PANGO_SCALE,
-                              NULL);
+                              "rise", 5 * PANGO_SCALE, "size",
+                              8 * PANGO_SCALE, NULL);
 
   snprintf (buffer, 512, "%s\n", _("GEOMETRY"));
   gtk_text_buffer_insert_with_tags_by_name (s->text_input, iter, buffer, -1,
@@ -1051,11 +1034,9 @@ summary_new ()
   text_furrow (s->text_input, iter, _("Distribution furrow"), field->sb);
   if (field->nfurrows > 0)
     {
-      text_furrow (s->text_input, iter, _("Irrigation furrows"),
-                   field->si);
+      text_furrow (s->text_input, iter, _("Irrigation furrows"), field->si);
       if (field->open)
-        text_furrow (s->text_input, iter, _("Recirculation furrow"),
-                     field->sc);
+        text_furrow (s->text_input, iter, _("Recirculation furrow"), field->sc);
     }
   gtk_text_buffer_insert (s->text_input, iter, "\n", -1);
 
@@ -1085,8 +1066,7 @@ summary_new ()
   snprintf (buffer, 512, "%s\n", _("PROBES"));
   gtk_text_buffer_insert_with_tags_by_name (s->text_input, iter, buffer, -1,
                                             "bold", NULL);
-  snprintf (buffer, 512, "\t%s = %d\n", _("Number of probes"),
-            field->nprobes);
+  snprintf (buffer, 512, "\t%s = %d\n", _("Number of probes"), field->nprobes);
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
   for (i = 0; i < field->nprobes; ++i)
     text_probe (s->text_input, iter, i + 1, field->probe + i);
@@ -1100,8 +1080,7 @@ summary_new ()
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
   snprintf (buffer, 512, "\t%s = %g\n", _("CFL number"), field->cfl);
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
-  snprintf (buffer, 512, "\t%s = %g s\n", _("Data saving cycle"),
-            field->tm);
+  snprintf (buffer, 512, "\t%s = %g s\n", _("Data saving cycle"), field->tm);
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
   snprintf (buffer, 512, "\t%s = %d\n",
             _("Cells number for distribution channel (between furrows)"),
@@ -1125,8 +1104,7 @@ summary_new ()
 
   snprintf (buffer, 512, "%s = %g s\n", _("Irrigation life time"), t);
   gtk_text_buffer_insert (s->text_output, iter, buffer, -1);
-  snprintf (buffer, 512, "%s = %g s\n\n", _("Calculation time"),
-            field->cpu);
+  snprintf (buffer, 512, "%s = %g s\n\n", _("Calculation time"), field->cpu);
   gtk_text_buffer_insert (s->text_output, iter, buffer, -1);
 
   snprintf (buffer, 512, "%s\n", _("IRRIGATION QUALITY"));
@@ -1313,13 +1291,11 @@ summary_new ()
 
   // showing the dialog
   gtk_widget_show_all (GTK_WIDGET (s->notebook));
-  s->dialog = (GtkDialog *) gtk_dialog_new_with_buttons (_("Summary"),
-                                                         GTK_WINDOW
-                                                         (windowMain),
-                                                         GTK_DIALOG_MODAL,
-                                                         _("_Close"),
-                                                         GTK_RESPONSE_CLOSE,
-                                                         NULL);
+  s->dialog = (GtkDialog *)
+    gtk_dialog_new_with_buttons (_("Summary"),
+                                 GTK_WINDOW (windowMain),
+                                 GTK_DIALOG_MODAL,
+                                 _("_Close"), GTK_RESPONSE_CLOSE, NULL);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (s->dialog)),
                      GTK_WIDGET (s->notebook));
   gtk_dialog_run (s->dialog);
@@ -1373,16 +1349,12 @@ void
 main_window_open (MainWindow * w)
 {
   GtkFileChooserDialog *dlg;
-  dlg = (GtkFileChooserDialog *) gtk_file_chooser_dialog_new ("Case Directory",
-                                                              GTK_WINDOW
-                                                              (windowMain),
-                                                              GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
-                                                              _
-                                                              ("_Cancel"),
-                                                              GTK_RESPONSE_CANCEL,
-                                                              _("_OK"),
-                                                              GTK_RESPONSE_OK,
-                                                              NULL);
+  dlg = (GtkFileChooserDialog *)
+    gtk_file_chooser_dialog_new ("Case Directory",
+                                 GTK_WINDOW (windowMain),
+                                 GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
+                                 _("_Cancel"), GTK_RESPONSE_CANCEL,
+                                 _("_OK"), GTK_RESPONSE_OK, NULL);
   if (gtk_dialog_run (GTK_DIALOG (dlg)) == GTK_RESPONSE_OK)
     input_dir = (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dlg));
   gtk_widget_destroy (GTK_WIDGET (dlg));
@@ -1460,17 +1432,20 @@ main_window_about (MainWindow * w)
   };
   gchar *artists[] = { "Carlos Aliaga Badal (caliaga.87@gmail.com)", NULL };
   gtk_show_about_dialog (GTK_WINDOW (windowMain),
-                         "program_name",
-                         "SURCOS",
+                         "program_name", "SURCOS",
                          "comments",
-                         _
-                         ("A software tool to solve irrigation and fertigation"
-                          "in isolated furrows and furrow networks"), "authors",
-                         authors, "artists", artists, "translator-credits",
-                         _("translator-credits"), "version", "5.6",
+                         _("A software tool to solve irrigation and "
+                           "fertigation in isolated furrows and furrow "
+                           "networks"),
+                         "authors", authors,
+                         "artists", artists,
+                         "translator-credits", _("translator-credits"),
+                         "version", "5.6",
                          "copyright",
-                         "Copyright 2011-2017 Javier Burguete Tolosa", "logo",
-                         w->pixbuf, "website-label", "Website", "website",
+                         "Copyright 2011-2017 Javier Burguete Tolosa",
+                         "logo", w->pixbuf,
+                         "website-label", "Website",
+                         "website",
                          "http://digital.csic.es/handle/10261/75830", NULL);
 }
 
@@ -1496,17 +1471,17 @@ main_window_new ()
 #endif
 
   w->button_open = (GtkToolButton *)
-	gtk_tool_button_new (gtk_image_new_from_icon_name
-			              ("document-open", GTK_ICON_SIZE_LARGE_TOOLBAR),
-						 _("Open"));
+    gtk_tool_button_new (gtk_image_new_from_icon_name
+                         ("document-open", GTK_ICON_SIZE_LARGE_TOOLBAR),
+                         _("Open"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_open),
                                _("Open furrows system"));
   g_signal_connect_swapped (w->button_open, "clicked",
                             (GCallback) main_window_open, w);
 
   w->button_config = (GtkToolButton *)
-	gtk_tool_button_new (gtk_image_new_from_icon_name
-			               ("preferences-system", GTK_ICON_SIZE_LARGE_TOOLBAR),
+    gtk_tool_button_new (gtk_image_new_from_icon_name
+                         ("preferences-system", GTK_ICON_SIZE_LARGE_TOOLBAR),
                          _("Configure"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_config),
                                _("Simulation configure"));
@@ -1514,9 +1489,9 @@ main_window_new ()
                             (GCallback) main_window_config, w);
 
   w->button_run = (GtkToolButton *)
-	gtk_tool_button_new (gtk_image_new_from_icon_name
-	                       ("system-run", GTK_ICON_SIZE_LARGE_TOOLBAR), // icon
-				         _("Run"));
+    gtk_tool_button_new
+    (gtk_image_new_from_icon_name ("system-run", GTK_ICON_SIZE_LARGE_TOOLBAR),
+     _("Run"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_run),
                                _("Run the simulation"));
   g_signal_connect_swapped (w->button_run, "clicked",
@@ -1524,29 +1499,35 @@ main_window_new ()
 
   w->button_plot = (GtkToolButton *)
     gtk_tool_button_new
-	  (gtk_image_new_from_pixbuf (gdk_pixbuf_new_from_xpm_data (curve32)),
-       _("Plot"));
-  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_plot),
-                               _("Plot results"));
+    (gtk_image_new_from_pixbuf (gdk_pixbuf_new_from_xpm_data (curve32)),
+     _("Plot"));
+  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_plot), _("Plot results"));
   g_signal_connect (w->button_plot, "clicked", window_plot_new, NULL);
 
-  w->button_summary = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("document-properties", GTK_ICON_SIZE_LARGE_TOOLBAR), // icon
-                                                             _
-                                                             ("Summary"));
+  w->button_summary = (GtkToolButton *)
+    gtk_tool_button_new
+    (gtk_image_new_from_icon_name ("document-properties",
+                                   GTK_ICON_SIZE_LARGE_TOOLBAR), _("Summary"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_summary),
                                _("Show summary"));
   g_signal_connect (w->button_summary, "clicked", summary_new, NULL);
 
-  w->button_help = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR),     // icon
-                                                          _("Help"));
+  w->button_help = (GtkToolButton *)
+    gtk_tool_button_new
+    (gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR),
+     _("Help"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), _("Help"));
 
-  w->button_about = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("help-about", GTK_ICON_SIZE_LARGE_TOOLBAR),     // icon
-                                                          _("About"));
+  w->button_about = (GtkToolButton *)
+    gtk_tool_button_new
+    (gtk_image_new_from_icon_name ("help-about",
+                                   GTK_ICON_SIZE_LARGE_TOOLBAR), _("About"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), _("About"));
 
-  w->button_exit = (GtkToolButton *) gtk_tool_button_new (gtk_image_new_from_icon_name ("application-exit", GTK_ICON_SIZE_LARGE_TOOLBAR),       // icon
-                                                          _("Exit"));
+  w->button_exit = (GtkToolButton *)
+    gtk_tool_button_new
+    (gtk_image_new_from_icon_name ("application-exit",
+                                   GTK_ICON_SIZE_LARGE_TOOLBAR), _("Exit"));
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_exit), _("Exit"));
   g_signal_connect (w->button_exit, "clicked", gtk_main_quit, NULL);
 
@@ -1603,7 +1584,7 @@ main_window_new ()
   window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_container_add (GTK_CONTAINER (window),
                      gtk_image_new_from_pixbuf
-					   (gdk_pixbuf_new_from_xpm_data (fondo6)));
+                     (gdk_pixbuf_new_from_xpm_data (fondo6)));
 #if GTK_MAJOR_VERSION >= 3 && GTK_MINOR_VERSION >=8
   gtk_widget_set_opacity (GTK_WIDGET (window), 0.5);
 #endif

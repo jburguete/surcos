@@ -38,128 +38,88 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "jb/jb_math.h"
 #include "config.h"
 
-/**
- * \enum TypeFriction
- * \brief Enumeration to define the friction model type.
- * \var TYPE_FRICTION_MANNING
- * \brief Manning friction type.
- * \var TYPE_FRICTION_POTENTIAL
- * \brief Burguete friction type.
- */
+#define furrow_copy(s, sc) (memcpy(s, sc, sizeof(Furrow)))
+///< Macro to copy two furrows.
+
+///> Enumeration to define the friction model type.
 enum TypeFriction
 {
-  TYPE_FRICTION_MANNING = 0,
-  TYPE_FRICTION_POTENTIAL = 1
+  TYPE_FRICTION_MANNING = 0,    ///< Manning friction type.
+  TYPE_FRICTION_POTENTIAL = 1   ///< Burguete friction type.
 };
 
 /**
- * \struct _InitialConditions
+ * \struct InitialConditions
  * \brief Struct to define the furrow initial conditions.
  */
-struct _InitialConditions
+typedef struct
 {
-    /**
-     * \var h
-     * \brief Depth.
-     * \var Q
-     * \brief Discharge.
-     * \var c
-     * \brief Fertilizer concentration.
-     */
-  JBFLOAT h, Q, c;
-};
+  JBFLOAT h;                    ///< Depth.
+  JBFLOAT Q;                    ///< Discharge.
+  JBFLOAT c;                    ///< Fertilizer concentration.
+} InitialConditions;
 
 /**
- * \struct _Furrow
+ * \struct Furrow
  * \brief Structure to define the data of a furrow.
  */
-struct _Furrow
+typedef struct
 {
-    /**
-     * \var b
-     * \brief Base width.
-     * \var z
-     * \brief Angle slope of the lateral wall with the vertical.
-     * \var h
-     * \brief Furrow depth.
-     * \var D
-     * \brief Distance between furrows.
-     * \var H
-     * \brief Soil water retention capacity.
-     * \var epsilon
-     * \brief If 0, Gauckler-Manning's friction model;
-     *   if >0, aerodynamical coefficient of Burguete's friction model.
-     * \var n
-     * \brief Gauckler-Manning's number (if epsilon = 0),
-     *   characteristic roughness length of Burguete (if epsilon > 0).
-     * \var d
-     * \brief Diffusion coefficient.
-     * \var i1
-     * \brief Constant of the Kostiakov's infiltration model.
-     * \var i2
-     * \brief Exponent of the Kostiakov's infiltration model.
-     * \var i3
-     * \brief Infiltration velocity in saturated soil.
-     * \var x0
-     * \brief Initial spatial x-coordinate.
-     * \var y0
-     * \brief Initial spatial y-coordinate.
-     * \var z0
-     * \brief Initial spatial z-coordinate.
-     * \var xf
-     * \brief Final spatial x-coordinate.
-     * \var yf
-     * \brief Final spatial y-coordinate.
-     * \var zf
-     * \brief Final spatial z-coordinate.
-     * \var S0
-     * \brief Longitudinal slope.
-     * \var Amax
-     * \brief Retention area: \f$D\cdot H\f$.
-     * \var fz
-     * \brief Geometrical factor: \f$\sqrt{1+z^2}\f$.
-     * \var l
-     * \brief Length.
-     * \var gn2
-     * \brief Gauckler-Manning friction factor: \f$g\cdot n^2\f$.
-     * \var i4
-     * \brief Infiltration factor: \f$\frac{1}{i2}\f$.
-     * \var fb
-     * \brief Exponent of the Burguete's friction model.
-     * \var friction
-     * \brief Type of model friction (0: Gauckler-Manning, 1: Burguete).
-     */
-  JBFLOAT b, z, h, D, H, epsilon, n, d, i1, i2, i3, x0, y0, z0, xf, yf, zf,
-    S0, Amax, fz, l, gn2, i4, fb;
+  JBFLOAT b;
+  ///< Base width.
+  JBFLOAT z;
+  ///< Angle slope of the lateral wall with the vertical.
+  JBFLOAT h;
+  ///< Furrow depth.
+  JBFLOAT D;
+  ///< Distance between furrows.
+  JBFLOAT H;
+  ///< Soil water retention capacity.
+  JBFLOAT epsilon;
+  ///< If 0, Gauckler-Manning's friction model;
+  ///< if >0, aerodynamical coefficient of Burguete's friction model.
+  JBFLOAT n;
+  ///< Gauckler-Manning's number (if epsilon = 0),
+  ///< characteristic roughness length of Burguete (if epsilon > 0).
+  JBFLOAT d;
+  ///< Diffusion coefficient.
+  JBFLOAT i1;
+  ///< Constant of the Kostiakov's infiltration model.
+  JBFLOAT i2;
+  ///< Exponent of the Kostiakov's infiltration model.
+  JBFLOAT i3;
+  ///< Infiltration velocity in saturated soil.
+  JBFLOAT x0;
+  ///< Initial spatial x-coordinate.
+  JBFLOAT y0;
+  ///< Initial spatial y-coordinate.
+  JBFLOAT z0;
+  ///< Initial spatial z-coordinate.
+  JBFLOAT xf;
+  ///< Final spatial x-coordinate.
+  JBFLOAT yf;
+  ///< Final spatial y-coordinate.
+  JBFLOAT zf;
+  ///< Final spatial z-coordinate.
+  JBFLOAT S0;
+  ///< Longitudinal slope.
+  JBFLOAT Amax;
+  ///< Retention area: \f$D\cdot H\f$.
+  JBFLOAT fz;
+  ///< Geometrical factor: \f$\sqrt{1+z^2}\f$.
+  JBFLOAT l;
+  ///< Length.
+  JBFLOAT gn2;
+  ///< Gauckler-Manning friction factor: \f$g\cdot n^2\f$.
+  JBFLOAT i4;
+  ///< Infiltration factor: \f$\frac{1}{i2}\f$.
+  JBFLOAT fb;
+  ///< Exponent of the Burguete's friction model.
   unsigned int friction;
-};
-
-/**
- * \typedef CalibrateCoefficients
- */
-typedef struct _CalibrateCoefficients CalibrateCoefficients;
-
-/**
- * \typedef InitialConditions
- */
-typedef struct _InitialConditions InitialConditions;
-
-/**
- * \typedef Furrow
- */
-typedef struct _Furrow Furrow;
+  ///< Type of model friction (0: Gauckler-Manning, 1: Burguete).
+} Furrow;
 
 extern char *message;
-
-/**
- * \def furrow_copy
- * \brief Macro to copy two furrows.
- * \param s
- * \brief Furrow structure copy.
- * \param sc
- * \brief Furrow structure model.
- */
-#define furrow_copy(s, sc) (memcpy(s, sc, sizeof(Furrow)))
 
 int initial_conditions_read (InitialConditions * ci, FILE * file);
 void initial_conditions_dry (InitialConditions * ci);
