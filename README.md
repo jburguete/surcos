@@ -66,12 +66,22 @@ Debian 8 (Hurd, Linux and kFreeBSD)
 ___________________________________
 DragonFly BSD 4.6
 ___________________
-Dyson
-_____
-FreeBSD 10.3
+Dyson Illumos
+_____________
+Fedora Linux 25
+_______________
+FreeBSD 11.0
 ____________
-NetBSD 7.0 (with modular xorg)
-______________________________
+Linux Mint DE 2
+_______________
+NetBSD 7.0
+__________
+OpenIndiana Hipster
+___________________
+OpenSUSE Linux Tumbleweed
+_________________________
+Ubuntu Linux 16.10
+__________________
 
 1. Download the latest [JB library](https://github.com/jburguete/jb)
 > $ git clone https://github.com/jburguete/jb.git
@@ -89,7 +99,7 @@ ______________________________
 >
 > $ ./build
 
-OpenBSD 5.9
+OpenBSD 6.0
 ___________
 
 1. Select adequate versions:
@@ -101,6 +111,8 @@ Microsoft Windows 7 (with MSYS2)
 ________________________________
 Microsoft Windows 8.1 (with MSYS2)
 __________________________________
+Microsoft Windows 10 (with MSYS2)
+_________________________________
 
 1. Install [MSYS2](http://sourceforge.net/projects/msys2) and the required
 libraries and utilities. You can follow detailed instructions in
