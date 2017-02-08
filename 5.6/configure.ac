@@ -82,7 +82,7 @@ fi
 AC_SUBST(srcdir, [src/])
 
 # Checks for programs
-AC_PROG_CC([gcc5 gcc49 gcc48 egcc gcc clang])
+AC_PROG_CC([gcc6 gcc5 gcc49 gcc48 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG
@@ -138,7 +138,12 @@ if test $win = 0; then
 	fi
 fi
 
-# Checks for libraries.
+# Checks for libraries
+if test -f "src/jb/jb_math.h"; then
+	AC_MSG_NOTICE("JB headers: OK")
+else
+	AC_ERROR("No JB headers")
+fi
 AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
