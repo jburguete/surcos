@@ -79,6 +79,8 @@ else
 	AC_SUBST(icon, [$windir/obj/logo.o])
 	AC_SUBST(WIN, [$windir/])
 	AC_SUBST(SO, [.dll])
+	test -d $windir/obj || mkdir -p $windir/obj
+	test -d $windir/bin || mkdir -p $windir/bin
 fi
 AC_SUBST(srcdir, [src/])
 

@@ -51,10 +51,12 @@ man_en = $(mandir)ppal_EN.tex $(mandir)bib/references.bib \
 
 png = logo3.png 
 
-dll = $(dlldir)libatk-1.0-0.dll \
+dll = $(dlldir)glew32.dll \
+	$(dlldir)libatk-1.0-0.dll \
 	$(dlldir)libbz2-1.dll $(dlldir)libcairo-2.dll \
 	$(dlldir)libcairo-gobject-2.dll \
 	$(dlldir)libcroco-0.6-3.dll \
+	$(dlldir)libepoxy-0.dll \
 	$(dlldir)libexpat-1.dll \
 	$(dlldir)libffi-6.dll $(dlldir)libfontconfig-1.dll \
 	$(dlldir)libfreeglut.dll \
@@ -87,10 +89,10 @@ dll = $(dlldir)libatk-1.0-0.dll \
 	$(dlldir)zlib1.dll
 gdkpixbuf = lib/gdk-pixbuf-2.0/2.10.0/
 WINLIBS = atk bzip2 cairo expat fontconfig freeglut freetype gcc gdk-pixbuf2 \
-	gettext glib2 graphite2 gtk3 harfbuzz libcroco libepoxy libffi \
+	gettext glew glib2 graphite2 gtk3 harfbuzz libcroco libepoxy libffi \
 	libiconv libpng librsvg libxml2 pango pcre pixman xz zlib
 
-dep = Makefile $(objdir) $(srcdir)jb/jb_config.h
+dep = Makefile $(srcdir)jb/jb_config.h
 depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
 depkernel = $(depjb) $(srcdir)config.h \
 	$(srcdir)furrow.h $(srcdir)parameters.h $(srcdir)scheme.h $(srcdir)field.h \
@@ -132,13 +134,6 @@ all: $(exe) $(exebin) $(manuals) $(podir)surcos_gui.pot $(podir)surcos.pot \
 	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
 	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
 
-## The object dir
-$(objdir):
-	test -d $(objdir) || mkdir -p $(objdir)
-
-$(bindir):
-	test -d $(bindir) || mkdir -p $(bindir)
-
 ## Our main object (GUI)
 $(exe): $(obj) $(jb) $(exelib)
 	$(CC) $(obj) $(LDFLAGS) -o $(exe)
@@ -148,20 +143,19 @@ $(exebin): $(objbin) $(exelib)
 	$(CC) $(objbin) $(LDFLAGSBIN) -o $(exebin)
 
 ## The SURCOS library
-$(exelib): $(objlib) $(jbbin) $(bindir)
+$(exelib): $(objlib) $(jbbin)
 	$(CC) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
 
 ## The JB GUI library
-$(jb): $(objjb) $(bindir)
+$(jb): $(objjb)
 	$(CC) -shared $(objjb) $(JBFLAGSLIB) -o $(jb)
 
 ## The JB terminal library
-$(jbbin): $(objjbbin) $(bindir)
+$(jbbin): $(objjbbin)
 	$(CC) -shared $(objjbbin) $(JBFLAGSBINLIB) -o $(jbbin)
 
 ## Objects!
 $(objdir)jb_def.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
-	test -d $(objdir) || mkdir -p $(objdir)
 	$(CC) $(CFLAGS) $(srcdir)jb/jb_def.c -o $(objdir)jb_def.o
 
 $(objdir)jb_def_bin.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
@@ -347,7 +341,6 @@ dist: $(exe) $(exebin) $(dll) $(manuals) \
 	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
 	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
 	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
-	test -d $(bindir) || mkdir -p $(bindir)
 	test -d $(icondir) || mkdir -p $(icondir)
 	cp $(dll) $(png) $(bindir)
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas
