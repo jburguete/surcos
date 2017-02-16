@@ -4,14 +4,12 @@ bindir = @bindir@
 sharedir = @sharedir@
 icondir = $(sharedir)icons/
 dlldir = $(sysdir)bin/
-modir = $(sharedir)locale/
+modir = $(sysdir)share/locale/
 srcdir = src/
 objdir = @objdir@
 localdir = $(sharedir)locale/
 podir = locale/
 mandir = manual/
-dlldir = $(sysdir)bin/
-modir = $(sharedir)locale/
 es = es/LC_MESSAGES/
 fr = fr/LC_MESSAGES/
 it = it/LC_MESSAGES/
@@ -51,25 +49,48 @@ man = $(mandir)ppal.tex $(mandir)bib/references.bib \
 man_en = $(mandir)ppal_EN.tex $(mandir)bib/references.bib \
 	$(mandir)capitulos/Chapter2.tex 
 
-png = curve32.png fondo6.png logo2.png logo3.png diagram_furrow.png \
-	  diagram_geometry_en.png diagram_geometry_es.png diagram_geometry_fr.png \
-	  diagram_geometry_it.png diagram_input.png
+png = logo3.png 
 
-dll = $(dlldir)libatk-1.0-0.dll $(dlldir)libbz2-1.dll $(dlldir)libcairo-2.dll \
-	$(dlldir)libcairo-gobject-2.dll $(dlldir)libexpat-1.dll \
+dll = $(dlldir)libatk-1.0-0.dll \
+	$(dlldir)libbz2-1.dll $(dlldir)libcairo-2.dll \
+	$(dlldir)libcairo-gobject-2.dll \
+	$(dlldir)libcroco-0.6-3.dll \
+	$(dlldir)libexpat-1.dll \
 	$(dlldir)libffi-6.dll $(dlldir)libfontconfig-1.dll \
-	$(dlldir)libfreeglut.dll $(dlldir)libfreetype-6.dll $(dlldir)@libgcc@.dll \
-	$(dlldir)libgdk_pixbuf-2.0-0.dll $(dlldir)libgdk-3-0.dll \
-	$(dlldir)libgio-2.0-0.dll $(dlldir)libglib-2.0-0.dll \
-	$(dlldir)libgmodule-2.0-0.dll $(dlldir)libgobject-2.0-0.dll \
-	$(dlldir)libgthread-2.0-0.dll $(dlldir)libgtk-3-0.dll \
-	$(dlldir)libharfbuzz-0.dll $(dlldir)libiconv-2.dll $(dlldir)libintl-8.dll \
-	$(dlldir)libpango-1.0-0.dll $(dlldir)libpangocairo-1.0-0.dll \
-	$(dlldir)libpangoft2-1.0-0.dll $(dlldir)libpangowin32-1.0-0.dll \
-	$(dlldir)libpixman-1-0.dll $(dlldir)libpng16-16.dll \
-	$(dlldir)libwinpthread-1.dll $(dlldir)zlib1.dll
+	$(dlldir)libfreeglut.dll \
+	$(dlldir)libfreetype-6.dll \
+	$(dlldir)@libgcc@.dll \
+	$(dlldir)libgdk_pixbuf-2.0-0.dll \
+	$(dlldir)libgdk-3-0.dll \
+	$(dlldir)libgio-2.0-0.dll \
+	$(dlldir)libglib-2.0-0.dll \
+	$(dlldir)libgmodule-2.0-0.dll \
+	$(dlldir)libgobject-2.0-0.dll \
+	$(dlldir)libgraphite2.dll \
+	$(dlldir)libgthread-2.0-0.dll \
+	$(dlldir)libgtk-3-0.dll \
+	$(dlldir)libharfbuzz-0.dll \
+	$(dlldir)libiconv-2.dll \
+	$(dlldir)libintl-8.dll \
+	$(dlldir)liblzma-5.dll \
+	$(dlldir)libpango-1.0-0.dll \
+	$(dlldir)libpangocairo-1.0-0.dll \
+	$(dlldir)libpangoft2-1.0-0.dll \
+	$(dlldir)libpangowin32-1.0-0.dll \
+	$(dlldir)libpcre-1.dll \
+	$(dlldir)libpixman-1-0.dll \
+	$(dlldir)libpng16-16.dll \
+	$(dlldir)librsvg-2-2.dll \
+	$(dlldir)libstdc++-6.dll \
+	$(dlldir)libxml2-2.dll \
+	$(dlldir)libwinpthread-1.dll \
+	$(dlldir)zlib1.dll
+gdkpixbuf = lib/gdk-pixbuf-2.0/2.10.0/
+WINLIBS = atk bzip2 cairo expat fontconfig freeglut freetype gcc gdk-pixbuf2 \
+	gettext glib2 graphite2 gtk3 harfbuzz libcroco libepoxy libffi \
+	libiconv libpng librsvg libxml2 pango pcre pixman xz zlib
 
-dep = Makefile $(srcdir)jb/jb_config.h
+dep = Makefile $(objdir) $(srcdir)jb/jb_config.h
 depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
 depkernel = $(depjb) $(srcdir)config.h \
 	$(srcdir)furrow.h $(srcdir)parameters.h $(srcdir)scheme.h $(srcdir)field.h \
@@ -84,16 +105,18 @@ CFLAGSLIB = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @NATIVE@ \
 	@GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ @FREETYPE_CFLAGS@ \
 	@GLEW_CFLAGS@ @GLFW_CFLAGS@ @SDL_CFLAGS@ @GRAPHIC@
 CFLAGS = $(CFLAGSLIB) -fPIC
-LDFLAGSLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @PNG_LIBS@ @GTK_LIBS@ \
-	@FREETYPE_LIBS@ @GLEW_LIBS@ @GLFW_LIBS@ @SDL_LIBS@
-LDFLAGS = $(LDFLAGSLIB) -L. -Wl,-rpath=. -ljb -lsurcos
+JBFLAGSLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @PNG_LIBS@ @GTK_LIBS@ \
+	@FREETYPE_LIBS@ @GLEW_LIBS@ @GLFW_LIBS@ @SDL_LIBS@ 
+LDFLAGSLIB = $(JBFLAGSLIB) -L$(bindir) -Wl,-rpath=$(bindir) -ljb
+LDFLAGS = $(LDFLAGSLIB) -lsurcos
 
 CPPFLAGSBIN = @CPPFLAGS@ -DJBW=1
 CFLAGSBINLIB = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ -pedantic -Wall \
 	-Wextra -c -O3
 CFLAGSBIN = $(CFLAGSBINLIB) -fPIC
-LDFLAGSBINLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@
-LDFLAGSBIN = $(LDFLAGSBINLIB) -L. -Wl,-rpath=. -ljbbin -lsurcos
+JBFLAGSBINLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@
+LDFLAGSBINLIB = $(JBFLAGSBINLIB) -L$(bindir) -Wl,-rpath=$(bindir) -ljbbin
+LDFLAGSBIN = $(LDFLAGSBINLIB) -lsurcos
 
 CC = @CC@ @LTO@ @STD@ @ccflags@ -g #-pg
 
@@ -109,26 +132,32 @@ all: $(exe) $(exebin) $(manuals) $(podir)surcos_gui.pot $(podir)surcos.pot \
 	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
 	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
 
+## The object dir
+$(objdir):
+	test -d $(objdir) || mkdir -p $(objdir)
+
+$(bindir):
+	test -d $(bindir) || mkdir -p $(bindir)
+
 ## Our main object (GUI)
 $(exe): $(obj) $(jb) $(exelib)
-	test -d $(bindir) || mkdir -p $(bindir)
 	$(CC) $(obj) $(LDFLAGS) -o $(exe)
 
 ## Our main object (no GUI)
-$(exebin): $(objbin) $(jbbin) $(exelib)
+$(exebin): $(objbin) $(exelib)
 	$(CC) $(objbin) $(LDFLAGSBIN) -o $(exebin)
 
 ## The SURCOS library
-$(exelib): $(objlib)
-	$(CC) -shared $(objlib) $(LDFLAGSLIB) -o $(exelib)
+$(exelib): $(objlib) $(jbbin) $(bindir)
+	$(CC) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
 
 ## The JB GUI library
-$(jb): $(objjb)
-	$(CC) -shared $(objjb) $(LDFLAGSLIB) -o $(jb)
+$(jb): $(objjb) $(bindir)
+	$(CC) -shared $(objjb) $(JBFLAGSLIB) -o $(jb)
 
 ## The JB terminal library
-$(jbbin): $(objjbbin)
-	$(CC) -shared $(objjbbin) $(LDFLAGSLIB) -o $(jbbin)
+$(jbbin): $(objjbbin) $(bindir)
+	$(CC) -shared $(objjbbin) $(JBFLAGSBINLIB) -o $(jbbin)
 
 ## Objects!
 $(objdir)jb_def.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
@@ -314,14 +343,20 @@ clean:
 rebuild: clean $(exe)
 
 ## Making Microsoft Windows distribution
-dist: $(exe) $(dll) $(manuals)
+dist: $(exe) $(exebin) $(dll) $(manuals) \
+	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
+	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
+	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
 	test -d $(bindir) || mkdir -p $(bindir)
 	test -d $(icondir) || mkdir -p $(icondir)
 	cp $(dll) $(png) $(bindir)
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas
 	cp $(sysdir)share/glib-2.0/schemas/* $(sharedir)glib-2.0/schemas
 	cp -r $(sysdir)share/icons/Adwaita $(icondir)
-	strip $(bindir)*.exe $(bindir)*.dll
+	test -d @WIN@$(gdkpixbuf)loaders || mkdir -p @WIN@$(gdkpixbuf)loaders
+	cp $(sysdir)$(gdkpixbuf)loaders.cache @WIN@$(gdkpixbuf)
+	cp $(sysdir)$(gdkpixbuf)loaders/*.dll @WIN@$(gdkpixbuf)loaders
+	strip $(bindir)*.exe $(bindir)*.dll @WIN@$(gdkpixbuf)loaders/*.dll
 	cp doc/latex/refman.pdf $(basedir)reference-manual.pdf
 	cp manual/ppal.pdf $(basedir)user-manual-es.pdf
 	cp manual/ppal_EN.pdf $(basedir)user-manual-en.pdf
@@ -338,3 +373,5 @@ dist: $(exe) $(dll) $(manuals)
 		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
 		$(modir)$(it)gtk30.mo $(modir)$(it)gtk30-properties.mo \
 		$(localdir)$(it)
+	test -d @WIN@src || mkdir @WIN@src
+	cd @WIN@src; perl ../../fetch.pl $(WINLIBS)

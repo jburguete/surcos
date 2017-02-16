@@ -77,6 +77,7 @@ else
 	AC_SUBST(sharedir, [$windir/share/])
 	AC_SUBST(basedir, [$windir/])
 	AC_SUBST(icon, [$windir/obj/logo.o])
+	AC_SUBST(WIN, [$windir/])
 	AC_SUBST(SO, [.dll])
 fi
 AC_SUBST(srcdir, [src/])
