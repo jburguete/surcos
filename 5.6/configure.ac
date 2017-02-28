@@ -10,30 +10,13 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	CPPFLAGS="$CPPFLAGS -I/mingw/include"
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 	windir=win64
 	mingw=mingw64
-elif test $host = "x86_64-pc-mingw64"; then
-	AC_MSG_NOTICE([Microsoft Windows 64 bits])
-	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_seh-1")
-	win=1
-	windir=win64
-	mingw=mingw64
-elif test $host = "x86_64-pc-mingw32"; then
+elif test $host = "i686-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_dw2-1")
-	win=1
-	windir=win32
-	mingw=mingw32
-elif test $host = "i686-pc-mingw32"; then
-	AC_MSG_NOTICE([Microsoft Windows 32 bits])
-	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
-	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
-	AC_SUBST(libgcc, "libgcc_s_dw2-1")
 	win=1
 	windir=win32
 	mingw=mingw32
@@ -141,6 +124,10 @@ if test $win = 0; then
 	fi
 fi
 
+# Checks for header files.
+AC_CHECK_HEADERS_ONCE([libintl.h locale.h stdlib.h string.h unistd.h])
+AC_CHECK_HEADER([GL/freeglut.h], [freeglut=1])
+
 # Checks for libraries
 if test -f "src/jb/jb_math.h"; then
 	AC_MSG_NOTICE("JB headers: OK")
@@ -155,7 +142,7 @@ PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([PNG], [libpng])
 PKG_CHECK_MODULES([FREETYPE], [freetype2])
 PKG_CHECK_MODULES([GLEW], [glew])
-AC_SEARCH_LIBS([glViewport], [GL opengl32])
+AC_SEARCH_LIBS([glFlush], [GL opengl32])
 
 # Checks for FreeGLUT, SDL or GLFW to draw the graphic window
 AC_ARG_WITH([sdl],
@@ -170,8 +157,9 @@ else
 		AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
 		PKG_CHECK_MODULES([GLFW], [glfw3])
 	else
-		AC_SEARCH_LIBS([glutInit], [freeglut glut], glut="yes", glut="no")
-		if test $glut = "yes"; then
+		PKG_CHECK_MODULES([GLUT], [freeglut], glut="yes",
+			AC_SEARCH_LIBS([glutMainLoop], [freeglut glut], glut="yes", glut="no"))
+		if test x$glut = "xyes"; then
 			AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=1")
 		else
 			PKG_CHECK_MODULES([SDL], [sdl2], sdl="yes", sdl="no")
@@ -184,9 +172,6 @@ else
 		fi
 	fi
 fi
-
-# Checks for header files.
-AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h])
 
 # Checks for library functions.
 AC_FUNC_MALLOC
