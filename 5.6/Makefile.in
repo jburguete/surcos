@@ -346,6 +346,7 @@ dist: $(exe) $(exebin) $(dll) $(manuals) \
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas
 	cp $(sysdir)share/glib-2.0/schemas/* $(sharedir)glib-2.0/schemas
 	cp -r $(sysdir)share/icons/Adwaita $(icondir)
+	cp -r $(sysdir)share/icons/hicolor $(icondir)
 	test -d @WIN@$(gdkpixbuf)loaders || mkdir -p @WIN@$(gdkpixbuf)loaders
 	cp $(sysdir)$(gdkpixbuf)loaders.cache @WIN@$(gdkpixbuf)
 	cp $(sysdir)$(gdkpixbuf)loaders/*.dll @WIN@$(gdkpixbuf)loaders

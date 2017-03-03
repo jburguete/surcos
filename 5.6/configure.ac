@@ -8,8 +8,8 @@ AC_MSG_NOTICE([Build: $build])
 AC_MSG_NOTICE([Host: $host])
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
-	CPPFLAGS="$CPPFLAGS -I/mingw/include"
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
+	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 	windir=win64
 	mingw=mingw64
@@ -17,6 +17,7 @@ elif test $host = "i686-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
 	AC_SUBST(ccflags, "-march=pentium4 -mfpmath=sse -msse2 -mwindows")
+	AC_SUBST(libgcc, "libgcc_s_dw2-1")
 	win=1
 	windir=win32
 	mingw=mingw32
@@ -126,7 +127,7 @@ fi
 
 # Checks for header files.
 AC_CHECK_HEADERS_ONCE([libintl.h locale.h stdlib.h string.h unistd.h])
-AC_CHECK_HEADER([GL/freeglut.h], [freeglut=1])
+AC_CHECK_HEADER([GL/freeglut.h], freeglut=1, freeglut=0)
 
 # Checks for libraries
 if test -f "src/jb/jb_math.h"; then
@@ -156,9 +157,14 @@ else
 	if test "x$with_glfw" = "xyes"; then
 		AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
 		PKG_CHECK_MODULES([GLFW], [glfw3])
-	else
-		PKG_CHECK_MODULES([GLUT], [freeglut], glut="yes",
-			AC_SEARCH_LIBS([glutMainLoop], [freeglut glut], glut="yes", glut="no"))
+	else 
+		if test $freeglut = 1; then
+			PKG_CHECK_MODULES([GLUT], [freeglut], glut="yes",
+				AC_SEARCH_LIBS([glutMainLoop], [freeglut glut],
+					       glut="yes", glut="no"))
+		else
+			glut="no"
+		fi
 		if test x$glut = "xyes"; then
 			AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=1")
 		else

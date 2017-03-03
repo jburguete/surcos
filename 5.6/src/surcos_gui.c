@@ -33,7 +33,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \copyright Copyright 2011-2017, Javier Burguete Tolosa
  */
 #define _GNU_SOURCE
+#include <stdio.h>
 #include <locale.h>
+#define GNULIB_defined_setlocale
 #include <libintl.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
@@ -87,6 +89,21 @@ main (int argn, char *argc[])
   printf ("main: start\n");
 #endif
 
+  // Setting locale to system default
+  setlocale (LC_ALL, "");
+#if DEBUG_MAIN
+  printf ("LC_CTYPE = %s\n", setlocale (LC_CTYPE, NULL));
+#endif
+
+  // Setting numerical locale to international standard
+  setlocale (LC_NUMERIC, "C");
+#if DEBUG_MAIN
+  printf ("LC_NUMERIC = %s\n", setlocale (LC_NUMERIC, NULL));
+#endif
+
+  // Avoiding the overriding of the locale settings by gtk_init
+  gtk_disable_setlocale ();
+
   // Initing field arrays
   field->si = NULL;
   field->input = NULL;
@@ -100,21 +117,6 @@ main (int argn, char *argc[])
   parallel->mutex = g_mutex_new ();
 #endif
 
-  // Setting locale to system default
-  buffer = setlocale (LC_ALL, "");
-#if DEBUG_MAIN
-  printf ("locale = %s\n", buffer);
-#endif
-
-  // Setting numerical locale to international standard
-  buffer = setlocale (LC_NUMERIC, "C");
-#if DEBUG_MAIN
-  printf ("LC_NUMERIC = %s\n", buffer);
-#endif
-
-  // Avoiding the overriding of the locale settings by gtk_init
-  gtk_disable_setlocale ();
-
   // Setting the program name and locale directory to find locale files
   buffer = g_build_filename (g_get_current_dir (), LOCALE_DIR, NULL);
   buffer2 = bindtextdomain (PROGRAM_NAME, buffer);
@@ -122,6 +124,7 @@ main (int argn, char *argc[])
   printf ("Locale dir = %s\n", buffer);
   printf ("bindtextdomain = %s\n", buffer2);
 #endif
+  g_free (buffer);
 
   // Setting the format of the codeset files (UTF-8)
   buffer2 = bind_textdomain_codeset (PROGRAM_NAME, "UTF-8");

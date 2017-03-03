@@ -34,6 +34,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #define _GNU_SOURCE
 #include <locale.h>
+#define GNULIB_defined_setlocale
+#include <libintl.h>
 #include "jb/jb_def.h"
 #include "configGeometry.h"
 
@@ -1435,12 +1437,12 @@ config_geometry_new (ConfigGeometry * w)
   for (i = 0; i < 4; ++i)
     config_point_new (w->point + i, label_id[i]);
   w->table = (GtkGrid *) gtk_grid_new ();
-  buffer = setlocale (LC_MESSAGES, NULL);
-  if (!strncmp (buffer, "es", 2))
+  buffer = setlocale (LC_CTYPE, NULL);
+  if (!strncmp (buffer, "es", 2) || !strncmp (buffer, "Sp", 2))
     pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_es);
-  else if (!strncmp (buffer, "fr", 2))
+  else if (!strncmp (buffer, "fr", 2) || !strncmp (buffer, "Fr", 2))
     pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_fr);
-  else if (!strncmp (buffer, "it", 2))
+  else if (!strncmp (buffer, "it", 2) || !strncmp (buffer, "It", 2))
     pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_it);
   else
     pixbuf = gdk_pixbuf_new_from_xpm_data (diagram_geometry_en);
