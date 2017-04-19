@@ -11,6 +11,14 @@ AUTHORS
 * Asier Lacasta Soto (asierlacasta@gmail.com)
 * Pilar García Navarro (pigar@unizar.es)
 
+WINDOWS EXECUTABLE FILES
+------------------------
+
+This repository contains source and example files with the latest version of 
+SURCOS. Stable versions with executable files and manuals for Microsoft Windows 
+systems can be downloaded in 
+[digital.csic](http://hdl.handle.net/10261/75830)
+
 REQUIRED
 --------
 
