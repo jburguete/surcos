@@ -100,18 +100,16 @@ Program \emph{surcos} uses the following libraries:
 \item[gdk-pixbuf] (http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf)
 \item[gtk+] (http://ftp.gnome.org/pub/gnome/sources/gtk+)
 \item[freeglut] (http://sourceforge.net/projects/freeglut)
+\item[jb] (https://github.com/jburguete/jb)
 \end{description}
 
-Once installed and configurated all the tools and libraries, the sequence to compile is made of four steps:
+Once installed and configurated all the tools and libraries, the sequence to compile is made on a terminal:
 
 \begin{enumerate}
-\item aclocal
-\item autoconf
-\item ./configure
-\item make
+\item cd 5.6
+\item ./build
 \end{enumerate}
-Some systems require corrections. Look at the beginning of the file configure.ac
-where more detailed instructions are provided.  
+Some systems require corrections. Look at the README.md file where more detailed instructions are provided.  
 
 The program \emph{surcos} has been compiled and tested in the following
 operative systems:
@@ -131,8 +129,8 @@ operative systems:
 \item Microsoft Windows 10 32 bits
 \item Microsoft Windows 10 64 bits
 \item NetBSD 7.0
-\item OpenBSD 6.0
+\item OpenBSD 6.1
 \item OpenIndiana Hipster
 \item OpenSUSE Linux Tumbleweed
-\item Ubuntu Linux 16.10
+\item Ubuntu Linux 17.04
 \end{itemize}
