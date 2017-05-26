@@ -53,12 +53,14 @@ png = logo3.png
 
 dll = $(dlldir)glew32.dll \
 	$(dlldir)libatk-1.0-0.dll \
-	$(dlldir)libbz2-1.dll $(dlldir)libcairo-2.dll \
+	$(dlldir)libbz2-1.dll \
+	$(dlldir)libcairo-2.dll \
 	$(dlldir)libcairo-gobject-2.dll \
 	$(dlldir)libcroco-0.6-3.dll \
 	$(dlldir)libepoxy-0.dll \
 	$(dlldir)libexpat-1.dll \
-	$(dlldir)libffi-6.dll $(dlldir)libfontconfig-1.dll \
+	$(dlldir)libffi-6.dll \
+	$(dlldir)libfontconfig-1.dll \
 	$(dlldir)libfreeglut.dll \
 	$(dlldir)libfreetype-6.dll \
 	$(dlldir)@libgcc@.dll \
