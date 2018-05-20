@@ -386,7 +386,7 @@ parameters_depth (Parameters * p)
         p->ta = t;
       return;
     }
-  p->h = jbm_solve_cuadratic (p->s->z, p->s->b, -p->A, 0., INFINITY);
+  p->h = jbm_solve_quadratic (p->s->z, p->s->b, -p->A, 0., INFINITY);
   p->zs = p->zf + p->h;
   p->B = PARAMETERS_WIDTH (p, p->h);
   p->P = PARAMETERS_PERIMETER (p, p->h);
@@ -778,7 +778,7 @@ parameters_infiltration_base (Parameters * p)
   else
     {
       p->P = PARAMETERS_PERIMETER (p,
-                                   jbm_solve_cuadratic (p->s->z, p->s->b,
+                                   jbm_solve_quadratic (p->s->z, p->s->b,
                                                         -p->A, 0., INFINITY));
       p->c = p->Ac / p->A;
     }

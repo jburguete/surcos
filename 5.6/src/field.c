@@ -985,7 +985,7 @@ INLINE_VOID junction_lateral
         }
       else
         {
-          h = jbm_solve_cuadratic (zdx1 + zdx2, bdx1 + bdx2 -
+          h = jbm_solve_quadratic (zdx1 + zdx2, bdx1 + bdx2 -
                                    jbm_fdbl (zdx2 * dh),
                                    dh * (zdx2 * dh - bdx2) - V, 0., INFINITY);
 #if DEBUG_JUNCTION_LATERAL
@@ -1007,7 +1007,7 @@ INLINE_VOID junction_lateral
         }
       else
         {
-          h = jbm_solve_cuadratic (zdx1 + zdx2, bdx1 + bdx2 -
+          h = jbm_solve_quadratic (zdx1 + zdx2, bdx1 + bdx2 -
                                    jbm_fdbl (zdx1 * dh),
                                    dh * (zdx1 * dh - bdx1) - V, 0., INFINITY);
 #if DEBUG_JUNCTION_LATERAL
