@@ -2,7 +2,7 @@
 SURCOS - A software tool to solve irrigation and fertigation in isolated furrows
 and furrow networks.
 
-Copyright 2011-2017, Javier Burguete Tolosa.
+Copyright 2011-2018, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -30,7 +30,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \file configTimes.h
  * \brief Header file to define the configuration of the advanced options.
  * \authors Javier Burguete Tolosa, Asier Lacasta Soto.
- * \copyright Copyright 2011-2017, Javier Burguete Tolosa.
+ * \copyright Copyright 2011-2018, Javier Burguete Tolosa.
  */
 #ifndef CONFIG_TIMES__H
 #define CONFIG_TIMES__H 1

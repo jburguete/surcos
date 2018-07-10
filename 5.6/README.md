@@ -70,13 +70,13 @@ This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
 has not been tested.
 
-Debian 8 (Hurd, Linux and kFreeBSD)
+Debian 9 (Hurd, Linux and kFreeBSD)
 ___________________________________
-DragonFly BSD 4.6
+DragonFly BSD 5.2
 ___________________
 Dyson Illumos
 _____________
-Fedora Linux 25
+Fedora Linux 28
 _______________
 FreeBSD 11.0
 ____________
@@ -86,9 +86,9 @@ NetBSD 7.0
 __________
 OpenIndiana Hipster
 ___________________
-OpenSUSE Linux Tumbleweed
-_________________________
-Ubuntu Linux 17.04
+OpenSUSE Linux Leap 15
+______________________
+Ubuntu Linux 18.04
 __________________
 
 1. Download the latest [JB library](https://github.com/jburguete/jb)
@@ -107,7 +107,7 @@ __________________
 >
 > $ ./build
 
-OpenBSD 6.1
+OpenBSD 6.3
 ___________
 
 1. Select adequate versions:
