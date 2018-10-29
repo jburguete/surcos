@@ -69,7 +69,7 @@ fi
 AC_SUBST(srcdir, [src/])
 
 # Checks for programs
-AC_PROG_CC([gcc6 gcc5 gcc49 gcc48 egcc gcc clang])
+AC_PROG_CC([gcc8 gcc7 gcc6 gcc5 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG
@@ -151,11 +151,11 @@ AC_ARG_WITH([sdl],
 AC_ARG_WITH([glfw],
 	AS_HELP_STRING([--with-glfw], [Build graphic window with GLFW]))
 if test "x$with_sdl" = "xyes"; then
-	AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
+	AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
 	PKG_CHECK_MODULES([SDL], [sdl2])
 else
 	if test "x$with_glfw" = "xyes"; then
-		AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
+		AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
 		PKG_CHECK_MODULES([GLFW], [glfw3])
 	else 
 		if test $freeglut = 1; then
@@ -170,10 +170,10 @@ else
 		else
 			PKG_CHECK_MODULES([SDL], [sdl2], sdl="yes", sdl="no")
 			if test $sdl = "yes"; then
-				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
+				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
 			else
 				PKG_CHECK_MODULES([GLFW], [glfw3])
-				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=2")
+				AC_SUBST(GRAPHIC, "-DJBW_GRAPHIC=3")
 			fi
 		fi
 	fi
