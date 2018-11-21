@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 02:32+0100\n"
+"POT-Creation-Date: 2018-11-21 12:14+0100\n"
 "PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -67,7 +67,7 @@ msgstr "Dati non valido"
 msgid "solubility"
 msgstr "solubilità"
 
-#: src/field.c:292 src/kernel.c:174 src/kernel.c:246
+#: src/field.c:292 src/kernel.c:163 src/kernel.c:235
 msgid "Distribution furrow"
 msgstr "Solco di distribuzione"
 
@@ -75,11 +75,11 @@ msgstr "Solco di distribuzione"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 
-#: src/field.c:314 src/kernel.c:167 src/kernel.c:229
+#: src/field.c:314 src/kernel.c:156 src/kernel.c:218
 msgid "Irrigation furrows"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:330 src/kernel.c:187 src/kernel.c:266
+#: src/field.c:330 src/kernel.c:176 src/kernel.c:255
 msgid "Recirculation furrow"
 msgstr "Solco di ricircolazione"
 
@@ -127,91 +127,91 @@ msgstr "Imposible aprire il file di dati di sondi"
 msgid "Bad probes data"
 msgstr "Dati di sondi non corretti"
 
-#: src/kernel.c:123
+#: src/kernel.c:112
 msgid "Irrigation life time"
 msgstr "Durata dell’irrigazione"
 
-#: src/kernel.c:125
+#: src/kernel.c:114
 msgid "Calculation time"
 msgstr "Tempo di calcolo"
 
-#: src/kernel.c:128
+#: src/kernel.c:117
 msgid "IRRIGATION QUALITY"
 msgstr "QUALITA DI IRRIGAZIONE"
 
-#: src/kernel.c:130
+#: src/kernel.c:119
 msgid "Water"
 msgstr "Acqua"
 
-#: src/kernel.c:132 src/kernel.c:140
+#: src/kernel.c:121 src/kernel.c:129
 msgid "Uniformity"
 msgstr "Uniformità"
 
-#: src/kernel.c:135 src/kernel.c:143
+#: src/kernel.c:124 src/kernel.c:132
 msgid "Efficiency"
 msgstr "Efficienza"
 
-#: src/kernel.c:138
+#: src/kernel.c:127
 msgid "Fertilizer"
 msgstr "Fertilisant"
 
-#: src/kernel.c:147
+#: src/kernel.c:136
 msgid "WATER VOLUME"
 msgstr "VOLUME DI ACQUA"
 
-#: src/kernel.c:149 src/kernel.c:169 src/kernel.c:176 src/kernel.c:189
-#: src/kernel.c:203 src/kernel.c:231 src/kernel.c:248 src/kernel.c:268
+#: src/kernel.c:138 src/kernel.c:158 src/kernel.c:165 src/kernel.c:178
+#: src/kernel.c:192 src/kernel.c:220 src/kernel.c:237 src/kernel.c:257
 msgid "Total"
 msgstr "Totale"
 
-#: src/kernel.c:152 src/kernel.c:206
+#: src/kernel.c:141 src/kernel.c:195
 msgid "Input"
 msgstr ""
 
-#: src/kernel.c:154 src/kernel.c:209
+#: src/kernel.c:143 src/kernel.c:198
 msgid "Calculated"
 msgstr "Calcolato"
 
-#: src/kernel.c:156 src/kernel.c:211
+#: src/kernel.c:145 src/kernel.c:200
 msgid "Conservation error"
 msgstr "Errore di conservazione"
 
-#: src/kernel.c:158 src/kernel.c:170 src/kernel.c:178 src/kernel.c:191
-#: src/kernel.c:214 src/kernel.c:234 src/kernel.c:251 src/kernel.c:271
+#: src/kernel.c:147 src/kernel.c:159 src/kernel.c:167 src/kernel.c:180
+#: src/kernel.c:203 src/kernel.c:223 src/kernel.c:240 src/kernel.c:260
 msgid "Superficial"
 msgstr "Superficiale"
 
-#: src/kernel.c:160 src/kernel.c:172 src/kernel.c:180 src/kernel.c:193
-#: src/kernel.c:217 src/kernel.c:237 src/kernel.c:254 src/kernel.c:274
+#: src/kernel.c:149 src/kernel.c:161 src/kernel.c:169 src/kernel.c:182
+#: src/kernel.c:206 src/kernel.c:226 src/kernel.c:243 src/kernel.c:263
 msgid "Infiltrated"
 msgstr "Infiltrata"
 
-#: src/kernel.c:162 src/kernel.c:173 src/kernel.c:182 src/kernel.c:195
-#: src/kernel.c:220 src/kernel.c:240 src/kernel.c:257 src/kernel.c:277
+#: src/kernel.c:151 src/kernel.c:162 src/kernel.c:171 src/kernel.c:184
+#: src/kernel.c:209 src/kernel.c:229 src/kernel.c:246 src/kernel.c:266
 msgid "Percolated"
 msgstr "Filtrato"
 
-#: src/kernel.c:201
+#: src/kernel.c:190
 msgid "FERTILIZER MASS"
 msgstr "MASSA DI FERTILIZZANTE"
 
-#: src/kernel.c:223 src/kernel.c:243 src/kernel.c:260 src/kernel.c:280
+#: src/kernel.c:212 src/kernel.c:232 src/kernel.c:249 src/kernel.c:269
 msgid "Solid"
 msgstr "Solido"
 
-#: src/kernel.c:343
+#: src/kernel.c:326
 msgid "Running the numerical simulation ..."
 msgstr "Correndo la simulazione numerica ..."
 
-#: src/kernel.c:345
+#: src/kernel.c:328
 msgid "_Stop"
 msgstr "_Fermare"
 
-#: src/surcos.c:134
+#: src/surcos.c:135
 msgid "Usage is"
 msgstr "Uso è"
 
-#: src/surcos.c:134
+#: src/surcos.c:135
 msgid "surcos [-v] input_directory"
 msgstr ""
 

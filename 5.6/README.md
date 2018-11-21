@@ -107,18 +107,16 @@ __________________
 >
 > $ ./build
 
-OpenBSD 6.3
+OpenBSD 6.4
 ___________
 
 1. Select adequate versions:
-> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.15
+> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.16
 
 2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
 
 Microsoft Windows 7 (with MSYS2)
 ________________________________
-Microsoft Windows 8.1 (with MSYS2)
-__________________________________
 Microsoft Windows 10 (with MSYS2)
 _________________________________
 

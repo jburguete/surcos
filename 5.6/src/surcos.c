@@ -130,6 +130,7 @@ surcos (int argn, char *argc[])
           kernel (argc[1], 0, 1);
           break;
         }
+      //fallthrough
     default:
       printf ("%s:\n%s\n", _("Usage is"), _("surcos [-v] input_directory"));
       return 4;

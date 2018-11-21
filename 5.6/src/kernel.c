@@ -74,29 +74,21 @@ void (*show_error) (char *msg);
 ///< Pointer to the function to show the error messages.
 
 /**
- * \fn void print_error(char *msg)
- * \brief Function to print an error message.
- * \param msg
- * \brief Error message string.
+ * Function to print an error message.
  */
 void
-print_error (char *msg)
+print_error (char *msg) ///< Error message string.
 {
   printf ("Error!\n%s\n", msg);
 }
 
 /**
- * \fn void results_mass(FILE *file, char *label, double mass)
- * \brief Function to save a mass in a results summary file.
- * \param file
- * \brief file.
- * \param label
- * \brief mass label.
- * \param mass
- * \brief mass.
+ * Function to save a mass in a results summary file.
  */
 void
-results_mass (FILE * file, char *label, double mass)
+results_mass (FILE * file, ///< Results summary file.
+	      char *label, ///< Mass label.
+	      double mass) ///< Mass.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t\t%s = %g m\302\263\n", label, mass);
@@ -104,13 +96,10 @@ results_mass (FILE * file, char *label, double mass)
 }
 
 /**
- * \fn void results_save(char *dir)
- * \brief Function to save the results summary file.
- * \param dir
- * \brief directory.
+ * Function to save the results summary file.
  */
 void
-results_save (char *dir)
+results_save (char *dir) //< Directory.
 {
   int n;
   char buffer[512];
@@ -289,8 +278,7 @@ results_save (char *dir)
 #if JBW != JBW_NO
 
 /**
- * \fn void window_run_close()
- * \brief Function to close a simulation running.
+ * Function to close a simulation running.
  */
 void
 window_run_close ()
@@ -299,8 +287,7 @@ window_run_close ()
 }
 
 /**
- * \fn void window_run_destroy()
- * \brief Function to close a simulation running dialog.
+ * Function to close a simulation running dialog.
  */
 void
 window_run_destroy ()
@@ -311,13 +298,10 @@ window_run_destroy ()
 }
 
 /**
- * \fn void window_run_update(Field *T)
- * \brief Function to update a simulation running dialog.
- * \param T
- * \brief Field data structure.
+ * Function to update a simulation running dialog.
  */
 void
-window_run_update (Field * T)
+window_run_update (Field * T) //< Field data structure.
 {
   char buffer[32];
   gtk_progress_bar_set_fraction (windowRun->progress, t / T->tf);
@@ -328,8 +312,7 @@ window_run_update (Field * T)
 }
 
 /**
- * \fn void window_run_new()
- * \brief Function to open a simulation running dialog.
+ * Function to open a simulation running dialog.
  */
 void
 window_run_new ()
@@ -363,16 +346,13 @@ window_run_new ()
 #endif
 
 /**
- * \fn int kernel_open(char *dir, int gui)
- * \brief Function to open a simulation.
- * \param dir
- * \brief Directory where the input data files are located.
- * \param gui
- * \brief 1 on graphical GUI, 0 on else.
+ * Function to open a simulation.
+ *
  * \return 0 on error, 1 on success.
  */
 int
-kernel_open (char *dir, int gui)
+kernel_open (char *dir, ///< Directory where the input data files are located.
+	     int gui) ///< 1 on graphical GUI, 0 on else.
 {
 #if DEBUG_KERNEL_OPEN
   printf ("kernel_open: start\n");
@@ -410,16 +390,13 @@ exit_error:
 }
 
 /**
- * \fn int kernel_step(FILE *file_probes, int gui)
- * \brief Function to perform a simulation step.
- * \param file_probes
- * \brief File to save the probes data.
- * \param gui
- * \brief 1 on graphical GUI, 0 on else.
+ * Function to perform a simulation step.
+ *
  * \return 0 on ending the simulation, 1 on a simple simulation step.
  */
-int
-kernel_step (FILE * file_probes, int gui)
+static int
+kernel_step (FILE * file_probes, ///< File to save the probes data.
+	     int gui) ///< 1 on graphical GUI, 0 on else.
 {
   JBDOUBLE tmax;
 #if DEBUG_KERNEL_STEP
@@ -480,18 +457,14 @@ kernel_step (FILE * file_probes, int gui)
 }
 
 /**
- * \fn int kernel(char *dir, int gui, int msg)
- * \brief Function to perform a simulation.
- * \param dir
- * \brief Directory where the input data files are located.
- * \param gui
- * \brief 1 on graphical GUI, 0 on else.
- * \param msg
- * \brief 1 on periodic messages, 0 on else.
+ * Function to perform a simulation.
+ *
  * \return 0 on error, 1 on success.
  */
 int
-kernel (char *dir, int gui, int msg)
+kernel (char *dir, ///< Directory where the input data files are located.
+	int gui, ///< 1 on graphical GUI, 0 on else.
+       	int msg) ///< 1 on periodic messages, 0 on else.
 {
   int i, j, n;
   char buffer[512];

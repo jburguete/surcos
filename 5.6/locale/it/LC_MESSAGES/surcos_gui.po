@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 12:20+0100\n"
+"POT-Creation-Date: 2018-11-21 12:14+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -68,7 +68,7 @@ msgstr "Dati non valido"
 msgid "solubility"
 msgstr "solubilità"
 
-#: src/field.c:292 src/kernel.c:174 src/kernel.c:246 src/graphics.c:777
+#: src/field.c:292 src/kernel.c:163 src/kernel.c:235 src/graphics.c:777
 #: src/graphics.c:953 src/mainWindow.c:1034 src/mainWindow.c:1165
 #: src/mainWindow.c:1242
 #, c-format
@@ -79,12 +79,12 @@ msgstr "Solco di distribuzione"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 
-#: src/field.c:314 src/kernel.c:167 src/kernel.c:229 src/mainWindow.c:1037
+#: src/field.c:314 src/kernel.c:156 src/kernel.c:218 src/mainWindow.c:1037
 #: src/mainWindow.c:1154 src/mainWindow.c:1224
 msgid "Irrigation furrows"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:330 src/kernel.c:187 src/kernel.c:266 src/graphics.c:781
+#: src/field.c:330 src/kernel.c:176 src/kernel.c:255 src/graphics.c:781
 #: src/graphics.c:956 src/mainWindow.c:1028 src/mainWindow.c:1039
 #: src/mainWindow.c:1179 src/mainWindow.c:1263
 #, c-format
@@ -135,104 +135,104 @@ msgstr "Imposible aprire il file di dati di sondi"
 msgid "Bad probes data"
 msgstr "Dati di sondi non corretti"
 
-#: src/kernel.c:123 src/mainWindow.c:1105
+#: src/kernel.c:112 src/mainWindow.c:1105
 msgid "Irrigation life time"
 msgstr "Durata dell’irrigazione"
 
-#: src/kernel.c:125 src/mainWindow.c:1107
+#: src/kernel.c:114 src/mainWindow.c:1107
 msgid "Calculation time"
 msgstr "Tempo di calcolo"
 
-#: src/kernel.c:128 src/mainWindow.c:1110
+#: src/kernel.c:117 src/mainWindow.c:1110
 msgid "IRRIGATION QUALITY"
 msgstr "QUALITA DI IRRIGAZIONE"
 
-#: src/kernel.c:130 src/configIrrigation.c:478 src/mainWindow.c:1113
+#: src/kernel.c:119 src/configIrrigation.c:478 src/mainWindow.c:1113
 msgid "Water"
 msgstr "Acqua"
 
-#: src/kernel.c:132 src/kernel.c:140 src/mainWindow.c:1116
+#: src/kernel.c:121 src/kernel.c:129 src/mainWindow.c:1116
 #: src/mainWindow.c:1125
 msgid "Uniformity"
 msgstr "Uniformità"
 
-#: src/kernel.c:135 src/kernel.c:143 src/mainWindow.c:1119
+#: src/kernel.c:124 src/kernel.c:132 src/mainWindow.c:1119
 #: src/mainWindow.c:1128
 msgid "Efficiency"
 msgstr "Efficienza"
 
-#: src/kernel.c:138 src/configIrrigation.c:478 src/configWindow.c:221
+#: src/kernel.c:127 src/configIrrigation.c:478 src/configWindow.c:221
 #: src/mainWindow.c:1122
 msgid "Fertilizer"
 msgstr "Fertilizzante"
 
-#: src/kernel.c:147 src/mainWindow.c:1132
+#: src/kernel.c:136 src/mainWindow.c:1132
 msgid "WATER VOLUME"
 msgstr "VOLUME DI ACQUA"
 
-#: src/kernel.c:149 src/kernel.c:169 src/kernel.c:176 src/kernel.c:189
-#: src/kernel.c:203 src/kernel.c:231 src/kernel.c:248 src/kernel.c:268
+#: src/kernel.c:138 src/kernel.c:158 src/kernel.c:165 src/kernel.c:178
+#: src/kernel.c:192 src/kernel.c:220 src/kernel.c:237 src/kernel.c:257
 #: src/mainWindow.c:1135 src/mainWindow.c:1157 src/mainWindow.c:1168
 #: src/mainWindow.c:1182 src/mainWindow.c:1197 src/mainWindow.c:1227
 #: src/mainWindow.c:1245 src/mainWindow.c:1266
 msgid "Total"
 msgstr "Totale"
 
-#: src/kernel.c:152 src/kernel.c:206 src/configIrrigation.c:459
+#: src/kernel.c:141 src/kernel.c:195 src/configIrrigation.c:459
 #: src/configIrrigation.c:467 src/mainWindow.c:1139 src/mainWindow.c:1201
 #: src/mainWindow.c:1287
 msgid "Input"
 msgstr ""
 
-#: src/kernel.c:154 src/kernel.c:209 src/mainWindow.c:1141
+#: src/kernel.c:143 src/kernel.c:198 src/mainWindow.c:1141
 #: src/mainWindow.c:1204
 msgid "Calculated"
 msgstr "Calcolato"
 
-#: src/kernel.c:156 src/kernel.c:211 src/mainWindow.c:1143
+#: src/kernel.c:145 src/kernel.c:200 src/mainWindow.c:1143
 #: src/mainWindow.c:1206
 msgid "Conservation error"
 msgstr "Errore di conservazione"
 
-#: src/kernel.c:158 src/kernel.c:170 src/kernel.c:178 src/kernel.c:191
-#: src/kernel.c:214 src/kernel.c:234 src/kernel.c:251 src/kernel.c:271
+#: src/kernel.c:147 src/kernel.c:159 src/kernel.c:167 src/kernel.c:180
+#: src/kernel.c:203 src/kernel.c:223 src/kernel.c:240 src/kernel.c:260
 #: src/mainWindow.c:1145 src/mainWindow.c:1159 src/mainWindow.c:1170
 #: src/mainWindow.c:1184 src/mainWindow.c:1209 src/mainWindow.c:1230
 #: src/mainWindow.c:1248 src/mainWindow.c:1269
 msgid "Superficial"
 msgstr "Superficiale"
 
-#: src/kernel.c:160 src/kernel.c:172 src/kernel.c:180 src/kernel.c:193
-#: src/kernel.c:217 src/kernel.c:237 src/kernel.c:254 src/kernel.c:274
+#: src/kernel.c:149 src/kernel.c:161 src/kernel.c:169 src/kernel.c:182
+#: src/kernel.c:206 src/kernel.c:226 src/kernel.c:243 src/kernel.c:263
 #: src/mainWindow.c:1147 src/mainWindow.c:1161 src/mainWindow.c:1172
 #: src/mainWindow.c:1186 src/mainWindow.c:1212 src/mainWindow.c:1233
 #: src/mainWindow.c:1251 src/mainWindow.c:1272
 msgid "Infiltrated"
 msgstr "Infiltrata"
 
-#: src/kernel.c:162 src/kernel.c:173 src/kernel.c:182 src/kernel.c:195
-#: src/kernel.c:220 src/kernel.c:240 src/kernel.c:257 src/kernel.c:277
+#: src/kernel.c:151 src/kernel.c:162 src/kernel.c:171 src/kernel.c:184
+#: src/kernel.c:209 src/kernel.c:229 src/kernel.c:246 src/kernel.c:266
 #: src/mainWindow.c:1149 src/mainWindow.c:1163 src/mainWindow.c:1174
 #: src/mainWindow.c:1188 src/mainWindow.c:1215 src/mainWindow.c:1236
 #: src/mainWindow.c:1254 src/mainWindow.c:1275
 msgid "Percolated"
 msgstr "Filtrato"
 
-#: src/kernel.c:201 src/mainWindow.c:1194
+#: src/kernel.c:190 src/mainWindow.c:1194
 msgid "FERTILIZER MASS"
 msgstr "MASA DI FERTILIZZANTE"
 
-#: src/kernel.c:223 src/kernel.c:243 src/kernel.c:260 src/kernel.c:280
+#: src/kernel.c:212 src/kernel.c:232 src/kernel.c:249 src/kernel.c:269
 #: src/mainWindow.c:1218 src/mainWindow.c:1239 src/mainWindow.c:1257
 #: src/mainWindow.c:1278
 msgid "Solid"
 msgstr "Solido"
 
-#: src/kernel.c:343
+#: src/kernel.c:326
 msgid "Running the numerical simulation ..."
 msgstr "Correndo la simulazione numerica ..."
 
-#: src/kernel.c:345
+#: src/kernel.c:328
 msgid "_Stop"
 msgstr "_Fermare"
 
