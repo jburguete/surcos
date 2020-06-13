@@ -1,0 +1,28 @@
+TO DO!
+13/06/2020
+*****************************************
+
+HIGH PRIORITY
+*****************************************
+JB) Enable PGO building
+JB) Check main loop bug compiling with FreeGLUT
+AL) Improve and update the program manual
+
+MEDIUM PRIORITY
+*****************************************
+JB) Check wet/dry errors and numerical oscillations
+JB) Add calibrator of roughness and infiltration parameters from experimental
+	measurements
+JB) Solve with simplified models (zero-inertia, ...) and different numerical
+	schemes
+JB) Add 3D viewing
+JB) Using GtkHeaderBar in option dialogs?
+
+LOW PRIORITY
+*****************************************
+JB) Test more color codes in map graphics
+JB) Create a dialog to stablish color bounds in map graphics
+JB) Enable working furrows (machine path) with different conditions	of roughness
+	and infiltration
+JB) Enable different unit systems (only in dialogs and graphics, not in
+	engine software and input/output files)

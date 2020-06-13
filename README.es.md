@@ -1,24 +1,24 @@
-SURCOS (5.7 version)
+SURCOS (versión 5.7)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
 
-A software tool to solve irrigation and fertigation in isolated furrows and
-furrow networks.
+Un programa de software para resolver riego y fertirriego en surcos aislados o
+redes de surcos.
 
-AUTHORS
+AUTORES
 -------
 
 * Javier Burguete Tolosa (jburguete@eead.csic.es)
 * Asier Lacasta Soto (asierlacasta@gmail.com)
 * Pilar García Navarro (pigar@unizar.es)
 
-WINDOWS EXECUTABLE FILES
-------------------------
+FICHEROS EJECUTABLES DE WINDOWS
+-------------------------------
 
-This repository contains source and example files with the latest version of 
-SURCOS. Stable versions with executable files and manuals for Microsoft Windows 
-systems can be downloaded in 
+Este repositorio contiene ficheros fuente y de ejemplo con la última versión de
+SURCOS. Versiones estables con ficheros ejecutables y manuales para sistemas
+Microsoft Windows se pueden descargar en
 [digital.csic](http://hdl.handle.net/10261/75830)
 
 REQUIRED
@@ -74,8 +74,8 @@ has not been tested.
 
 Debian 10 (Linux)
 _________________
-Devuan Linux 3
-______________
+Deevuan Linux 3
+_________________
 DragonFly BSD 5.8
 ___________________
 Dyson Illumos
@@ -121,8 +121,6 @@ ___________
 
 2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
 
-Microsoft Windows 7 (with MSYS2)
-________________________________
 Microsoft Windows 10 (with MSYS2)
 _________________________________
 
