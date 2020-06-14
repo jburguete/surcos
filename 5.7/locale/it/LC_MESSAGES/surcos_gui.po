@@ -18,32 +18,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/jb/jb_win.c:145
-#, fuzzy
 msgid "unable to init SDL"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "impossibile inizializzare SDL"
 
 #: src/jb/jb_win.c:151
-#, fuzzy
 msgid "unable to init GLFW"
-msgstr "Impossible aprire il file di input"
+msgstr "impossibile aprire il file di input"
 
 #: src/jb/jb_win.c:252
 msgid "Error!"
-msgstr ""
+msgstr "Errore!"
 
 #: src/jb/jb_win.c:286
 msgid "Warning!"
-msgstr ""
+msgstr "Avvertimento!"
 
 #: src/jb/jb_win.c:656
 #, fuzzy
 msgid "unable to compile the texture vertex shader"
-msgstr "Imposible aprire il file di dati di tempo"
+msgstr "Impossibile aprire il file di dati di tempo"
 
 #: src/jb/jb_win.c:668
 #, fuzzy
 msgid "unable to compile the texture fragment shader"
-msgstr "Imposible aprire il file di dati della geometria"
+msgstr "Impossibile aprire il file di dati della geometria"
 
 #: src/jb/jb_win.c:682
 msgid "unable to link the texture program"
@@ -66,24 +64,20 @@ msgid "could not bind matrix uniform"
 msgstr ""
 
 #: src/jb/jb_win.c:779
-#, fuzzy
 msgid "unable to open the file"
-msgstr "Impossible aprire il file di input"
+msgstr "impossibile aprire il file"
 
 #: src/jb/jb_win.c:786 src/jb/jb_win.c:792
-#, fuzzy
 msgid "unable to open the PNG file"
-msgstr "Impossible aprire il file di input"
+msgstr "impossibile aprire il file PNG"
 
 #: src/jb/jb_win.c:804
-#, fuzzy
 msgid "not enough memory to open the widget"
-msgstr "Memoria insufficiente per aprire il file di input"
+msgstr "memoria insufficiente per aprire l'oggetto"
 
 #: src/jb/jb_win.c:818
-#, fuzzy
 msgid "not enough memory to open the image"
-msgstr "Memoria insufficiente per aprire il file di input"
+msgstr "memoria insufficiente per aprire l'immagine"
 
 #: src/jb/jb_win.c:1020
 msgid "OpenGL 2.1 is not supported"
@@ -92,62 +86,62 @@ msgstr ""
 #: src/jb/jb_win.c:1043
 #, fuzzy
 msgid "unable to compile the fragment shader"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/jb/jb_win.c:1055
 #, fuzzy
 msgid "unable to compile the 2D vertex shader"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/jb/jb_win.c:1070
 #, fuzzy
 msgid "unable to link the 2D program"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1082
 #, fuzzy
 msgid "unable to compile the 3D vertex shader"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/jb/jb_win.c:1097
 #, fuzzy
 msgid "unable to link the 3D program"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1109
 #, fuzzy
 msgid "unable to compile the 2D with color vertex shader"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/jb/jb_win.c:1124
 #, fuzzy
 msgid "unable to link the 2D with color program"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1136
 #, fuzzy
 msgid "unable to compile the 3D with color vertex shader"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/jb/jb_win.c:1151
 #, fuzzy
 msgid "unable to link the 3D with color program"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1162
 #, fuzzy
 msgid "unable to compile the text vertex shader"
-msgstr "Imposible aprire il file di dati di tempo"
+msgstr "Impossibile aprire il file di dati di tempo"
 
 #: src/jb/jb_win.c:1174
 #, fuzzy
 msgid "unable to compile the text fragment shader"
-msgstr "Imposible aprire il file di dati di tempo"
+msgstr "Impossibile aprire il file di dati di tempo"
 
 #: src/jb/jb_win.c:1189
 #, fuzzy
 msgid "unable to link the text program"
-msgstr "Imposible aprire il file di dati di tempo"
+msgstr "Impossibile aprire il file di dati di tempo"
 
 #: src/jb/jb_win.c:1198
 msgid "could not bind 2D position attribute"
@@ -180,7 +174,7 @@ msgstr ""
 #: src/jb/jb_win.c:1251
 #, fuzzy
 msgid "could not bind 2D with color color"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1258
 msgid "could not bind 2D with color matrix"
@@ -193,7 +187,7 @@ msgstr ""
 #: src/jb/jb_win.c:1274
 #, fuzzy
 msgid "could not bind 3D with color color"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/jb/jb_win.c:1281
 msgid "could not bind 3D with color matrix"
@@ -221,9 +215,8 @@ msgid "could not init the FreeType library"
 msgstr ""
 
 #: src/jb/jb_win.c:1327
-#, fuzzy
 msgid "not enough memory to open the font"
-msgstr "Memoria insufficiente per aprire il file di input"
+msgstr "memoria insufficiente per aprire il carattere"
 
 #: src/jb/jb_win.c:1332
 msgid "could not open font"
@@ -234,52 +227,48 @@ msgid "bad tics number"
 msgstr ""
 
 #: src/jb/jb_win.c:1460
-#, fuzzy
 msgid "not enough memory to open the graphic area"
-msgstr "Memoria insufficiente per aprire il file di input"
+msgstr "memoria insufficiente per aprire l'area grafica"
 
 #: src/jb/jb_win.c:1488
-#, fuzzy
 msgid "unable to open the graphic area widget"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "impossibile aprire l'oggetto d'area grafica"
 
 #: src/jb/jb_win.c:1524
-#, fuzzy
 msgid "unable to open the window"
-msgstr "Impossible aprire il file di input"
+msgstr "impossibile aprire la finestra"
 
 #: src/jb/jb_win.c:2505
-#, fuzzy
 msgid "unable to get the GdkPixbuf widget"
-msgstr "Impossible aprire il file di input"
+msgstr "impossibile ottenere l'oggetto GdkPixbuf"
 
 #: src/jb/jb_win.c:2609 src/jb/jb_win.c:2624
 msgid "PNG file"
-msgstr ""
+msgstr "File PNG"
 
 #: src/jb/jb_win.c:2610
 msgid "JPEG file"
-msgstr ""
+msgstr "File JPEG"
 
 #: src/jb/jb_win.c:2611
 msgid "XPM file"
-msgstr ""
+msgstr "File XPM"
 
 #: src/jb/jb_win.c:2612
 msgid "TIFF file"
-msgstr ""
+msgstr "File TIFF"
 
 #: src/jb/jb_win.c:2613
 msgid "BMP file"
-msgstr ""
+msgstr "File BMP"
 
 #: src/jb/jb_win.c:2614
 msgid "GIF file"
-msgstr ""
+msgstr "File GIF"
 
 #: src/jb/jb_win.c:2615
 msgid "ICO file"
-msgstr ""
+msgstr "File ICO"
 
 #: src/jb/jb_win.c:2636
 msgid "Save graphical"
@@ -356,7 +345,7 @@ msgstr "Flusso"
 
 #: src/field.c:199
 msgid "Unable to open the geometry data file"
-msgstr "Imposible aprire il file di dati della geometria"
+msgstr "Impossibile aprire il file di dati della geometria"
 
 #: src/field.c:215 src/field.c:220 src/field.c:225 src/field.c:230
 #: src/field.c:235 src/field.c:240 src/field.c:245 src/field.c:250
@@ -398,7 +387,7 @@ msgstr "Serie di dati non corretta"
 
 #: src/field.c:459
 msgid "Unable to open the input file"
-msgstr "Impossible aprire il file di input"
+msgstr "Impossibile aprire il file di input"
 
 #: src/field.c:476
 msgid "Not enough memory to open the input data"
@@ -406,7 +395,7 @@ msgstr "Memoria insufficiente per aprire il file di input"
 
 #: src/field.c:523
 msgid "Unable to open the mesh data file"
-msgstr "Impossible aprire il file di input di maglia"
+msgstr "Impossibile aprire il file di input di maglia"
 
 #: src/field.c:538
 msgid "Bad mesh data"
@@ -414,7 +403,7 @@ msgstr "Dati di maglia non corretti"
 
 #: src/field.c:562
 msgid "Unable to open the times data file"
-msgstr "Imposible aprire il file di dati di tempo"
+msgstr "Impossibile aprire il file di dati di tempo"
 
 #: src/field.c:568
 msgid "Bad times data"
@@ -422,7 +411,7 @@ msgstr "Dati di tempo non corretti"
 
 #: src/field.c:592
 msgid "Unable to open the model data file"
-msgstr "Impossible aprire il file di dati di modelli"
+msgstr "Impossibile aprire il file di dati di modelli"
 
 #: src/field.c:599
 msgid "Bad model data"
@@ -430,7 +419,7 @@ msgstr "Dati di modelli non corretti"
 
 #: src/field.c:624
 msgid "Unable to open the probes data file"
-msgstr "Imposible aprire il file di dati di sondi"
+msgstr "Impossibile aprire il file di dati di sondi"
 
 #: src/field.c:631 src/field.c:645
 msgid "Bad probes data"
@@ -521,7 +510,7 @@ msgstr "Filtrato"
 
 #: src/kernel.c:194 src/mainWindow.c:1084
 msgid "FERTILIZER MASS"
-msgstr "MASA DI FERTILIZZANTE"
+msgstr "MASSA DI FERTILIZZANTE"
 
 #: src/kernel.c:216 src/kernel.c:236 src/kernel.c:253 src/kernel.c:273
 #: src/mainWindow.c:1108 src/mainWindow.c:1129 src/mainWindow.c:1147
@@ -974,7 +963,7 @@ msgstr "Uscire"
 #~ msgstr "Lettura del logo"
 
 #~ msgid "Unable to open the coefficients file"
-#~ msgstr "Impossible aprire il file di coefficienti"
+#~ msgstr "Impossibile aprire il file di coefficienti"
 
 #~ msgid "Bad coefficients file"
 #~ msgstr "File di coefficienti non corretti"
