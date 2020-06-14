@@ -1,5 +1,5 @@
 TO DO!
-13/06/2020
+14/06/2020
 *****************************************
 
 HIGH PRIORITY
@@ -7,6 +7,7 @@ HIGH PRIORITY
 JB) Enable PGO building
 JB) Check main loop bug compiling with FreeGLUT
 AL) Improve and update the program manual
+AL) End translations of the README file
 
 MEDIUM PRIORITY
 *****************************************
@@ -16,7 +17,6 @@ JB) Add calibrator of roughness and infiltration parameters from experimental
 JB) Solve with simplified models (zero-inertia, ...) and different numerical
 	schemes
 JB) Add 3D viewing
-JB) Using GtkHeaderBar in option dialogs?
 
 LOW PRIORITY
 *****************************************

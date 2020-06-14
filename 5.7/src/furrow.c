@@ -36,7 +36,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "jb/jb_win.h"
 #include "furrow.h"
 
-#define FURROW_SHOW 0 ///< Macro to compile the furrow_show function.
+#define FURROW_SHOW 0           ///< Macro to compile the furrow_show function.
 
 /**
  * Function to read the initial conditions in a file.
@@ -45,8 +45,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 int
 initial_conditions_read (InitialConditions * ci,
-	                       ///< InitialConditions structure.
-	 	                     FILE * file) ///< Input file.
+                         ///< InitialConditions structure.
+                         FILE * file)   ///< Input file.
 {
   if (fscanf (file, FRF FRF FRF, &ci->h, &ci->Q, &ci->c) != 3)
     {
@@ -87,8 +87,8 @@ initial_conditions_dry (InitialConditions * ci)
  * \return 0 on error or 1 on success.
  */
 int
-furrow_read (Furrow * s, ///< Furrow structure.
-	           FILE * file) ///< Input file.
+furrow_read (Furrow * s,        ///< Furrow structure.
+             FILE * file)       ///< Input file.
 {
   if (fscanf (file, FRF FRF FRF FRF FRF FRF FRF FRF FRF FRF FRF,
               &s->b, &s->z, &s->h, &s->D, &s->H, &s->epsilon, &s->n, &s->i1,
@@ -159,8 +159,8 @@ furrow_read (Furrow * s, ///< Furrow structure.
  */
 #if FURROW_SHOW
 void
-furrow_show (Furrow * s, ///< Furrow structure.
-		         FILE * file) ///< Output file.
+furrow_show (Furrow * s,        ///< Furrow structure.
+             FILE * file)       ///< Output file.
 {
   fprintf (file, "furrow_show: start\n");
   fprintf (file, "b=" FWF "\n", s->b);
@@ -192,13 +192,13 @@ furrow_show (Furrow * s, ///< Furrow structure.
  * Function to fix the initial and final coordinates of a furrow
  */
 void
-furrow_position (Furrow * s, ///< Furrow structure.
-		             JBDOUBLE x0, ///< Initial point x-coordinate.
-								 JBDOUBLE y0, ///< Initial point y-coordinate.
-								 JBDOUBLE z0, ///< Initial point z-coordinate.
-                 JBDOUBLE xf, ///< Final point x-coordinate.
-								 JBDOUBLE yf, ///< Final point y-coordinate.
-								 JBDOUBLE zf) ///< Final point z-coordinate.
+furrow_position (Furrow * s,    ///< Furrow structure.
+                 JBDOUBLE x0,   ///< Initial point x-coordinate.
+                 JBDOUBLE y0,   ///< Initial point y-coordinate.
+                 JBDOUBLE z0,   ///< Initial point z-coordinate.
+                 JBDOUBLE xf,   ///< Final point x-coordinate.
+                 JBDOUBLE yf,   ///< Final point y-coordinate.
+                 JBDOUBLE zf)   ///< Final point z-coordinate.
 {
   s->x0 = x0;
   s->y0 = y0;
@@ -212,7 +212,7 @@ furrow_position (Furrow * s, ///< Furrow structure.
  * Function to calculate geometrical parameters of a furrow.
  */
 void
-furrow_open (Furrow * s) ///< Furrow structure.
+furrow_open (Furrow * s)        ///< Furrow structure.
 {
   s->fz = jbm_fdbl (sqrt (1. + jbm_fsqr (s->z)));
   s->l = jbm_v2_length (s->x0, s->y0, s->xf, s->yf);

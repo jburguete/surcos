@@ -1,29 +1,29 @@
-SURCOS (5.7 version)
+SURCOS (version 5.7)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
 :fr:[français](README.fr.md)
 
-A software tool to solve irrigation and fertigation in isolated furrows and
-furrow networks.
+Un outil informatique pour resolver irrigation et fertirrigation en sillons
+isolés ou en réseaux de sillons.
 
-AUTHORS
+AUTEURS
 -------
 
 * Javier Burguete Tolosa (jburguete@eead.csic.es)
 * Asier Lacasta Soto (asierlacasta@gmail.com)
 * Pilar García Navarro (pigar@unizar.es)
 
-WINDOWS EXECUTABLE FILES
-------------------------
+FICHIERS EXÉCUTABLES DE WINDOWS
+-------------------------------
 
-This repository contains source and example files with the latest version of 
-SURCOS. Stable versions with executable files and manuals for Microsoft Windows 
-systems can be downloaded in 
+Ce référentiel contient fichiers source et d'example avec la dernière version de
+SURCOS. On peut télécharger versions stables avec fichiers exécutables et
+manuels pour systèmes Microsoft Windows en
 [digital.csic](http://hdl.handle.net/10261/75830)
 
-FILES
------
+FICHIERS
+--------
 
 * configure.ac: configure generator.
 * Makefile.in: Makefile generator.
@@ -40,34 +40,38 @@ FILES
 * examples/\*/\*.in: example input files.
 * manual/\*: Manual files.
 
-BUILDING INSTRUCTIONS
----------------------
+REQUIS
+------
 
-REQUIRED
+* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) pour compiler le
+  code source
+* [make](http://www.gnu.org/software/make) pour construire le fichier exécutable
+* [autoconf](http://www.gnu.org/software/autoconf) pour générer le Makefile en
+  differents systèmes d'exploitation
+* [automake](http://www.gnu.org/software/automake) pour détecter le système
+  d'exploitation
+* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) pour trouver
+  les bibliothèqes pour compiler
+* [glib](https://developer.gnome.org/glib) outils étendues de C pour travailler
+  avec données, listes, fichiers mappés, expressions régulières, utiliser
+  multiprocesseurs en machines à mémoire partagée, ...
+* [gettext](http://www.gnu.org/software/gettext) pour travailler avec differents
+  codes et langues internationaux
+* [jb](https://github.com/jburguete/jb.git) (utility library of J. Burguete)
+
+OPTIONEL
 ________
 
-* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) (to compile the
-  source code)
-* [make](http://www.gnu.org/software/make) (to build the executable file)
-* [autoconf](http://www.gnu.org/software/autoconf) (to generate the Makefile in
-  different operative systems)
-* [automake](http://www.gnu.org/software/automake) (to check the operative
-  system)
-* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) (to find the
-  libraries to compile)
-* [glib](https://developer.gnome.org/glib) (extended utilities of C to work with
-  data, lists, mapped files, regular expressions, using multicores in shared
-  memory machines, ...)
-* [gettext](http://www.gnu.org/software/gettext) (to work with different
-  locales and languages)
 * [png](http://libpng.sourceforge.net) (to work with PNG files)
 * [gtk+3](http://www.gtk.org) (to create the interactive GUI tool)
 * [freeglut](http://freeglut.sourceforge.net) (interaction with OpenGL to draw 
   graphics)
-* [jb](https://github.com/jburguete/jb.git) (utility library of J. Burguete)
 * [doxygen](http://www.stack.nl/~dimitri/doxygen) (optional: standard comments
   format to generate documentation)
 * [latex](https://www.latex-project.org/) (optional: to build the PDF manuals)
+
+BUILDING INSTRUCTIONS
+---------------------
 
 This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
@@ -75,8 +79,8 @@ has not been tested.
 
 Debian 10 (Linux)
 _________________
-Devuan Linux 3
-______________
+Deevuan Linux 3
+_________________
 DragonFly BSD 5.8
 ___________________
 Dyson Illumos
@@ -122,8 +126,6 @@ ___________
 
 2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
 
-Microsoft Windows 7 (with MSYS2)
-________________________________
 Microsoft Windows 10 (with MSYS2)
 _________________________________
 

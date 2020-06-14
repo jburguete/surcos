@@ -80,7 +80,7 @@ char *message = NULL;
  * Function to print an error message.
  */
 static void
-print_error (const char *msg) ///< Error message string.
+print_error (const char *msg)   ///< Error message string.
 {
   printf ("Error!\n%s\n", msg);
 }
@@ -89,9 +89,9 @@ print_error (const char *msg) ///< Error message string.
  * Function to save a mass in a results summary file.
  */
 static void
-results_mass (FILE * file, ///< Results summary file.
-	      char *label, ///< Mass label.
-	      double mass) ///< Mass.
+results_mass (FILE * file,      ///< Results summary file.
+              char *label,      ///< Mass label.
+              double mass)      ///< Mass.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t\t%s = %g m\302\263\n", label, mass);
@@ -102,7 +102,7 @@ results_mass (FILE * file, ///< Results summary file.
  * Function to save the results summary file.
  */
 static void
-results_save (char *dir) //< Directory.
+results_save (char *dir)        //< Directory.
 {
   char buffer[512];
   FILE *file;
@@ -115,7 +115,7 @@ results_save (char *dir) //< Directory.
   snprintf (buffer, 512, "%s = " FPL " s\n", _("Irrigation life time"), t);
   fprintf (file, buffer);
   snprintf (buffer, 512, "%s = " FPL " s\n\n", _("Calculation time"),
-		 	      field->cpu);
+            field->cpu);
   fprintf (file, buffer);
 
   snprintf (buffer, 512, "%s\n", _("IRRIGATION QUALITY"));
@@ -150,18 +150,15 @@ results_save (char *dir) //< Directory.
   fprintf (file, buffer);
   results_mass (file, _("Superficial"),
                 volume_water_surface (field->p, field->n));
-  results_mass (file, _("Infiltrated"),
-                volume_water_soil (field->p, field->n));
-  results_mass (file, _("Percolated"),
-                volume_water_loss (field->p, field->n));
+  results_mass (file, _("Infiltrated"), volume_water_soil (field->p, field->n));
+  results_mass (file, _("Percolated"), volume_water_loss (field->p, field->n));
   if (field->nfurrows > 0)
     {
       n = field->nfurrows * field->ni;
       snprintf (buffer, 512, "\t%s\n", _("Irrigation furrows"));
       fprintf (file, buffer);
       results_mass (file, _("Total"), volume_water_total (field->p, n));
-      results_mass (file, _("Superficial"),
-                    volume_water_surface (field->p, n));
+      results_mass (file, _("Superficial"), volume_water_surface (field->p, n));
       results_mass (file, _("Infiltrated"), volume_water_soil (field->p, n));
       results_mass (file, _("Percolated"), volume_water_loss (field->p, n));
       snprintf (buffer, 512, "\t%s\n", _("Distribution furrow"));
@@ -296,7 +293,7 @@ window_run_close ()
 static void
 window_run_destroy ()
 {
-	GMainContext *context = g_main_context_default ();
+  GMainContext *context = g_main_context_default ();
   while (g_main_context_pending (context))
     g_main_context_iteration (context, 0);
   gtk_widget_destroy (GTK_WIDGET (windowRun->dialog));
@@ -306,10 +303,10 @@ window_run_destroy ()
  * Function to update a simulation running dialog.
  */
 static void
-window_run_update (Field * T) //< Field data structure.
+window_run_update (Field * T)   //< Field data structure.
 {
   char buffer[32];
-	GMainContext *context = g_main_context_default ();
+  GMainContext *context = g_main_context_default ();
   gtk_progress_bar_set_fraction (windowRun->progress, t / T->tf);
   snprintf (buffer, 32, "(%.2lf/%.2lf)", (double) t, (double) T->tf);
   gtk_progress_bar_set_text (windowRun->progress, buffer);
@@ -328,7 +325,7 @@ window_run_new ()
 
   windowRun->dialog =
     (GtkDialog *)
-    gtk_dialog_new_with_buttons (_ ("Running the numerical simulation ..."),
+    gtk_dialog_new_with_buttons (_("Running the numerical simulation ..."),
                                  main_window->window, GTK_DIALOG_MODAL,
                                  _("_Stop"), GTK_RESPONSE_CLOSE, NULL);
   gtk_window_set_position (GTK_WINDOW (windowRun->dialog),
@@ -339,8 +336,7 @@ window_run_new ()
                      GTK_WIDGET (windowRun->progress));
   g_signal_connect_after (windowRun->dialog, "response",
                           G_CALLBACK (window_run_destroy), NULL);
-  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close,
-                          NULL);
+  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
   gtk_progress_bar_set_fraction (windowRun->progress, 0.);
   snprintf (buffer, 32, "(0.0/0.0)");
   gtk_progress_bar_set_text (windowRun->progress, buffer);
@@ -356,8 +352,8 @@ window_run_new ()
  * \return 0 on error, 1 on success.
  */
 unsigned int
-kernel_open (char *dir, ///< Directory where the input data files are located.
-	           unsigned int gui) ///< 1 on graphical GUI, 0 on else.
+kernel_open (char *dir,         ///< Directory where the input data files are located.
+             unsigned int gui)  ///< 1 on graphical GUI, 0 on else.
 {
   void (*show_error) (const char *msg);
 #if DEBUG_KERNEL_OPEN
@@ -401,12 +397,12 @@ exit_error:
  * \return 0 on ending the simulation, 1 on a simple simulation step.
  */
 static unsigned int
-kernel_step (FILE * file_probes, ///< File to save the probes data.
-	           unsigned int gui __attribute__ ((unused)))
- 	           ///< 1 on graphical GUI, 0 on else.
+kernel_step (FILE * file_probes,        ///< File to save the probes data.
+             unsigned int gui __attribute__((unused)))
+  ///< 1 on graphical GUI, 0 on else.
 {
 #if JBW != JBW_NO
-	GMainContext *context = g_main_context_default ();
+  GMainContext *context = g_main_context_default ();
 #endif
   JBDOUBLE tmax;
 #if DEBUG_KERNEL_STEP
@@ -456,8 +452,8 @@ kernel_step (FILE * file_probes, ///< File to save the probes data.
           return 0;
         }
 #if JBW != JBW_NO
-    while (gui && g_main_context_pending (context))
-      g_main_context_iteration (context, 0);
+      while (gui && g_main_context_pending (context))
+        g_main_context_iteration (context, 0);
 #endif
     }
 #if DEBUG_KERNEL_STEP
@@ -472,9 +468,10 @@ kernel_step (FILE * file_probes, ///< File to save the probes data.
  * \return 0 on error, 1 on success.
  */
 unsigned int
-kernel (char *dir, ///< Directory where the input data files are located.
-	      unsigned int gui, ///< 1 on graphical GUI, 0 on else.
-       	unsigned int msg) ///< 1 on periodic messages, 0 on else.
+kernel (char *dir,
+        ///< Directory where the input data files are located.
+        unsigned int gui,       ///< 1 on graphical GUI, 0 on else.
+        unsigned int msg)       ///< 1 on periodic messages, 0 on else.
 {
   char buffer[512];
   FILE *file_probes;

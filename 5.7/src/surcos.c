@@ -61,8 +61,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \return 0 on success, error code number on error.
  */
 int
-surcos (int argn, ///< Arguments number.
-		    char *argc[]) ///< Argument strings.
+surcos (int argn,               ///< Arguments number.
+        char *argc[])           ///< Argument strings.
 {
   char *buffer, *buffer2;
 
@@ -72,7 +72,7 @@ surcos (int argn, ///< Arguments number.
 
   // Initing field arrays
   field->si = NULL;
-	field->p = NULL;
+  field->p = NULL;
   field->input = NULL;
   field->probe = NULL;
 
@@ -133,7 +133,7 @@ surcos (int argn, ///< Arguments number.
       printf ("%s:\n%s\n", _("Usage is"), _("surcos [-v] input_directory"));
       return 4;
     }
-	field_destroy (field);
+  field_destroy (field);
 
 #if DEBUG_SURCOS
   printf ("surcos: end\n");

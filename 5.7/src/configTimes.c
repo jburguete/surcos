@@ -120,8 +120,7 @@ config_times_new (ConfigTimes * w)
 #endif
   // Creating the spin buttons
   w->spin[0] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1e6, 1.);
-  w->spin[1] =
-    (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1., 0.01);
+  w->spin[1] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1., 0.01);
   w->spin[2] = (GtkSpinButton *) gtk_spin_button_new_with_range (0., 1e6, 1.);
   w->spin[3] = (GtkSpinButton *) gtk_spin_button_new_with_range (2., 1e5, 1.);
   w->spin[4] = (GtkSpinButton *) gtk_spin_button_new_with_range (2., 1e5, 1.);

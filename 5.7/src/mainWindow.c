@@ -48,15 +48,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "graphics.h"
 #include "mainWindow.h"
 
-#define DEBUG_PLOT_CREATE 1
+#define DEBUG_PLOT_CREATE 0
 ///< Macro to debug the plot_create() function.
-#define DEBUG_MAIN_WINDOW_DELETE_GRAPHIC 1
+#define DEBUG_MAIN_WINDOW_DELETE_GRAPHIC 0
 ///< Macro to debug the main_window_delete_graphic() function.
-#define DEBUG_MAIN_WINDOW_DELETE 1
+#define DEBUG_MAIN_WINDOW_DELETE 0
 ///< Macro to debug the main_window_delete() function.
-#define DEBUG_MAIN_WINDOW_RUN 1
+#define DEBUG_MAIN_WINDOW_RUN 0
 ///< Macro to debug the main_window_run() function.
-#define DEBUG_MAIN_WINDOW_NEW 1
+#define DEBUG_MAIN_WINDOW_NEW 0
 ///< Macro to debug the main_window_new() function.
 
 char *input_dir = NULL;
@@ -387,318 +387,318 @@ const char *fondo6[] = {
 ///> logo2 pixmap.
 const char *logo2[] = {
 /* columns rows colors chars-per-pixel */
-"64 64 232 2 ",
-"   c #051B36",
-".  c #0B1C33",
-"X  c #04163B",
-"o  c #0A163C",
-"O  c #051B3C",
-"+  c #091B3D",
-"@  c #051534",
-"#  c #121D3C",
-"$  c #161D37",
-"%  c #05213B",
-"&  c #17253E",
-"*  c #051742",
-"=  c #061B42",
-"-  c #0A1C42",
-";  c #091E4A",
-":  c #0A1846",
-">  c #0B2143",
-",  c #0F254A",
-"<  c #152344",
-"1  c #1C2642",
-"2  c #1E2A45",
-"3  c #1A254A",
-"4  c #1A2A4A",
-"5  c #1A2F4F",
-"6  c #252D46",
-"7  c #233555",
-"8  c #2E3A51",
-"9  c #23395E",
-"0  c #323C57",
-"q  c #2D394F",
-"w  c #073E6C",
-"e  c #0E2E7B",
-"r  c #0C3575",
-"t  c #0B3975",
-"y  c #06347C",
-"u  c #0D357C",
-"i  c #0D3A7C",
-"p  c #063777",
-"a  c #123476",
-"s  c #133A76",
-"d  c #1B3D75",
-"f  c #12357D",
-"g  c #1B337B",
-"h  c #12397D",
-"j  c #1C3A7A",
-"k  c #1A3177",
-"l  c #12326F",
-"z  c #203C7D",
-"x  c #253B79",
-"c  c #38435D",
-"v  c #16427A",
-"b  c #3C4869",
-"n  c #264078",
-"m  c #4C5672",
-"M  c #4D566D",
-"N  c #596378",
-"B  c #616A7B",
-"V  c #0D3483",
-"C  c #0D3983",
-"Z  c #0F3389",
-"A  c #083985",
-"S  c #123583",
-"D  c #1C3483",
-"F  c #133983",
-"G  c #133589",
-"H  c #183787",
-"J  c #2A4885",
-"K  c #3E548C",
-"L  c #37568B",
-"P  c #345291",
-"I  c #3C6287",
-"U  c #1556BE",
-"Y  c #1960BA",
-"T  c #435D96",
-"R  c #496388",
-"E  c #5B6D9C",
-"W  c #587497",
-"Q  c #4E6694",
-"!  c #636C82",
-"~  c #687586",
-"^  c #6A7898",
-"/  c #747D93",
-"(  c #727A8F",
-")  c #5D72A3",
-"_  c #6576A8",
-"`  c #636EA4",
-"'  c #1E4FCC",
-"]  c #0F57C7",
-"[  c #1455C4",
-"{  c #1A55C4",
-"}  c #155AC5",
-"|  c #1A5BC5",
-" . c #1555CC",
-".. c #1B55CB",
-"X. c #155ACB",
-"o. c #1B5ACC",
-"O. c #184FD5",
-"+. c #1555D1",
-"@. c #1B55D2",
-"#. c #1559D2",
-"$. c #1B59D2",
-"%. c #1955D8",
-"&. c #0E53CF",
-"*. c #245AC3",
-"=. c #2256CA",
-"-. c #215ACC",
-";. c #2B5ECB",
-":. c #265BC3",
-">. c #245AD4",
-",. c #1661C7",
-"<. c #2D62CD",
-"1. c #2B64C8",
-"2. c #376AD4",
-"3. c #3A72D1",
-"4. c #336BCE",
-"5. c #3D7EEA",
-"6. c #3E7EFB",
-"7. c #3E7FF3",
-"8. c #406AD4",
-"9. c #4E7DDA",
-"0. c #4574D5",
-"q. c #517DD6",
-"w. c #4D77CD",
-"e. c #467DE9",
-"r. c #437EF3",
-"t. c #437DFA",
-"y. c #4B7FFA",
-"u. c #497DF2",
-"i. c #798296",
-"p. c #6B83A9",
-"a. c #7A8AA8",
-"s. c #778CB3",
-"d. c #7E91B9",
-"f. c #3E82EB",
-"g. c #3D89EE",
-"h. c #3E84F3",
-"j. c #3D89F6",
-"k. c #3E83FB",
-"l. c #5A81D0",
-"z. c #6586D8",
-"x. c #6B94D8",
-"c. c #799ADD",
-"v. c #7592C9",
-"b. c #7CA4DC",
-"n. c #4283EC",
-"m. c #4A82ED",
-"M. c #4987E7",
-"N. c #5589EA",
-"B. c #4383F4",
-"V. c #4A83F5",
-"C. c #4C88F4",
-"Z. c #4382FB",
-"A. c #4983FB",
-"S. c #4388F6",
-"D. c #528DF5",
-"F. c #598AF5",
-"G. c #5F98F2",
-"H. c #6697E5",
-"J. c #7598E6",
-"K. c #6596FA",
-"L. c #729FFC",
-"P. c #628CF3",
-"I. c #77A3ED",
-"U. c #72A3F6",
-"Y. c #6CA5EA",
-"T. c #848B9E",
-"R. c #8B98A8",
-"E. c #939AAD",
-"W. c #8596B9",
-"Q. c #848BBF",
-"!. c #99A3B2",
-"~. c #A3AABD",
-"^. c #909DC0",
-"/. c #8DA4C5",
-"(. c #94A3C5",
-"). c #93B2D7",
-"_. c #A6AECD",
-"`. c #AEB5C7",
-"'. c #B5B8C3",
-"]. c #BCBFDE",
-"[. c #829BE3",
-"{. c #879FF8",
-"}. c #87A8E9",
-"|. c #92AAEE",
-" X c #99ADEA",
-".X c #95B5EC",
-"XX c #8AACF8",
-"oX c #83B3FD",
-"OX c #8BB1FA",
-"+X c #9BBBF9",
-"@X c #8EB2E4",
-"#X c #A3BBEE",
-"$X c #A4BAE7",
-"%X c #A8BAF9",
-"&X c #B6BFE8",
-"*X c #B8C7DB",
-"=X c #B3C1CE",
-"-X c #9AC4F0",
-";X c #A5C2ED",
-":X c #B5CBEC",
-">X c #BCC9E7",
-",X c #A3C2F5",
-"<X c #A9C6F5",
-"1X c #B5D1FD",
-"2X c #B9D7F7",
-"3X c #B0C9F2",
-"4X c #C6CCDB",
-"5X c #C4C9D5",
-"6X c #C8D3DA",
-"7X c #D2DCDE",
-"8X c #C7D6E7",
-"9X c #D5DBE8",
-"0X c #CCDBFB",
-"qX c #C6D5F7",
-"wX c #D6DDF7",
-"eX c #DAE3EE",
-"rX c #D3E2F3",
-"tX c #DAE4F6",
-"yX c #DCEFF6",
-"uX c #D4E2FD",
-"iX c #DCECFE",
-"pX c #DBE7FC",
-"aX c #DBF5FF",
-"sX c #CEE5F7",
-"dX c #E3ECFC",
-"fX c #E4EAF4",
-"gX c #E3F1FE",
-"hX c #EBF3FD",
-"jX c #E3FAFF",
-"kX c #EBFDFD",
-"lX c #E7F3F5",
-"zX c None",
+  "64 64 232 2 ",
+  "   c #051B36",
+  ".  c #0B1C33",
+  "X  c #04163B",
+  "o  c #0A163C",
+  "O  c #051B3C",
+  "+  c #091B3D",
+  "@  c #051534",
+  "#  c #121D3C",
+  "$  c #161D37",
+  "%  c #05213B",
+  "&  c #17253E",
+  "*  c #051742",
+  "=  c #061B42",
+  "-  c #0A1C42",
+  ";  c #091E4A",
+  ":  c #0A1846",
+  ">  c #0B2143",
+  ",  c #0F254A",
+  "<  c #152344",
+  "1  c #1C2642",
+  "2  c #1E2A45",
+  "3  c #1A254A",
+  "4  c #1A2A4A",
+  "5  c #1A2F4F",
+  "6  c #252D46",
+  "7  c #233555",
+  "8  c #2E3A51",
+  "9  c #23395E",
+  "0  c #323C57",
+  "q  c #2D394F",
+  "w  c #073E6C",
+  "e  c #0E2E7B",
+  "r  c #0C3575",
+  "t  c #0B3975",
+  "y  c #06347C",
+  "u  c #0D357C",
+  "i  c #0D3A7C",
+  "p  c #063777",
+  "a  c #123476",
+  "s  c #133A76",
+  "d  c #1B3D75",
+  "f  c #12357D",
+  "g  c #1B337B",
+  "h  c #12397D",
+  "j  c #1C3A7A",
+  "k  c #1A3177",
+  "l  c #12326F",
+  "z  c #203C7D",
+  "x  c #253B79",
+  "c  c #38435D",
+  "v  c #16427A",
+  "b  c #3C4869",
+  "n  c #264078",
+  "m  c #4C5672",
+  "M  c #4D566D",
+  "N  c #596378",
+  "B  c #616A7B",
+  "V  c #0D3483",
+  "C  c #0D3983",
+  "Z  c #0F3389",
+  "A  c #083985",
+  "S  c #123583",
+  "D  c #1C3483",
+  "F  c #133983",
+  "G  c #133589",
+  "H  c #183787",
+  "J  c #2A4885",
+  "K  c #3E548C",
+  "L  c #37568B",
+  "P  c #345291",
+  "I  c #3C6287",
+  "U  c #1556BE",
+  "Y  c #1960BA",
+  "T  c #435D96",
+  "R  c #496388",
+  "E  c #5B6D9C",
+  "W  c #587497",
+  "Q  c #4E6694",
+  "!  c #636C82",
+  "~  c #687586",
+  "^  c #6A7898",
+  "/  c #747D93",
+  "(  c #727A8F",
+  ")  c #5D72A3",
+  "_  c #6576A8",
+  "`  c #636EA4",
+  "'  c #1E4FCC",
+  "]  c #0F57C7",
+  "[  c #1455C4",
+  "{  c #1A55C4",
+  "}  c #155AC5",
+  "|  c #1A5BC5",
+  " . c #1555CC",
+  ".. c #1B55CB",
+  "X. c #155ACB",
+  "o. c #1B5ACC",
+  "O. c #184FD5",
+  "+. c #1555D1",
+  "@. c #1B55D2",
+  "#. c #1559D2",
+  "$. c #1B59D2",
+  "%. c #1955D8",
+  "&. c #0E53CF",
+  "*. c #245AC3",
+  "=. c #2256CA",
+  "-. c #215ACC",
+  ";. c #2B5ECB",
+  ":. c #265BC3",
+  ">. c #245AD4",
+  ",. c #1661C7",
+  "<. c #2D62CD",
+  "1. c #2B64C8",
+  "2. c #376AD4",
+  "3. c #3A72D1",
+  "4. c #336BCE",
+  "5. c #3D7EEA",
+  "6. c #3E7EFB",
+  "7. c #3E7FF3",
+  "8. c #406AD4",
+  "9. c #4E7DDA",
+  "0. c #4574D5",
+  "q. c #517DD6",
+  "w. c #4D77CD",
+  "e. c #467DE9",
+  "r. c #437EF3",
+  "t. c #437DFA",
+  "y. c #4B7FFA",
+  "u. c #497DF2",
+  "i. c #798296",
+  "p. c #6B83A9",
+  "a. c #7A8AA8",
+  "s. c #778CB3",
+  "d. c #7E91B9",
+  "f. c #3E82EB",
+  "g. c #3D89EE",
+  "h. c #3E84F3",
+  "j. c #3D89F6",
+  "k. c #3E83FB",
+  "l. c #5A81D0",
+  "z. c #6586D8",
+  "x. c #6B94D8",
+  "c. c #799ADD",
+  "v. c #7592C9",
+  "b. c #7CA4DC",
+  "n. c #4283EC",
+  "m. c #4A82ED",
+  "M. c #4987E7",
+  "N. c #5589EA",
+  "B. c #4383F4",
+  "V. c #4A83F5",
+  "C. c #4C88F4",
+  "Z. c #4382FB",
+  "A. c #4983FB",
+  "S. c #4388F6",
+  "D. c #528DF5",
+  "F. c #598AF5",
+  "G. c #5F98F2",
+  "H. c #6697E5",
+  "J. c #7598E6",
+  "K. c #6596FA",
+  "L. c #729FFC",
+  "P. c #628CF3",
+  "I. c #77A3ED",
+  "U. c #72A3F6",
+  "Y. c #6CA5EA",
+  "T. c #848B9E",
+  "R. c #8B98A8",
+  "E. c #939AAD",
+  "W. c #8596B9",
+  "Q. c #848BBF",
+  "!. c #99A3B2",
+  "~. c #A3AABD",
+  "^. c #909DC0",
+  "/. c #8DA4C5",
+  "(. c #94A3C5",
+  "). c #93B2D7",
+  "_. c #A6AECD",
+  "`. c #AEB5C7",
+  "'. c #B5B8C3",
+  "]. c #BCBFDE",
+  "[. c #829BE3",
+  "{. c #879FF8",
+  "}. c #87A8E9",
+  "|. c #92AAEE",
+  " X c #99ADEA",
+  ".X c #95B5EC",
+  "XX c #8AACF8",
+  "oX c #83B3FD",
+  "OX c #8BB1FA",
+  "+X c #9BBBF9",
+  "@X c #8EB2E4",
+  "#X c #A3BBEE",
+  "$X c #A4BAE7",
+  "%X c #A8BAF9",
+  "&X c #B6BFE8",
+  "*X c #B8C7DB",
+  "=X c #B3C1CE",
+  "-X c #9AC4F0",
+  ";X c #A5C2ED",
+  ":X c #B5CBEC",
+  ">X c #BCC9E7",
+  ",X c #A3C2F5",
+  "<X c #A9C6F5",
+  "1X c #B5D1FD",
+  "2X c #B9D7F7",
+  "3X c #B0C9F2",
+  "4X c #C6CCDB",
+  "5X c #C4C9D5",
+  "6X c #C8D3DA",
+  "7X c #D2DCDE",
+  "8X c #C7D6E7",
+  "9X c #D5DBE8",
+  "0X c #CCDBFB",
+  "qX c #C6D5F7",
+  "wX c #D6DDF7",
+  "eX c #DAE3EE",
+  "rX c #D3E2F3",
+  "tX c #DAE4F6",
+  "yX c #DCEFF6",
+  "uX c #D4E2FD",
+  "iX c #DCECFE",
+  "pX c #DBE7FC",
+  "aX c #DBF5FF",
+  "sX c #CEE5F7",
+  "dX c #E3ECFC",
+  "fX c #E4EAF4",
+  "gX c #E3F1FE",
+  "hX c #EBF3FD",
+  "jX c #E3FAFF",
+  "kX c #EBFDFD",
+  "lX c #E7F3F5",
+  "zX c None",
 /* pixels */
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXD.B.7.V.zX4. .<.zXv G P m ; 5 zXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX+Xn.r.g.,X3X[ o.J.zXh y E 9 X 7 zXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX,Xr.m.t.D.zX4.#...tX` F p 4X> > 7 zXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXhXU.k.h.Z.n.dX|.o.#.c.zXi p H zX. + b zXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX0X%XOXL.K.K.K.J.XXOX|.-X1X1X2XzXzXzXzXzXzXzXzXpX#XH.A.B.k.h.V.aX:X=.o.1.yX_ i V ` ~ . * ^ zXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXuXI.D.A.r.h.B.h.h.j.j.r.Z.B.r.B.S.S.B.B.B.B.V.A.V.B.B.B.B.Z.h.B.h.F.hX:X>.*.o.qX9XS a V zX, + O 5XzXzXzX",
-"zXzXzXzXzXzXzXzXzXzX1XM.k.Z.m.r.B.C.r.r.r.y.r.V.B.B.B.V.r.r.y.B.B.B.B.B.B.B.B.V.k.V.r.n.#XzX[.....X.%XzXH r G R 9X= O > zXzXzXzX",
-"zXzXzXzXzXzXzXzXuXN.B.k.Z.B.B.B.r.7.B.A.h.h.k.B.B.B.B.h.B.B.j.r.B.B.B.B.B.B.B.h.S.K.qXzX,X4.} @.o.).zXL u h C kXb . % 5 zXzXzXzX",
-"zXzXzXzXzXzXzXoXV.C.5.A.B.Z.r.B.A.k.S.B.7.B.u.Z.r.B.B.k.B.r.B.V.7.Z.r.C.F.U.,XyXzXhX@X4. ...=.;.:XzXT r G h /.eXo = + B zXzXzXzX",
-"zXzXzXzXzXzXI.t.M.A.A.f.Z.B.n.j.e.r.t.B.B.Z.Z.B.B.h.g.V.D.K.oX,XqXzXzXzXzXzXsX|.9.....o. .o.e.qXzXL r S i J zX8 + X + dXzXzXzXzX",
-"zXzXzXzXzXK.n.g.h.6.r.m.B.B.B.t.B.C.m.m.S.n.N.U.+XqXzXzXzXzXzXzXzXlX>X|.9.-.X.=.X.X.X.[ :.@XzXlXD i h a D zX5X-   - 2 zXzXzXzXzX",
-"zXzXzXzX{.7.j.n.t.B.V.B.t.A.f.S.k.6.Z.F.%XjXzXzXzXzXzXzXzXdX<XH.3.@.O.X.X.#.@. .| ....z.dXzX5Xf V G S S 9XzX3 * + - E.zXzXzXzXzX",
-"zXzXzX,XZ.r.Z.Z.r.t.r.r.k.f.k.n.V.XXiXzXzXzXzXzXzXgX3Xx.3.X.X.} { =.o.X.{ U ..[ o.q.0XzXzXW.f S f h p _.zXN . ; - $ zXzXzXzXzXzX",
-"zXzXuXk.f.C.r.n.t.A.k.j.h.Z.V.U.jXzXzXzXzXzXzX#Xl.=. .%.O...-.o.@.@. .X.#.#. .q.2XzXzXzXI A V l h A p.zX*X  + ; @ ~ zXzXzXzXzXzX",
-"zXzXD.B.B.f.Z.B.r.n.h.j.r.F.0XzXzXzXzXzXiXJ.=.U [ @.o.[ | o.[ [ X.X.+...{ w.1XzXzXzX*Xg C F f f A L zXzX< : O o $ zXzXzXzXzXzXzX",
-"zX-Xm.k.A.B.Z.Z.B.t.B.r.P.jXzXzXzXzXyXx.-. .#...@. .#.X. . .@.X.{ ..[ 0.1XzXzXzXzX_ S i i u S Z J zXzXc + + = o ( zXzXzXzXzXzXzX",
-"zXA.k.e.B.V.A.r.B.r.B.K.zXzXzXzXzX-X:.@.>.{  .[ { o.|  ...} } [ $.;.#XzXzXzXzXsXv C u s Z S w J zXzXR.% + + - $ zXzXzXzXzXzXzXzX",
-"wXu.f.S.Z.5.Z.k.t.g.F.zXzXzXzXdXz.' } | [ +. .$.o. ...*.&.@.o.;.}.zXzXzXzXzXQ.a a h r F V u g zXzX7X+ + > X - T.zXzXzXzXzXzXzXzX",
-"zXzXK.S.A.S.k.B.B.V.gXzXzXzXyX2.=.$.+. .o.o. .U #.@.U X.@.=.c.dXzXzXzXzXzXL k V H G t i V D hXzXzX< ; + + + % zXzXzXzXzXzXzXzXzX",
-"zXzXzXU.t.n.y.7.A.wXzXzXzXrX4.@.[ o. .#...o...X...$.o.[ 3.0XzXzXzXzXzX4Xh a i i Z e G r D fXzXzXc = = . % % E.zXzXzXzXzXzXzXzXzX",
-"zXzXzXzXY.f.V.S.XXzXzXzXuX<.#.| { X.........o.[ | { @.I.zXzXzXzXzXzXs.t i A Z V i G r h 6XzXzXi.= : .   = & zXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXM.Z.S.kXzXzXzX0.o.] X.[ X. .#. .[ X.} ..2.0XzXzXzXzXzXzXL V G u F V r S r g *XzXzX6X% : o + * ; ~.zXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXqXk..XzXzXzXx.@. .o.o. . .o.X. .o. .%.9.gXzXzXzXzXzXeXj S G h r r S F h h ^.zXzXzX-   + + % X 2 zXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXoXzXzXzX<X| [ | O. .o...[ ..@...o.[.kXzXzXzXzXzX*XG a r V u D u t u V p.zXzXzXc + O : = + & '.zXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXaX;.o.+.} +.[ |  .@.$.X.{  XzXzXzXzXzXzX(.u k C C u A p G r u T zXzXzXT.- + . O = O 6 zXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXb.=...X.{ o.o. ...o. .| $XzXzXzXzXzXzXW.S r h e F C r G s C J zXzXzX9X- . ; o = > o 9XzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXpX:.@...X. .X. .=.{ o. .$XzXzXzXzXzXzXW.f V V p S S r h S h x zXzXzXzX& O % = = O o 0 zXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzX|.U [ ..o.#...@.[ U &.}.zXzXzXzXzXzXW.r i h A h u G r f h S gXzXzXzXN *   > O = + + 9XzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzX|.o.,...@.#...X.X. .x.zXzXzXzXzXzXW.h V r r S e F p F i a 8XzXzXzX4Xo - + o + = X c zXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXuX@.} o. ...[ X.+.9.zXzXzXzXzXzX>Xa i r Z u S D V r u V d.zXzXzXzX< = - = + + + + 9XzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzX0. ...o...} o.*.dXzXzXzXzXzXrXs r F V r H u u V i h K zXzXzXzXm = O @ > X + O 0 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXb.|  .%.{ o. .3XzXzXzXzXzXzXH a S A S a t C h t A D zXzXzXzX6X. : O % o ; O # 6XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXqX@.[ X.$.&.v.zXzXzXzXzXzXJ h F r t V Z F S u C g 9XzXzXzXzX5 = X + O + + + 6 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzX<.&.} +.1.iXzXzXzXzXzXp.S C V h a G S r r V C ^ zXzXzXzX/ + O ; + O - + % ~.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXx.$.} o.#XzXzXzXzXzXqXh C u V h h f r t C C n zXzXzXzXzX# o - = O + ; - + zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzX;X..o.2.zXzXzXzXzXzXx h r i u V u F r p C s tXzXzXzXzX0 % + - O + + O @ ~ zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXdX-.X.#XzXzXzXzXzXQ a g y i u H G e V F f s.zXzXzXzX6X> O + * - + + - $ zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzX8.0.zXzXzXzXzX8Xy S Z s i u V G u C h x zXzXzXzXzX6 - O % o - + O X 0 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzX[.<XzXzXzXzXzXJ A r h V r u G r C V k >XzXzXzXzX=X% O - O - o % O + `.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXsXzXzXzXzXzX(.f C w i V h V S i t G K zXzXzXzXzX& O + = = = . + + % zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXH A t F S h u f G r C j zXzXzXzXzXE.- % O O - -   = o M zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXE f i r V r u u S u G p d.zXzXzXzXzX& X + + * o + O > - 4XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXjXg F r S h G i u r h A d zXzXzXzXzX~.. - O o - + + -   < zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzX) e V V h r Z r F u u i ^.zXzXzXzXzX1 O + > . : + + - . m zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXh i V G r a C S u F u j zXzXzXzXzX`.+ = O   o - + O O $ 6XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXp.C p F V u h h V f h C _.zXzXzXzXzX6 = ; % O - O + > @ % zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXk V u f r F V h V S i d zXzXzXzXzX4Xo = + O = - + O = > 8 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXtXS h S a a r G u u a A *XzXzXzXzXzX0 # * + + - +   o O * E.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXz t h Z V u h u G V j zXzXzXzXzXzX= + + O + + + = O o o zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXE F r F V r h S h i W.zXzXzXzXzXB o + o = + O + + O o 6 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXrXZ F u S u u C r s zXzXzXzXzXzX> + = o = + = O + O o N zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXF S y h S r u S W zXzXzXzXzX`.> + + + + o = o + O o `.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXW V h u G y h f zXzXzXzXzXzX7 = o + o = + - O o = - zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXyXg h u S i h K zXzXzXzXzXzXX + = = O + + + o = = & zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXx a F u u f 9XzXzXzXzXzX/ + + O o = O = O = = = b zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXv.h S r G H zXzXzXzXzXzX3 . = O + + + o o = o = T.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXC s A s _ zXzXzXzXzXzX= =   = + + O o + + + = lXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXQ i S V zXzXzXzXzXzXN - - O + O = - + = o - = zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXdXC D J zXzXzXzXzXzX& + : . + o + O o o O O < zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXK u _.zXzXzXzXzXfX# + = O + - + O = + o O b zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXhXd zXzXzXzXzXzXN @ ; + + + o O = o = + = B zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXdXzXzXzXzXzXzX3 . =   o + = + + O o + + '.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX. : O + - + + + + - + + = zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
-"zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX/ . ; O % O o = + o = O + + zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX"
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXD.B.7.V.zX4. .<.zXv G P m ; 5 zXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX+Xn.r.g.,X3X[ o.J.zXh y E 9 X 7 zXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX,Xr.m.t.D.zX4.#...tX` F p 4X> > 7 zXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXhXU.k.h.Z.n.dX|.o.#.c.zXi p H zX. + b zXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX0X%XOXL.K.K.K.J.XXOX|.-X1X1X2XzXzXzXzXzXzXzXzXpX#XH.A.B.k.h.V.aX:X=.o.1.yX_ i V ` ~ . * ^ zXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXuXI.D.A.r.h.B.h.h.j.j.r.Z.B.r.B.S.S.B.B.B.B.V.A.V.B.B.B.B.Z.h.B.h.F.hX:X>.*.o.qX9XS a V zX, + O 5XzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzX1XM.k.Z.m.r.B.C.r.r.r.y.r.V.B.B.B.V.r.r.y.B.B.B.B.B.B.B.B.V.k.V.r.n.#XzX[.....X.%XzXH r G R 9X= O > zXzXzXzX",
+  "zXzXzXzXzXzXzXzXuXN.B.k.Z.B.B.B.r.7.B.A.h.h.k.B.B.B.B.h.B.B.j.r.B.B.B.B.B.B.B.h.S.K.qXzX,X4.} @.o.).zXL u h C kXb . % 5 zXzXzXzX",
+  "zXzXzXzXzXzXzXoXV.C.5.A.B.Z.r.B.A.k.S.B.7.B.u.Z.r.B.B.k.B.r.B.V.7.Z.r.C.F.U.,XyXzXhX@X4. ...=.;.:XzXT r G h /.eXo = + B zXzXzXzX",
+  "zXzXzXzXzXzXI.t.M.A.A.f.Z.B.n.j.e.r.t.B.B.Z.Z.B.B.h.g.V.D.K.oX,XqXzXzXzXzXzXsX|.9.....o. .o.e.qXzXL r S i J zX8 + X + dXzXzXzXzX",
+  "zXzXzXzXzXK.n.g.h.6.r.m.B.B.B.t.B.C.m.m.S.n.N.U.+XqXzXzXzXzXzXzXzXlX>X|.9.-.X.=.X.X.X.[ :.@XzXlXD i h a D zX5X-   - 2 zXzXzXzXzX",
+  "zXzXzXzX{.7.j.n.t.B.V.B.t.A.f.S.k.6.Z.F.%XjXzXzXzXzXzXzXzXdX<XH.3.@.O.X.X.#.@. .| ....z.dXzX5Xf V G S S 9XzX3 * + - E.zXzXzXzXzX",
+  "zXzXzX,XZ.r.Z.Z.r.t.r.r.k.f.k.n.V.XXiXzXzXzXzXzXzXgX3Xx.3.X.X.} { =.o.X.{ U ..[ o.q.0XzXzXW.f S f h p _.zXN . ; - $ zXzXzXzXzXzX",
+  "zXzXuXk.f.C.r.n.t.A.k.j.h.Z.V.U.jXzXzXzXzXzXzX#Xl.=. .%.O...-.o.@.@. .X.#.#. .q.2XzXzXzXI A V l h A p.zX*X  + ; @ ~ zXzXzXzXzXzX",
+  "zXzXD.B.B.f.Z.B.r.n.h.j.r.F.0XzXzXzXzXzXiXJ.=.U [ @.o.[ | o.[ [ X.X.+...{ w.1XzXzXzX*Xg C F f f A L zXzX< : O o $ zXzXzXzXzXzXzX",
+  "zX-Xm.k.A.B.Z.Z.B.t.B.r.P.jXzXzXzXzXyXx.-. .#...@. .#.X. . .@.X.{ ..[ 0.1XzXzXzXzX_ S i i u S Z J zXzXc + + = o ( zXzXzXzXzXzXzX",
+  "zXA.k.e.B.V.A.r.B.r.B.K.zXzXzXzXzX-X:.@.>.{  .[ { o.|  ...} } [ $.;.#XzXzXzXzXsXv C u s Z S w J zXzXR.% + + - $ zXzXzXzXzXzXzXzX",
+  "wXu.f.S.Z.5.Z.k.t.g.F.zXzXzXzXdXz.' } | [ +. .$.o. ...*.&.@.o.;.}.zXzXzXzXzXQ.a a h r F V u g zXzX7X+ + > X - T.zXzXzXzXzXzXzXzX",
+  "zXzXK.S.A.S.k.B.B.V.gXzXzXzXyX2.=.$.+. .o.o. .U #.@.U X.@.=.c.dXzXzXzXzXzXL k V H G t i V D hXzXzX< ; + + + % zXzXzXzXzXzXzXzXzX",
+  "zXzXzXU.t.n.y.7.A.wXzXzXzXrX4.@.[ o. .#...o...X...$.o.[ 3.0XzXzXzXzXzX4Xh a i i Z e G r D fXzXzXc = = . % % E.zXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXY.f.V.S.XXzXzXzXuX<.#.| { X.........o.[ | { @.I.zXzXzXzXzXzXs.t i A Z V i G r h 6XzXzXi.= : .   = & zXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXM.Z.S.kXzXzXzX0.o.] X.[ X. .#. .[ X.} ..2.0XzXzXzXzXzXzXL V G u F V r S r g *XzXzX6X% : o + * ; ~.zXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXqXk..XzXzXzXx.@. .o.o. . .o.X. .o. .%.9.gXzXzXzXzXzXeXj S G h r r S F h h ^.zXzXzX-   + + % X 2 zXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXoXzXzXzX<X| [ | O. .o...[ ..@...o.[.kXzXzXzXzXzX*XG a r V u D u t u V p.zXzXzXc + O : = + & '.zXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXaX;.o.+.} +.[ |  .@.$.X.{  XzXzXzXzXzXzX(.u k C C u A p G r u T zXzXzXT.- + . O = O 6 zXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXb.=...X.{ o.o. ...o. .| $XzXzXzXzXzXzXW.S r h e F C r G s C J zXzXzX9X- . ; o = > o 9XzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXpX:.@...X. .X. .=.{ o. .$XzXzXzXzXzXzXW.f V V p S S r h S h x zXzXzXzX& O % = = O o 0 zXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzX|.U [ ..o.#...@.[ U &.}.zXzXzXzXzXzXW.r i h A h u G r f h S gXzXzXzXN *   > O = + + 9XzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzX|.o.,...@.#...X.X. .x.zXzXzXzXzXzXW.h V r r S e F p F i a 8XzXzXzX4Xo - + o + = X c zXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXuX@.} o. ...[ X.+.9.zXzXzXzXzXzX>Xa i r Z u S D V r u V d.zXzXzXzX< = - = + + + + 9XzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzX0. ...o...} o.*.dXzXzXzXzXzXrXs r F V r H u u V i h K zXzXzXzXm = O @ > X + O 0 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXb.|  .%.{ o. .3XzXzXzXzXzXzXH a S A S a t C h t A D zXzXzXzX6X. : O % o ; O # 6XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXqX@.[ X.$.&.v.zXzXzXzXzXzXJ h F r t V Z F S u C g 9XzXzXzXzX5 = X + O + + + 6 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzX<.&.} +.1.iXzXzXzXzXzXp.S C V h a G S r r V C ^ zXzXzXzX/ + O ; + O - + % ~.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXx.$.} o.#XzXzXzXzXzXqXh C u V h h f r t C C n zXzXzXzXzX# o - = O + ; - + zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzX;X..o.2.zXzXzXzXzXzXx h r i u V u F r p C s tXzXzXzXzX0 % + - O + + O @ ~ zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXdX-.X.#XzXzXzXzXzXQ a g y i u H G e V F f s.zXzXzXzX6X> O + * - + + - $ zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzX8.0.zXzXzXzXzX8Xy S Z s i u V G u C h x zXzXzXzXzX6 - O % o - + O X 0 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzX[.<XzXzXzXzXzXJ A r h V r u G r C V k >XzXzXzXzX=X% O - O - o % O + `.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXsXzXzXzXzXzX(.f C w i V h V S i t G K zXzXzXzXzX& O + = = = . + + % zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXH A t F S h u f G r C j zXzXzXzXzXE.- % O O - -   = o M zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXE f i r V r u u S u G p d.zXzXzXzXzX& X + + * o + O > - 4XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXjXg F r S h G i u r h A d zXzXzXzXzX~.. - O o - + + -   < zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzX) e V V h r Z r F u u i ^.zXzXzXzXzX1 O + > . : + + - . m zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXh i V G r a C S u F u j zXzXzXzXzX`.+ = O   o - + O O $ 6XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXp.C p F V u h h V f h C _.zXzXzXzXzX6 = ; % O - O + > @ % zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXk V u f r F V h V S i d zXzXzXzXzX4Xo = + O = - + O = > 8 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXtXS h S a a r G u u a A *XzXzXzXzXzX0 # * + + - +   o O * E.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXz t h Z V u h u G V j zXzXzXzXzXzX= + + O + + + = O o o zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXE F r F V r h S h i W.zXzXzXzXzXB o + o = + O + + O o 6 zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXrXZ F u S u u C r s zXzXzXzXzXzX> + = o = + = O + O o N zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXF S y h S r u S W zXzXzXzXzX`.> + + + + o = o + O o `.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXW V h u G y h f zXzXzXzXzXzX7 = o + o = + - O o = - zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXyXg h u S i h K zXzXzXzXzXzXX + = = O + + + o = = & zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXx a F u u f 9XzXzXzXzXzX/ + + O o = O = O = = = b zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXv.h S r G H zXzXzXzXzXzX3 . = O + + + o o = o = T.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXC s A s _ zXzXzXzXzXzX= =   = + + O o + + + = lXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXQ i S V zXzXzXzXzXzXN - - O + O = - + = o - = zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXdXC D J zXzXzXzXzXzX& + : . + o + O o o O O < zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXK u _.zXzXzXzXzXfX# + = O + - + O = + o O b zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXhXd zXzXzXzXzXzXN @ ; + + + o O = o = + = B zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXdXzXzXzXzXzXzX3 . =   o + = + + O o + + '.zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX. : O + - + + + + - + + = zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
+  "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX/ . ; O % O o = + o = O + + zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX"
 };
 
 /**
  * Function to show field corner point characteristics.
  */
 static void
-text_corner (GtkTextBuffer * text, 
+text_corner (GtkTextBuffer * text,
 ///< GtkTextBuffer text to write the field corner point characteristics.
-		         GtkTextIter * iter, 
+             GtkTextIter * iter,
 ///< GtkTextIter to write the field corner point characteristics.
-						 unsigned int corner, ///< Field corner point number.
-             double x, ///< Field corner point x-coordinate.
-						 double y, ///< Field corner point y-coordinate.
-						 double z) ///< Field corner point z-coordinate.
+             unsigned int corner,       ///< Field corner point number.
+             double x,          ///< Field corner point x-coordinate.
+             double y,          ///< Field corner point y-coordinate.
+             double z)          ///< Field corner point z-coordinate.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t%s %u\n", _("Coordinates of corner"), corner);
@@ -718,10 +718,10 @@ text_corner (GtkTextBuffer * text,
 static void
 text_furrow (GtkTextBuffer * text,
 ///< GtkTextBuffer text to write the furrow characteristics.
-		         GtkTextIter * iter,
+             GtkTextIter * iter,
 ///< GtkTextIter to write the furrow characteristics.
-						 const char *label, ///< Furrow label.
-             Furrow * furrow) ///< Furrow structure.
+             const char *label, ///< Furrow label.
+             Furrow * furrow)   ///< Furrow structure.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t%s\n", label);
@@ -782,11 +782,11 @@ text_furrow (GtkTextBuffer * text,
 static void
 text_input (GtkTextBuffer * text,
 ///< GtkTextBuffer text to write the input irrigation characteristics.
-	          GtkTextIter * iter,
+            GtkTextIter * iter,
 ///< GtkTextIter to write the input irrigation characteristics.
-					 	unsigned int type, ///< Input irrigation type.
-					 	unsigned int i, ///< Input irrigation number.
-            Input * input) ///< Input irrigation structure.
+            unsigned int type,  ///< Input irrigation type.
+            unsigned int i,     ///< Input irrigation number.
+            Input * input)      ///< Input irrigation structure.
 {
   char buffer[512];
   char *label;
@@ -816,12 +816,12 @@ text_input (GtkTextBuffer * text,
  * Function to show probe characteristics.
  */
 static void
-text_probe (GtkTextBuffer * text, 
-///< GtkTextBuffer text to write the probe characteristics.
-		        GtkTextIter * iter,
-///< GtkTextIter to write the probe characteristics.
-					 	unsigned int i, ///< Probe number.
-					 	Probe * probe) ///< Probe structure.
+text_probe (GtkTextBuffer * text,
+            ///< GtkTextBuffer text to write the probe characteristics.
+            GtkTextIter * iter,
+            ///< GtkTextIter to write the probe characteristics.
+            unsigned int i,     ///< Probe number.
+            Probe * probe)      ///< Probe structure.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t%s %d\n", _("Probe"), i);
@@ -837,10 +837,11 @@ text_probe (GtkTextBuffer * text,
  * Function to show the mass.
  */
 static void
-text_mass (GtkTextBuffer * text, ///< GtkTextBuffer text to write the mass.
-		       GtkTextIter * iter, ///< GtkTextIter to write the mass.
-					 const char *label, ///< Mass label.
-					 double mass) ///< Mass.
+text_mass (GtkTextBuffer * text,
+           //<GtkTextBuffer text to write the mass.
+           GtkTextIter * iter,  /// GtkTextIter to write the mass.
+           const char *label,   ///< Mass label.
+           double mass)         ///< Mass.
 {
   char buffer[512];
   snprintf (buffer, 512, "\t\t%s = %lg m\302\263\n", label, mass);
@@ -851,16 +852,16 @@ text_mass (GtkTextBuffer * text, ///< GtkTextBuffer text to write the mass.
  * Function to close the summary widget.
  */
 static void
-summary_destroy (Summary * summary) ///< Summary widget.
+summary_destroy (Summary * summary)     ///< Summary widget.
 {
-	gtk_widget_destroy (GTK_WIDGET (summary->notebook));
+  gtk_widget_destroy (GTK_WIDGET (summary->notebook));
 }
 
 /**
  * Function to display the summary widget.
  */
 static void
-summary_new (Summary * s) ///< Summary widget.
+summary_new (Summary * s)       ///< Summary widget.
 {
   GtkTextIter iter[1];
   char buffer[512];
@@ -969,7 +970,7 @@ summary_new (Summary * s) ///< Summary widget.
   snprintf (buffer, 512, "\t%s = " FPL "\n", _("CFL number"), field->cfl);
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
   snprintf (buffer, 512, "\t%s = " FPL " s\n", _("Data saving cycle"),
-		 	      field->tm);
+            field->tm);
   gtk_text_buffer_insert (s->text_input, iter, buffer, -1);
   snprintf (buffer, 512, "\t%s = %u\n",
             _("Cells number for distribution channel (between furrows)"),
@@ -994,7 +995,7 @@ summary_new (Summary * s) ///< Summary widget.
   snprintf (buffer, 512, "%s = " FPL " s\n", _("Irrigation life time"), t);
   gtk_text_buffer_insert (s->text_output, iter, buffer, -1);
   snprintf (buffer, 512, "%s = " FPL " s\n\n", _("Calculation time"),
-		        field->cpu);
+            field->cpu);
   gtk_text_buffer_insert (s->text_output, iter, buffer, -1);
 
   snprintf (buffer, 512, "%s\n", _("IRRIGATION QUALITY"));
@@ -1177,7 +1178,9 @@ summary_new (Summary * s) ///< Summary widget.
                             gtk_label_new (_("Results")));
   gtk_notebook_append_page (s->notebook, GTK_WIDGET (s->scrolled_input),
                             gtk_label_new (_("Input")));
-  gtk_widget_set_size_request (GTK_WIDGET (s->notebook), 100, 350);
+  gtk_widget_set_size_request (GTK_WIDGET (s->notebook), 480, 350);
+  gtk_widget_set_hexpand (GTK_WIDGET (s->notebook), 1);
+  gtk_widget_set_vexpand (GTK_WIDGET (s->notebook), 1);
   gtk_widget_show_all (GTK_WIDGET (s->notebook));
 }
 
@@ -1187,7 +1190,7 @@ summary_new (Summary * s) ///< Summary widget.
  * \return FALSE.
  */
 static int
-intro_window_destroy (GtkWidget * widget) ///< Introduction window widget.
+intro_window_destroy (GtkWidget * widget)       ///< Introduction window widget.
 {
   gtk_widget_destroy (widget);
   return FALSE;
@@ -1197,21 +1200,20 @@ intro_window_destroy (GtkWidget * widget) ///< Introduction window widget.
  * Function to close, freeing the used memory, a graphic plot.
  */
 void
-main_window_delete_graphic (MainWindow * w) ///< Main window structure.
+main_window_delete_graphic (MainWindow * w)     ///< Main window structure.
 {
 #if DEBUG_MAIN_WINDOW_DELETE_GRAPHIC
   printf ("main_window_delete_graphic: start\n");
 #endif
-	g_signal_handler_block (w->plot->window, w->plot->id_destroy_window);
+  g_signal_handler_block (w->plot->window, w->plot->id_destroy_window);
 #if HAVE_GTKGLAREA
-	g_signal_handler_block (w->plot->graphic->window, 
-							            w->plot->id_destroy_graphic);
+  g_signal_handler_block (w->plot->graphic->window,
+                          w->plot->id_destroy_graphic);
 #endif
   jbw_graphic_destroy (w->plot->graphic);
-	printf ("0\n");
-	window_plot_destroy (w->plot);
+  window_plot_destroy (w->plot);
   summary_destroy (w->summary);
-	w->plotted = 0;
+  w->plotted = 0;
 #if DEBUG_MAIN_WINDOW_DELETE_GRAPHIC
   printf ("main_window_delete_graphic: end\n");
 #endif
@@ -1221,24 +1223,24 @@ main_window_delete_graphic (MainWindow * w) ///< Main window structure.
  * Function to exit and free the memory used by the main window.
  */
 void
-main_window_delete (MainWindow * w) ///< Main window structure.
+main_window_delete (MainWindow * w)     ///< Main window structure.
 {
 #if DEBUG_MAIN_WINDOW_DELETE
   printf ("main_window_delete: start\n");
-	printf ("freeing pixbuf\n");
+  printf ("freeing pixbuf\n");
 #endif
-	g_object_unref (w->pixbuf);
-	if (w->plotted)
-	  {
+  g_object_unref (w->pixbuf);
+  if (w->plotted)
+    {
 #if DEBUG_MAIN_WINDOW_DELETE
-	    printf ("freeing plot graphic\n");
+      printf ("freeing plot graphic\n");
 #endif
-			main_window_delete_graphic (w);
-		}
+      main_window_delete_graphic (w);
+    }
 #if DEBUG_MAIN_WINDOW_DELETE
-	printf ("quitting loop\n");
+  printf ("quitting loop\n");
 #endif
-	jbw_main_loop_quit ();
+  jbw_main_loop_quit ();
 #if DEBUG_MAIN_WINDOW_DELETE
   printf ("main_window_delete: end\n");
 #endif
@@ -1248,7 +1250,7 @@ main_window_delete (MainWindow * w) ///< Main window structure.
  * Function to make sensitive/insensitive some tool buttons of the main window.
  */
 void
-main_window_update (MainWindow * w) ///< Main window structure.
+main_window_update (MainWindow * w)     ///< Main window structure.
 {
   int i;
   if (input_dir)
@@ -1263,7 +1265,7 @@ main_window_update (MainWindow * w) ///< Main window structure.
  * Function to open a new fertigation problem.
  */
 static void
-main_window_open (MainWindow * w) ///< Main window structure.
+main_window_open (MainWindow * w)       ///< Main window structure.
 {
   GtkFileChooserDialog *dlg;
   dlg = (GtkFileChooserDialog *)
@@ -1273,35 +1275,33 @@ main_window_open (MainWindow * w) ///< Main window structure.
                                  _("_Cancel"), GTK_RESPONSE_CANCEL,
                                  _("_OK"), GTK_RESPONSE_OK, NULL);
   if (gtk_dialog_run (GTK_DIALOG (dlg)) == GTK_RESPONSE_OK)
-	  {
-	    if (w->plotted)
-				main_window_delete_graphic (w);
-			g_free (input_dir);
+    {
+      if (w->plotted)
+        main_window_delete_graphic (w);
+      g_free (input_dir);
       input_dir
-				= (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dlg));
-		}
+        = (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dlg));
+    }
   gtk_widget_destroy (GTK_WIDGET (dlg));
   if (input_dir && !kernel_open (input_dir, 1))
     {
       g_free (input_dir);
       input_dir = NULL;
-		}
-	printf ("1\n");
+    }
   main_window_update (w);
-	printf ("2\n");
 }
 
 /**
  * Function to configure a fertigation problem.
  */
 static void
-main_window_config (MainWindow * w) ///< Main window structure.
+main_window_config (MainWindow * w)     ///< Main window structure.
 {
   if (window_config_new ())
-	  {
-	    if (w->plotted)
-				main_window_delete_graphic (w);
-		}
+    {
+      if (w->plotted)
+        main_window_delete_graphic (w);
+    }
   main_window_update (w);
 }
 
@@ -1309,10 +1309,10 @@ main_window_config (MainWindow * w) ///< Main window structure.
  * Function to run the simulation.
  */
 static void
-main_window_run (MainWindow * w) ///< Main window structure.
+main_window_run (MainWindow * w)        ///< Main window structure.
 {
   char buffer[512];
-	unsigned int success;
+  unsigned int success;
 #if DEBUG_MAIN_WINDOW_RUN
   printf ("main_window_run: start\n");
 #endif
@@ -1322,14 +1322,14 @@ main_window_run (MainWindow * w) ///< Main window structure.
   snprintf (buffer, 512, "rm %s/*.out", input_dir);
 #endif
   if (w->plotted)
-		main_window_delete_graphic (w);
+    main_window_delete_graphic (w);
   system (buffer);
   success = kernel (input_dir, 1, 0);
   main_window_update (w);
-	if (success)
-	  {
-			window_plot_new (w->plot);
-			w->plotted = 1;
+  if (success)
+    {
+      window_plot_new (w->plot);
+      w->plotted = 1;
 #if DEBUG_MAIN_WINDOW_RUN
       printf ("main_window_run: set icons\n");
 #endif
@@ -1340,14 +1340,12 @@ main_window_run (MainWindow * w) ///< Main window structure.
 #if DEBUG_MAIN_WINDOW_RUN
       printf ("main_window_run: summary\n");
 #endif
-			summary_new (w->summary);
-			gtk_box_pack_start (w->box, GTK_WIDGET (w->summary->notebook), 1, 1, 0);
-			printf ("a\n");
+      summary_new (w->summary);
+      gtk_grid_attach (w->grid, GTK_WIDGET (w->summary->notebook), 0, 1, 7, 1);
 #if DEBUG_MAIN_WINDOW_RUN
-			printf ("plotted=%u\n", w->plotted);
+      printf ("plotted=%u\n", w->plotted);
 #endif
-			printf ("b\n");
-		}
+    }
 #if DEBUG_MAIN_WINDOW_RUN
   printf ("main_window_run: end\n");
 #endif
@@ -1357,7 +1355,7 @@ main_window_run (MainWindow * w) ///< Main window structure.
  * Function to open an instruccions manual.
  */
 static void
-main_window_help (MainWindow * w) ///< Main window structure.
+main_window_help (MainWindow * w)       ///< Main window structure.
 {
   char *buffer, *buffer2;
   buffer = g_get_current_dir ();
@@ -1373,7 +1371,7 @@ main_window_help (MainWindow * w) ///< Main window structure.
  * Function to open an about help dialog.
  */
 static void
-main_window_about (MainWindow * w) ///< Main window structure.
+main_window_about (MainWindow * w)      ///< Main window structure.
 {
   const gchar *authors[] = {
     "Javier Burguete Tolosa (jburguete@eead.csic.es)",
@@ -1381,9 +1379,9 @@ main_window_about (MainWindow * w) ///< Main window structure.
     NULL
   };
   const gchar *artists[] = {
-		"Carlos Aliaga Badal (caliaga.87@gmail.com)",
-		NULL
-	};
+    "Carlos Aliaga Badal (caliaga.87@gmail.com)",
+    NULL
+  };
   gtk_show_about_dialog (w->window,
                          "program_name", "SURCOS",
                          "comments",
@@ -1396,7 +1394,7 @@ main_window_about (MainWindow * w) ///< Main window structure.
                          "version", "5.7",
                          "copyright",
                          "Copyright 2011-2020 Javier Burguete Tolosa",
-												 "license-type", GTK_LICENSE_BSD,
+                         "license-type", GTK_LICENSE_BSD,
                          "logo", w->pixbuf,
                          "website-label", "Website",
                          "website",
@@ -1413,78 +1411,79 @@ main_window_new ()
 {
   MainWindow *w;
   GtkWindow *window;
+  GdkPixbuf *pixbuf;
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: start\n");
 #endif
 
   w = (MainWindow *) malloc (sizeof (MainWindow));
-	w->plotted = 0;
+  w->plotted = 0;
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: buttons\n");
 #endif
 
-  w->button_open = (GtkToolButton *)
-    gtk_tool_button_new (gtk_image_new_from_icon_name
-                         ("document-open", GTK_ICON_SIZE_LARGE_TOOLBAR),
-                         _("Open"));
+  w->button_open = (GtkButton *) gtk_button_new_with_label (_("Open"));
+  gtk_button_set_image (w->button_open,
+                        gtk_image_new_from_icon_name
+                        ("document-open", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_open, GTK_POS_TOP);
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_open),
                                _("Open furrows system"));
   g_signal_connect_swapped (w->button_open, "clicked",
                             (GCallback) main_window_open, w);
 
-  w->button_config = (GtkToolButton *)
-    gtk_tool_button_new (gtk_image_new_from_icon_name
-                         ("preferences-system", GTK_ICON_SIZE_LARGE_TOOLBAR),
-                         _("Configure"));
+  w->button_config = (GtkButton *) gtk_button_new_with_label (_("Configure"));
+  gtk_button_set_image (w->button_config,
+                        gtk_image_new_from_icon_name
+                        ("preferences-system", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_config, GTK_POS_TOP);
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_config),
                                _("Simulation configure"));
   g_signal_connect_swapped (w->button_config, "clicked",
                             (GCallback) main_window_config, w);
 
-  w->button_run = (GtkToolButton *)
-    gtk_tool_button_new
-    (gtk_image_new_from_icon_name ("system-run", GTK_ICON_SIZE_LARGE_TOOLBAR),
-     _("Run"));
+  w->button_run = (GtkButton *) gtk_button_new_with_label (_("Run"));
+  gtk_button_set_image (w->button_run,
+                        gtk_image_new_from_icon_name
+                        ("system-run", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_run, GTK_POS_TOP);
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_run),
                                _("Run the simulation"));
   g_signal_connect_swapped (w->button_run, "clicked",
                             (GCallback) main_window_run, w);
 
-  w->button_help = (GtkToolButton *)
-    gtk_tool_button_new
-    (gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR),
-     _("Help"));
+  w->button_help = (GtkButton *) gtk_button_new_with_label (_("Help"));
+  gtk_button_set_image (w->button_help,
+                        gtk_image_new_from_icon_name
+                        ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_help, GTK_POS_TOP);
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), _("Help"));
+  g_signal_connect_swapped (w->button_help, "clicked",
+                            (GCallback) main_window_help, w);
 
-  w->button_about = (GtkToolButton *)
-    gtk_tool_button_new
-    (gtk_image_new_from_icon_name ("help-about",
-                                   GTK_ICON_SIZE_LARGE_TOOLBAR), _("About"));
-  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), _("About"));
+  w->button_about = (GtkButton *) gtk_button_new_with_label (_("About"));
+  gtk_button_set_image (w->button_about,
+                        gtk_image_new_from_icon_name
+                        ("help-about", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_about, GTK_POS_TOP);
+  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_about), _("About"));
 
-  w->button_exit = (GtkToolButton *)
-    gtk_tool_button_new
-    (gtk_image_new_from_icon_name ("application-exit",
-                                   GTK_ICON_SIZE_LARGE_TOOLBAR), _("Exit"));
+  w->button_exit = (GtkButton *) gtk_button_new_with_label (_("Exit"));
+  gtk_button_set_image (w->button_exit,
+                        gtk_image_new_from_icon_name
+                        ("application-exit", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_exit, GTK_POS_TOP);
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_exit), _("Exit"));
 
-  w->toolbar = (GtkToolbar *) gtk_toolbar_new ();
-//      gtk_toolbar_set_orientation(w->toolbar, GTK_ORIENTATION_HORIZONTAL);
-  gtk_toolbar_set_style (w->toolbar, GTK_TOOLBAR_BOTH);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_open), -1);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_config), -1);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_run), -1);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_help), -1);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_about), -1);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_exit), -1);
-
-#if DEBUG_MAIN_WINDOW_NEW
-  printf ("main_window_new: plot\n");
-#endif
-	w->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-	gtk_box_pack_start (w->box, GTK_WIDGET (w->toolbar), 0, 1, 0);
+  w->grid = (GtkGrid *) gtk_grid_new ();
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_open), 0, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_config), 1, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_run), 2, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_help), 3, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_about), 4, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_exit), 5, 0, 1, 1);
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: logo2\n");
@@ -1497,24 +1496,21 @@ main_window_new ()
 #endif
 
   w->window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->box));
+  gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->grid));
   gtk_window_set_icon (w->window, w->pixbuf);
   gtk_window_set_title (w->window, "SURCOS");
-  gtk_widget_set_size_request (GTK_WIDGET (w->window), 640, 70);
   gtk_widget_show_all (GTK_WIDGET (w->window));
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: signals\n");
 #endif
 
-  g_signal_connect_swapped (w->button_help, "clicked",
-                            (GCallback) main_window_help, w);
   g_signal_connect_swapped (w->button_about, "clicked",
                             (GCallback) main_window_about, w);
-	g_signal_connect_swapped (w->window, "destroy",
-			                      (GCallback) main_window_delete, w);
+  g_signal_connect_swapped (w->window, "destroy",
+                            (GCallback) main_window_delete, w);
   g_signal_connect_swapped (w->button_exit, "clicked",
-			                      (GCallback) gtk_widget_destroy, w->window);
+                            (GCallback) gtk_widget_destroy, w->window);
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: updating\n");
@@ -1528,9 +1524,10 @@ main_window_new ()
 #endif
 
   window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  pixbuf = gdk_pixbuf_new_from_xpm_data (fondo6);
   gtk_container_add (GTK_CONTAINER (window),
-                     gtk_image_new_from_pixbuf
-                     (gdk_pixbuf_new_from_xpm_data (fondo6)));
+                     gtk_image_new_from_pixbuf (pixbuf));
+  g_object_unref (pixbuf);
 #if GTK_MAJOR_VERSION >= 3 && GTK_MINOR_VERSION >=8
   gtk_widget_set_opacity (GTK_WIDGET (window), 0.5);
 #endif

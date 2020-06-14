@@ -43,17 +43,27 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 typedef struct
 {
-  double *x;  ///< Array of x-coordinates of the furrow mesh nodes.
-  double *y;  ///< Array of y-coordinates of the furrow mesh nodes.
-  double x1;  ///< x-coordinate of the 1st corner point limiting the furrow.
-  double y1;  ///< y-coordinate of the 1st corner point limiting the furrow.
-  double x2;  ///< x-coordinate of the 2nd corner point limiting the furrow.
-  double y2;  ///< y-coordinate of the 2nd corner point limiting the furrow.
-  double x3;  ///< x-coordinate of the 3th corner point limiting the furrow.
-  double y3;  ///< y-coordinate of the 3th corner point limiting the furrow.
-  double x4;  ///< x-coordinate of the 4th corner point limiting the furrow.
-  double y4;  ///< y-coordinate of the 4th corner point limiting the furrow.
-  unsigned int n;  ///< Number of furrow mesh nodes.
+  double *x;
+  ///< Array of x-coordinates of the furrow mesh nodes.
+  double *y;
+  ///< Array of y-coordinates of the furrow mesh nodes.
+  double x1;
+  ///< x-coordinate of the 1st corner point limiting the furrow.
+  double y1;
+  ///< y-coordinate of the 1st corner point limiting the furrow.
+  double x2;
+  ///< x-coordinate of the 2nd corner point limiting the furrow.
+  double y2;
+  ///< y-coordinate of the 2nd corner point limiting the furrow.
+  double x3;
+  ///< x-coordinate of the 3th corner point limiting the furrow.
+  double y3;
+  ///< y-coordinate of the 3th corner point limiting the furrow.
+  double x4;
+  ///< x-coordinate of the 4th corner point limiting the furrow.
+  double y4;
+  ///< y-coordinate of the 4th corner point limiting the furrow.
+  unsigned int n;               ///< Number of furrow mesh nodes.
 } FurrowOutput;
 
 /**
@@ -62,13 +72,16 @@ typedef struct
  */
 typedef struct
 {
-  JBWGraphic *graphic;  ///< Graphic structure.
-  GtkLabel *label;  ///< GtkLabel to show the time step label.
-  GtkScale *scale;  ///< GtkScale to configure the time step to plot.
-  GtkComboBoxText *combo;  ///< GtkComboBox to configure the variable to plot.
-  GtkBox *box;  ///< GtkBox containing the configuration widgets.
-  unsigned int variable;  ///< Type of variable to plot.
- 	unsigned int step;  ///< Time step to plot.
+  JBWGraphic *graphic;          ///< Graphic structure.
+  GtkLabel *label;              ///< GtkLabel to show the time step label.
+  GtkScale *scale;
+  ///< GtkScale to configure the time step to plot.
+  GtkComboBoxText *combo;
+  ///< GtkComboBox to configure the variable to plot.
+  GtkBox *box;
+  ///< GtkBox containing the configuration widgets.
+  unsigned int variable;        ///< Type of variable to plot.
+  unsigned int step;            ///< Time step to plot.
 } GraphicMap;
 
 /**
@@ -77,17 +90,19 @@ typedef struct
  */
 typedef struct
 {
-  JBWGraphic *graphic; ///< Graphic structure.
-  GtkLabel *label;  ///< GtkLabel to show the time step label.
-  GtkScale *scale;  ///< GtkScale to configure the time step to plot.
+  JBWGraphic *graphic;          ///< Graphic structure.
+  GtkLabel *label;              ///< GtkLabel to show the time step label.
+  GtkScale *scale;
+  ///< GtkScale to configure the time step to plot.
   GtkComboBoxText *combo_furrow;
   ///< GtkComboBox to configure the furrow to plot.
   GtkComboBoxText *combo_variable;
   ///< GtkComboBox to configure the variable to plot.
-  GtkBox *box;  ///< GtkBox containing the configuration widgets.
-  unsigned int furrow;  ///< Furrow number.
-  unsigned int variable;  ///< Variable type.
-  unsigned int step;  ///< Time step number.
+  GtkBox *box;
+  ///< GtkBox containing the configuration widgets.
+  unsigned int furrow;          ///< Furrow number.
+  unsigned int variable;        ///< Variable type.
+  unsigned int step;            ///< Time step number.
 } GraphicFurrows;
 
 /**
@@ -96,7 +111,7 @@ typedef struct
  */
 typedef struct
 {
-  JBWGraphic *graphic; ///< Graphic structure.
+  JBWGraphic *graphic;          ///< Graphic structure.
   GtkComboBoxText *combo;
   ///< GtkComboBoxText to select the probe results to plot.
 } GraphicProbes;
@@ -107,18 +122,20 @@ typedef struct
  */
 typedef struct
 {
-  GraphicMap graphic_map[1];  ///< Structure to draw a furrow map.
+  GraphicMap graphic_map[1];    ///< Structure to draw a furrow map.
   GraphicFurrows graphic_furrows[1];
   ///< Structure to plot a longitudinal profile of a variable in a furrow.
-  GraphicProbes graphic_probes[1];  ///< Structure to plot probe results.
-	GtkToolButton *button_save; 	///< GtkToolButton to save the plot in a file.
-	GtkToolbar *toolbar; 	///< GtkToolBar containing the tool buttons.
-  GtkNotebook *notebook;   ///< GtkNotebook to select the plot type.
-	GtkBox *box; ///< GtkBox to pack the widgets.
-	GtkWindow *window; ///< GtkWindow containing the configuration widgets.
-  JBWGraphic *graphic; ///< Graphic structure.
-	gulong id_destroy_graphic; 	///< Destroy signal identifier.
-	gulong id_destroy_window; 	///< Destroy signal identifier.
+  GraphicProbes graphic_probes[1];      ///< Structure to plot probe results.
+  GtkButton *button_save;       ///< GtkButton to save the plot in a file.
+  GtkNotebook *notebook;        ///< GtkNotebook to select the plot type.
+  GtkBox *box;                  ///< GtkBox to pack the widgets.
+  GtkImage *logo;               ///< GtkImage to show the program logo.
+  GtkHeaderBar *bar;            ///< GtkHeaderBar to show the window title.
+  GtkWindow *window;
+  ///< GtkWindow containing the configuration widgets.
+  JBWGraphic *graphic;          ///< Graphic structure.
+  gulong id_destroy_graphic;    ///< Destroy signal identifier.
+  gulong id_destroy_window;     ///< Destroy signal identifier.
 } WindowPlot;
 
 #if HAVE_FREEGLUT

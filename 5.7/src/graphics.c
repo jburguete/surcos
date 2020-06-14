@@ -41,25 +41,25 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "graphics.h"
 #include "mainWindow.h"
 
-#define DEBUG_PROBES_NUMBER 1
+#define DEBUG_PROBES_NUMBER 0
 ///< Macro to debug the probes_number() function.
-#define DEBUG_FURROWS_NUMBER 1
+#define DEBUG_FURROWS_NUMBER 0
 ///< Macro to debug the furrows_number() function.
-#define DEBUG_GRAPHIC_MAP_DRAW 1
+#define DEBUG_GRAPHIC_MAP_DRAW 0
 ///< Macro to debug the graphic_map_draw() function.
-#define DEBUG_GRAPHIC_FURROWS_DRAW 1
+#define DEBUG_GRAPHIC_FURROWS_DRAW 0
 ///< Macro to debug the graphic_furrows_draw() function.
-#define DEBUG_GRAPHIC_FURROWS_NEW 1
+#define DEBUG_GRAPHIC_FURROWS_NEW 0
 ///< Macro to debug the graphic_furrows_new() function.
-#define DEBUG_GRAPHIC_PROBES_DRAW 1
+#define DEBUG_GRAPHIC_PROBES_DRAW 0
 ///< Macro to debug the graphic_probes_draw() function.
-#define DEBUG_GRAPHIC_PROBES_NEW 1
+#define DEBUG_GRAPHIC_PROBES_NEW 0
 ///< Macro to debug the graphic_probes_new() function.
-#define DEBUG_WINDOW_PLOT_DRAW 1
+#define DEBUG_WINDOW_PLOT_DRAW 0
 ///< Macro to debug the window_plot_draw() function.
-#define DEBUG_WINDOW_PLOT_DELETE 1
+#define DEBUG_WINDOW_PLOT_DELETE 0
 ///< Macro to debug the window_plot_delete() function.
-#define DEBUG_WINDOW_PLOT_NEW 1
+#define DEBUG_WINDOW_PLOT_NEW 0
 ///< Macro to debug the window_plot_new() function.
 
 /**
@@ -137,7 +137,7 @@ double time_step;
 
 #if HAVE_FREEGLUT
 
-JBWGraphic *graphic; ///< Graphic structure.
+JBWGraphic *graphic;            ///< Graphic structure.
 
 void
 jbw_freeglut_draw_resize (int width, int height)
@@ -234,8 +234,7 @@ furrows_number ()
     }
   while (1);
 #if DEBUG_FURROWS_NUMBER
-  printf ("nfurrows=%d ny=%u recirculation=%u\n", nfurrows, ny,
-          recirculation);
+  printf ("nfurrows=%d ny=%u recirculation=%u\n", nfurrows, ny, recirculation);
   printf ("furrows_number: start\n");
 #endif
 }
@@ -262,7 +261,7 @@ read_time_step (double *t)
 static void
 give_rainbow_color (double position,
                     ///< A number between [0,1] to set the color.
-										GLfloat *c) ///< RGB color array.
+                    GLfloat * c)        ///< RGB color array.
 {
   if (position < 0. || position > 1.)
     {
@@ -291,7 +290,8 @@ give_rainbow_color (double position,
  * Function to free the memory used by a furrow mesh geometry structure.
  */
 static void
-furrow_output_destroy (FurrowOutput * fo) ///< Furrow mesh geometry structure.
+furrow_output_destroy (FurrowOutput * fo)
+                       ///< Furrow mesh geometry structure.
 {
   free (fo->x);
   free (fo->y);
@@ -315,16 +315,17 @@ furrow_output_print (FurrowOutput * fo) ///< Furrow mesh geometry structure.
  * Function to read the corner coordinates of a furrow mesh node.
  */
 static void
-furrow_output_vertex (FurrowOutput * fo, ///< Furrow mesh geometry structure.
-		                  double zmin, ///< Minimum variable value.
-											double dif, ///< Variable range.
-		                  GLfloat * vertex, ///< Vertex array.
-											GLushort * index) ///< Element index array.
+furrow_output_vertex (FurrowOutput * fo,
+                      ///< Furrow mesh geometry structure.
+                      double zmin,      ///< Minimum variable value.
+                      double dif,       ///< Variable range.
+                      GLfloat * vertex, ///< Vertex array.
+                      GLushort * index) ///< Element index array.
 {
-	GLfloat x[4], y[4];
-	GLfloat c[3];
+  GLfloat x[4], y[4];
+  GLfloat c[3];
   double imax, imin, dx1, dy1, dx2, dy2;
-	unsigned int i, j, k;
+  unsigned int i, j, k;
   dx1 = (fo->x2 - fo->x1) / (fo->n - 1.);
   dy1 = (fo->y2 - fo->y1) / (fo->n - 1.);
   dx2 = (fo->x4 - fo->x3) / (fo->n - 1.);
@@ -342,27 +343,27 @@ furrow_output_vertex (FurrowOutput * fo, ///< Furrow mesh geometry structure.
       y[3] = fo->y3 + imin * dy2;
       x[2] = fo->x3 + imax * dx2;
       y[2] = fo->y3 + imax * dy2;
-			vertex[j] = x[0];
-			vertex[j + 1] = y[0];
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			j += 5;
-			vertex[j] = x[1];
-			vertex[j + 1] = y[1];
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			j += 5;
-			vertex[j] = x[2];
-			vertex[j + 1] = y[2];
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			j += 5;
-			vertex[j] = x[3];
-			vertex[j + 1] = y[3];
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			index[k++] = 4 * i; 
-			index[k++] = 4 * i + 1; 
-			index[k++] = 4 * i + 2; 
-			index[k++] = 4 * i; 
-			index[k++] = 4 * i + 3; 
-			index[k++] = 4 * i + 2; 
+      vertex[j] = x[0];
+      vertex[j + 1] = y[0];
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      j += 5;
+      vertex[j] = x[1];
+      vertex[j + 1] = y[1];
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      j += 5;
+      vertex[j] = x[2];
+      vertex[j + 1] = y[2];
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      j += 5;
+      vertex[j] = x[3];
+      vertex[j + 1] = y[3];
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      index[k++] = 4 * i;
+      index[k++] = 4 * i + 1;
+      index[k++] = 4 * i + 2;
+      index[k++] = 4 * i;
+      index[k++] = 4 * i + 3;
+      index[k++] = 4 * i + 2;
     }
 }
 
@@ -370,9 +371,9 @@ furrow_output_vertex (FurrowOutput * fo, ///< Furrow mesh geometry structure.
  * Function to read a variable of a furrow results file.
  */
 static void
-furrow_output_read (FurrowOutput * fo, ///< Furrow mesh geometry structure.
-	 	                char *name, ///< Furrow results file name.
-										unsigned int variable) ///< Variable type.
+furrow_output_read (FurrowOutput * fo,  ///< Furrow mesh geometry structure.
+                    char *name, ///< Furrow results file name.
+                    unsigned int variable)      ///< Variable type.
 {
   double x[12];
   FILE *file;
@@ -409,7 +410,7 @@ furrow_output_read (FurrowOutput * fo, ///< Furrow mesh geometry structure.
  * Function to draw the furrows map.
  */
 static void
-graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
+graphic_map_draw (WindowPlot * w)       ///< WindowPlot structure.
 {
   unsigned int n = 1 + nfurrows + recirculation;
   FurrowOutput fo[n];
@@ -421,14 +422,14 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
     _("Infiltrated water mass per unit length (kg/m)"),
     _("Infiltrated fertilizer mass per unit length (kg/m)")
   };
-	GLfloat c[3];
+  GLfloat c[3];
   GraphicMap *g;
   JBWGraphic *graphic;
-	GLfloat *vertex;
+  GLfloat *vertex;
   double z, zmax, zmin, dif, initialY, deltaX1, deltaY1, deltaX2, deltaY2,
     width, distance, widthX1, widthY1, widthX2, widthY2;
   float x, y, xmin, ymin, xmax, ymax;
-	GLushort *index;
+  GLushort *index;
   int i;
   unsigned int j, k, l, x0, y0, xf, yf, np;
 
@@ -448,18 +449,18 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
   // Reading the output files
   snprintf (buffer, 512, "%s/00b-%03d.out", input_dir, g->step);
   furrow_output_read (fo, buffer, g->variable);
-	np = fo->n;
+  np = fo->n;
   for (l = 0; (int) l < nfurrows; ++l)
     {
       snprintf (buffer, 512, "%s/%03d-%03d.out", input_dir, l, g->step);
       furrow_output_read (fo + 1 + l, buffer, g->variable);
-			np = jbm_max (np, fo[l + 1].n);
+      np = jbm_max (np, fo[l + 1].n);
     }
   if (recirculation)
     {
       snprintf (buffer, 512, "%s/00c-%03d.out", input_dir, g->step);
       furrow_output_read (fo + l + 1, buffer, g->variable);
-			np = jbm_max (np, fo[l + 1].n);
+      np = jbm_max (np, fo[l + 1].n);
     }
 
   // Getting extreme values
@@ -481,11 +482,11 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
 #endif
 
   // Viewport
-	jbw_graphic_get_display_size (graphic);
+  jbw_graphic_get_display_size (graphic);
   graphic->x1 = graphic->y1 = 0;
   graphic->x2 = graphic->width;
   graphic->y2 = graphic->height;
-	glViewport (0, 0, graphic->width, graphic->height);
+  glViewport (0, 0, graphic->width, graphic->height);
 
   // Clearing the screen
   jbw_draw_clear (1.f, 1.f, 1.f, 0.f);
@@ -497,55 +498,55 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
   y0 = MAX (21, graphic->char_height);
 
   x = 1.f - (2.f * strlen (graphic->str_title) * graphic->char_width)
-		        / graphic->width;
-	y = 1.f - (2.f * graphic->char_height) / graphic->height;
+    / graphic->width;
+  y = 1.f - (2.f * graphic->char_height) / graphic->height;
   jbw_graphic_draw_text (graphic, graphic->str_title, x, y, jbw_black);
   snprintf (buffer, 32, "%.6g", zmax);
   x = ((float) xf + graphic->x2 - strlen (buffer) * graphic->char_width)
-		  /	graphic->width - 1.f;
-	y = 1.f - (4.f * graphic->char_height) / graphic->height;
+    / graphic->width - 1.f;
+  y = 1.f - (4.f * graphic->char_height) / graphic->height;
   jbw_graphic_draw_text (graphic, buffer, x, y, jbw_black);
   snprintf (buffer, 32, "%.6g", zmin);
   x = ((float) xf + graphic->x2 - strlen (buffer) * graphic->char_width)
-		  /	graphic->width - 1.f;
-	y = (2.f * (y0 - graphic->char_height)) / graphic->height - 1.f,
-  jbw_graphic_draw_text (graphic, buffer, x, y, jbw_black);
+    / graphic->width - 1.f;
+  y = (2.f * (y0 - graphic->char_height)) / graphic->height - 1.f,
+    jbw_graphic_draw_text (graphic, buffer, x, y, jbw_black);
   glViewport (xf, y0, graphic->x2 - xf, yf - y0);
-	x = (2.f * graphic->char_width) / (graphic->x2 - xf);
-	j = jbm_max (np, 101);
-	vertex = (GLfloat *) g_malloc (4 * 5 * sizeof (GLfloat) * j);
-	index = (GLushort *) g_malloc (6 * sizeof (GLushort) * j);
+  x = (2.f * graphic->char_width) / (graphic->x2 - xf);
+  j = jbm_max (np, 101);
+  vertex = (GLfloat *) g_malloc (4 * 5 * sizeof (GLfloat) * j);
+  index = (GLushort *) g_malloc (6 * sizeof (GLushort) * j);
   initialY = -1.;
   deltaY1 = 2. / 101.;
   for (l = j = k = 0; l < 101; l++, j += 5)
     {
       give_rainbow_color (0.01f * l, c);
-			vertex[j] = -x;
-			vertex[j + 1] = initialY;
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			j += 5;
-			vertex[j] = x;
-			vertex[j + 1] = initialY;
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
+      vertex[j] = -x;
+      vertex[j + 1] = initialY;
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      j += 5;
+      vertex[j] = x;
+      vertex[j + 1] = initialY;
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
       initialY += deltaY1;
-			j += 5;
-			vertex[j] = x;
-			vertex[j + 1] = initialY;
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			j += 5;
-			vertex[j] = -x;
-			vertex[j + 1] = initialY;
-			memcpy(vertex + j + 2, c, 3 * sizeof (GLfloat));
-			index[k++] = 4 * l; 
-			index[k++] = 4 * l + 1; 
-			index[k++] = 4 * l + 2; 
-			index[k++] = 4 * l; 
-			index[k++] = 4 * l + 3; 
-			index[k++] = 4 * l + 2; 
+      j += 5;
+      vertex[j] = x;
+      vertex[j + 1] = initialY;
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      j += 5;
+      vertex[j] = -x;
+      vertex[j + 1] = initialY;
+      memcpy (vertex + j + 2, c, 3 * sizeof (GLfloat));
+      index[k++] = 4 * l;
+      index[k++] = 4 * l + 1;
+      index[k++] = 4 * l + 2;
+      index[k++] = 4 * l;
+      index[k++] = 4 * l + 3;
+      index[k++] = 4 * l + 2;
     }
-	glUseProgram (graphic->program_2Dc);
-	glUniformMatrix4fv (graphic->uniform_2Dc_matrix, 1, GL_FALSE, jbw_identity);
-	jbw_graphic_draw_rectangles_color (graphic, vertex, index, 101);
+  glUseProgram (graphic->program_2Dc);
+  glUniformMatrix4fv (graphic->uniform_2Dc_matrix, 1, GL_FALSE, jbw_identity);
+  jbw_graphic_draw_rectangles_color (graphic, vertex, index, 101);
 
   // Extreme map values
   xmax = xmin = field->x[0];
@@ -587,10 +588,10 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
 #endif
   dif = fmax (zmax - zmin, 1e-10);
 
-	// Setting view and projection
+  // Setting view and projection
   glViewport (x0, y0, xf, yf);
-	jbw_draw_orthogonal_matrixl (graphic->uniform_2Dc_matrix, xmin, ymin,
-			                         xmax - xmin, ymax - ymin);
+  jbw_draw_orthogonal_matrixl (graphic->uniform_2Dc_matrix, xmin, ymin,
+                               xmax - xmin, ymax - ymin);
 
   // Drawing the distribution furrow
   fo[0].x1 = field->x[0];
@@ -606,8 +607,8 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
   furrow_output_print (fo);
   printf ("n=%d\n", fo[0].n);
 #endif
-	furrow_output_vertex (fo, zmin, dif, vertex, index);
-	jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[0].n);
+  furrow_output_vertex (fo, zmin, dif, vertex, index);
+  jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[0].n);
 
   // Drawing the irrigation furrows
   if (nfurrows > 0)
@@ -645,7 +646,7 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
           furrow_output_print (fo + i);
 #endif
           furrow_output_vertex (fo + i, zmin, dif, vertex, index);
-        	jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
+          jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
         }
     }
 
@@ -665,14 +666,14 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
       furrow_output_print (fo + i);
 #endif
       furrow_output_vertex (fo + i, zmin, dif, vertex, index);
-    	jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
+      jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
     }
 
   // Freeing the variables
   for (j = 0; j < n; ++j)
     furrow_output_destroy (fo + j);
   g_free (index);
-	g_free (vertex);
+  g_free (vertex);
 
 #if DEBUG_GRAPHIC_MAP_DRAW
   printf ("graphic_map_draw: end\n");
@@ -683,8 +684,8 @@ graphic_map_draw (WindowPlot * w) ///< WindowPlot structure.
  * Function to open the furrows map plot.
  */
 static void
-graphic_map_new (GraphicMap * g, ///< Furrows map structure.
-	 	             JBWGraphic * graphic) ///< Graphic structure.
+graphic_map_new (GraphicMap * g,        ///< Furrows map structure.
+                 JBWGraphic * graphic)  ///< Graphic structure.
 {
   g->graphic = graphic;
 
@@ -692,20 +693,18 @@ graphic_map_new (GraphicMap * g, ///< Furrows map structure.
 
   g->scale = (GtkScale *) gtk_scale_new_with_range
     (GTK_ORIENTATION_HORIZONTAL, 0., ny - 1, 1.);
-	gtk_widget_set_size_request (GTK_WIDGET (g->scale), 100, 0);
+  gtk_widget_set_size_request (GTK_WIDGET (g->scale), 100, 0);
   g_signal_connect_swapped (g->scale, "value-changed",
-			                      (GCallback) jbw_graphic_render, g->graphic);
+                            (GCallback) jbw_graphic_render, g->graphic);
 
   g->combo = (GtkComboBoxText *) gtk_combo_box_text_new ();
   gtk_combo_box_text_append_text (g->combo, _("Water depth (m)"));
   gtk_combo_box_text_append_text (g->combo,
                                   _("Fertilizer concentration (kg/m³)"));
-  gtk_combo_box_text_append_text (g->combo,
-                                  _
-                                  ("Infiltrated water mass per unit length (kg/m)"));
-  gtk_combo_box_text_append_text (g->combo,
-                                  _
-                                  ("Infiltrated fertilizer mass per unit length (kg/m)"));
+  gtk_combo_box_text_append_text
+    (g->combo, _("Infiltrated water mass per unit length (kg/m)"));
+  gtk_combo_box_text_append_text
+    (g->combo, _("Infiltrated fertilizer mass per unit length (kg/m)"));
   gtk_combo_box_set_active (GTK_COMBO_BOX (g->combo), 0);
   g_signal_connect_swapped (g->combo, "changed",
                             (GCallback) jbw_graphic_render, g->graphic);
@@ -720,10 +719,10 @@ graphic_map_new (GraphicMap * g, ///< Furrows map structure.
  * Function to draw the longitudinal profile of a variable in a furrow.
  */
 static void
-graphic_furrows_draw (WindowPlot * w) ///< WindowPlot structure.
+graphic_furrows_draw (WindowPlot * w)   ///< WindowPlot structure.
 {
   char buffer[512], buffer2[32];
-	const char title[512];
+  const char title[512];
   const char *label_y[6] = {
     _("Superficial depth (m)"),
     _("Discharge (m³/s)"),
@@ -781,7 +780,7 @@ graphic_furrows_draw (WindowPlot * w) ///< WindowPlot structure.
   else
     snprintf (buffer2, 32, _("Furrow %d"), g->furrow);
   snprintf ((char *) title, 512, "%s (t=%g s)", buffer2,
-			      (double) g->step * time_step);
+            (double) g->step * time_step);
   jbw_graphic_set_title (g->graphic, title);
   jbw_graphic_set_xlabel (g->graphic, _("Position (m)"));
   jbw_graphic_set_ylabel (g->graphic, label_y[g->variable]);
@@ -901,7 +900,7 @@ graphic_furrows_draw (WindowPlot * w) ///< WindowPlot structure.
 static void
 graphic_furrows_new (GraphicFurrows * g,
 ///< Furrow longitudinal profile structure.
-	 	                 JBWGraphic * graphic) ///< Graphic structure.
+                     JBWGraphic * graphic)      ///< Graphic structure.
 {
   char buffer[32];
   int i;
@@ -917,15 +916,14 @@ graphic_furrows_new (GraphicFurrows * g,
 
   g->scale = (GtkScale *) gtk_scale_new_with_range
     (GTK_ORIENTATION_HORIZONTAL, 0., ny - 1, 1.);
-	gtk_widget_set_size_request (GTK_WIDGET (g->scale), 100, 0);
+  gtk_widget_set_size_request (GTK_WIDGET (g->scale), 100, 0);
   g_signal_connect_swapped (g->scale, "value-changed",
                             (GCallback) jbw_graphic_render, g->graphic);
 
   g->combo_furrow = (GtkComboBoxText *) gtk_combo_box_text_new ();
   gtk_combo_box_text_append_text (g->combo_furrow, _("Distribution furrow"));
   if (recirculation)
-    gtk_combo_box_text_append_text (g->combo_furrow,
-                                    _("Recirculation furrow"));
+    gtk_combo_box_text_append_text (g->combo_furrow, _("Recirculation furrow"));
   for (i = 0; i < nfurrows; ++i)
     {
       snprintf (buffer, 32, _("Furrow %d"), i + 1);
@@ -965,11 +963,11 @@ graphic_furrows_new (GraphicFurrows * g,
  * Function to draw the results of a probe.
  */
 static void
-graphic_probes_draw (WindowPlot * w) ///< WindowPlot structure.
+graphic_probes_draw (WindowPlot * w)    ///< WindowPlot structure.
 {
   JBFLOAT hh[numProbes], cc[numProbes];
   char buffer[512];
-	const char title[512];
+  const char title[512];
   JBFLOAT *t = NULL, *h = NULL, *c = NULL;
   FILE *file;
   JBFLOAT tt;
@@ -980,8 +978,7 @@ graphic_probes_draw (WindowPlot * w) ///< WindowPlot structure.
 #endif
   if (numProbes <= 0)
     goto end_draw;
-  probe = gtk_combo_box_get_active
-    (GTK_COMBO_BOX (w->graphic_probes->combo));
+  probe = gtk_combo_box_get_active (GTK_COMBO_BOX (w->graphic_probes->combo));
 #if DEBUG_GRAPHIC_PROBES_DRAW
   printf ("probe=%u\n", probe);
 #endif
@@ -1027,15 +1024,15 @@ end_draw:
 #if DEBUG_GRAPHIC_PROBES_DRAW
   printf ("graphic_probes_draw: end\n");
 #endif
-	return;
+  return;
 }
 
 /**
  * Function to open a probe results plot.
  */
 static void
-graphic_probes_new (GraphicProbes * g, ///< Probe results plot structure.
-		                JBWGraphic * graphic) ///< Graphic structure.
+graphic_probes_new (GraphicProbes * g,  ///< Probe results plot structure.
+                    JBWGraphic * graphic)       ///< Graphic structure.
 {
   char buffer[32];
   unsigned int i;
@@ -1068,7 +1065,7 @@ graphic_probes_new (GraphicProbes * g, ///< Probe results plot structure.
  * Function to draw the results.
  */
 static void
-window_plot_draw () ///< WindowPlot structure.
+window_plot_draw ()             ///< WindowPlot structure.
 {
 #if DEBUG_WINDOW_PLOT_DRAW
   printf ("window_plot_draw: start\n");
@@ -1077,19 +1074,19 @@ window_plot_draw () ///< WindowPlot structure.
     {
     case 0:
 #if DEBUG_WINDOW_PLOT_DRAW
-  printf ("graphic 0\n");
+      printf ("graphic 0\n");
 #endif
       graphic_furrows_draw (window_plot);
       break;
     case 1:
 #if DEBUG_WINDOW_PLOT_DRAW
-  printf ("graphic 1\n");
+      printf ("graphic 1\n");
 #endif
       graphic_map_draw (window_plot);
       break;
     default:
 #if DEBUG_WINDOW_PLOT_DRAW
-  printf ("graphic 2\n");
+      printf ("graphic 2\n");
 #endif
       graphic_probes_draw (window_plot);
     }
@@ -1106,27 +1103,29 @@ window_plot_draw () ///< WindowPlot structure.
  * Function to free the memory used by a resuslts plot.
  */
 void
-window_plot_destroy (WindowPlot * w) ///< Results plot structure.
+window_plot_destroy (WindowPlot * w)    ///< Results plot structure.
 {
-	gtk_widget_destroy (GTK_WIDGET (w->window));
+  gtk_widget_destroy (GTK_WIDGET (w->window));
 }
 
 /**
  * Function to exit when deleting the window plot.
  */
 static void
-window_plot_delete (MainWindow * w) ///< Main window structure.
+window_plot_delete (MainWindow * w)     ///< Main window structure.
 {
 #if DEBUG_WINDOW_PLOT_DELETE
   printf ("window_plot_delete: start\n");
-	printf ("qutting graphic main loop\n");
+  printf ("qutting graphic main loop\n");
 #endif
-	jbw_main_loop_quit ();
+  jbw_main_loop_quit ();
 #if DEBUG_WINDOW_PLOT_DELETE
-	printf ("destroying main window\n");
+  printf ("destroying main window\n");
 #endif
-	w->plotted = 0;
-	gtk_widget_destroy (GTK_WIDGET (w->window));
+  if (w->plotted)
+    jbw_graphic_delete (w->plot->graphic);
+  w->plotted = 0;
+  gtk_widget_destroy (GTK_WIDGET (w->window));
 #if DEBUG_WINDOW_PLOT_DELETE
   printf ("window_plot_delete: end\n");
 #endif
@@ -1136,7 +1135,7 @@ window_plot_delete (MainWindow * w) ///< Main window structure.
  * Function to open a results plot.
  */
 void
-window_plot_new (WindowPlot * w) ///< Results plot structure.
+window_plot_new (WindowPlot * w)        ///< Results plot structure.
 {
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("window_plot_new: start\n");
@@ -1145,18 +1144,18 @@ window_plot_new (WindowPlot * w) ///< Results plot structure.
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("starting the graphic\n");
 #endif
-	window_plot = w;
+  window_plot = w;
   w->graphic = jbw_graphic_new (6, 6, 6, window_plot_draw, "SURCOS");
   jbw_graphic_set_logo (w->graphic, "logo3.png");
 #if HAVE_GTKGLAREA
-	jbw_graphic_show (w->graphic);
-	w->id_destroy_graphic
-		= g_signal_connect_swapped (w->graphic->window, "destroy", 
-			                          (GCallback) window_plot_delete, main_window);
+  jbw_graphic_show (w->graphic);
+  w->id_destroy_graphic
+    = g_signal_connect_swapped (w->graphic->window, "destroy",
+                                (GCallback) window_plot_delete, main_window);
 #else
-	jbw_graphic_init (w->graphic);
+  jbw_graphic_init (w->graphic);
 #if HAVE_FREEGLUT
-	graphic = w->graphic;
+  graphic = w->graphic;
 #endif
 #endif
 
@@ -1191,10 +1190,10 @@ window_plot_new (WindowPlot * w) ///< Results plot structure.
 #endif
   w->notebook = (GtkNotebook *) gtk_notebook_new ();
   gtk_notebook_append_page (w->notebook, GTK_WIDGET (w->graphic_furrows->box),
-                            gtk_label_new (_("Furrow Representation")));
+                            gtk_label_new (_("Furrow representation")));
   gtk_notebook_append_page (w->notebook,
                             GTK_WIDGET (w->graphic_map->box),
-                            gtk_label_new (_("Map Furrows Representation")));
+                            gtk_label_new (_("Map furrows representation")));
   if (numProbes > 0)
     {
 #if DEBUG_WINDOW_PLOT_NEW
@@ -1203,7 +1202,7 @@ window_plot_new (WindowPlot * w) ///< Results plot structure.
       graphic_probes_new (w->graphic_probes, w->graphic);
       gtk_notebook_append_page (w->notebook,
                                 GTK_WIDGET (w->graphic_probes->combo),
-                                gtk_label_new (_("Probes Time Evolution")));
+                                gtk_label_new (_("Probes time evolution")));
     }
   jbw_signal_connect_swapped_after (w->notebook, "switch-page",
                                     (GCallback) jbw_graphic_render, w->graphic);
@@ -1211,30 +1210,41 @@ window_plot_new (WindowPlot * w) ///< Results plot structure.
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("defining save button\n");
 #endif
-	w->button_save = (GtkToolButton *)
-    gtk_tool_button_new (gtk_image_new_from_icon_name
-                         ("document-save", GTK_ICON_SIZE_LARGE_TOOLBAR),
-                         _("Save"));
-  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_save), _("Save graphic"));
-	g_signal_connect_swapped (w->button_save, "clicked",
-			                      (GCallback) jbw_graphic_dialog_save, w->graphic);
-	w->toolbar = (GtkToolbar *) gtk_toolbar_new ();
-  gtk_toolbar_set_style (w->toolbar, GTK_TOOLBAR_BOTH);
-  gtk_toolbar_insert (w->toolbar, GTK_TOOL_ITEM (w->button_save), -1);
+  w->button_save = (GtkButton *) gtk_button_new_with_label (_("Save"));
+  gtk_button_set_image (w->button_save,
+                        gtk_image_new_from_icon_name
+                        ("document-save", GTK_ICON_SIZE_LARGE_TOOLBAR));
+  gtk_button_set_image_position (w->button_save, GTK_POS_TOP);
+  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_save), _("Save graph"));
+  g_signal_connect_swapped (w->button_save, "clicked",
+                            (GCallback) jbw_graphic_dialog_save, w->graphic);
 
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("defining box\n");
 #endif
-	w->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_box_pack_start (w->box, GTK_WIDGET (w->notebook), 1, 1, 0);
-	gtk_box_pack_start (w->box, GTK_WIDGET (w->toolbar), 0, 1, 0);
+  w->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_box_pack_start (w->box, GTK_WIDGET (w->notebook), 1, 1, 0);
+  gtk_box_pack_start (w->box, GTK_WIDGET (w->button_save), 0, 1, 0);
 
-	w->window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title (w->window, _("Graphic"));
-	gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->box));
-	w->id_destroy_window
-		= g_signal_connect_swapped (w->window, "destroy",
-			                          (GCallback) window_plot_delete, main_window);
+#if DEBUG_WINDOW_PLOT_NEW
+  printf ("defining header bar\n");
+#endif
+  w->bar = (GtkHeaderBar *) gtk_header_bar_new ();
+  gtk_header_bar_set_title (w->bar, _("Graph"));
+  gtk_header_bar_set_subtitle (w->bar, _("Set the result graph options"));
+  gtk_header_bar_set_show_close_button (w->bar, 1);
+  w->logo = (GtkImage *) gtk_image_new_from_file ("logo3.png");
+  gtk_header_bar_pack_start (w->bar, GTK_WIDGET (w->logo));
+
+#if DEBUG_WINDOW_PLOT_NEW
+  printf ("defining window\n");
+#endif
+  w->window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_titlebar (w->window, GTK_WIDGET (w->bar));
+  gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->box));
+  w->id_destroy_window
+    = g_signal_connect_swapped (w->window, "destroy",
+                                (GCallback) window_plot_delete, main_window);
   gtk_widget_show_all (GTK_WIDGET (w->window));
 
 #if DEBUG_WINDOW_PLOT_NEW

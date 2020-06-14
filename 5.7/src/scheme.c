@@ -42,9 +42,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * Function to save in a file the longitudinal profile of a furrow.
  */
 void
-scheme_save (Parameters * p, ///< Mesh node parameters struct.
-	  	       unsigned int n, ///< Number of mesh cells.
-						 char *name) ///< File name.
+scheme_save (Parameters * p,    ///< Mesh node parameters struct.
+             unsigned int n,    ///< Number of mesh cells.
+             char *name)        ///< File name.
 {
   FILE *file;
   unsigned int i;
@@ -63,10 +63,10 @@ scheme_save (Parameters * p, ///< Mesh node parameters struct.
  * \return Number of the closest mesh node.
  */
 unsigned int
-scheme_search_node (Parameters * p, ///< Mesh node parameters struct.
-	 	                unsigned int n, ///< Number of mesh cells
-									 	JBDOUBLE x, ///< X-coordinate of the point.
-									 	JBDOUBLE y) ///< Y-coordinate of the point.
+scheme_search_node (Parameters * p,     ///< Mesh node parameters struct.
+                    unsigned int n,     ///< Number of mesh cells
+                    JBDOUBLE x, ///< X-coordinate of the point.
+                    JBDOUBLE y) ///< Y-coordinate of the point.
 {
   JBDOUBLE d, dmin;
   register unsigned int i, j;
@@ -87,10 +87,11 @@ scheme_search_node (Parameters * p, ///< Mesh node parameters struct.
  * Function to define the mesh and the initial conditions of a furrow
  */
 void
-scheme_mesh (Parameters * p, ///< Mesh node parameters structure.
-	 	         unsigned int n, ///< Number of mesh cells.
-						 Furrow * s, ///< Furrow data structure.
-             InitialConditions * ci) ///< Furrow initial conditions structure.
+scheme_mesh (Parameters * p,    ///< Mesh node parameters structure.
+             unsigned int n,    ///< Number of mesh cells.
+             Furrow * s,        ///< Furrow data structure.
+             InitialConditions * ci)
+             ///< Furrow initial conditions structure.
 {
   JBDOUBLE dx, hmin;
   register unsigned int i;
@@ -129,7 +130,7 @@ scheme_mesh (Parameters * p, ///< Mesh node parameters structure.
 static void
 scheme_diffusion (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-	 	              unsigned int n) ///< Number of furrow mesh cells.
+                  unsigned int n)       ///< Number of furrow mesh cells.
 {
   JBFLOAT C[n], D[n], E[n], H[n];
   register JBDOUBLE k;
@@ -161,7 +162,7 @@ scheme_diffusion (Parameters * p,
 static void
 scheme_diffusion_soil (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-	 	                   unsigned int n) ///< Number of furrow mesh cells.
+                       unsigned int n)  ///< Number of furrow mesh cells.
 {
   JBFLOAT C1[n], D1[n], E1[n], H1[n], C2[n], D2[n], E2[n], H2[n];
   register JBDOUBLE k;
@@ -196,7 +197,7 @@ scheme_diffusion_soil (Parameters * p,
 static void
 scheme_infiltration (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-		                 unsigned int n)
+                     unsigned int n)
 ///< Number of the furrow mesh cells.
 {
   register unsigned int i;
@@ -210,7 +211,7 @@ scheme_infiltration (Parameters * p,
 void
 scheme_step (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-	 	         unsigned int n) ///< Number of the furrow mesh cells.
+             unsigned int n)    ///< Number of the furrow mesh cells.
 {
   unsigned int i, n2;
   for (i = 0; i < n; ++i)
@@ -236,7 +237,7 @@ scheme_step (Parameters * p,
 void
 scheme_ix (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-		       unsigned int n) ///< Number of the furrow mesh cells.
+           unsigned int n)      ///< Number of the furrow mesh cells.
 {
   register unsigned int i;
   --n;
@@ -250,8 +251,8 @@ scheme_ix (Parameters * p,
 void
 scheme_save_advance (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
-		                 unsigned int n, ///< Number of the furrow mesh cells.
-										 FILE * file) ///< Output file.
+                     unsigned int n,    ///< Number of the furrow mesh cells.
+                     FILE * file)       ///< Output file.
 {
   unsigned int i;
   for (i = 0; i < n; ++i)
@@ -264,8 +265,8 @@ scheme_save_advance (Parameters * p,
  * \return Calculated uniformity coefficient.
  */
 JBDOUBLE
-uniformity (JBFLOAT * x, ///< Variable array.
-	 	        unsigned int n) ///< Number of array elements.
+uniformity (JBFLOAT * x,        ///< Variable array.
+            unsigned int n)     ///< Number of array elements.
 {
   unsigned int ni[n];
   JBDOUBLE xm, xp;
@@ -292,7 +293,7 @@ uniformity (JBFLOAT * x, ///< Variable array.
 JBDOUBLE
 uniformity_water (Parameters * p,
 ///< Pointer to the initial mesh node structure array.
-		              unsigned int n) ///< Number of array elements.
+                  unsigned int n)       ///< Number of array elements.
 {
   JBFLOAT x[n];
   register unsigned int i;
@@ -308,7 +309,7 @@ uniformity_water (Parameters * p,
 JBDOUBLE
 uniformity_fertilizer (Parameters * p,
 ///< Pointer to the initial mesh node structure array.
-	 	                   unsigned int n) ///< Number of array elements.
+                       unsigned int n)  ///< Number of array elements.
 {
   JBFLOAT x[n];
   register unsigned int i;

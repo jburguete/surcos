@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 11:48+0200\n"
+"POT-Creation-Date: 2020-06-14 23:35+0200\n"
 "PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -33,259 +33,259 @@ msgstr "Erreur!"
 msgid "Warning!"
 msgstr "Attention!"
 
-#: src/jb/jb_win.c:656
+#: src/jb/jb_win.c:665
 msgid "unable to compile the texture vertex shader"
 msgstr "on ne peut pas compiler le vertex shader de texture"
 
-#: src/jb/jb_win.c:668
+#: src/jb/jb_win.c:677
 msgid "unable to compile the texture fragment shader"
 msgstr "on ne peut pas compiler le fragment shader de texture"
 
-#: src/jb/jb_win.c:682
+#: src/jb/jb_win.c:691
 msgid "unable to link the texture program"
 msgstr "on ne peut pas lier le programme de texture"
 
-#: src/jb/jb_win.c:706
+#: src/jb/jb_win.c:715
 msgid "could not bind texture attribute"
 msgstr "on ne peut pas lier l'attribut de texture"
 
-#: src/jb/jb_win.c:713
+#: src/jb/jb_win.c:722
 msgid "could not bind texture position attribute"
 msgstr "on ne peut pas lier l'attribut de position de texture"
 
-#: src/jb/jb_win.c:720
+#: src/jb/jb_win.c:729
 msgid "could not bind texture uniform"
 msgstr "on ne peut pas lier la texture uniforme"
 
-#: src/jb/jb_win.c:727
+#: src/jb/jb_win.c:736
 msgid "could not bind matrix uniform"
 msgstr "on ne peut pas lier la matrice uniforme"
 
-#: src/jb/jb_win.c:779
+#: src/jb/jb_win.c:788
 msgid "unable to open the file"
 msgstr "on ne peut pas ouvrir le fichier"
 
-#: src/jb/jb_win.c:786 src/jb/jb_win.c:792
+#: src/jb/jb_win.c:795 src/jb/jb_win.c:801
 msgid "unable to open the PNG file"
 msgstr "on ne peut pas ouvrir le fichier PNG"
 
-#: src/jb/jb_win.c:804
+#: src/jb/jb_win.c:813
 msgid "not enough memory to open the widget"
 msgstr "mémoire insuffisante pour ouvrir le widget"
 
-#: src/jb/jb_win.c:818
+#: src/jb/jb_win.c:827
 msgid "not enough memory to open the image"
 msgstr "mémoire insuffisante pour ouvrir l'image"
 
-#: src/jb/jb_win.c:1020
+#: src/jb/jb_win.c:1035
 msgid "OpenGL 2.1 is not supported"
 msgstr "OpenGL 2.1 n'est pas prise en charge"
 
-#: src/jb/jb_win.c:1043
+#: src/jb/jb_win.c:1060
 msgid "unable to compile the fragment shader"
 msgstr "on ne peut pas compiler le fragment shader"
 
-#: src/jb/jb_win.c:1055
+#: src/jb/jb_win.c:1072
 msgid "unable to compile the 2D vertex shader"
 msgstr "on ne peut pas compiler le vertex shader 2D"
 
-#: src/jb/jb_win.c:1070
+#: src/jb/jb_win.c:1087
 msgid "unable to link the 2D program"
 msgstr "on ne peut pas lier le programme 2D"
 
-#: src/jb/jb_win.c:1082
+#: src/jb/jb_win.c:1099
 msgid "unable to compile the 3D vertex shader"
 msgstr "on ne peut pas compiler le vertex shader 3D"
 
-#: src/jb/jb_win.c:1097
+#: src/jb/jb_win.c:1114
 msgid "unable to link the 3D program"
 msgstr "on ne peut pas lier le programm 3D"
 
-#: src/jb/jb_win.c:1109
+#: src/jb/jb_win.c:1126
 msgid "unable to compile the 2D with color vertex shader"
 msgstr "on ne peut pas compiler le vertex shader 2D avec couleur"
 
-#: src/jb/jb_win.c:1124
+#: src/jb/jb_win.c:1141
 msgid "unable to link the 2D with color program"
 msgstr "on ne peut pas lier le programme 2D avec couleur"
 
-#: src/jb/jb_win.c:1136
+#: src/jb/jb_win.c:1153
 msgid "unable to compile the 3D with color vertex shader"
 msgstr "on ne peut pas compile le vertex shader 3D avec couleur"
 
-#: src/jb/jb_win.c:1151
+#: src/jb/jb_win.c:1168
 msgid "unable to link the 3D with color program"
 msgstr "on ne peut pas lier le programme 3D avec couleur"
 
-#: src/jb/jb_win.c:1162
+#: src/jb/jb_win.c:1179
 msgid "unable to compile the text vertex shader"
 msgstr "on ne peut pas compiler le vertex shader de texte"
 
-#: src/jb/jb_win.c:1174
+#: src/jb/jb_win.c:1191
 msgid "unable to compile the text fragment shader"
 msgstr "on ne peut pas compiler le fragment shader de texte"
 
-#: src/jb/jb_win.c:1189
+#: src/jb/jb_win.c:1206
 msgid "unable to link the text program"
 msgstr "on ne peut pas lier le programme de texte"
 
-#: src/jb/jb_win.c:1198
+#: src/jb/jb_win.c:1215
 msgid "could not bind 2D position attribute"
 msgstr "on ne peut pas lier l'attribut de position 2D"
 
-#: src/jb/jb_win.c:1205
+#: src/jb/jb_win.c:1222
 msgid "could not bind 2D color"
 msgstr "on ne peut pas lier la couleur 2D"
 
-#: src/jb/jb_win.c:1212
+#: src/jb/jb_win.c:1229
 msgid "could not bind 2D matrix"
 msgstr "on ne peut pas lier la matrice 2D"
 
-#: src/jb/jb_win.c:1221
+#: src/jb/jb_win.c:1238
 msgid "could not bind 3D position attribute"
 msgstr "no ne peut pas lier l'attribut de position 3D"
 
-#: src/jb/jb_win.c:1228
+#: src/jb/jb_win.c:1245
 msgid "could not bind 3D color"
 msgstr "on ne peut pas lier la couleur 3D"
 
-#: src/jb/jb_win.c:1235
+#: src/jb/jb_win.c:1252
 msgid "could not bind 3D matrix"
 msgstr "on ne peut pas lier la matrice 3D"
 
-#: src/jb/jb_win.c:1244
+#: src/jb/jb_win.c:1261
 msgid "could not bind 2D with color position attribute"
 msgstr "on ne peut pas lier l'attribut de position 2D avec couleur"
 
-#: src/jb/jb_win.c:1251
+#: src/jb/jb_win.c:1268
 msgid "could not bind 2D with color color"
 msgstr "on ne peut pas lier la couleur 2D avec couleur"
 
-#: src/jb/jb_win.c:1258
+#: src/jb/jb_win.c:1275
 msgid "could not bind 2D with color matrix"
 msgstr "on ne peut pas lier la matrice 2D avec couleur"
 
-#: src/jb/jb_win.c:1267
+#: src/jb/jb_win.c:1284
 msgid "could not bind 3D with color position attribute"
 msgstr "on ne peut pas lier l'attribute de position 3D avec couleur"
 
-#: src/jb/jb_win.c:1274
+#: src/jb/jb_win.c:1291
 msgid "could not bind 3D with color color"
 msgstr "on ne peut pas lier la couleur 3D avec couleur"
 
-#: src/jb/jb_win.c:1281
+#: src/jb/jb_win.c:1298
 msgid "could not bind 3D with color matrix"
 msgstr "on ne peut pas lier la matrice 3D avec couleur"
 
-#: src/jb/jb_win.c:1294
+#: src/jb/jb_win.c:1311
 msgid "could not bind text position attribute"
 msgstr "on ne peut pas lier l'attribut de position de texte"
 
-#: src/jb/jb_win.c:1301
+#: src/jb/jb_win.c:1318
 msgid "could not bind text uniform"
 msgstr "on ne peut pas lier le texte uniforme"
 
-#: src/jb/jb_win.c:1308
+#: src/jb/jb_win.c:1325
 msgid "could not bind text color uniform"
 msgstr "on ne peut pas lier la couleur de texte uniforme"
 
-#: src/jb/jb_win.c:1316
+#: src/jb/jb_win.c:1333
 msgid "not enough memory to init the FreeType library"
 msgstr "mémoire insufissante pour commencer la bibliothèque FreeType"
 
-#: src/jb/jb_win.c:1321
+#: src/jb/jb_win.c:1338
 msgid "could not init the FreeType library"
 msgstr "on ne peut pas commencer la bibliothèque FreeType"
 
-#: src/jb/jb_win.c:1327
+#: src/jb/jb_win.c:1344
 msgid "not enough memory to open the font"
 msgstr "mémoire insuffisante pour ouvrir la font"
 
-#: src/jb/jb_win.c:1332
+#: src/jb/jb_win.c:1349
 msgid "could not open font"
 msgstr "on ne peut pas ouvrir la font"
 
-#: src/jb/jb_win.c:1452
+#: src/jb/jb_win.c:1469
 msgid "bad tics number"
 msgstr "nombre de marques érroné"
 
-#: src/jb/jb_win.c:1460
+#: src/jb/jb_win.c:1477
 msgid "not enough memory to open the graphic area"
 msgstr "mémoire insuffisante pour ouvrir l'aire graphique"
 
-#: src/jb/jb_win.c:1488
+#: src/jb/jb_win.c:1505
 msgid "unable to open the graphic area widget"
 msgstr "on ne peut pas ouvrir le widget d'aire graphique"
 
-#: src/jb/jb_win.c:1524
+#: src/jb/jb_win.c:1541
 msgid "unable to open the window"
 msgstr "on ne peut pas ouvrir la fenêtre"
 
-#: src/jb/jb_win.c:2505
+#: src/jb/jb_win.c:2523
 msgid "unable to get the GdkPixbuf widget"
 msgstr "on ne peut pas obtenir le widget GdkPixbuf"
 
-#: src/jb/jb_win.c:2609 src/jb/jb_win.c:2624
+#: src/jb/jb_win.c:2627 src/jb/jb_win.c:2642
 msgid "PNG file"
 msgstr "Fichier PNG"
 
-#: src/jb/jb_win.c:2610
+#: src/jb/jb_win.c:2628
 msgid "JPEG file"
 msgstr "Fichier JPG"
 
-#: src/jb/jb_win.c:2611
+#: src/jb/jb_win.c:2629
 msgid "XPM file"
 msgstr "Fichier XPM"
 
-#: src/jb/jb_win.c:2612
+#: src/jb/jb_win.c:2630
 msgid "TIFF file"
 msgstr "Fichier TIFF"
 
-#: src/jb/jb_win.c:2613
+#: src/jb/jb_win.c:2631
 msgid "BMP file"
 msgstr "Fichier BMP"
 
-#: src/jb/jb_win.c:2614
+#: src/jb/jb_win.c:2632
 msgid "GIF file"
 msgstr "Fichier GIF"
 
-#: src/jb/jb_win.c:2615
+#: src/jb/jb_win.c:2633
 msgid "ICO file"
 msgstr "Fichier ICO"
 
-#: src/jb/jb_win.c:2636
-msgid "Save graphical"
+#: src/jb/jb_win.c:2654
+msgid "Save graph"
 msgstr "Enregistrer graphique"
 
-#: src/jb/jb_win.c:2639 src/configWindow.c:233 src/mainWindow.c:1274
+#: src/jb/jb_win.c:2657
 msgid "_OK"
 msgstr "_Accepter"
 
-#: src/jb/jb_win.c:2640 src/configWindow.c:231 src/mainWindow.c:1273
+#: src/jb/jb_win.c:2658
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/jb/jb_win.c:2679
+#: src/jb/jb_win.c:2697
 msgid "no a text editor type"
 msgstr "ce n'est pas un type d'éditeur de texte"
 
-#: src/jb/jb_win.c:2682
+#: src/jb/jb_win.c:2700
 msgid "no an integer numbers editor type"
 msgstr "ce n'est pas un type d'éditeur de nombres entiers"
 
-#: src/jb/jb_win.c:2685
+#: src/jb/jb_win.c:2703
 msgid "no a float numbers editor type"
 msgstr "ce n'est pas un type d'éditeur de nombres réels"
 
-#: src/jb/jb_win.c:2688
+#: src/jb/jb_win.c:2706
 msgid "no a date editor type"
 msgstr "ce n'est pas un type d'éditeur de dates"
 
-#: src/jb/jb_win.c:3314
+#: src/jb/jb_win.c:3332
 msgid "bad array editor widget type"
 msgstr "type de widget d'éditeur de tableaux érroné"
 
-#: src/jb/jb_win.c:3320
+#: src/jb/jb_win.c:3338
 msgid "not enough memory to open the array editor"
 msgstr "mémoire insuffisante pour ouvrir l'éditeur de tableaux"
 
@@ -303,7 +303,7 @@ msgstr "Données des sillons incorrectes"
 msgid "Bad furrow"
 msgstr "Sillon incorrect"
 
-#: src/field.c:89 src/field.c:468 src/field.c:484
+#: src/field.c:89 src/field.c:467 src/field.c:483
 msgid "Bad input data"
 msgstr "Données des entrées incorrectes"
 
@@ -339,7 +339,7 @@ msgstr "Données incorrectes"
 msgid "solubility"
 msgstr "solubilité"
 
-#: src/field.c:291 src/kernel.c:167 src/kernel.c:239
+#: src/field.c:291 src/kernel.c:164 src/kernel.c:236
 msgid "Distribution furrow"
 msgstr "Sillon de distribution"
 
@@ -347,55 +347,55 @@ msgstr "Sillon de distribution"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
 
-#: src/field.c:313 src/kernel.c:160 src/kernel.c:222
+#: src/field.c:313 src/kernel.c:158 src/kernel.c:219
 msgid "Irrigation furrows"
 msgstr "Sillons d'irrigation"
 
-#: src/field.c:329 src/kernel.c:180 src/kernel.c:259
+#: src/field.c:328 src/kernel.c:177 src/kernel.c:256
 msgid "Recirculation furrow"
 msgstr "Sillon de recirculation"
 
-#: src/field.c:428
+#: src/field.c:427
 msgid "Bad data set"
 msgstr "Données de champ incorrectes"
 
-#: src/field.c:459
+#: src/field.c:458
 msgid "Unable to open the input file"
 msgstr "On ne peut pas ouvrir le fichier des entrées"
 
-#: src/field.c:476
+#: src/field.c:475
 msgid "Not enough memory to open the input data"
 msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
 
-#: src/field.c:523
+#: src/field.c:522
 msgid "Unable to open the mesh data file"
 msgstr "On ne peut pas ouvrir le fichier des données de maille"
 
-#: src/field.c:538
+#: src/field.c:537
 msgid "Bad mesh data"
 msgstr "Données de maille incorrectes"
 
-#: src/field.c:562
+#: src/field.c:561
 msgid "Unable to open the times data file"
 msgstr "On ne peut pas ouvrir le fichier des données de temps"
 
-#: src/field.c:568
+#: src/field.c:567
 msgid "Bad times data"
 msgstr "Données des temps incorrectes"
 
-#: src/field.c:592
+#: src/field.c:591
 msgid "Unable to open the model data file"
 msgstr "On ne peut pas ouvrir le fichier des données des modèles"
 
-#: src/field.c:599
+#: src/field.c:598
 msgid "Bad model data"
 msgstr "Données des modèles incorrectes"
 
-#: src/field.c:624
+#: src/field.c:623
 msgid "Unable to open the probes data file"
 msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 
-#: src/field.c:631 src/field.c:645
+#: src/field.c:630 src/field.c:644
 msgid "Bad probes data"
 msgstr "Données des sondes incorrectes"
 
@@ -431,51 +431,51 @@ msgstr "Fertilisant"
 msgid "WATER VOLUME"
 msgstr "VOLUME D'EAU"
 
-#: src/kernel.c:142 src/kernel.c:162 src/kernel.c:169 src/kernel.c:182
-#: src/kernel.c:196 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
+#: src/kernel.c:142 src/kernel.c:160 src/kernel.c:166 src/kernel.c:179
+#: src/kernel.c:193 src/kernel.c:221 src/kernel.c:238 src/kernel.c:258
 msgid "Total"
 msgstr "Totale"
 
-#: src/kernel.c:145 src/kernel.c:199
+#: src/kernel.c:145 src/kernel.c:196
 msgid "Input"
 msgstr "Entrée"
 
-#: src/kernel.c:147 src/kernel.c:202
+#: src/kernel.c:147 src/kernel.c:199
 msgid "Calculated"
 msgstr "Calculée"
 
-#: src/kernel.c:149 src/kernel.c:204
+#: src/kernel.c:149 src/kernel.c:201
 msgid "Conservation error"
 msgstr "Erreur de conservation"
 
-#: src/kernel.c:151 src/kernel.c:163 src/kernel.c:171 src/kernel.c:184
-#: src/kernel.c:207 src/kernel.c:227 src/kernel.c:244 src/kernel.c:264
+#: src/kernel.c:151 src/kernel.c:161 src/kernel.c:168 src/kernel.c:181
+#: src/kernel.c:204 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
 msgid "Superficial"
 msgstr "Superficielle"
 
-#: src/kernel.c:153 src/kernel.c:165 src/kernel.c:173 src/kernel.c:186
-#: src/kernel.c:210 src/kernel.c:230 src/kernel.c:247 src/kernel.c:267
+#: src/kernel.c:153 src/kernel.c:162 src/kernel.c:170 src/kernel.c:183
+#: src/kernel.c:207 src/kernel.c:227 src/kernel.c:244 src/kernel.c:264
 msgid "Infiltrated"
 msgstr "Infiltrée"
 
-#: src/kernel.c:155 src/kernel.c:166 src/kernel.c:175 src/kernel.c:188
-#: src/kernel.c:213 src/kernel.c:233 src/kernel.c:250 src/kernel.c:270
+#: src/kernel.c:154 src/kernel.c:163 src/kernel.c:172 src/kernel.c:185
+#: src/kernel.c:210 src/kernel.c:230 src/kernel.c:247 src/kernel.c:267
 msgid "Percolated"
 msgstr "Percolée"
 
-#: src/kernel.c:194
+#: src/kernel.c:191
 msgid "FERTILIZER MASS"
 msgstr "MASS DE FERTILISANT"
 
-#: src/kernel.c:216 src/kernel.c:236 src/kernel.c:253 src/kernel.c:273
+#: src/kernel.c:213 src/kernel.c:233 src/kernel.c:250 src/kernel.c:270
 msgid "Solid"
 msgstr "Solide"
 
-#: src/kernel.c:331
+#: src/kernel.c:328
 msgid "Running the numerical simulation ..."
 msgstr "Calculant la simulation numérique ..."
 
-#: src/kernel.c:333
+#: src/kernel.c:330
 msgid "_Stop"
 msgstr "_Arrêter"
 

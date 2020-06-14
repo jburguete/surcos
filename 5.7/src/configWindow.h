@@ -69,6 +69,10 @@ typedef struct
   ///< Probes configuration structure.
   GtkNotebook *notebook;
   ///< GtkNotebook containing the configuration widgets.
+  GtkImage *logo;
+  ///< GtkImage to show the logo.
+  GtkHeaderBar *bar;
+  ///< GtkHeaderBar to show the dialog title.
   GtkDialog *dialog;
   ///< GtkDialog to do the configuration.
 } WindowConfig;

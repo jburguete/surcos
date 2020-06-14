@@ -63,34 +63,32 @@ typedef struct
  */
 typedef struct
 {
-	WindowPlot plot[1];
-	///< WindowPlot widget to plot the graphics.
-	Summary summary[1];
-	///< Summary widget.
+  WindowPlot plot[1];
+  ///< WindowPlot widget to plot the graphics.
+  Summary summary[1];
+  ///< Summary widget.
   GtkWindow *window;
   ///< Main GtkWindow.
-  GtkToolButton *button_exit;
-  ///< GtkToolButton to exit the program.
-  GtkToolButton *button_open;
-  ///< GtkToolButton to open a fertigation problem.
-  GtkToolButton *button_config;
-  ///< GtkToolButton to configure the fertigation problem.
-  GtkToolButton *button_run;
-  ///< GtkToolButton to run the simulation.
-  GtkToolButton *button_help;
-  ///< GtkToolButton to display the program help.
-  GtkToolButton *button_about;
-  ///< GtkToolButton to display the about dialog.
-  GtkToolbar *toolbar;
-  ///< GtkToolBar containing the tool buttons.
-	GtkBox *box;
-	///< GtkBox to pack the widgets.
+  GtkButton *button_exit;
+  ///< GtkButton to exit the program.
+  GtkButton *button_open;
+  ///< GtkButton to open a fertigation problem.
+  GtkButton *button_config;
+  ///< GtkButton to configure the fertigation problem.
+  GtkButton *button_run;
+  ///< GtkButton to run the simulation.
+  GtkButton *button_help;
+  ///< GtkButton to display the program help.
+  GtkButton *button_about;
+  ///< GtkButton to display the about dialog.
+  GtkGrid *grid;
+  ///< GtkGrid to pack the widgets.
   GdkPixbuf *pixbuf;
   ///< GdkPixbuf of the logo.
-	GMainLoop *loop;
-	///< GMainLoop main loop.
-	unsigned int plotted;
-	///< 1 on plotted graphics, 0 otherwise.
+  GMainLoop *loop;
+  ///< GMainLoop main loop.
+  unsigned int plotted;
+  ///< 1 on plotted graphics, 0 otherwise.
 } MainWindow;
 
 extern char *input_dir;

@@ -224,7 +224,7 @@ extern JBDOUBLE solubility, t, dt, dtmax;
  * Function to calculate mesh node distances.
  */
 INLINE_VOID
-parameters_ix (Parameters * p) ///< Mesh node parameters structure.
+parameters_ix (Parameters * p)  ///< Mesh node parameters structure.
 {
   p->ix = (p + 1)->x - p->x;
 }
@@ -235,8 +235,8 @@ parameters_ix (Parameters * p) ///< Mesh node parameters structure.
  * \return Area.
  */
 INLINE_JBDOUBLE
-parameters_area (Parameters * p, ///< Mesh node parameters structure.
-	 	             JBDOUBLE h) ///< Depth.
+parameters_area (Parameters * p,        ///< Mesh node parameters structure.
+                 JBDOUBLE h)    ///< Depth.
 {
   if (h <= 0.)
     return 0.;
@@ -249,8 +249,8 @@ parameters_area (Parameters * p, ///< Mesh node parameters structure.
  * \return Width.
  */
 INLINE_JBDOUBLE
-parameters_width (Parameters * p, ///< Mesh node parameters structure.
-	 	              JBDOUBLE h) ///< Depth.
+parameters_width (Parameters * p,       ///< Mesh node parameters structure.
+                  JBDOUBLE h)   ///< Depth.
 {
   if (h <= 0.)
     return 0.;
@@ -263,8 +263,8 @@ parameters_width (Parameters * p, ///< Mesh node parameters structure.
  * \return Perimeter.
  */
 INLINE_JBDOUBLE
-parameters_perimeter (Parameters * p, ///< Mesh node parameters structure.
-	 	                  JBDOUBLE h) ///< Depth.
+parameters_perimeter (Parameters * p,   ///< Mesh node parameters structure.
+                      JBDOUBLE h)       ///< Depth.
 {
   if (h <= 0.)
     return 0.;
@@ -279,7 +279,7 @@ parameters_perimeter (Parameters * p, ///< Mesh node parameters structure.
 INLINE_JBDOUBLE
 parameters_discharge_critical (Parameters * p,
 ///< Mesh node parameters structure.
-	 	                           JBDOUBLE h) ///< Depth.
+                               JBDOUBLE h)      ///< Depth.
 {
   register JBDOUBLE A, B;
   B = PARAMETERS_WIDTH (p, h);
@@ -296,7 +296,7 @@ parameters_discharge_critical (Parameters * p,
 INLINE_JBDOUBLE
 parameters_discharge_normal (Parameters * p,
 ///< Mesh node parameters structure.
-	 	                         JBDOUBLE h) ///< Depth.
+                             JBDOUBLE h)        ///< Depth.
 {
   register JBDOUBLE A, P;
   if (h <= 0.)
@@ -312,8 +312,8 @@ parameters_discharge_normal (Parameters * p,
  * \return Depth.
  */
 INLINE_JBDOUBLE
-parameters_depth_function (Parameters * p, ///< Mesh node parameters structure.
-		                       JBDOUBLE Q, ///< Discharge.
+parameters_depth_function (Parameters * p,      ///< Mesh node parameters structure.
+                           JBDOUBLE Q,  ///< Discharge.
                            JBDOUBLE (*function) (Parameters *, JBDOUBLE))
 ///< Q(h) function.
 {
@@ -350,7 +350,7 @@ parameters_depth_function (Parameters * p, ///< Mesh node parameters structure.
  * depth.
  */
 INLINE_VOID
-parameters_depth (Parameters * p) ///< Mesh node parameters structure.
+parameters_depth (Parameters * p)       ///< Mesh node parameters structure.
 {
   register JBDOUBLE k, k2;
   if (p->A <= 0.)
@@ -422,7 +422,7 @@ parameters_depth (Parameters * p) ///< Mesh node parameters structure.
  * discharge.
  */
 INLINE_VOID
-parameters_flow (Parameters * p) ///< Mesh node parameters structure.
+parameters_flow (Parameters * p)        ///< Mesh node parameters structure.
 {
   register JBDOUBLE k, k2;
   if (p->A <= p->Amin)
@@ -454,7 +454,7 @@ parameters_flow (Parameters * p) ///< Mesh node parameters structure.
  * Function to save Q and c.
  */
 INLINE_VOID
-parameters_save (Parameters * p) ///< Mesh node parameters structure.
+parameters_save (Parameters * p)        ///< Mesh node parameters structure.
 {
   p->Qv = p->Q;
   p->cv = p->c;
@@ -513,7 +513,7 @@ parameters_flux_scheme (Parameters * p)
 INLINE_VOID
 parameters_flux_scheme_upwind (Parameters * p,
 ///< Mesh node parameters structure.
-	 	                           JBDOUBLE dt)
+                               JBDOUBLE dt)
 ///< Time step size.
 {
   register JBDOUBLE c2, dWA, dWB, dWC, dtx;     // dc;
@@ -586,9 +586,9 @@ parameters_flux_scheme_upwind (Parameters * p,
 INLINE_VOID
 parameters_flux_scheme_entropy (Parameters * p,
 ///< Mesh node parameters structure.
-	                              JBDOUBLE dA,
+                                JBDOUBLE dA,
 ///< Area variation: \f$\delta A\f$.
-															 	JBDOUBLE dAc,
+                                JBDOUBLE dAc,
 ///< Fertilizer mass variation: \f$\delta(Ac)\f$.
                                 JBDOUBLE nu)
 ///< Artificial viscosity coefficient.
@@ -747,9 +747,8 @@ INLINE_JBDOUBLE
 parameters_infiltration_kostiakov_lewis (Parameters * p)
 ///< Mesh node parameters structure.
 {
-  return pow (pow (p->Ai, p->s->i4) + dt * p->P / p->s->D * pow (p->s->i1 *
-                                                                 p->s->D,
-                                                                 p->s->i4),
+  return pow (pow (p->Ai, p->s->i4)
+              + dt * p->P / p->s->D * pow (p->s->i1 * p->s->D, p->s->i4),
               p->s->i2) + p->s->i3 * p->P * dt - p->Ai;
 }
 

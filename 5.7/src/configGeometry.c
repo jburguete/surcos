@@ -1364,8 +1364,8 @@ const char *diagram_geometry_it[] = {
  * Function to read a point configuration.
  */
 void
-config_point_read (ConfigPoint * w, ///< Point configuration structure.
-		               FILE * file) ///< File.
+config_point_read (ConfigPoint * w,     ///< Point configuration structure.
+                   FILE * file) ///< File.
 {
   double x[3];
   unsigned int i;
@@ -1378,8 +1378,8 @@ config_point_read (ConfigPoint * w, ///< Point configuration structure.
  * Function to write a point configuration.
  */
 void
-config_point_write (ConfigPoint * w, ///< Point configuration structure.
-		                FILE * file) ///< File.
+config_point_write (ConfigPoint * w,    ///< Point configuration structure.
+                    FILE * file)        ///< File.
 {
   double x[3];
   unsigned int i;
@@ -1392,8 +1392,8 @@ config_point_write (ConfigPoint * w, ///< Point configuration structure.
  * Function to open a point configuration.
  */
 static void
-config_point_new (ConfigPoint * w, ///< Point configuration structure.
-		              const char *label) ///< Label string.
+config_point_new (ConfigPoint * w,      ///< Point configuration structure.
+                  const char *label)    ///< Label string.
 {
   unsigned int i;
   w->button = (GtkButton *) gtk_button_new_with_label (label);
@@ -1409,7 +1409,8 @@ config_point_new (ConfigPoint * w, ///< Point configuration structure.
  * Function to open a geometry configuration.
  */
 void
-config_geometry_new (ConfigGeometry * w) ///< Geometry configuration structure.
+config_geometry_new (ConfigGeometry * w)
+                     ///< Geometry configuration structure.
 {
   const char *label_id[4] = { "1", "2", "3", "4" };
   const char *label_point[4] = { _("Point"), "x (m)", "y (m)", "z (m)" };

@@ -251,13 +251,13 @@ $(objdir)configProbes.o: $(depkernel) $(srcdir)configProbes.h \
 $(objdir)configWindow.o: $(dep_gui) $(srcdir)configWindow.c
 	$(CC) $(CFLAGS) $(srcdir)configWindow.c -o $(objdir)configWindow.o
 
-$(objdir)graphics.o: $(dep_gui) $(srcdir)graphics.h $(srcdir)graphics.c
+$(objdir)graphics.o: $(dep_gui) $(srcdir)graphics.c
 	$(CC) $(CFLAGS) $(srcdir)graphics.c -o $(objdir)graphics.o
 
 $(objdir)mainWindow.o: $(dep_gui) $(srcdir)mainWindow.c
 	$(CC) $(CFLAGS) $(srcdir)mainWindow.c -o $(objdir)mainWindow.o
 
-$(objdir)surcos_gui.o: $(dep) $(srcdir)mainWindow.h $(srcdir)surcos_gui.c
+$(objdir)surcos_gui.o: $(dep_gui) $(srcdir)surcos_gui.c
 	$(CC) $(CFLAGS) $(srcdir)surcos_gui.c -o $(objdir)surcos_gui.o
 
 $(objdir)surcos.o: $(dep) $(srcdir)surcos.c

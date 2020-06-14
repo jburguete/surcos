@@ -80,9 +80,9 @@ config_fertilizer_new (ConfigFertilizer * cf)
 static void
 window_config_set_read (ConfigGeometry * wg,
 ///< Field geometry configuration structure.
-	 	                    TableConfigFurrows * wf,
+                        TableConfigFurrows * wf,
 ///< Field furrows configuration structure.
-											 	ConfigFertilizer * cf)
+                        ConfigFertilizer * cf)
 ///< Fertilizer configuration structure.
 {
   char buffer[512];
@@ -124,9 +124,9 @@ window_config_set_read (ConfigGeometry * wg,
 static void
 window_config_set_write (ConfigGeometry * wg,
 ///< Field geometry configuration structure.
-	 	                     TableConfigFurrows * wf,
+                         TableConfigFurrows * wf,
 ///< Field furrows configuration structure.
-												 ConfigFertilizer * cf)
+                         ConfigFertilizer * cf)
 ///< Fertilizer configuration structure.
 {
   char buffer[512];
@@ -171,7 +171,7 @@ unsigned int
 window_config_new ()
 {
   WindowConfig w[1];
-	unsigned int i;
+  unsigned int i;
 
 #if DEBUG_WINDOW_CONFIG_NEW
   printf ("window_config_new: start\n");
@@ -222,16 +222,27 @@ window_config_new ()
                             gtk_label_new (_("Advanced parameters")));
 
 #if DEBUG_WINDOW_CONFIG_NEW
+  printf ("creating the title\n");
+#endif
+  w->bar = (GtkHeaderBar *) gtk_header_bar_new ();
+  gtk_header_bar_set_title (w->bar, _("Configure irrigation"));
+  gtk_header_bar_set_subtitle (w->bar,
+                               _("Set the irrigation problem configuration"));
+  gtk_header_bar_set_show_close_button (w->bar, 1);
+  w->logo = (GtkImage *) gtk_image_new_from_file ("logo3.png");
+  gtk_header_bar_pack_start (w->bar, GTK_WIDGET (w->logo));
+
+#if DEBUG_WINDOW_CONFIG_NEW
   printf ("creating the dialog\n");
 #endif
   w->dialog =
-    (GtkDialog *) gtk_dialog_new_with_buttons (_("Configure irrigation"),
+    (GtkDialog *) gtk_dialog_new_with_buttons (NULL,
                                                main_window->window,
                                                GTK_DIALOG_MODAL,
                                                _("_Cancel"),
                                                GTK_RESPONSE_CANCEL,
-                                               _("_OK"), GTK_RESPONSE_OK,
-                                               NULL);
+                                               _("_OK"), GTK_RESPONSE_OK, NULL);
+  gtk_window_set_titlebar (GTK_WINDOW (w->dialog), GTK_WIDGET (w->bar));
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (w->dialog)),
                      GTK_WIDGET (w->notebook));
   gtk_widget_show_all (GTK_WIDGET (w->dialog));
@@ -244,7 +255,7 @@ window_config_new ()
 #if DEBUG_WINDOW_CONFIG_NEW
   printf ("dialog bucle\n");
 #endif
-	i = 0;
+  i = 0;
   if (gtk_dialog_run (w->dialog) == GTK_RESPONSE_OK)
     {
 #if DEBUG_WINDOW_CONFIG_NEW
@@ -254,7 +265,7 @@ window_config_new ()
       window_config_set_write (w->geometry, w->furrows, w->fertilizer);
       config_times_write (w->times);
       config_probes_write (w->probes);
-			i = 1;
+      i = 1;
     }
 
 #if DEBUG_WINDOW_CONFIG_NEW
@@ -265,5 +276,5 @@ window_config_new ()
 #if DEBUG_WINDOW_CONFIG_NEW
   printf ("window_config_new: end\n");
 #endif
-	return i;
+  return i;
 }

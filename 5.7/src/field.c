@@ -39,7 +39,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "scheme.h"
 #include "field.h"
 
-#define FIELD_SHOW 0 ///< Macro to compile the field_show function.
+#define FIELD_SHOW 0            ///< Macro to compile the field_show function.
 
 #define DEBUG_PARALLEL_OPEN 0
 ///< Macro to debug the parallel_open function.
@@ -66,8 +66,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define DEBUG_FIELD_OPEN 0
 ///< Macro to debug the field_open function.
 
-JBDOUBLE t; ///< Time.
-JBDOUBLE solubility; ///< Fertilizer solubility.
+JBDOUBLE t;                     ///< Time.
+JBDOUBLE solubility;            ///< Fertilizer solubility.
 Field field[1];
 ///< Field struct with the field, mesh and scheme data needed to simulate.
 
@@ -80,8 +80,8 @@ static void travel_mesh (void (*function) (Parameters *));
  * \return 0 on error, 1 on success.
  */
 static int
-input_read (Input * i, ///< Input data structure.
-	 	        FILE * file) ///< Input data file.
+input_read (Input * i,          ///< Input data structure.
+            FILE * file)        ///< Input data file.
 {
   if (fscanf (file, FRL FRL FRL FRL FRL, &i->x, &i->y, &i->t0, &i->tf, &i->q)
       != 5)
@@ -124,8 +124,8 @@ input_read (Input * i, ///< Input data structure.
  */
 #if FIELD_SHOW
 void
-field_show (Field * T, ///< Field structure.
-		        FILE * file) ///< Input data file.
+field_show (Field * T,          ///< Field structure.
+            FILE * file)        ///< Input data file.
 {
   unsigned int i;
   for (i = 0; i < T->nfurrows; ++i)
@@ -152,7 +152,7 @@ field_show (Field * T, ///< Field structure.
  * \return 0 no NAN numbers, 1 detected a NAN number.
  */
 static int
-field_isnan (Field * T) ///< Field structure.
+field_isnan (Field * T)         ///< Field structure.
 {
   Parameters *p;
   unsigned int i;
@@ -179,7 +179,7 @@ field_isnan (Field * T) ///< Field structure.
  * \return 0 on error, 1 on success.
  */
 static int
-field_read_data (char *directory) ///< Directory locating the input files.
+field_read_data (char *directory)       ///< Directory locating the input files.
 {
   char buffer[512];
   JBDOUBLE v[3];
@@ -310,8 +310,7 @@ field_read_data (char *directory) ///< Directory locating the input files.
           !initial_conditions_read (field->cii, file))
         {
           buffer2 = message;
-          message = g_strconcat (_("Irrigation furrows"), "\n", message,
-                                 NULL);
+          message = g_strconcat (_("Irrigation furrows"), "\n", message, NULL);
           g_free (buffer2);
           goto exit0;
         }
@@ -444,7 +443,7 @@ exit0:
  * \return 0 on error, 1 on success.
  */
 static int
-field_read_input (char *directory) ///< Directory locating the input files.
+field_read_input (char *directory)      ///< Directory locating the input files.
 {
   char buffer[512];
   FILE *file;
@@ -508,7 +507,7 @@ error1:
  * \return 0 on error, 1 on success.
  */
 static int
-field_read_mesh (char *directory) ///< Directory locating the mesh file.
+field_read_mesh (char *directory)       ///< Directory locating the mesh file.
 {
   char buffer[512];
   FILE *file;
@@ -580,7 +579,7 @@ field_read_time (char *directory)
  * \return 0 on error, 1 on success.
  */
 static int
-field_read_model (char *directory) ///< Directory locating the models file.
+field_read_model (char *directory)      ///< Directory locating the models file.
 {
   char buffer[512];
   FILE *file;
@@ -611,7 +610,7 @@ field_read_model (char *directory) ///< Directory locating the models file.
  * \return 0 on error, 1 on success.
  */
 static int
-field_read_probe (char *directory) ///< Directory locating the probes file.
+field_read_probe (char *directory)      ///< Directory locating the probes file.
 {
   char buffer[512];
   FILE *file;
@@ -659,8 +658,8 @@ exit0:
  * Function to save the furrow longitudinal profiles at a step time.
  */
 void
-field_save_parameters (unsigned long int t, ///< Step time number.
-		                   char *directory) ///< Directory to save the file.
+field_save_parameters (unsigned long int t,     ///< Step time number.
+                       char *directory) ///< Directory to save the file.
 {
   char buffer[512];
   Parameters *p;
@@ -780,7 +779,7 @@ field_mesh ()
  * node.
  */
 static void
-dtmax_point (Parameters * p) ///< Mesh node parameters structure.
+dtmax_point (Parameters * p)    ///< Mesh node parameters structure.
 {
   register JBDOUBLE dt;
   dt = DTMAX (p->u, p->uc, p->dx);
@@ -836,7 +835,7 @@ field_dtmax ()
  * Function to caluculate the boundary conditions.
  */
 static void
-field_boundary (JBDOUBLE dt) ///< Time step size.
+field_boundary (JBDOUBLE dt)    ///< Time step size.
 {
   JBDOUBLE to, m;
   Parameters *p;
@@ -915,11 +914,11 @@ field_boundary (JBDOUBLE dt) ///< Time step size.
 INLINE_VOID
 junction_lateral (Parameters * p1,
 ///< Pointer to the mesh node of the main furrow.
-	                Parameters * p2,
+                  Parameters * p2,
 ///< Pointer to the mesh node of the lateral furrow.
-								 	JBDOUBLE contribution,
+                  JBDOUBLE contribution,
 ///< Numerical contributions to the junction.
-								 	JBDOUBLE c) ///< Fertilizer concentration.
+                  JBDOUBLE c)   ///< Fertilizer concentration.
 {
   JBDOUBLE V, Vc, Vt, h, dh, bdx1, zdx1, bdx2, zdx2, A1, A2;
 #if DEBUG_JUNCTION_LATERAL
@@ -1047,19 +1046,14 @@ field_junctions ()
   for (i = 0, k = nfurrows * ni, j = 0; j < nfurrows; i += ni, k += nbi, ++j)
     {
 #if DEBUG_JUNCTIONS
-      printf ("i=%u k=%u a1=" FPL " c=" FPL "\n", i, k, p[i].Qv * dt,
-              p[i].cv);
-      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac,
-              p[i].dx);
-      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac,
-              p[k].dx);
+      printf ("i=%u k=%u a1=" FPL " c=" FPL "\n", i, k, p[i].Qv * dt, p[i].cv);
+      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac, p[i].dx);
+      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac, p[k].dx);
 #endif
       junction_lateral (p + i, p + k, p[i].Qv * dt, p[i].cv);
 #if DEBUG_JUNCTIONS
-      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac,
-              p[i].dx);
-      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac,
-              p[k].dx);
+      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac, p[i].dx);
+      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac, p[k].dx);
 #endif
     }
   i = nfurrows * ni + nb - 1;
@@ -1076,19 +1070,14 @@ field_junctions ()
        i += ni, k += nbi, ++j)
     {
 #if DEBUG_JUNCTIONS
-      printf ("i=%u k=%u a1=" FPL " c=" FPL "\n", i, k, -p[i].Qv * dt,
-              p[i].cv);
-      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac,
-              p[i].dx);
-      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac,
-              p[k].dx);
+      printf ("i=%u k=%u a1=" FPL " c=" FPL "\n", i, k, -p[i].Qv * dt, p[i].cv);
+      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac, p[i].dx);
+      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac, p[k].dx);
 #endif
       junction_lateral (p + i, p + k, -p[i].Qv * dt, p[i].cv);
 #if DEBUG_JUNCTIONS
-      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac,
-              p[i].dx);
-      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac,
-              p[k].dx);
+      printf ("A1=" FPL " Ac1=" FPL " dx1=" FPL "\n", p[i].A, p[i].Ac, p[i].dx);
+      printf ("A2=" FPL " Ac2=" FPL " dx2=" FPL "\n", p[k].A, p[k].Ac, p[k].dx);
 #endif
     }
 #if DEBUG_JUNCTIONS
@@ -1101,7 +1090,7 @@ field_junctions ()
  * Function to calculate a numerical time step.
  */
 void
-field_step (JBDOUBLE dt) ///< Time step size.
+field_step (JBDOUBLE dt)        ///< Time step size.
 {
 #if DEBUG_FIELD_STEP
   printf ("field_step: start\n");
@@ -1287,7 +1276,7 @@ field_destroy ()
 #endif
   free (field->si);
   g_free (field->p);
-	free (field->input);
+  free (field->input);
   free (field->probe);
 #if DEBUG_FIELD_DESTROY
   printf ("field_destroy: end\n");
@@ -1300,14 +1289,14 @@ field_destroy ()
  * \return 0 on error, 1 on success.
  */
 int
-field_open (char *dir) ///< Directory locating the input files.
+field_open (char *dir)          ///< Directory locating the input files.
 {
 #if DEBUG_FIELD_OPEN
   printf ("field_open: start\n");
 #endif
   field->si = NULL;
   field->p = NULL;
-	field->input = NULL;
+  field->input = NULL;
   field->probe = NULL;
 #if DEBUG_FIELD_OPEN
   printf ("Reading set\n");
@@ -1361,7 +1350,7 @@ exit_error:
 
 #if PARALLELIZING
 
-Parallel parallel[1]; ///< Parallel struct to save the parallelization data.
+Parallel parallel[1];           ///< Parallel struct to save the parallelization data.
 
 /**
  * Function to open the data needed to parallelize the simulation.
@@ -1378,11 +1367,9 @@ parallel_open ()
   printf ("nthreads=%d\n", parallel->nthreads);
 #endif
   parallel->node =
-    (unsigned int *) malloc ((parallel->nthreads + 1) *
-                             sizeof (unsigned int));
+    (unsigned int *) malloc ((parallel->nthreads + 1) * sizeof (unsigned int));
   parallel->furrow =
-    (unsigned int *) malloc ((parallel->nthreads + 1) *
-                             sizeof (unsigned int));
+    (unsigned int *) malloc ((parallel->nthreads + 1) * sizeof (unsigned int));
   parallel->nfurrows = field->nfurrows + 1;
   if (field->open)
     ++parallel->nfurrows;
@@ -1409,7 +1396,7 @@ parallel_open ()
  * Function to perform a parallelized thread in mesh nodes.
  */
 static void
-travel_thread (void *data) ///< Pointer to the data needed by the thread.
+travel_thread (void *data)      ///< Pointer to the data needed by the thread.
 {
   unsigned int thread, i;
   thread = (unsigned int) (size_t) data;
@@ -1483,7 +1470,7 @@ travel_furrows (void (*function) (Parameters *, unsigned int))
  * Function to calculate parallelized the mass in a thread.
  */
 static void
-mass_thread (void *data) ///< Pointer to the data needed by the thread.
+mass_thread (void *data)        ///< Pointer to the data needed by the thread.
 {
   Parameters *p;
   register JBDOUBLE mass;
@@ -1504,8 +1491,8 @@ mass_thread (void *data) ///< Pointer to the data needed by the thread.
  * \return Total mass.
  */
 JBDOUBLE
-mass_parallel (Parameters * p, ///< Array of the node parameters data.
-		           unsigned int n, ///< Number of nodes.
+mass_parallel (Parameters * p,  ///< Array of the node parameters data.
+               unsigned int n,  ///< Number of nodes.
                JBDOUBLE (*function) (Parameters *))
 ///< Pointer to the function to calculate the mass in a node.
 {
@@ -1569,8 +1556,8 @@ travel_mesh (void (*function) (Parameters *))
  * \return Total water volume.
  */
 JBDOUBLE
-volume_water_total (Parameters * p, ///< Array of the node parameters data.
-		                unsigned int n) ///< Number of nodes.
+volume_water_total (Parameters * p,     ///< Array of the node parameters data.
+                    unsigned int n)     ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1585,8 +1572,8 @@ volume_water_total (Parameters * p, ///< Array of the node parameters data.
  * \return Surface water volume.
  */
 JBDOUBLE
-volume_water_surface (Parameters * p, ///< Array of the node parameters data.
-		                  unsigned int n) ///< Number of nodes.
+volume_water_surface (Parameters * p,   ///< Array of the node parameters data.
+                      unsigned int n)   ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1601,8 +1588,8 @@ volume_water_surface (Parameters * p, ///< Array of the node parameters data.
  * \return Soil water volume.
  */
 JBDOUBLE
-volume_water_soil (Parameters * p, ///< Array of the node parameters data.
-	 	               unsigned int n) ///< Number of nodes.
+volume_water_soil (Parameters * p,      ///< Array of the node parameters data.
+                   unsigned int n)      ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1617,8 +1604,8 @@ volume_water_soil (Parameters * p, ///< Array of the node parameters data.
  * \return Losses of water volume.
  */
 JBDOUBLE
-volume_water_loss (Parameters * p, ///< Array of the node parameters data.
-	                 unsigned int n) ///< Number of nodes.
+volume_water_loss (Parameters * p,      ///< Array of the node parameters data.
+                   unsigned int n)      ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1633,8 +1620,8 @@ volume_water_loss (Parameters * p, ///< Array of the node parameters data.
  * \return Total fertilizer mass.
  */
 JBDOUBLE
-mass_fertilizer_total (Parameters * p, ///< Array of the node parameters data.
-	 	                   unsigned int n) ///< Number of nodes.
+mass_fertilizer_total (Parameters * p,  ///< Array of the node parameters data.
+                       unsigned int n)  ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1649,8 +1636,8 @@ mass_fertilizer_total (Parameters * p, ///< Array of the node parameters data.
  * \return Surface fertilizer mass.
  */
 JBDOUBLE
-mass_fertilizer_surface (Parameters * p, ///< Array of the node parameters data.
-		                     unsigned int n) ///< Number of nodes.
+mass_fertilizer_surface (Parameters * p,        ///< Array of the node parameters data.
+                         unsigned int n)        ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;
@@ -1665,8 +1652,8 @@ mass_fertilizer_surface (Parameters * p, ///< Array of the node parameters data.
  * \return Soil fertilizer mass.
  */
 JBDOUBLE
-mass_fertilizer_soil (Parameters * p, ///< Array of the node parameters data.
-		                  unsigned int n) ///< Number of nodes.
+mass_fertilizer_soil (Parameters * p,   ///< Array of the node parameters data.
+                      unsigned int n)   ///< Number of nodes.
 {
   register unsigned int i;
   register JBDOUBLE k;
@@ -1681,8 +1668,8 @@ mass_fertilizer_soil (Parameters * p, ///< Array of the node parameters data.
  * \return Losses of fertilizer mass.
  */
 JBDOUBLE
-mass_fertilizer_loss (Parameters * p, ///< Array of the node parameters data.
-	                    unsigned int n) ///< Number of nodes.
+mass_fertilizer_loss (Parameters * p,   ///< Array of the node parameters data.
+                      unsigned int n)   ///< Number of nodes.
 {
   register unsigned int i;
   register JBDOUBLE k;
@@ -1697,8 +1684,8 @@ mass_fertilizer_loss (Parameters * p, ///< Array of the node parameters data.
  * \return Solid fertilizer mass.
  */
 JBDOUBLE
-mass_fertilizer_solid (Parameters * p, ///< Array of the node parameters data.
-	 	                   unsigned int n) ///< Number of nodes.
+mass_fertilizer_solid (Parameters * p,  ///< Array of the node parameters data.
+                       unsigned int n)  ///< Number of nodes.
 {
   register JBDOUBLE k;
   register unsigned int i;

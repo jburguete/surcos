@@ -220,10 +220,10 @@ const char *diagram_input[] = {
  * Function to insert inputs.
  */
 static void
-input_insert (GList ** list, ///< List of inputs.
-		          unsigned int nInputsOld, ///< Old inputs number.
-							unsigned int nInputs, ///< New inputs number.
-							GtkGrid * table) ///< configuration GtkGrid.
+input_insert (GList ** list,    ///< List of inputs.
+              unsigned int nInputsOld,  ///< Old inputs number.
+              unsigned int nInputs,     ///< New inputs number.
+              GtkGrid * table)  ///< configuration GtkGrid.
 {
   double min[5] = { -1e6, -1e6, 0., 0., 0. };
   double max[5] = { 1e6, 1e6, 1e6, 1e6, 1. };
@@ -253,9 +253,9 @@ input_insert (GList ** list, ///< List of inputs.
  * Function to remove inputs.
  */
 static void
-input_remove (GList ** list, ///< List of inputs.
-		          unsigned int nInputsOld, ///< Old inputs number.
-						 	unsigned int nInputs) ///< New inputs number.
+input_remove (GList ** list,    ///< List of inputs.
+              unsigned int nInputsOld,  ///< Old inputs number.
+              unsigned int nInputs)     ///< New inputs number.
 {
   GList *element, *next;
   unsigned int i, j;
@@ -276,11 +276,11 @@ input_remove (GList ** list, ///< List of inputs.
  * Function to update the inputs number.
  */
 static void
-input_update (GList ** list, ///< List of inputs.
-	          	unsigned int *nInputs, ///< New inputs number.
-						 	GtkSpinButton * spin,
-							///< GtkSpinButton defining the inputs number.
-						 	GtkGrid * table) ///< configuration GtkGrid.
+input_update (GList ** list,    ///< List of inputs.
+              unsigned int *nInputs,    ///< New inputs number.
+              GtkSpinButton * spin,
+              ///< GtkSpinButton defining the inputs number.
+              GtkGrid * table)  ///< configuration GtkGrid.
 {
   unsigned int nInputsOld;
   nInputsOld = *nInputs;
@@ -382,7 +382,7 @@ config_irrigation_read (ConfigIrrigation * w)
           fscanf (f, "%lg%lg%lg%lg%lg", x, x + 1, x + 2, x + 3, x + 4);
 #if DEBUG_CONFIG_IRRIGATION_READ
           printf ("x0=%lg x1=%lg x2=%lg x3=%lg x4=%lg\n",
-						 	    x[0], x[1], x[2], x[3], x[4]);
+                  x[0], x[1], x[2], x[3], x[4]);
 #endif
           for (k = 0; k < 5; ++k)
             {
@@ -479,19 +479,16 @@ config_irrigation_new (ConfigIrrigation * w)
   for (i = 0; i < 2; ++i)
     {
       w->label[i] = (GtkLabel *) gtk_label_new (label_number[i]);
-      gtk_grid_attach (w->box_number, GTK_WIDGET (w->label[i]), 2 * i, 0, 1,
-                       1);
+      gtk_grid_attach (w->box_number, GTK_WIDGET (w->label[i]), 2 * i, 0, 1, 1);
       w->spin[i] =
         (GtkSpinButton *) gtk_spin_button_new_with_range (min[i], max[i],
                                                           step[i]);
       gtk_grid_attach (w->box_number, GTK_WIDGET (w->spin[i]), 2 * i + 1, 0,
                        1, 1);
       w->frame[i] = (GtkFrame *) gtk_frame_new (label_frame[i]);
-      gtk_grid_attach (w->box_input, GTK_WIDGET (w->frame[i]), 0, i + 1, 5,
-                       1);
+      gtk_grid_attach (w->box_input, GTK_WIDGET (w->frame[i]), 0, i + 1, 5, 1);
       w->table[i] = (GtkGrid *) gtk_grid_new ();
-      gtk_container_add (GTK_CONTAINER (w->frame[i]),
-                         GTK_WIDGET (w->table[i]));
+      gtk_container_add (GTK_CONTAINER (w->frame[i]), GTK_WIDGET (w->table[i]));
       for (j = 0; j < 6; ++j)
         {
           w->button[j][i] = (GtkButton *) gtk_button_new_with_label

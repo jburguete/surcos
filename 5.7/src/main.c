@@ -40,8 +40,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \return 0 on success, error code on error.
  */
 int
-main (int argn, ///< Arguments number.
-		  char *argc[]) ///< Argument strings.
+main (int argn,                 ///< Arguments number.
+      char *argc[])             ///< Argument strings.
 {
   return surcos (argn, argc);
 }

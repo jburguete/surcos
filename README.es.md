@@ -2,8 +2,9 @@ SURCOS (versión 5.7)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
+:fr:[français](README.fr.md)
 
-Un programa de software para resolver riego y fertirriego en surcos aislados o
+Un programa informático para resolver riego y fertirriego en surcos aislados o
 redes de surcos.
 
 AUTORES
@@ -21,8 +22,29 @@ SURCOS. Versiones estables con ficheros ejecutables y manuales para sistemas
 Microsoft Windows se pueden descargar en
 [digital.csic](http://hdl.handle.net/10261/75830)
 
-REQUIRED
+FICHEROS
 --------
+
+* configure.ac: configure generator.
+* Makefile.in: Makefile generator.
+* TODO: List of tasks TO DO
+* src/config.h.in: config header generator.
+* src/\*.h: Header files.
+* src/\*.c: Source files.
+* \*.png: Diagram and logo files.
+* graph/\*.tex: Latex files to generate the diagrams.
+* Doxyfile: configuration file to generate doxygen documentation.
+* locale/es/LC\_MESSAGES/\*.po: spanish language files.
+* locale/fr/LC\_MESSAGES/\*.po: french language files.
+* locale/it/LC\_MESSAGES/\*.po: italian language files.
+* examples/\*/\*.in: example input files.
+* manual/\*: Manual files.
+
+BUILDING INSTRUCTIONS
+---------------------
+
+REQUIRED
+________
 
 * [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) (to compile the
   source code)
@@ -46,27 +68,6 @@ REQUIRED
 * [doxygen](http://www.stack.nl/~dimitri/doxygen) (optional: standard comments
   format to generate documentation)
 * [latex](https://www.latex-project.org/) (optional: to build the PDF manuals)
-
-FILES
------
-
-* configure.ac: configure generator.
-* Makefile.in: Makefile generator.
-* TODO: List of tasks TO DO (in spanish)
-* src/config.h.in: config header generator.
-* src/\*.h: Header files.
-* src/\*.c: Source files.
-* \*.png: Diagram and logo files.
-* graph/\*.tex: Latex files to generate the diagrams.
-* Doxyfile: configuration file to generate doxygen documentation.
-* locale/es/LC\_MESSAGES/\*.po: spanish language files.
-* locale/fr/LC\_MESSAGES/\*.po: french language files.
-* locale/it/LC\_MESSAGES/\*.po: italian language files.
-* examples/\*/\*.in: example input files.
-* manual/\*: Manual files.
-
-BUILDING INSTRUCTIONS
----------------------
 
 This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
@@ -106,7 +107,7 @@ __________________
 3. Link the JB library on the source directory to jb doing on a terminal:
 > $ cd surcos/5.7/src
 >
-> $ ln -s ../../../jb/2.4.0 jb
+> $ ln -s ../../../jb/2.4.1 jb
 
 4. Build SURCOS doing on a terminal:
 > $ cd ..

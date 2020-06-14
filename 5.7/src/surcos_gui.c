@@ -46,7 +46,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "graphics.h"
 #include "mainWindow.h"
 
-#define DEBUG_MAIN 1 ///< Macro to debug the main() function.
+#define DEBUG_MAIN 0            ///< Macro to debug the main() function.
 
 #define PROGRAM_NAME "surcos_gui"
 ///< Macro to define the executable program name.
@@ -61,7 +61,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define LOCALE_DIR "locale"
 #endif
 
-MainWindow * main_window; ///< Main window.
+MainWindow *main_window;        ///< Main window.
 
 #if HAVE_FREEGLUT
 
@@ -71,9 +71,9 @@ MainWindow * main_window; ///< Main window.
 void
 main_window_idle ()
 {
-	GMainContext * context = g_main_context_default ();
-	while (g_main_context_pending (context))
-	  g_main_context_iteration (context, 0);
+  GMainContext *context = g_main_context_default ();
+  while (g_main_context_pending (context))
+    g_main_context_iteration (context, 0);
 }
 
 #elif HAVE_GLFW
@@ -86,10 +86,10 @@ main_window_idle ()
 int
 main_window_idle ()
 {
-	if (main_window->plotted
-			&& glfwWindowShouldClose (main_window->plot->graphic->window))
-		jbw_main_exit = 1;
-	return 1;
+  if (main_window->plotted
+      && glfwWindowShouldClose (main_window->plot->graphic->window))
+    jbw_main_exit = 1;
+  return 1;
 }
 
 #endif
@@ -100,11 +100,11 @@ main_window_idle ()
  * Function to resize the plot.
  */
 void
-main_window_resize (int width, ///< Width.
-		             int height) ///< Height.
+main_window_resize (int width,  ///< Width.
+                    int height) ///< Height.
 {
-	if (main_window->plotted)
-		jbw_graphic_resize (main_window->plot->graphic, width, height);
+  if (main_window->plotted)
+    jbw_graphic_resize (main_window->plot->graphic, width, height);
 }
 
 #endif
@@ -117,8 +117,8 @@ main_window_resize (int width, ///< Width.
 void
 main_window_render ()
 {
-	if (main_window->plotted)
-		jbw_graphic_render (main_window->plot->graphic);
+  if (main_window->plotted)
+    jbw_graphic_render (main_window->plot->graphic);
 }
 
 #endif
@@ -127,8 +127,8 @@ main_window_render ()
  * Main function.
  */
 int
-main (int argn, ///< Arguments number.
-		  char *argc[]) ///< Argument strings.
+main (int argn,                 ///< Arguments number.
+      char *argc[])             ///< Argument strings.
 {
   MainWindow *window;
   char *buffer, *buffer2;
@@ -137,8 +137,8 @@ main (int argn, ///< Arguments number.
   printf ("main: start\n");
 #endif
 
-	// Initing JB windows library
-	jbw_init (&argn, &argc);
+  // Initing JB windows library
+  jbw_init (&argn, &argc);
 
   // Initing field arrays
   field->si = NULL;
@@ -154,9 +154,9 @@ main (int argn, ///< Arguments number.
 #endif
 
   // Setting the program name and locale directory to find locale files
-	buffer2 = g_get_current_dir ();
+  buffer2 = g_get_current_dir ();
   buffer = g_build_filename (buffer2, LOCALE_DIR, NULL);
-	g_free (buffer2);
+  g_free (buffer2);
   buffer2 = bindtextdomain (PROGRAM_NAME, buffer);
 #if DEBUG_MAIN
   printf ("Locale dir = %s\n", buffer);
@@ -191,30 +191,24 @@ main (int argn, ///< Arguments number.
     }
 
   // Starting the main bucle
-	printf ("+1\n");
 #if HAVE_GTKGLAREA
-	jbw_main_loop_pointer = g_main_loop_new (NULL, 0);
+  jbw_main_loop_pointer = g_main_loop_new (NULL, 0);
 #elif HAVE_FREEGLUT
-	jbw_main_idle = main_window_idle;
-	jbw_main_resize = main_window_resize;
-	jbw_main_render = main_window_render;
+  jbw_main_idle = main_window_idle;
+  jbw_main_resize = main_window_resize;
+  jbw_main_render = main_window_render;
 #elif HAVE_SDL
-	jbw_main_resize = main_window_resize;
-	jbw_main_render = main_window_render;
+  jbw_main_resize = main_window_resize;
+  jbw_main_render = main_window_render;
 #elif HAVE_GLFW
-	jbw_main_idle = main_window_idle;
-	jbw_main_render = main_window_render;
+  jbw_main_idle = main_window_idle;
+  jbw_main_render = main_window_render;
 #endif
   jbw_main_loop ();
-	printf ("OK\n");
-	fflush (stdout);
 
   // Freeing memory
-  printf ("freeing\n");
-	free (window);
-	g_free (input_dir);
-  printf ("end\n");
-
+  free (window);
+  g_free (input_dir);
 
   return 0;
 }

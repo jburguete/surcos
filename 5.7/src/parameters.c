@@ -37,15 +37,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "furrow.h"
 #include "parameters.h"
 
-#define PARAMETERS_SHOW 0 ///< Macro to compile the parameters_show function.
+#define PARAMETERS_SHOW 0       ///< Macro to compile the parameters_show function.
 
 /**
  * Debug function to show the parameters of a mesh node.
  */
 #if PARAMETERS_SHOW
 void
-parameters_show (Parameters * p, ///< Mesh node parameters structure.
-	 	             FILE * file) ///< Output file.
+parameters_show (Parameters * p,        ///< Mesh node parameters structure.
+                 FILE * file)   ///< Output file.
 {
   fprintf (file, "parameters_show: start\n");
   fprintf (file, "h=" FWF " A=" FWF " Q=" FWF " Ai=" FWF "\n",

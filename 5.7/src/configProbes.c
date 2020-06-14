@@ -44,15 +44,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 extern char *input_dir;
 
-static unsigned int nProbes; ///< Probes number.
+static unsigned int nProbes;    ///< Probes number.
 
 /**
  * Function to insert probes.
  */
 static void
 config_probes_insert (ConfigProbes * w, ///< Probes configuration structure.
-		                  unsigned int nProbesOld, ///< Old probes number.
-										 	unsigned int nProbes) ///< New probes number.
+                      unsigned int nProbesOld,  ///< Old probes number.
+                      unsigned int nProbes)     ///< New probes number.
 {
   char buffer[32];
   GtkWidget *widget;
@@ -81,8 +81,8 @@ config_probes_insert (ConfigProbes * w, ///< Probes configuration structure.
  */
 static void
 config_probes_remove (ConfigProbes * w, ///< Probes configuration structure.
-		                  unsigned int nProbesOld, ///< Old probes number.
-										 	unsigned int nProbes) ///< New probes number.
+                      unsigned int nProbesOld,  ///< Old probes number.
+                      unsigned int nProbes)     ///< New probes number.
 {
   GList *element, *next;
   unsigned int i, j;
@@ -105,7 +105,7 @@ config_probes_remove (ConfigProbes * w, ///< Probes configuration structure.
 static void
 config_probes_update (GtkSpinButton * spin,
 ///< GtkSpinButton configuring the probes number.
-		                  ConfigProbes * w) ///< Probes configuration structure.
+                      ConfigProbes * w) ///< Probes configuration structure.
 {
   unsigned int nProbesOld;
   nProbesOld = nProbes;
@@ -131,7 +131,7 @@ config_probes_update (GtkSpinButton * spin,
  * Function to read the probes configuration in a file.
  */
 static void
-config_probes_read (ConfigProbes * w) ///< Probes configuration structure.
+config_probes_read (ConfigProbes * w)   ///< Probes configuration structure.
 {
   char buffer[512];
   GList *list;
@@ -175,7 +175,7 @@ config_probes_read (ConfigProbes * w) ///< Probes configuration structure.
  * Function to write the probes configuration in a file.
  */
 void
-config_probes_write (ConfigProbes * w) ///< Probes configuration structure.
+config_probes_write (ConfigProbes * w)  ///< Probes configuration structure.
 {
   char buffer[512];
   FILE *f;
@@ -202,7 +202,7 @@ config_probes_write (ConfigProbes * w) ///< Probes configuration structure.
  * Function to open the probes configuration.
  */
 void
-config_probes_new (ConfigProbes * w) ///< Probes configuration structure.
+config_probes_new (ConfigProbes * w)    ///< Probes configuration structure.
 {
   const char *label[] = { _("Probe"), "x (m)", "y (m)" };
   unsigned int i;

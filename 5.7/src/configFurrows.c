@@ -211,7 +211,7 @@ const char *diagram_furrow[] = {
 static void
 config_furrow_set_sensitive (ConfigFurrow * w,
 ///< Furrow configuration structure.
-		                         int sensitive)
+                             int sensitive)
 ///< 1 on configurable, 0 on no configurable.
 {
   int i;
@@ -224,8 +224,8 @@ config_furrow_set_sensitive (ConfigFurrow * w,
  * Function to read a furrow configuration in a file.
  */
 void
-config_furrow_read (ConfigFurrow * w, ///< Furrow configuration structure.
-		                FILE * file) ///< File.
+config_furrow_read (ConfigFurrow * w,   ///< Furrow configuration structure.
+                    FILE * file)        ///< File.
 {
   double x[11];
   unsigned int i;
@@ -240,8 +240,8 @@ config_furrow_read (ConfigFurrow * w, ///< Furrow configuration structure.
  * Function to write a furrow configuration of a file.
  */
 void
-config_furrow_write (ConfigFurrow * w, ///< Furrow configuration structure.
-		                 FILE * file) ///< File.
+config_furrow_write (ConfigFurrow * w,  ///< Furrow configuration structure.
+                     FILE * file)       ///< File.
 {
   double x[10];
   unsigned int i;
@@ -255,8 +255,8 @@ config_furrow_write (ConfigFurrow * w, ///< Furrow configuration structure.
  * Function to open a furrow configuration.
  */
 static void
-config_furrow_new (ConfigFurrow * w, ///< Furrow configuration structure.
-		               const char *label) ///< Furrow label.
+config_furrow_new (ConfigFurrow * w,    ///< Furrow configuration structure.
+                   const char *label)   ///< Furrow label.
 {
   const double min[10] = { 0., 0., 0., 0., 0., 0., 0., 0., 0., 0. };
   const double max[10] = { 100., 100., 10., 100., 10., 1., 1., 1e6, 1., 1. };
@@ -282,8 +282,7 @@ table_config_furrows_update (TableConfigFurrows * w)
   nfurrows = gtk_spin_button_get_value_as_int (w->spin);
   // Sensitive if they are recirculation furrow
   i =
-    gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON
-                                  (w->button_recirculation));
+    gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w->button_recirculation));
   config_furrow_set_sensitive (w->furrow + 2, i);
   // Sensitive if they are irrigation furrows
   config_furrow_set_sensitive (w->furrow + 1, (nfurrows > 0) ? 1 : 0);
@@ -346,8 +345,7 @@ table_config_furrows_new (TableConfigFurrows * w)
   w->button_furrow = (GtkButton *) gtk_button_new_with_label (_("Furrow"));
   gtk_widget_set_can_focus (GTK_WIDGET (w->button_furrow), FALSE);
   gtk_grid_attach (w->table, GTK_WIDGET (w->button_furrow), 2, 2, 3, 1);
-  w->button_geometry = (GtkButton *) gtk_button_new_with_label
-    (_("Geometry"));
+  w->button_geometry = (GtkButton *) gtk_button_new_with_label (_("Geometry"));
   gtk_widget_set_can_focus (GTK_WIDGET (w->button_geometry), FALSE);
   gtk_grid_attach (w->table, GTK_WIDGET (w->button_geometry), 0, 4, 1, 4);
   w->button_soil = (GtkButton *) gtk_button_new_with_label (_("Soil"));
@@ -360,8 +358,7 @@ table_config_furrows_new (TableConfigFurrows * w)
   w->button_infiltration = (GtkButton *) gtk_button_new_with_label
     (_("Infiltration model"));
   gtk_widget_set_can_focus (GTK_WIDGET (w->button_infiltration), FALSE);
-  gtk_grid_attach (w->table, GTK_WIDGET (w->button_infiltration), 0, 11, 1,
-                   3);
+  gtk_grid_attach (w->table, GTK_WIDGET (w->button_infiltration), 0, 11, 1, 3);
   for (i = 0; i < 10; ++i)
     {
       w->button_coefficient[i] =
