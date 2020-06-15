@@ -73,6 +73,8 @@ This software has been built and tested in the following operative systems.
 Probably, it can be built in other systems, distributions, or versions but it
 has not been tested.
 
+Arch Linux
+__________
 Debian 10 (Linux)
 _________________
 Devuan Linux 3
