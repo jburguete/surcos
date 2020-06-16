@@ -97,15 +97,10 @@ WINLIBS = atk bzip2 cairo expat fontconfig freeglut freetype gcc gdk-pixbuf2 \
 	gettext glew glib2 graphite2 gtk3 harfbuzz libcroco libepoxy libffi \
 	libiconv libpng librsvg libxml2 pango pcre pixman xz zlib
 
-dep = Makefile $(srcdir)jb/jb_config.h
-depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
-depkernel = $(depjb) $(srcdir)config.h \
-	$(srcdir)furrow.h $(srcdir)parameters.h $(srcdir)scheme.h $(srcdir)field.h \
-	$(srcdir)kernel.h
-depconfig = $(depkernel) $(srcdir)configIrrigation.h $(srcdir)configGeometry.h \
-	$(srcdir)configFurrows.h $(srcdir)configTimes.h $(srcdir)configProbes.h \
-	$(srcdir)configWindow.h
-dep_gui = $(depconfig) $(srcdir)graphics.h $(srcdir)mainWindow.h
+pgo = @PGO@
+pgojbobj = $(srcdir)jb_win.pgo $(srcdir)jb_math.pgo $(srcdir)jb_def.pgo
+pgojbobjbin = $(srcdir)jb_win_bin.pgo $(srcdir)jb_math_bin.pgo \
+	$(srcdir)jb_def_bin.pgo
 
 CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2
 CFLAGSLIB = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @NATIVE@ \
@@ -128,6 +123,28 @@ LDFLAGSBIN = $(LDFLAGSBINLIB) -lsurcos
 
 CC = @CC@ @LTO@ @STD@ @ccflags@ -g #-pg
 
+ifeq ($(pgo), 1)
+	pgogen = -fprofile-generate
+	pgouse = -fprofile-use -fprofile-correction
+	depexe = $(obj) $(exepgo)
+	depexebin = $(objbin) $(exebinpgo)
+	jbpgo = $(bindir)libjbpgo@SO@
+	jbbinpgo = $(bindir)libjbbinpgo@SO@
+	exepgo = $(bindir)@exegui@pgo
+	exebinpgo = $(bindir)surcospgo
+	exelibpgo = $(bindir)libsurcospgo@SO@
+else
+	dep = Makefile $(srcdir)jb/jb_config.h
+	depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
+	depkernel = $(depjb) $(srcdir)config.h $(srcdir)furrow.h \
+		$(srcdir)parameters.h $(srcdir)scheme.h $(srcdir)field.h $(srcdir)kernel.h
+	depexe = $(obj)
+	depexebin = $(objbin)
+endif
+depconfig = $(depkernel) $(srcdir)configIrrigation.h \
+	$(srcdir)configGeometry.h $(srcdir)configFurrows.h $(srcdir)configTimes.h \
+	$(srcdir)configProbes.h $(srcdir)configWindow.h
+depgui = $(depconfig) $(srcdir)graphics.h $(srcdir)mainWindow.h
 jb = $(bindir)libjb@SO@
 jbbin = $(bindir)libjbbin@SO@
 exe = $(bindir)@exegui@
@@ -147,24 +164,38 @@ strip:
 manuals: $(manuals)
 
 ## Our main object (GUI)
+$(exepgo): $(objpgo) $(jbpgo) $(exelibpgo)
+	$(CC) $(pgouse) $(objpgo) $(LDFLAGS) -o $(exepgo)
+	$(exepgo) examples/furrow1
+	$(exepgo) examples/furrows30x50
 $(exe): $(obj) $(jb) $(exelib)
-	$(CC) $(obj) $(LDFLAGS) -o $(exe)
+	$(CC) $(pgogen) $(obj) $(LDFLAGS) -o $(exe)
 
 ## Our main object (no GUI)
+$(exepgobin): $(objpgobin) $(exelibpgo)
+	$(CC) $(pgouse) $(objpgobin) $(LDFLAGSBIN) -o $(exepgobin)
+	$(exepgobin) examples/furrow1
+	$(exepgobin) examples/furrows30x50
 $(exebin): $(objbin) $(exelib)
-	$(CC) $(objbin) $(LDFLAGSBIN) -o $(exebin)
+	$(CC) $(pgogen) $(objbin) $(LDFLAGSBIN) -o $(exebin)
 
 ## The SURCOS library
+$(exelibpgo): $(objlibpgo) $(jbpgobin)
+	$(CC) $(pgouse) -shared $(objlibpgo) $(LDFLAGSBINLIB) -o $(exelibpgo)
 $(exelib): $(objlib) $(jbbin)
-	$(CC) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
+	$(CC) $(pgogen) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
 
 ## The JB GUI library
+$(jb): $(objjbpgo)
+	$(CC) $(pgouse) -shared $(objjbpgo) $(JBFLAGSLIB) -o $(jbpgo)
 $(jb): $(objjb)
-	$(CC) -shared $(objjb) $(JBFLAGSLIB) -o $(jb)
+	$(CC) $(pgogen) -shared $(objjb) $(JBFLAGSLIB) -o $(jb)
 
 ## The JB terminal library
+$(jbpgobin): $(objjbpgobin)
+	$(CC) $(pgouse) -shared $(objjbpgobin) $(JBFLAGSBINLIB) -o $(jbpgobin)
 $(jbbin): $(objjbbin)
-	$(CC) -shared $(objjbbin) $(JBFLAGSBINLIB) -o $(jbbin)
+	$(CC) $(pgogen) -shared $(objjbbin) $(JBFLAGSBINLIB) -o $(jbbin)
 
 ## Objects!
 $(objdir)jb_def.o: $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_def.c
@@ -249,16 +280,16 @@ $(objdir)configProbes.o: $(depkernel) $(srcdir)configProbes.h \
 	$(srcdir)configProbes.c
 	$(CC) $(CFLAGS) $(srcdir)configProbes.c -o $(objdir)configProbes.o
 
-$(objdir)configWindow.o: $(dep_gui) $(srcdir)configWindow.c
+$(objdir)configWindow.o: $(depgui) $(srcdir)configWindow.c
 	$(CC) $(CFLAGS) $(srcdir)configWindow.c -o $(objdir)configWindow.o
 
-$(objdir)graphics.o: $(dep_gui) $(srcdir)graphics.c
+$(objdir)graphics.o: $(depgui) $(srcdir)graphics.c
 	$(CC) $(CFLAGS) $(srcdir)graphics.c -o $(objdir)graphics.o
 
-$(objdir)mainWindow.o: $(dep_gui) $(srcdir)mainWindow.c
+$(objdir)mainWindow.o: $(depgui) $(srcdir)mainWindow.c
 	$(CC) $(CFLAGS) $(srcdir)mainWindow.c -o $(objdir)mainWindow.o
 
-$(objdir)surcos_gui.o: $(dep_gui) $(srcdir)surcos_gui.c
+$(objdir)surcos_gui.o: $(depgui) $(srcdir)surcos_gui.c
 	$(CC) $(CFLAGS) $(srcdir)surcos_gui.c -o $(objdir)surcos_gui.o
 
 $(objdir)surcos.o: $(dep) $(srcdir)surcos.c
@@ -326,7 +357,7 @@ $(localdir)$(it)surcos.mo: $(podir)$(it)surcos.po $(podir)surcos.pot
 	msgfmt -c -v -o $(localdir)$(it)surcos.mo $(podir)$(it)surcos.po
 
 ## Making the reference manual
-doc/latex/Makefile: Doxyfile Makefile $(dep_gui) $(src) $(srcdir)surcos.c
+doc/latex/Makefile: Doxyfile Makefile $(depgui) $(src) $(srcdir)surcos.c
 	doxygen
 
 doc/latex/refman.pdf: doc/latex/Makefile
