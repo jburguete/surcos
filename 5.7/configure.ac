@@ -6,6 +6,8 @@ AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AC_MSG_NOTICE([Build: $build])
 AC_MSG_NOTICE([Host: $host])
+win=0
+openbsd=0
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
@@ -26,19 +28,15 @@ elif test `uname -s` = "NetBSD"; then
 	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/pkg/include"
 	PATH="/usr/pkg/gcc48/bin:$PATH"
-	win=0
 elif test `uname -s` = "OpenBSD"; then
 	AC_MSG_NOTICE([OpenBSD])
 	LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/X11R6/include"
-	win=0
+	openbsd=1
 elif test `uname -s` = "DragonFly"; then
 	AC_MSG_NOTICE([DragonFly BSD])
 	LDFLAGS="$LDFLAGS -L/usr/local/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/local/include"
-	win=0
-else
-	win=0
 fi
 if test $win = 0; then
 	AC_MSG_NOTICE([Unix type system])
@@ -47,7 +45,9 @@ if test $win = 0; then
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
 	AC_SUBST(exegui, surcos_gui)
-	AC_SUBST(ccflags, [-march=native])
+	if test $openbsd = 0; then
+		AC_SUBST(ccflags, [-march=native])
+	fi
 	AC_SUBST(SO, [.so])
 else
 	AC_CHECK_TOOL(WINDRES, windres)
@@ -111,7 +111,7 @@ else
 	AC_SUBST(STD, "-std=gnu11")
 fi
 
-if test $win = 0; then
+if test $win = 0 && test $openbsd = 0; then
 	CC="$CC -march=native"
 	AC_TRY_LINK([], [int main(int argc, char **argv){return 0;}], [native=1],
 		[native=0])
