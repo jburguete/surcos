@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-14 23:35+0200\n"
+"POT-Creation-Date: 2020-06-26 18:53+0200\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -253,7 +253,7 @@ msgstr "File GIF"
 msgid "ICO file"
 msgstr "File ICO"
 
-#: src/jb/jb_win.c:2654 src/graphics.c:1218
+#: src/jb/jb_win.c:2654 src/graphics.c:1217
 msgid "Save graph"
 msgstr "Salvare grafico"
 
@@ -340,8 +340,8 @@ msgstr "Dati non valido"
 msgid "solubility"
 msgstr "solubilità"
 
-#: src/field.c:291 src/kernel.c:164 src/kernel.c:236 src/graphics.c:772
-#: src/graphics.c:924 src/mainWindow.c:923 src/mainWindow.c:1056
+#: src/field.c:291 src/kernel.c:164 src/kernel.c:236 src/graphics.c:771
+#: src/graphics.c:923 src/mainWindow.c:923 src/mainWindow.c:1056
 #: src/mainWindow.c:1133
 #, c-format
 msgid "Distribution furrow"
@@ -356,8 +356,8 @@ msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 msgid "Irrigation furrows"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:328 src/kernel.c:177 src/kernel.c:256 src/graphics.c:776
-#: src/graphics.c:926 src/mainWindow.c:917 src/mainWindow.c:928
+#: src/field.c:328 src/kernel.c:177 src/kernel.c:256 src/graphics.c:775
+#: src/graphics.c:925 src/mainWindow.c:917 src/mainWindow.c:928
 #: src/mainWindow.c:1070 src/mainWindow.c:1154
 #, c-format
 msgid "Recirculation furrow"
@@ -516,7 +516,7 @@ msgstr "Tempo iniziale (s)"
 msgid "Final time (s)"
 msgstr "Tempo finale (s)"
 
-#: src/configIrrigation.c:434 src/graphics.c:728
+#: src/configIrrigation.c:434 src/graphics.c:727
 msgid "Discharge (m³/s)"
 msgstr "Flusso (m³/s)"
 
@@ -608,7 +608,7 @@ msgstr "Numero di celle per il solco di distribuzione (tra i solchi)"
 msgid "Cells number for irrigation channels"
 msgstr "Numero di celle per i solchi del irrigazione"
 
-#: src/configProbes.c:207 src/graphics.c:985 src/mainWindow.c:827
+#: src/configProbes.c:207 src/graphics.c:984 src/mainWindow.c:827
 msgid "Probe"
 msgstr "Sonda"
 
@@ -644,122 +644,122 @@ msgstr "Configurare l'irrigazione"
 msgid "Set the irrigation problem configuration"
 msgstr "Definire la configurazione di problema di irrigazione"
 
-#: src/graphics.c:420 src/graphics.c:701 src/graphics.c:937
+#: src/graphics.c:420 src/graphics.c:700 src/graphics.c:936
 msgid "Water depth (m)"
 msgstr "Profondità dell'acqua (m)"
 
-#: src/graphics.c:421 src/graphics.c:703 src/graphics.c:730 src/graphics.c:942
-#: src/graphics.c:989
+#: src/graphics.c:421 src/graphics.c:702 src/graphics.c:729 src/graphics.c:941
+#: src/graphics.c:988
 msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentrazione di fertilizzante (kg/m³)"
 
-#: src/graphics.c:422 src/graphics.c:705
+#: src/graphics.c:422 src/graphics.c:704
 msgid "Infiltrated water mass per unit length (kg/m)"
 msgstr "Massa di acqua infiltrata per unità di lunghezza (m²)"
 
-#: src/graphics.c:423 src/graphics.c:707 src/graphics.c:755
+#: src/graphics.c:423 src/graphics.c:706 src/graphics.c:754
 msgid "Infiltrated fertilizer mass per unit length (kg/m)"
 msgstr "Massa di fertilizzante infiltrata per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:692 src/graphics.c:915
+#: src/graphics.c:691 src/graphics.c:914
 msgid "Time step"
 msgstr "Passo di tempo"
 
-#: src/graphics.c:727
+#: src/graphics.c:726
 msgid "Superficial depth (m)"
 msgstr "Profondità superficiale (m)"
 
-#: src/graphics.c:729
+#: src/graphics.c:728
 msgid "Superficial level (m)"
 msgstr "Livello superficiale (m)"
 
-#: src/graphics.c:731
+#: src/graphics.c:730
 msgid "Superficial water area (m²)"
 msgstr "Superficie di acqua superficiale (m²)"
 
-#: src/graphics.c:732
+#: src/graphics.c:731
 msgid "Advance time (s)"
 msgstr "Tempo di avanzamento (s)"
 
-#: src/graphics.c:735
+#: src/graphics.c:734
 msgid "Infiltrated depth (m)"
 msgstr "Profondità infiltratta (m)"
 
-#: src/graphics.c:737
+#: src/graphics.c:736
 msgid "Bottom level (m)"
 msgstr "Livello del fondo (m)"
 
-#: src/graphics.c:739
+#: src/graphics.c:738
 msgid "Infiltrated water area (m²)"
 msgstr "Superficie di acqua infiltrata (m²)"
 
-#: src/graphics.c:740
+#: src/graphics.c:739
 msgid "Recession time (s)"
 msgstr "Tempo di recessione (s)"
 
-#: src/graphics.c:747
+#: src/graphics.c:746
 msgid "Superficial fertilizer mass per unit length (kg/m)"
 msgstr "Massa di fertilizzante superficiale per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:778 src/graphics.c:781 src/graphics.c:929
+#: src/graphics.c:777 src/graphics.c:780 src/graphics.c:928
 #, c-format
 msgid "Furrow %d"
 msgstr "Solco %d"
 
-#: src/graphics.c:785
+#: src/graphics.c:784
 msgid "Position (m)"
 msgstr "Posizione (m)"
 
-#: src/graphics.c:939
+#: src/graphics.c:938
 msgid "Water discharge (m³/s)"
 msgstr "Flusso di acqua (m³/s)"
 
-#: src/graphics.c:940
+#: src/graphics.c:939
 msgid "Level (m)"
 msgstr "Livello (m)"
 
-#: src/graphics.c:944
+#: src/graphics.c:943
 msgid "Mass per unit length (kg/m)"
 msgstr "Massa per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:946
+#: src/graphics.c:945
 msgid "Advance and recession times (s)"
 msgstr "Tempo di avanzamento e di recessione (s)"
 
-#: src/graphics.c:987
+#: src/graphics.c:986
 msgid "Time (s)"
 msgstr "Tempo (s)"
 
-#: src/graphics.c:988
+#: src/graphics.c:987
 msgid "Depth (m)"
 msgstr "Profondità (m)"
 
-#: src/graphics.c:1053
+#: src/graphics.c:1052
 #, c-format
 msgid "Probe %d"
 msgstr "Sonda %d"
 
-#: src/graphics.c:1193
+#: src/graphics.c:1192
 msgid "Furrow representation"
 msgstr "Rappresentazione di solchi"
 
-#: src/graphics.c:1196
+#: src/graphics.c:1195
 msgid "Map furrows representation"
 msgstr "Mappa di solchi"
 
-#: src/graphics.c:1205
+#: src/graphics.c:1204
 msgid "Probes time evolution"
 msgstr "Evoluzione temporale delle sonde"
 
-#: src/graphics.c:1213
+#: src/graphics.c:1212
 msgid "Save"
 msgstr "Salvare"
 
-#: src/graphics.c:1233
+#: src/graphics.c:1232
 msgid "Graph"
 msgstr "Grafico"
 
-#: src/graphics.c:1234
+#: src/graphics.c:1233
 msgid "Set the result graph options"
 msgstr "Definire i opzioni di grafico di risultati"
 

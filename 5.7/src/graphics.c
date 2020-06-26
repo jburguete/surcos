@@ -430,7 +430,6 @@ graphic_map_draw (WindowPlot * w)       ///< WindowPlot structure.
     width, distance, widthX1, widthY1, widthX2, widthY2;
   float x, y, xmin, ymin, xmax, ymax;
   GLushort *index;
-  int i;
   unsigned int j, k, l, x0, y0, xf, yf, np;
 
 #if DEBUG_GRAPHIC_MAP_DRAW
@@ -631,44 +630,44 @@ graphic_map_draw (WindowPlot * w)       ///< WindowPlot structure.
       z = (1. - width / distance) / (nfurrows - 1);
       deltaX2 *= z;
       deltaY2 *= z;
-      for (i = 1; i <= (int) nfurrows; i++)
+      for (j = 1; (int) j <= nfurrows; j++)
         {
-          fo[i].x1 = field->x[4] + (i - 1) * deltaX1;
-          fo[i].y1 = field->y[4] + (i - 1) * deltaY1;
-          fo[i].x3 = fo[i].x1 + widthX1;
-          fo[i].y3 = fo[i].y1 + widthY1;
-          fo[i].x2 = field->x[6] + (i - 1) * deltaX2;
-          fo[i].y2 = field->y[6] + (i - 1) * deltaY2;
-          fo[i].x4 = fo[i].x2 + widthX2;
-          fo[i].y4 = fo[i].y2 + widthY2;
+          fo[j].x1 = field->x[4] + (j - 1) * deltaX1;
+          fo[j].y1 = field->y[4] + (j - 1) * deltaY1;
+          fo[j].x3 = fo[j].x1 + widthX1;
+          fo[j].y3 = fo[j].y1 + widthY1;
+          fo[j].x2 = field->x[6] + (j - 1) * deltaX2;
+          fo[j].y2 = field->y[6] + (j - 1) * deltaY2;
+          fo[j].x4 = fo[j].x2 + widthX2;
+          fo[j].y4 = fo[j].y2 + widthY2;
 #if DEBUG_GRAPHIC_MAP_DRAW
-          printf ("Irrigation furrow %d\n", i);
-          furrow_output_print (fo + i);
+          printf ("Irrigation furrow %d\n", j);
+          furrow_output_print (fo + j);
 #endif
-          furrow_output_vertex (fo + i, zmin, dif, vertex, index);
-          jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
+          furrow_output_vertex (fo + j, zmin, dif, vertex, index);
+          jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[j].n);
         }
-    }
 
-  // Drawing the recirculation furrow
-  if (recirculation)
-    {
-      fo[i].x1 = field->x[6];
-      fo[i].y1 = field->y[6];
-      fo[i].x2 = field->x[7];
-      fo[i].y2 = field->y[7];
-      fo[i].x3 = field->x[2];
-      fo[i].y3 = field->y[2];
-      fo[i].x4 = field->x[3];
-      fo[i].y4 = field->y[3];
+      // Drawing the recirculation furrow
+      if (recirculation)
+        {
+          fo[j].x1 = field->x[6];
+          fo[j].y1 = field->y[6];
+          fo[j].x2 = field->x[7];
+          fo[j].y2 = field->y[7];
+          fo[j].x3 = field->x[2];
+          fo[j].y3 = field->y[2];
+          fo[j].x4 = field->x[3];
+          fo[j].y4 = field->y[3];
 #if DEBUG_GRAPHIC_MAP_DRAW
-      printf ("Recirculation furrow\n");
-      furrow_output_print (fo + i);
+          printf ("Recirculation furrow\n");
+          furrow_output_print (fo + j);
 #endif
-      furrow_output_vertex (fo + i, zmin, dif, vertex, index);
-      jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[i].n);
-    }
+          furrow_output_vertex (fo + j, zmin, dif, vertex, index);
+          jbw_graphic_draw_rectangles_color (graphic, vertex, index, fo[j].n);
+        }
 
+    }
   // Freeing the variables
   for (j = 0; j < n; ++j)
     furrow_output_destroy (fo + j);
