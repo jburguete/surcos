@@ -142,7 +142,7 @@ PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([PNG], [libpng])
 PKG_CHECK_MODULES([FREETYPE], [freetype2])
 PKG_CHECK_MODULES([GLEW], [glew])
-PKG_CHECK_MODULES([GTOP], [libgtop-2.0])
+PKG_CHECK_MODULES([GTOP], [libgtop-2.0], , AC_MSG_NOTICE([No libgtop]))
 AC_SEARCH_LIBS([glFlush], [GL opengl32])
 
 # Checks for GtkGLArea, FreeGLUT, GLFW or SDL to draw the graphic window

@@ -186,7 +186,7 @@ $(exelib): $(objlib) $(jbbin)
 	$(CC) $(pgogen) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
 
 ## The JB GUI library
-$(jb): $(objjbpgo)
+$(jbpgo): $(objjbpgo)
 	$(CC) $(pgouse) -shared $(objjbpgo) $(JBFLAGSLIB) -o $(jbpgo)
 $(jb): $(objjb)
 	$(CC) $(pgogen) -shared $(objjb) $(JBFLAGSLIB) -o $(jb)
