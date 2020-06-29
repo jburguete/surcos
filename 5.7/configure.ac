@@ -8,6 +8,7 @@ AC_MSG_NOTICE([Build: $build])
 AC_MSG_NOTICE([Host: $host])
 win=0
 openbsd=0
+rpath="-rpath="
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
@@ -23,6 +24,10 @@ elif test $host = "i686-w64-mingw32"; then
 	win=1
 	windir=win32
 	mingw=mingw32
+elif test `uname -s` = "Darwin"; then
+	AC_MSG_NOTICE([MacOS])
+	LDFLAGS="$LDFLAGS -L/System/Library/Frameworks -framework GLUT -framework OpenGL"
+	rpath="-rpath,"
 elif test `uname -s` = "NetBSD"; then
 	AC_MSG_NOTICE([NetBSD])
 	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
@@ -73,6 +78,10 @@ AC_PROG_CC([gcc10 gcc9 gcc8 gcc7 egcc gcc clang])
 AC_PROG_MAKE_SET
 AC_LANG([C])
 PKG_PROG_PKG_CONFIG
+if test $CC = "clang"; then
+	rpath="-rpath,"
+fi
+AC_SUBST(RPATH,[$rpath])
 AC_MSG_NOTICE([Compiler: $CC])
 $CC -v
 
