@@ -1,4 +1,4 @@
-SURCOS (version 5.7)
+SURCOS (version 5.8)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -111,7 +111,7 @@ __________________
 > $ git clone https://github.com/jburguete/surcos.git
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd surcos/5.7/src
+> $ cd surcos/5.8/src
 >
 > $ ln -s ../../../jb/2.4.1 jb
 
@@ -142,7 +142,7 @@ MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd surcos/5.7
+> $ cd surcos/5.8
 >
 > $ doxygen
 >
