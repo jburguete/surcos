@@ -9,6 +9,7 @@ dlldir = $(sysdir)bin/
 modir = $(sysdir)share/locale/
 srcdir = src/
 objdir = @objdir@
+objbindir = @objbindir@
 localdir = $(sharedir)locale/
 podir = locale/
 mandir = manual/
@@ -70,7 +71,14 @@ configWindow_pgo = $(objdir)configWindow.pgo
 graphics_pgo = $(objdir)graphics.pgo
 mainWindow_pgo = $(objdir)mainWindow.pgo
 surcos_gui_pgo = $(objdir)surcos_gui.pgo
-main_pgo = $(objdir)main.pgo
+
+furrow_bin_pgo = $(objbindir)furrow_bin.pgo
+paramaters_bin_pgo = $(objbindir)parameters_bin.pgo
+scheme_bin_pgo = $(objbindir)scheme_bin.pgo
+field_bin_pgo = $(objbindir)field_bin.pgo
+kernel_bin_pgo = $(objbindir)kernel_bin.pgo
+surcos_bin_pgo = $(objbindir)surcos.pgo
+main_pgo = $(objbindir)main.pgo
 
 objpgo = $(furrow_pgo) $(parameters_pgo) $(scheme_pgo) $(field_pgo) \
 	$(kernel_pgo) $(configIrrigation_pgo) $(configGeometry_pgo) \
@@ -78,8 +86,8 @@ objpgo = $(furrow_pgo) $(parameters_pgo) $(scheme_pgo) $(field_pgo) \
 	$(configWindow_pgo) $(graphics_pgo) $(mainWindow_pgo) @icon@ \
 	$(surcos_gui_pgo)
 objlibpgo = $(furrow_bin_pgo) $(parameters_bin_pgo) $(scheme_bin_pgo) \
-	$(field_bin_pgo) $(kernel_bin_pgo) $(surcos_pgo)
-objbinpgo = $(objlib) $(main_pgo)
+	$(field_bin_pgo) $(kernel_bin_pgo) $(surcos_bin_pgo)
+objbinpgo = $(main_pgo)
 
 furrow_o = $(objdir)furrow.o
 paramaters_o = $(objdir)parameters.o
@@ -95,22 +103,22 @@ configWindow_o = $(objdir)configWindow.o
 graphics_o = $(objdir)graphics.o
 mainWindow_o = $(objdir)mainWindow.o
 surcos_gui_o = $(objdir)surcos_gui.o
-main_o = $(objdir)main.o
 
-furrow_bin_o = $(objdir)furrow_bin.o
-paramaters_bin_o = $(objdir)parameters_bin.o
-scheme_bin_o = $(objdir)scheme_bin.o
-field_bin_o = $(objdir)field_bin.o
-kernel_bin_o = $(objdir)kernel_bin.o
-surcos_bin_o = $(objdir)surcos.o
+furrow_bin_o = $(objbindir)furrow_bin.o
+paramaters_bin_o = $(objbindir)parameters_bin.o
+scheme_bin_o = $(objbindir)scheme_bin.o
+field_bin_o = $(objbindir)field_bin.o
+kernel_bin_o = $(objbindir)kernel_bin.o
+surcos_bin_o = $(objbindir)surcos.o
+main_o = $(objbindir)main.o
 
 obj = $(furrow_o) $(parameters_o) $(scheme_o) $(field_o) $(kernel_o) \
 	$(configIrrigation_o) $(configGeometry_o) $(configFurrows_o) \
 	$(configTimes_o) $(configProbes_o) $(configWindow_o) $(graphics_o) \
 	$(mainWindow_o) @icon@ $(surcos_gui_o)
 objlib = $(furrow_bin_o) $(parameters_bin_o) $(scheme_bin_o) $(field_bin_o) \
-	$(kernel_bin_o) $(surcos_o)
-objbin = $(objlib) $(main_o)
+	$(kernel_bin_o) $(surcos_bin_o)
+objbin = $(main_o)
 
 man = $(mandir)ppal.tex $(mandir)bib/references.bib \
 	$(mandir)chapters/Capitulo1.tex \
@@ -168,155 +176,246 @@ WINLIBS = atk bzip2 cairo expat fontconfig freeglut freetype gcc gdk-pixbuf2 \
 	libiconv libpng librsvg libxml2 pango pcre pixman xz zlib
 
 CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2
-CFLAGSLIB = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @NATIVE@ \
+CFLAGS = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @ARCH@ \
 	@GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @GTOP_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ \
 	@FREETYPE_CFLAGS@ @GLEW_CFLAGS@ @SDL_CFLAGS@ @GLFW_CFLAGS@ @GRAPHIC@ @FONT@
-CFLAGS = $(CFLAGSLIB) -fPIC
-JBFLAGSLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @GTOP_LIBS@ \
+LDFLAGS = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @GTOP_LIBS@ \
 	@PNG_LIBS@ @GTK_LIBS@ @FREETYPE_LIBS@ @GLEW_LIBS@ @SDL_LIBS@ @GLFW_LIBS@ \
-	@GRAPHIC@
-LDFLAGSLIB = $(JBFLAGSLIB) -L$(bindir) -Wl,@RPATH@$(bindir) -ljbw@SUFFIX@ \
-	-ljbm@SUFFIX@ -ljb@SUFFIX@
-LDFLAGS = $(LDFLAGSLIB) -lsurcos
+	@GRAPHIC@ -L$(bindir) -Wl,@RPATH@$(bindir) -ljbw@SUFFIX@ -ljbm@SUFFIX@ \
+	-ljb@SUFFIX@
 
 CPPFLAGSBIN = @CPPFLAGS@ @PRECISION@ -DJBW=1
 CFLAGSBINLIB = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @GTOP_CFLAGS@ \
 	-pedantic -Wall -Wextra -c -O3
 CFLAGSBIN = $(CFLAGSBINLIB) -fPIC
-JBFLAGSBINLIB = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @GTOP_LIBS@
-LDFLAGSBINLIB = $(JBFLAGSBINLIB) -L$(bindir) -Wl,@RPATH@$(bindir) -ljbm@SUFFIX@ \
-	-ljbbin@SUFFIX@
-LDFLAGSBIN = $(LDFLAGSBINLIB) -lsurcos
+LDFLAGSBIN = @LDFLAGS@ @LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @GTOP_LIBS@ \
+	-L$(bindir) -Wl,@RPATH@$(bindir) -ljbm@SUFFIX@ -ljbbin@SUFFIX@
 
 CC = @CC@ @LTO@ @ccflags@ -g #-pg
 
-ifeq (@PGO@, 1)
-	pgogen = -fprofile-generate
-	pgouse = -fprofile-use -fprofile-correction
-	depexe = $(obj) $(exepgo)
-	depexebin = $(objbin) $(exebinpgo)
-	exepgo = $(bindir)@exegui@pgo
-	exebinpgo = $(bindir)surcospgo
-	exelibpgo = $(bindir)libsurcospgo@SO@
-else
-	dep = Makefile
-	depkernel = $(dep) $(config_h) $(furrow_h) \
-		$(parameters_h) $(scheme_h) $(field_h) $(srcdir)kernel.h
-	depexe = $(obj)
-	depexebin = $(objbin)
-endif
+depexe = $(obj)
+depexebin = $(objbin)
+dep = Makefile
+depkernel = $(dep) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
+		$(field_h) $(kernel_h)
 depconfig = $(depkernel) $(configIrrigation_h) $(configGeometry_h) \
 	$(configFurrows_h) $(configTimes_h) $(configProbes_h) $(configWindow_h)
 depgui = $(depconfig) $(graphics_h) $(mainWindow_h)
-depjb = $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
+depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
+dep_furrow_pgo = $(depjb) $(config_h) $(furrow_h) $(furrow_c)
+dep_parameters_pgo = $(depjb) $(config_h) $(furrow_h) $(parameters_h) \
+	$(parameters_c)
+dep_scheme_pgo = $(depjb) $(config_h) $(furrow_h) $(parameters_h) \
+	$(scheme_h) $(scheme_c)
+dep_field_pgo = $(depjb) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
+	$(field_h) $(field_c)
+dep_kernel_pgo = $(depkernel) $(graphics_h) $(mainWindow_h) $(kernel_c)
+dep_kernel_bin_pgo = $(depkernel) $(kernel_c)
+dep_configIrrigation_pgo = $(depkernel) $(configIrrigation_h) \
+	$(configIrrigation_c)
+dep_configGeometry_pgo = $(depkernel) $(configGeometry_h) $(configGeometry_c)
+dep_configFurrows_pgo = $(depkernel) $(configFurrows_h) $(configFurrows_c)
+dep_configTimes_pgo = $(depkernel) $(configTimes_h) $(configTimes_c)
+dep_configProbes_pgo = $(depkernel) $(configProbes_h) $(configProbes_c)
+dep_configWindow_pgo = $(depgui) $(configWindow_c)
+dep_graphics_pgo = $(depgui) $(graphics_c)
+dep_mainWindow_pgo = $(depgui) $(mainWindow_c)
+dep_surcos_gui_pgo = $(depgui) $(surcos_gui_c)
+dep_surcos_bin_pgo = $(dep) $(surcos_c)
+dep_main_pgo = $(dep) $(surcos_h) $(main_c)
+
+ifeq (@PGO@, 1)
+ifeq (@CC@, clang)
+	pgogen = -fprofile-instr-generate
+	pgouse = -fprofile-instr-use=$(bindir)gui.profraw
+	prefix1 = LLVM_PROFILE_FILE="$(bindir)gui1.profdata"
+	prefix2 = LLVM_PROFILE_FILE="$(bindir)gui2.profdata"
+	llvm_merge = @LLVM_PROFDATA@ merge $(bindir)gui*.profdata \
+		-output $(bindir)gui.profraw
+	pgousebin = -fprofile-instr-use=$(bindir)bin.profraw
+	prefix1bin = LLVM_PROFILE_FILE="$(bindir)bin1.profdata"
+	prefix2bin = LLVM_PROFILE_FILE="$(bindir)bin2.profdata"
+	llvm_mergebin = @LLVM_PROFDATA@ merge $(bindir)bin*.profdata \
+		-output $(bindir)bin.profraw
+else
+	pgogen = -fprofile-generate
+	pgouse = -fprofile-use -fprofile-correction
+endif
+	exepgo = $(bindir)@exegui@pgo@EXE@
+	exebinpgo = $(bindir)surcospgo@EXE@
+	libpgo = $(bindir)libsurcospgo@SO@
+	dep_furrow_o = $(exepgo)
+	dep_parameters_o = $(exepgo)
+	dep_scheme_o = $(exepgo)
+	dep_field_o = $(exepgo)
+	dep_kernel_o = $(exepgo)
+	dep_kernel_bin_o = $(exebinpgo)
+	dep_configIrrigation_o = $(exepgo)
+	dep_configGeometry_o = $(exepgo)
+	dep_configFurrows_o = $(exepgo)
+	dep_configTimes_o = $(exepgo)
+	dep_configProbes_o = $(exepgo)
+	dep_configWindow_o = $(exepgo)
+	dep_graphics_o = $(exepgo)
+	dep_mainWindow_o = $(exepgo)
+	dep_surcos_gui_o = $(exepgo)
+	dep_surcos_bin_o = $(exebinpgo)
+	dep_main_o = $(exebinpgo)
+else
+	dep_furrow_o = $(dep_furrow_pgo)
+	dep_parameters_o = $(dep_parameters_pgo)
+	dep_scheme_o = $(dep_scheme_pgo)
+	dep_field_o = $(dep_field_pgo)
+	dep_kernel_o = $(dep_kernel_pgo)
+	dep_kernel_bin_o = $(dep_kernel_bin_pgo)
+	dep_configIrrigation_o = $(dep_configIrrigation_pgo)
+	dep_configGeometry_o = $(dep_configGeometry_pgo)
+	dep_configFurrows_o = $(dep_configFurrows_pgo)
+	dep_configTimes_o = $(dep_configTimes_pgo)
+	dep_configProbes_o = $(dep_configProbes_pgo)
+	dep_configWindow_o = $(dep_configWindow_pgo)
+	dep_graphics_o = $(dep_graphics_pgo)
+	dep_mainWindow_o = $(dep_mainWindow_pgo)
+	dep_surcos_gui_o = $(dep_surcos_gui_pgo)
+	dep_surcos_bin_o = $(dep_surcos_bin_pgo)
+	dep_main_o = $(dep_main_pgo)
+endif
 jb = $(bindir)libjbw@SUFFIX@.so $(bindir)libjbm@SUFFIX@.so $(bindir)libjb@SUFFIX@.so
 jbbin = $(bindir)libjbm@SUFFIX@.so $(bindir)libjbbin@SUFFIX@.so
-exe = $(bindir)@exegui@
-exebin = $(bindir)surcos
-exelib = $(bindir)libsurcos@SO@
+exe = $(bindir)@exegui@@EXE@
+exebin = $(bindir)surcos@EXE@
+lib = $(bindir)libsurcos@SO@
 manuals = doc/latex/refman.pdf $(mandir)ppal.pdf $(mandir)ppal_EN.pdf
+dirs = $(objdir) $(objbindir)
 
-all: $(exe) $(exebin) $(podir)surcos_gui.pot $(podir)surcos.pot \
+all: $(dirs) $(exe) $(exebin) $(podir)surcos_gui.pot $(podir)surcos.pot \
 	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
 	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
 	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
 
+$(objdir):
+	test -d $(objdir) || mkdir -p $(objdir)
+
+$(objbindir):
+	test -d $(objbindir) || mkdir -p $(objbindir)
+
 strip:
 	@MAKE@
-	strip $(exe) $(exebin) $(exelib)
+	strip $(exe) $(exebin) $(lib)
 
 manuals: $(manuals)
 
 ## Our main object (GUI)
-$(exepgo): $(objpgo) $(jb) $(exelibpgo)
-	$(CC) $(pgouse) $(objpgo) $(LDFLAGS) -o $(exepgo)
-	$(exepgo) examples/furrow1
-	$(exepgo) examples/furrows30x50
-$(exe): $(obj) $(jb) $(exelib)
-	$(CC) $(pgogen) $(obj) $(LDFLAGS) -o $(exe)
+$(exepgo): $(objpgo) $(jb)
+	$(CC) $(pgogen) $(objpgo) $(LDFLAGS) -o $(exepgo)
+	$(prefix1) $(exepgo) examples/furrow1
+	$(prefix2) $(exepgo) examples/furrows30x50
+	$(llvm_merge)
+$(exe): $(obj) $(jb)
+	$(CC) $(pgouse) $(obj) $(LDFLAGS) -o $(exe)
 
 ## Our main object (no GUI)
-$(exepgobin): $(objpgobin) $(exelibpgo)
-	$(CC) $(pgouse) $(objpgobin) $(LDFLAGSBIN) -o $(exepgobin)
-	$(exepgobin) examples/furrow1
-	$(exepgobin) examples/furrows30x50
-$(exebin): $(objbin) $(exelib)
-	$(CC) $(pgogen) $(objbin) $(LDFLAGSBIN) -o $(exebin)
+$(exebinpgo): $(objbinpgo) $(libpgo)
+	$(CC) $(pgogen) $(objbinpgo) $(LDFLAGSBIN) -lsurcospgo -o $(exebinpgo)
+	$(prefix1bin) $(exebinpgo) examples/furrow1
+	$(prefix2bin) $(exebinpgo) examples/furrows30x50
+	$(llvm_mergebin)
+$(exebin): $(objbin) $(lib)
+	$(CC) $(pgouse) $(objbin) $(LDFLAGSBIN) -lsurcos -o $(exebin)
 
 ## The SURCOS library
-$(exelibpgo): $(objlibpgo) $(jbbin)
-	$(CC) $(pgouse) -shared $(objlibpgo) $(LDFLAGSBINLIB) -o $(exelibpgo)
-$(exelib): $(objlib) $(jbbin)
-	$(CC) $(pgogen) -shared $(objlib) $(LDFLAGSBINLIB) -o $(exelib)
+$(libpgo): $(objlibpgo) $(jbbin)
+	$(CC) $(pgogen) -shared $(objlibpgo) $(LDFLAGSBIN) -lsurcospgo -o $(libpgo)
+$(lib): $(objlib) $(jbbin)
+	$(CC) $(pgouse) -shared $(objlib) $(LDFLAGSBIN) -lsurcos -o $(lib)
 
-$(furrow_o): $(depjb) $(config_h) $(furrow_h) $(furrow_c)
-	$(CC) $(CFLAGS) $(furrow_c) -o $(furrow_o)
+# PGO objects
+$(furrow_pgo): $(dep_furrow_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(furrow_c) -o $(furrow_pgo)
+$(furrow_bin_pgo): $(dep_furrow_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(furrow_c) -o $(furrow_bin_pgo)
+$(parameters_pgo): $(dep_parameters_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(parameters_c) -o $(parameters_pgo)
+$(parameters_bin_pgo): $(dep_parameters_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(parameters_c) -o $(parameters_bin_pgo)
+$(scheme_pgo): $(dep_scheme_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(scheme_c) -o $(scheme_pgo)
+$(scheme_bin_pgo): $(dep_scheme_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(scheme_c) -o $(scheme_bin_pgo)
+$(field_pgo): $(dep_field_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(field_c) -o $(field_pgo)
+$(field_bin_pgo): $(dep_field_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(field_c) -o $(field_bin_pgo)
+$(kernel_pgo): $(dep_kernel_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(kernel_c) -o $(kernel_pgo)
+$(kernel_bin_pgo): $(dep_kernel_bin_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(kernel_c) -o $(kernel_bin_pgo)
+$(configIrrigation_pgo): $(dep_configIrrigation_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configIrrigation_c) -o $(configIrrigation_pgo)
+$(configGeometry_pgo): $(dep_configGeometry_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configGeometry_c) -o $(configGeometry_pgo)
+$(configFurrows_pgo): $(dep_configFurrows_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configFurrows_c) -o $(configFurrows_pgo)
+$(configTimes_pgo): $(dep_configTimes_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configTimes_c) -o $(configTimes_pgo)
+$(configProbes_pgo): $(dep_configProbes_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configProbes_c) -o $(configProbes_pgo)
+$(configWindow_pgo): $(dep_configWindow_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(configWindow_c) -o $(configWindow_pgo)
+$(graphics_pgo): $(dep_graphics_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(graphics_c) -o $(graphics_pgo)
+$(mainWindow_pgo): $(dep_mainWindow_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(mainWindow_c) -o $(mainWindow_pgo)
+$(surcos_gui_pgo): $(dep_surcos_gui_pgo)
+	$(CC) $(CFLAGS) $(pgogen) $(surcos_gui_c) -o $(surcos_gui_pgo)
+$(surcos_bin_pgo): $(dep_surcos_bin_pgo)
+	$(CC) $(CFLAGSBIN) $(pgogen) $(surcos_c) -o $(surcos_bin_pgo)
+$(main_pgo): $(dep_main_pgo)
+	$(CC) $(CFLAGSBINLIB) $(pgogen) $(main_c) -o $(main_pgo)
 
-$(furrow_bin_o): $(depjb) $(config_h) $(furrow_h) $(furrow_c)
-	$(CC) $(CFLAGSBIN) $(furrow_c) -o $(furrow_bin_o)
-
-$(parameters_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) \
-	$(parameters_c)
-	$(CC) $(CFLAGS) $(parameters_c) -o $(parameters_o)
-
-$(parameters_bin_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) \
-	$(parameters_c)
-	$(CC) $(CFLAGSBIN) $(parameters_c) -o $(parameters_bin_o)
-
-$(scheme_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
-	$(scheme_c)
-	$(CC) $(CFLAGS) $(scheme_c) -o $(scheme_o)
-
-$(scheme_bin_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
-	$(scheme_c)
-	$(CC) $(CFLAGSBIN) $(scheme_c) -o $(scheme_bin_o)
-
-$(field_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
-	$(field_h) $(field_c)
-	$(CC) $(CFLAGS) $(field_c) -o $(field_o)
-
-$(field_bin_o): $(depjb) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
-	$(field_h) $(field_c)
-	$(CC) $(CFLAGSBIN) $(field_c) -o $(field_bin_o)
-
-$(kernel_o): $(depkernel) $(graphics_h) $(mainWindow_h) $(kernel_c)
-	$(CC) $(CFLAGS) $(kernel_c) -o $(kernel_o)
-
-$(kernel_bin_o): $(depkernel) $(kernel_c)
-	$(CC) $(CFLAGSBIN) $(kernel_c) -o $(kernel_bin_o)
-
-$(configIrrigation_o): $(depkernel) $(configIrrigation_h) $(configIrrigation_c)
-	$(CC) $(CFLAGS) $(configIrrigation_c) -o $(configIrrigation_o)
-
-$(configGeometry_o): $(depkernel) $(configGeometry_h) $(configGeometry_c)
-	$(CC) $(CFLAGS) $(configGeometry_c) -o $(configGeometry_o)
-
-$(configFurrows_o): $(depkernel) $(configFurrows_h) $(configFurrows_c)
-	$(CC) $(CFLAGS) $(configFurrows_c) -o $(configFurrows_o)
-
-$(configTimes_o): $(depkernel) $(configTimes_h) $(configTimes_c)
-	$(CC) $(CFLAGS) $(configTimes_c) -o $(configTimes_o)
-
-$(configProbes_o): $(depkernel) $(configProbes_h) $(configProbes_c)
-	$(CC) $(CFLAGS) $(configProbes_c) -o $(configProbes_o)
-
-$(configWindow_o): $(depgui) $(configWindow_c)
-	$(CC) $(CFLAGS) $(configWindow_c) -o $(configWindow_o)
-
-$(graphics_o): $(depgui) $(graphics_c)
-	$(CC) $(CFLAGS) $(graphics_c) -o $(graphics_o)
-
-$(mainWindow_o): $(depgui) $(mainWindow_c)
-	$(CC) $(CFLAGS) $(mainWindow_c) -o $(mainWindow_o)
-
-$(surcos_gui_o): $(depgui) $(surcos_gui_c)
-	$(CC) $(CFLAGS) $(surcos_gui_c) -o $(surcos_gui_o)
-
-$(surcos_o): $(dep) $(surcos_c)
-	$(CC) $(CFLAGSBIN) $(surcos_c) -o $(surcos_o)
-
-$(main_o): $(dep) $(surcos_h) $(main_c)
-	$(CC) $(CFLAGSLIB) $(main_c) -o $(main_o)
+# Objects
+$(furrow_o): $(dep_furrow_o)
+	$(CC) $(CFLAGS) $(pgouse) $(furrow_c) -o $(furrow_o)
+$(furrow_bin_o): $(dep_furrow_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(furrow_c) -o $(furrow_bin_o)
+$(parameters_o): $(dep_parameters_o)
+	$(CC) $(CFLAGS) $(pgouse) $(parameters_c) -o $(parameters_o)
+$(parameters_bin_o): $(dep_parameters_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(parameters_c) -o $(parameters_bin_o)
+$(scheme_o): $(dep_scheme_o)
+	$(CC) $(CFLAGS) $(pgouse) $(scheme_c) -o $(scheme_o)
+$(scheme_bin_o): $(dep_scheme_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(scheme_c) -o $(scheme_bin_o)
+$(field_o): $(dep_field_o)
+	$(CC) $(CFLAGS) $(pgouse) $(field_c) -o $(field_o)
+$(field_bin_o): $(dep_field_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(field_c) -o $(field_bin_o)
+$(kernel_o): $(dep_kernel_o)
+	$(CC) $(CFLAGS) $(pgouse) $(kernel_c) -o $(kernel_o)
+$(kernel_bin_o): $(dep_kernel_bin_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(kernel_c) -o $(kernel_bin_o)
+$(configIrrigation_o): $(dep_configIrrigation_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configIrrigation_c) -o $(configIrrigation_o)
+$(configGeometry_o): $(dep_configGeometry_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configGeometry_c) -o $(configGeometry_o)
+$(configFurrows_o): $(dep_configFurrows_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configFurrows_c) -o $(configFurrows_o)
+$(configTimes_o): $(dep_configTimes_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configTimes_c) -o $(configTimes_o)
+$(configProbes_o): $(dep_configProbes_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configProbes_c) -o $(configProbes_o)
+$(configWindow_o): $(dep_configWindow_o)
+	$(CC) $(CFLAGS) $(pgouse) $(configWindow_c) -o $(configWindow_o)
+$(graphics_o): $(dep_graphics_o)
+	$(CC) $(CFLAGS) $(pgouse) $(graphics_c) -o $(graphics_o)
+$(mainWindow_o): $(dep_mainWindow_o)
+	$(CC) $(CFLAGS) $(pgouse) $(mainWindow_c) -o $(mainWindow_o)
+$(surcos_gui_o): $(dep_surcos_gui_o)
+	$(CC) $(CFLAGS) $(pgouse) $(surcos_gui_c) -o $(surcos_gui_o)
+$(surcos_bin_o): $(dep_surcos_bin_o)
+	$(CC) $(CFLAGSBIN) $(pgouse) $(surcos_c) -o $(surcos_bin_o)
+$(main_o): $(dep_main_o)
+	$(CC) $(CFLAGSBINLIB) $(pgouse) $(main_c) -o $(main_o)
 
 ## Making the icon on Microsoft Windows
 $(objdir)logo.o: logo.rc logo2.ico
@@ -392,7 +491,7 @@ $(mandir)ppal_EN.pdf: Makefile $(man_en)
 
 ## Clean all generated-objects
 clean:
-	rm configure Makefile $(exe) $(exebin) $(objdir)*.o \
+	rm configure Makefile $(exe) $(exebin) $(objdir)*.o $(objbindir)*.o \
 		$(mandir)ppal.pdf $(mandir)ppal_EN.pdf \
 		$(localdir)$(es)surcos*.mo $(localdir)$(fr)surcos*.mo
 		$(localdir)$(it)surcos*.mo

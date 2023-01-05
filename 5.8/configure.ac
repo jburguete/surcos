@@ -47,7 +47,8 @@ fi
 if test $win = 0; then
 	AC_MSG_NOTICE([Unix type system])
 	AC_SUBST(latex, "pdflatex -shell-escape")
-	AC_SUBST(objdir, [src/])
+	AC_SUBST(objdir, [obj/])
+	AC_SUBST(objbindir, [objbin/])
 	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
 	AC_SUBST(exegui, surcos_gui)
@@ -58,6 +59,7 @@ else
 	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(sysdir, [/$mingw/])
 	AC_SUBST(objdir, [$windir/obj/])
+	AC_SUBST(objbindir, [$windir/objbin/])
 	AC_SUBST(bindir, [$windir/bin/])
 	AC_SUBST(etcdir, [$windir/etc/])
 	AC_SUBST(libdir, [$windir/lib/])
@@ -66,6 +68,7 @@ else
 	AC_SUBST(icon, [$windir/obj/logo.o])
 	AC_SUBST(WIN, [$windir/])
 	AC_SUBST(SO, [.dll])
+  AC_SUBST(EXE, [.exe])
 	test -d $windir/obj || mkdir -p $windir/obj
 	test -d $windir/bin || mkdir -p $windir/bin
 fi
@@ -107,14 +110,11 @@ if test $win = 0 && test $openbsd = 0; then
 		CC=$compiler
 		if test $arch = 0; then
 			AC_MSG_NOTICE([checking for -march=native... no])
-			AC_SUBST(ARCH, "")
 		else
 			AC_MSG_NOTICE([checking for -march=native... yes])
 			AC_SUBST(ARCH, "-march=native")
 		fi
 	fi
-else
-	AC_SUBST(ARCH, "")
 fi
 
 # Checking -flto compiler flag

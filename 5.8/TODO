@@ -1,10 +1,9 @@
 TO DO!
-04/01/2023
+05/01/2023
 *****************************************
 
 HIGH PRIORITY
 *****************************************
-JB) Enable PGO building
 JB) Check main loop bug compiling with FreeGLUT
 AL) Improve and update the program manual
 AL) End translations of the README file
