@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:41+0100\n"
+"POT-Creation-Date: 2023-01-06 22:28+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -611,11 +611,11 @@ msgstr "Periodo di scarico dati"
 msgid "Results"
 msgstr "Risultati"
 
-#: src/mainWindow.c:1362
-msgid "ppal_EN.pdf"
+#: src/mainWindow.c:1363 src/mainWindow.c:1365
+msgid "user-manual-en.pdf"
 msgstr ""
 
-#: src/mainWindow.c:1388
+#: src/mainWindow.c:1392
 msgid ""
 "A software tool to solve irrigation and fertigation in isolated furrows and "
 "furrow networks"
@@ -623,43 +623,43 @@ msgstr ""
 "Un attrezzo informatico per risolvere irrigazione e fertirrigazione in "
 "solchi isolati e in reti di solchi"
 
-#: src/mainWindow.c:1393
+#: src/mainWindow.c:1397
 msgid "translator-credits"
 msgstr "Sofiane Ouazaa (sofiane.ouazaa@eead.csic.es)"
 
-#: src/mainWindow.c:1427
+#: src/mainWindow.c:1431
 msgid "Open"
 msgstr "Aprire"
 
-#: src/mainWindow.c:1433
+#: src/mainWindow.c:1437
 msgid "Open furrows system"
 msgstr "Aprire sistema di solchi"
 
-#: src/mainWindow.c:1437
+#: src/mainWindow.c:1441
 msgid "Configure"
 msgstr "Configurare"
 
-#: src/mainWindow.c:1443
+#: src/mainWindow.c:1447
 msgid "Simulation configure"
 msgstr "Configurare la simulazione"
 
-#: src/mainWindow.c:1447
+#: src/mainWindow.c:1451
 msgid "Run"
 msgstr "Iniziare"
 
-#: src/mainWindow.c:1453
+#: src/mainWindow.c:1457
 msgid "Run the simulation"
 msgstr "Iniziare la simulazione"
 
-#: src/mainWindow.c:1457 src/mainWindow.c:1462
+#: src/mainWindow.c:1461 src/mainWindow.c:1466
 msgid "Help"
 msgstr "Aiuto"
 
-#: src/mainWindow.c:1466 src/mainWindow.c:1471
+#: src/mainWindow.c:1470 src/mainWindow.c:1475
 msgid "About"
 msgstr "Informazioni"
 
-#: src/mainWindow.c:1473 src/mainWindow.c:1478
+#: src/mainWindow.c:1477 src/mainWindow.c:1482
 msgid "Exit"
 msgstr "Uscire"
 

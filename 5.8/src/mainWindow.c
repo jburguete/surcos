@@ -1359,7 +1359,11 @@ main_window_help (MainWindow * w)       ///< Main window structure.
 {
   char *buffer, *buffer2;
   buffer = g_get_current_dir ();
-  buffer2 = g_build_filename (buffer, "manual", _("ppal_EN.pdf"), NULL);
+#ifdef G_OS_WIN32
+  buffer2 = g_build_filename (buffer, "../", _("user-manual-en.pdf"), NULL);
+#else
+  buffer2 = g_build_filename (buffer, "manual", _("user-manual-en.pdf"), NULL);
+#endif
   g_free (buffer);
   buffer = g_filename_to_uri (buffer2, NULL, NULL);
   g_free (buffer2);
