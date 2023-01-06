@@ -133,17 +133,20 @@ man_en = $(mandir)ppal_EN.tex $(mandir)bib/references.bib \
 png = logo3.png 
 
 dll = $(dlldir)glew32.dll \
+	$(dlldir)glfw3.dll \
 	$(dlldir)libatk-1.0-0.dll \
+	$(dlldir)libbrotlidec.dll \
+	$(dlldir)libbrotlicommon.dll \
 	$(dlldir)libbz2-1.dll \
 	$(dlldir)libcairo-2.dll \
 	$(dlldir)libcairo-gobject-2.dll \
-	$(dlldir)libcroco-0.6-3.dll \
+	$(dlldir)libdatrie-1.dll \
 	$(dlldir)libepoxy-0.dll \
 	$(dlldir)libexpat-1.dll \
-	$(dlldir)libffi-6.dll \
+	$(dlldir)libffi-8.dll \
 	$(dlldir)libfontconfig-1.dll \
-	$(dlldir)libfreeglut.dll \
 	$(dlldir)libfreetype-6.dll \
+	$(dlldir)libfribidi-0.dll \
 	$(dlldir)@libgcc@.dll \
 	$(dlldir)libgdk_pixbuf-2.0-0.dll \
 	$(dlldir)libgdk-3-0.dll \
@@ -152,28 +155,29 @@ dll = $(dlldir)glew32.dll \
 	$(dlldir)libgmodule-2.0-0.dll \
 	$(dlldir)libgobject-2.0-0.dll \
 	$(dlldir)libgraphite2.dll \
-	$(dlldir)libgthread-2.0-0.dll \
 	$(dlldir)libgtk-3-0.dll \
 	$(dlldir)libharfbuzz-0.dll \
 	$(dlldir)libiconv-2.dll \
 	$(dlldir)libintl-8.dll \
-	$(dlldir)liblzma-5.dll \
 	$(dlldir)libpango-1.0-0.dll \
 	$(dlldir)libpangocairo-1.0-0.dll \
 	$(dlldir)libpangoft2-1.0-0.dll \
 	$(dlldir)libpangowin32-1.0-0.dll \
-	$(dlldir)libpcre-1.dll \
+	$(dlldir)libpcre2-8-0.dll \
 	$(dlldir)libpixman-1-0.dll \
 	$(dlldir)libpng16-16.dll \
-	$(dlldir)librsvg-2-2.dll \
 	$(dlldir)libstdc++-6.dll \
-	$(dlldir)libxml2-2.dll \
+	$(dlldir)libthai-0.dll \
 	$(dlldir)libwinpthread-1.dll \
 	$(dlldir)zlib1.dll
+
+
+
 gdkpixbuf = lib/gdk-pixbuf-2.0/2.10.0/
-WINLIBS = atk bzip2 cairo expat fontconfig freeglut freetype gcc gdk-pixbuf2 \
-	gettext glew glib2 graphite2 gtk3 harfbuzz libcroco libepoxy libffi \
-	libiconv libpng librsvg libxml2 pango pcre pixman xz zlib
+WINLIBS = adwaita-icon-theme atk brotli bzip2 cairo expat fontconfig freetype fribidi gcc-libs \
+	gdk-pixbuf2 gettext glew glfw glib2 graphite2 gsettings-desktop-schemas gtk3 harfbuzz \
+	libavif libdatrie libepoxy libffi libheif libiconv libpng librsvg libthai \
+	libwmf libwinpthread-git pango pcre2 pixman zlib
 
 CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2
 CFLAGS = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @ARCH@ \
@@ -280,8 +284,8 @@ else
 	dep_surcos_bin_o = $(dep_surcos_bin_pgo)
 	dep_main_o = $(dep_main_pgo)
 endif
-jb = $(bindir)libjbw@SUFFIX@.so $(bindir)libjbm@SUFFIX@.so $(bindir)libjb@SUFFIX@.so
-jbbin = $(bindir)libjbm@SUFFIX@.so $(bindir)libjbbin@SUFFIX@.so
+jb = $(bindir)libjbw@SUFFIX@@SO@ $(bindir)libjbm@SUFFIX@@SO@ $(bindir)libjb@SUFFIX@@SO@
+jbbin = $(bindir)libjbm@SUFFIX@@SO@ $(bindir)libjbbin@SUFFIX@@SO@
 exe = $(bindir)@exegui@@EXE@
 exebin = $(bindir)surcos@EXE@
 lib = $(bindir)libsurcos@SO@
@@ -503,7 +507,7 @@ rebuild: clean $(exe)
 dist: $(exe) $(exebin) $(dll) $(manuals) \
 	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
 	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
-	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
+	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo fetch.pl
 	test -d $(icondir) || mkdir -p $(icondir)
 	cp $(dll) $(png) $(bindir)
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas

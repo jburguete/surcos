@@ -34,7 +34,7 @@ foreach $s (@ARGV)
 
 		$var{"source"} =~ s/\$\{([^\}]+)\}/if(exists $var{$1}){$var{$1}}else{'UNDEF'}/eg;
 
-		#print $s."\t".$var{"source"}."\n";
+		print $s."\t".$var{"source"}."\n";
 
 		system "wget -q -nc ".$var{"source"};
 	}

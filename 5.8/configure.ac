@@ -46,33 +46,35 @@ elif test `uname -s` = "DragonFly"; then
 fi
 if test $win = 0; then
 	AC_MSG_NOTICE([Unix type system])
+	so=".so"
+	bindir="./"
 	AC_SUBST(latex, "pdflatex -shell-escape")
 	AC_SUBST(objdir, [obj/])
 	AC_SUBST(objbindir, [objbin/])
-	AC_SUBST(bindir, [./])
 	AC_SUBST(localdir, [locale/])
 	AC_SUBST(exegui, surcos_gui)
-	AC_SUBST(SO, [.so])
 else
 	AC_CHECK_TOOL(WINDRES, windres)
+	so=".dll"
+	bindir="$windir/bin/"
 	AC_SUBST(latex, "pdflatex -enable-write18")
 	AC_SUBST(exegui, winsurcos)
 	AC_SUBST(sysdir, [/$mingw/])
 	AC_SUBST(objdir, [$windir/obj/])
 	AC_SUBST(objbindir, [$windir/objbin/])
-	AC_SUBST(bindir, [$windir/bin/])
 	AC_SUBST(etcdir, [$windir/etc/])
 	AC_SUBST(libdir, [$windir/lib/])
 	AC_SUBST(sharedir, [$windir/share/])
 	AC_SUBST(basedir, [$windir/])
 	AC_SUBST(icon, [$windir/obj/logo.o])
 	AC_SUBST(WIN, [$windir/])
-	AC_SUBST(SO, [.dll])
-  AC_SUBST(EXE, [.exe])
+	AC_SUBST(EXE, [.exe])
 	test -d $windir/obj || mkdir -p $windir/obj
 	test -d $windir/bin || mkdir -p $windir/bin
 fi
+AC_SUBST(SO, [$so])
 AC_SUBST(srcdir, [src/])
+AC_SUBST(bindir, [$bindir])
 
 # Checks for programs
 AC_PROG_CC([gcc-12 gcc12 gcc-11 gcc11 gcc-10 gcc10 egcc gcc clang])
@@ -151,11 +153,49 @@ AC_SUBST(PGO, [$pgo])
 # Checks for header files.
 AC_CHECK_HEADERS_ONCE([libintl.h locale.h stdlib.h string.h unistd.h])
 
+# Set precision
+AC_ARG_WITH([precision],
+	AS_HELP_STRING([--with-precision],
+		[Build with precision degree (1-5), default=3]))
+if test "x$with_precision" = "x1"; then
+	precision=1
+elif test "x$with_precision" = "x2"; then
+	precision=2
+elif test "x$with_precision" = "x4"; then
+	precision=4
+elif test "x$with_precision" = "x5"; then
+	precision=5
+else
+	precision=3
+fi
+AC_SUBST(PRECISION, [-DJBM_PRECISION=$precision])
+AC_SUBST(SUFFIX, [-$precision]])
+
 # Checks for libraries
 if test -f "src/jb/jb_math.h"; then
-	AC_MSG_NOTICE("JB headers: OK")
+	AC_MSG_NOTICE([JB headers: OK])
 else
-	AC_MSG_ERROR("No JB headers")
+	AC_MSG_ERROR([No JB headers])
+fi
+if test -f "${bindir}libjb-$precision$so"; then
+	AC_MSG_NOTICE([libjb-$precision$so: OK])
+else
+	AC_MSG_ERROR([No libjb-$precision$so])
+fi
+if test -f "${bindir}libjbbin-$precision$so"; then
+	AC_MSG_NOTICE([libjbbin-$precision$so: OK])
+else
+	AC_MSG_ERROR([No libjbbin-$precision$so])
+fi
+if test -f "${bindir}libjbm-$precision$so"; then
+	AC_MSG_NOTICE([libjbm-$precision$so: OK])
+else
+	AC_MSG_ERROR([No libjbm-$precision$so])
+fi
+if test -f "${bindir}libjbw-$precision$so"; then
+	AC_MSG_NOTICE([libjbw-$precision$so: OK])
+else
+	AC_MSG_ERROR([No libjbw-$precision$so])
 fi
 AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
@@ -217,27 +257,6 @@ AC_CHECK_FUNCS([floor pow sqrt setlocale])
 AC_C_INLINE
 AC_TYPE_SIZE_T
 AC_TYPE_UINT32_T
-
-# Set precision
-AC_ARG_WITH([precision],
-	AS_HELP_STRING([--with-precision],
-		[Build with precision degree (1-5), default=3]))
-if test "x$with_precision" = "x1"; then
-	AC_SUBST(PRECISION, "-DJBM_PRECISION=1")
-	AC_SUBST(SUFFIX, [-1])
-elif test "x$with_precision" = "x2"; then
-	AC_SUBST(PRECISION, "-DJBM_PRECISION=2")
-	AC_SUBST(SUFFIX, [-2])
-elif test "x$with_precision" = "x4"; then
-	AC_SUBST(PRECISION, "-DJBM_PRECISION=4")
-	AC_SUBST(SUFFIX, [-4])
-elif test "x$with_precision" = "x5"; then
-	AC_SUBST(PRECISION, "-DJBM_PRECISION=5")
-	AC_SUBST(SUFFIX, [-5])
-else
-	AC_SUBST(PRECISION, "-DJBM_PRECISION=3")
-	AC_SUBST(SUFFIX, [-3])
-fi
 
 # Output
 AC_CONFIG_SRCDIR([src/field.c])
