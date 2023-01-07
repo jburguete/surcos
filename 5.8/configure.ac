@@ -16,7 +16,11 @@ if test $host = "x86_64-w64-mingw32"; then
 	AC_SUBST(libgcc, "libgcc_s_seh-1")
 	win=1
 	windir=win64
-	mingw=mingw64
+	if test $MSYSTEM = "UCRT64"; then
+		mingw=ucrt64
+	else
+		mingw=mingw64
+	fi
 elif test $host = "i686-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 32 bits])
 	LDFLAGS="$LDFLAGS -lfreeglut -lopengl32"
