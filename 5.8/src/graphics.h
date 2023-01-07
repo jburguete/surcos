@@ -35,7 +35,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef GRAPHICS__H
 #define GRAPHICS__H 1
 
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 
 /**
  * \struct FurrowOutput

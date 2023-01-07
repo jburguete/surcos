@@ -37,7 +37,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <locale.h>
 #define GNULIB_defined_setlocale
 #include "config.h"
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 #include "furrow.h"
 #include "parameters.h"
 #include "scheme.h"

@@ -173,10 +173,10 @@ else
 	precision=3
 fi
 AC_SUBST(PRECISION, [-DJBM_PRECISION=$precision])
-AC_SUBST(SUFFIX, [-$precision]])
+AC_SUBST(SUFFIX, [-$precision])
 
 # Checks for libraries
-if test -f "src/jb/jb_math.h"; then
+if test -f "src/jb/src/jb_math.h"; then
 	AC_MSG_NOTICE([JB headers: OK])
 else
 	AC_MSG_ERROR([No JB headers])

@@ -37,7 +37,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define GNULIB_defined_setlocale
 #include <libintl.h>
 #include "config.h"
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 #include "configGeometry.h"
 
 #define DEBUG_CONFIG_GEOMETRY_NEW 0

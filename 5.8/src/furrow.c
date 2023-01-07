@@ -33,7 +33,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \copyright Copyright 2011-2023, Javier Burguete Tolosa.
  */
 #include "config.h"
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 #include "furrow.h"
 
 #define FURROW_SHOW 0           ///< Macro to compile the furrow_show function.

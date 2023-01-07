@@ -33,7 +33,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \copyright Copyright 2011-2023, Javier Burguete Tolosa.
  */
 #include "config.h"
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 #include "configProbes.h"
 
 #define DEBUG_CONFIG_PROBES_UPDATE 0

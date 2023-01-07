@@ -32,7 +32,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \authors Javier Burguete Tolosa, Asier Lacasta Soto.
  * \copyright Copyright 2011-2023, Javier Burguete Tolosa.
  */
-#include "jb/jb_win.h"
+#include "jb/src/jb_win.h"
 #include "config.h"
 #include "configFurrows.h"
 

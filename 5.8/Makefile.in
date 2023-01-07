@@ -205,7 +205,8 @@ depkernel = $(dep) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
 depconfig = $(depkernel) $(configIrrigation_h) $(configGeometry_h) \
 	$(configFurrows_h) $(configTimes_h) $(configProbes_h) $(configWindow_h)
 depgui = $(depconfig) $(graphics_h) $(mainWindow_h)
-depjb = $(dep) $(srcdir)jb/jb_def.h $(srcdir)jb/jb_math.h $(srcdir)jb/jb_win.h
+depjb = $(dep) $(srcdir)jb/src/jb_def.h $(srcdir)jb/src/jb_math.h \
+	$(srcdir)jb/src/jb_win.h
 dep_furrow_pgo = $(depjb) $(config_h) $(furrow_h) $(furrow_c)
 dep_parameters_pgo = $(depjb) $(config_h) $(furrow_h) $(parameters_h) \
 	$(parameters_c)
