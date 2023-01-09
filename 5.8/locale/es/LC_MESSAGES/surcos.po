@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:41+0100\n"
+"POT-Creation-Date: 2023-01-09 04:33+0100\n"
 "PO-Revision-Date: 2011-10-10 17:22+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -67,7 +67,7 @@ msgstr "Datos incorrectos"
 msgid "solubility"
 msgstr "solubilidad"
 
-#: src/field.c:290 src/kernel.c:164 src/kernel.c:236
+#: src/field.c:290 src/kernel.c:162 src/kernel.c:234
 msgid "Distribution furrow"
 msgstr "Surco de distribución"
 
@@ -75,11 +75,11 @@ msgstr "Surco de distribución"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Falta memoria para abrir los surcos de riego"
 
-#: src/field.c:311 src/kernel.c:158 src/kernel.c:219
+#: src/field.c:311 src/kernel.c:156 src/kernel.c:217
 msgid "Irrigation furrows"
 msgstr "Surcos de riego"
 
-#: src/field.c:325 src/kernel.c:177 src/kernel.c:256
+#: src/field.c:325 src/kernel.c:175 src/kernel.c:254
 msgid "Recirculation furrow"
 msgstr "Surco de recirculación"
 
@@ -127,85 +127,77 @@ msgstr "No se pudo abrir el fichero de sondas"
 msgid "Bad probes data"
 msgstr "Datos de sondas incorrectos"
 
-#: src/kernel.c:115
+#: src/kernel.c:113
 msgid "Irrigation life time"
 msgstr "Tiempo de duración del riego"
 
-#: src/kernel.c:117
+#: src/kernel.c:115
 msgid "Calculation time"
 msgstr "Tiempo de cálculo"
 
-#: src/kernel.c:121
+#: src/kernel.c:119
 msgid "IRRIGATION QUALITY"
 msgstr "CALIDAD DE RIEGO"
 
-#: src/kernel.c:123
+#: src/kernel.c:121
 msgid "Water"
 msgstr "Agua"
 
-#: src/kernel.c:125 src/kernel.c:133
+#: src/kernel.c:123 src/kernel.c:131
 msgid "Uniformity"
 msgstr "Uniformidad"
 
-#: src/kernel.c:128 src/kernel.c:136
+#: src/kernel.c:126 src/kernel.c:134
 msgid "Efficiency"
 msgstr "Eficiencia"
 
-#: src/kernel.c:131
+#: src/kernel.c:129
 msgid "Fertilizer"
 msgstr "Fertilizante"
 
-#: src/kernel.c:140
+#: src/kernel.c:138
 msgid "WATER VOLUME"
 msgstr "VOLUMEN DE AGUA"
 
-#: src/kernel.c:142 src/kernel.c:160 src/kernel.c:166 src/kernel.c:179
-#: src/kernel.c:193 src/kernel.c:221 src/kernel.c:238 src/kernel.c:258
+#: src/kernel.c:140 src/kernel.c:158 src/kernel.c:164 src/kernel.c:177
+#: src/kernel.c:191 src/kernel.c:219 src/kernel.c:236 src/kernel.c:256
 msgid "Total"
 msgstr "Total"
 
-#: src/kernel.c:145 src/kernel.c:196
+#: src/kernel.c:143 src/kernel.c:194
 msgid "Input"
 msgstr "Entrada"
 
-#: src/kernel.c:147 src/kernel.c:199
+#: src/kernel.c:145 src/kernel.c:197
 msgid "Calculated"
 msgstr "Calculada"
 
-#: src/kernel.c:149 src/kernel.c:201
+#: src/kernel.c:147 src/kernel.c:199
 msgid "Conservation error"
 msgstr "Error de conservación"
 
-#: src/kernel.c:151 src/kernel.c:161 src/kernel.c:168 src/kernel.c:181
-#: src/kernel.c:204 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
+#: src/kernel.c:149 src/kernel.c:159 src/kernel.c:166 src/kernel.c:179
+#: src/kernel.c:202 src/kernel.c:222 src/kernel.c:239 src/kernel.c:259
 msgid "Superficial"
 msgstr "Superficial"
 
-#: src/kernel.c:153 src/kernel.c:162 src/kernel.c:170 src/kernel.c:183
-#: src/kernel.c:207 src/kernel.c:227 src/kernel.c:244 src/kernel.c:264
+#: src/kernel.c:151 src/kernel.c:160 src/kernel.c:168 src/kernel.c:181
+#: src/kernel.c:205 src/kernel.c:225 src/kernel.c:242 src/kernel.c:262
 msgid "Infiltrated"
 msgstr "Infiltrada"
 
-#: src/kernel.c:154 src/kernel.c:163 src/kernel.c:172 src/kernel.c:185
-#: src/kernel.c:210 src/kernel.c:230 src/kernel.c:247 src/kernel.c:267
+#: src/kernel.c:152 src/kernel.c:161 src/kernel.c:170 src/kernel.c:183
+#: src/kernel.c:208 src/kernel.c:228 src/kernel.c:245 src/kernel.c:265
 msgid "Percolated"
 msgstr "Percolada"
 
-#: src/kernel.c:191
+#: src/kernel.c:189
 msgid "FERTILIZER MASS"
 msgstr "MASA DE FERTILIZANTE"
 
-#: src/kernel.c:213 src/kernel.c:233 src/kernel.c:250 src/kernel.c:270
+#: src/kernel.c:211 src/kernel.c:231 src/kernel.c:248 src/kernel.c:268
 msgid "Solid"
 msgstr "Sólida"
-
-#: src/kernel.c:328
-msgid "Running the numerical simulation ..."
-msgstr "Calculando la solución numérica ..."
-
-#: src/kernel.c:330
-msgid "_Stop"
-msgstr "_Parar"
 
 #: src/surcos.c:133
 msgid "Usage is"
@@ -214,6 +206,12 @@ msgstr "La sintaxis es"
 #: src/surcos.c:133
 msgid "surcos [-v] input_directory"
 msgstr "surcos [-v] directorio_de_entrada"
+
+#~ msgid "Running the numerical simulation ..."
+#~ msgstr "Calculando la solución numérica ..."
+
+#~ msgid "_Stop"
+#~ msgstr "_Parar"
 
 #~ msgid "unable to open the file"
 #~ msgstr "no se pudo abrir el fichero"

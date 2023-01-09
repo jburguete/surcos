@@ -39,10 +39,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "scheme.h"
 #include "field.h"
 #include "kernel.h"
-#if JBW != JBW_NO
-#include "graphics.h"
-#include "mainWindow.h"
-#endif
 
 #define DEBUG_KERNEL_DESTROY 0
 ///< Macro to debug the kernel_destroy() function.
@@ -68,13 +64,15 @@ JBDOUBLE dt;
 JBDOUBLE dtmax;
 ///< Maximum time step size.
 
-#if JBW != JBW_NO
-WindowRun windowRun[1];
-///< Structure to show a simulation progression dialog.
-#endif
-
 char *message = NULL;
 ///< Pointer to a message string.
+
+void (*kernel_extern_new) ();
+///< Pointer to an external function to do at simulation start.
+void (*kernel_extern_step) ();
+///< Pointer to an external function to do every simulation step.
+void (*kernel_extern_destroy) ();
+///< Pointer to an external function to do at simulation end.
 
 /**
  * Function to print an error message.
@@ -276,83 +274,14 @@ results_save (char *dir)        //< Directory.
   fclose (file);
 }
 
-#if JBW != JBW_NO
-
-/**
- * Function to close a simulation running.
- */
-static void
-window_run_close ()
-{
-  simulating = 0;
-}
-
-/**
- * Function to close a simulation running dialog.
- */
-static void
-window_run_destroy ()
-{
-  GMainContext *context = g_main_context_default ();
-  while (g_main_context_pending (context))
-    g_main_context_iteration (context, 0);
-  gtk_widget_destroy (GTK_WIDGET (windowRun->dialog));
-}
-
-/**
- * Function to update a simulation running dialog.
- */
-static void
-window_run_update (Field * T)   //< Field data structure.
-{
-  char buffer[32];
-  GMainContext *context = g_main_context_default ();
-  gtk_progress_bar_set_fraction (windowRun->progress, t / T->tf);
-  snprintf (buffer, 32, "(%.2lf/%.2lf)", (double) t, (double) T->tf);
-  gtk_progress_bar_set_text (windowRun->progress, buffer);
-  while (g_main_context_pending (context))
-    g_main_context_iteration (context, 0);
-}
-
-/**
- * Function to open a simulation running dialog.
- */
-static void
-window_run_new ()
-{
-  char buffer[32];
-  windowRun->progress = (GtkProgressBar *) gtk_progress_bar_new ();
-
-  windowRun->dialog =
-    (GtkDialog *)
-    gtk_dialog_new_with_buttons (_("Running the numerical simulation ..."),
-                                 main_window->window, GTK_DIALOG_MODAL,
-                                 _("_Stop"), GTK_RESPONSE_CLOSE, NULL);
-  gtk_window_set_position (GTK_WINDOW (windowRun->dialog),
-                           GTK_WIN_POS_CENTER_ALWAYS);
-  gtk_widget_set_size_request (GTK_WIDGET (windowRun->dialog), 500, 80);
-  gtk_container_add (GTK_CONTAINER
-                     (gtk_dialog_get_content_area (windowRun->dialog)),
-                     GTK_WIDGET (windowRun->progress));
-  g_signal_connect_after (windowRun->dialog, "response",
-                          G_CALLBACK (window_run_destroy), NULL);
-  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
-  gtk_progress_bar_set_fraction (windowRun->progress, 0.);
-  snprintf (buffer, 32, "(0.0/0.0)");
-  gtk_progress_bar_set_text (windowRun->progress, buffer);
-  gtk_widget_show_all (GTK_WIDGET (windowRun->dialog));
-  gtk_widget_show_all (gtk_dialog_get_content_area (windowRun->dialog));
-}
-
-#endif
-
 /**
  * Function to open a simulation.
  *
  * \return 0 on error, 1 on success.
  */
 unsigned int
-kernel_open (char *dir,         ///< Directory where the input data files are located.
+kernel_open (char *dir,
+             ///< Directory where the input data files are located.
              unsigned int gui)  ///< 1 on graphical GUI, 0 on else.
 {
   void (*show_error) (const char *msg);
@@ -401,9 +330,6 @@ kernel_step (FILE * file_probes,        ///< File to save the probes data.
              unsigned int gui __attribute__((unused)))
   ///< 1 on graphical GUI, 0 on else.
 {
-#if JBW != JBW_NO
-  GMainContext *context = g_main_context_default ();
-#endif
   JBDOUBLE tmax;
 #if DEBUG_KERNEL_STEP
   printf ("kernel_step: start\n");
@@ -451,10 +377,6 @@ kernel_step (FILE * file_probes,        ///< File to save the probes data.
 #endif
           return 0;
         }
-#if JBW != JBW_NO
-      while (gui && g_main_context_pending (context))
-        g_main_context_iteration (context, 0);
-#endif
     }
 #if DEBUG_KERNEL_STEP
   printf ("kernel_step: end\n");
@@ -491,10 +413,8 @@ kernel (char *dir,
     return 0;
 
   simulating = 1;
-#if JBW != JBW_NO
   if (gui)
-    window_run_new ();
-#endif
+    kernel_extern_new ();
 
 #if DEBUG_KERNEL
   printf ("Openning field parameters\n");
@@ -526,17 +446,13 @@ kernel (char *dir,
                  volume_water_total (field->p, field->n),
                  mass_fertilizer_total (field->p, field->n));
 #endif
-#if JBW != JBW_NO
       if (gui && simulating)
-        window_run_update (field);
-#endif
+        kernel_extern_step ();
       if (!j)
         break;
     }
-#if JBW != JBW_NO
   if (gui && simulating)
-    window_run_destroy ();
-#endif
+    kernel_extern_destroy ();
   fclose (file_probes);
 #if DEBUG_KERNEL
   ud = field_uniformity_water (field);

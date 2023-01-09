@@ -59,6 +59,16 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define DEBUG_MAIN_WINDOW_NEW 0
 ///< Macro to debug the main_window_new() function.
 
+/**
+ * \struct WindowRun
+ * \brief Structure to show the progression of a simulation.
+ */
+typedef struct
+{
+  GtkProgressBar *progress;     ///< GtkProgresBar widget.
+  GtkDialog *dialog;            ///< GtkDialog dialog.
+} WindowRun;
+
 char *input_dir = NULL;
 ///< Directory where the input data files are located.
 
@@ -686,6 +696,75 @@ const char *logo2[] = {
   "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX. : O + - + + + + - + + = zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX",
   "zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX/ . ; O % O o = + o = O + + zXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX"
 };
+
+WindowRun windowRun[1];
+///< Structure to show a simulation progression dialog.
+
+/**
+ * Function to close a simulation running.
+ */
+static void
+window_run_close ()
+{
+  simulating = 0;
+}
+
+/**
+ * Function to close a simulation running dialog.
+ */
+static void
+window_run_destroy ()
+{
+  GMainContext *context = g_main_context_default ();
+  while (g_main_context_pending (context))
+    g_main_context_iteration (context, 0);
+  gtk_widget_destroy (GTK_WIDGET (windowRun->dialog));
+}
+
+/**
+ * Function to update a simulation running dialog.
+ */
+static void
+window_run_update ()   //< Field data structure.
+{
+  char buffer[32];
+  GMainContext *context = g_main_context_default ();
+  gtk_progress_bar_set_fraction (windowRun->progress, t / field->tf);
+  snprintf (buffer, 32, "(%.2lf/%.2lf)", (double) t, (double) field->tf);
+  gtk_progress_bar_set_text (windowRun->progress, buffer);
+  while (g_main_context_pending (context))
+    g_main_context_iteration (context, 0);
+}
+
+/**
+ * Function to open a simulation running dialog.
+ */
+static void
+window_run_new ()
+{
+  char buffer[32];
+  windowRun->progress = (GtkProgressBar *) gtk_progress_bar_new ();
+
+  windowRun->dialog =
+    (GtkDialog *)
+    gtk_dialog_new_with_buttons (_("Running the numerical simulation ..."),
+                                 main_window->window, GTK_DIALOG_MODAL,
+                                 _("_Stop"), GTK_RESPONSE_CLOSE, NULL);
+  gtk_window_set_position (GTK_WINDOW (windowRun->dialog),
+                           GTK_WIN_POS_CENTER_ALWAYS);
+  gtk_widget_set_size_request (GTK_WIDGET (windowRun->dialog), 500, 80);
+  gtk_container_add (GTK_CONTAINER
+                     (gtk_dialog_get_content_area (windowRun->dialog)),
+                     GTK_WIDGET (windowRun->progress));
+  g_signal_connect_after (windowRun->dialog, "response",
+                          G_CALLBACK (window_run_destroy), NULL);
+  g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
+  gtk_progress_bar_set_fraction (windowRun->progress, 0.);
+  snprintf (buffer, 32, "(0.0/0.0)");
+  gtk_progress_bar_set_text (windowRun->progress, buffer);
+  gtk_widget_show_all (GTK_WIDGET (windowRun->dialog));
+  gtk_widget_show_all (gtk_dialog_get_content_area (windowRun->dialog));
+}
 
 /**
  * Function to show field corner point characteristics.
@@ -1324,6 +1403,9 @@ main_window_run (MainWindow * w)        ///< Main window structure.
   if (w->plotted)
     main_window_delete_graphic (w);
   system (buffer);
+  kernel_extern_new = window_run_new;
+  kernel_extern_step = window_run_update;
+  kernel_extern_destroy = window_run_destroy;
   success = kernel (input_dir, 1, 0);
   main_window_update (w);
   if (success)

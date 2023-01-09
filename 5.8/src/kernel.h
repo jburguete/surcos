@@ -35,19 +35,11 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef KERNEL__H
 #define KERNEL__H 1
 
-#if JBW != JBW_NO
+extern unsigned int simulating;
 
-/**
- * \struct WindowRun
- * \brief Structure to show the progression of a simulation.
- */
-typedef struct
-{
-  GtkProgressBar *progress;     ///< GtkProgresBar widget.
-  GtkDialog *dialog;            ///< GtkDialog dialog.
-} WindowRun;
-
-#endif
+extern void (*kernel_extern_new) ();
+extern void (*kernel_extern_step) ();
+extern void (*kernel_extern_destroy) ();
 
 unsigned int kernel_open (char *dir, unsigned int gui);
 unsigned int kernel (char *dir, unsigned int gui, unsigned int msg);

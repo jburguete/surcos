@@ -178,15 +178,15 @@ CFLAGS = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @ARCH@ \
 	@GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @GTOP_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ \
 	@FREETYPE_CFLAGS@ @GLEW_CFLAGS@ @SDL_CFLAGS@ @GLFW_CFLAGS@ @GRAPHIC@ \
 	@FONT@
-LDFLAGS = -lsurcos -ljbwin@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GRAPHIC@ \
-	@GLFW_LIBS@ @SDL_LIBS@ @GLEW_LIBS@ @FREETYPE_LIBS@ @GTK_LIBS@ \
-	@PNG_LIBS@ @GTOP_LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ $(LDFLAGSLIB)
+LDFLAGS = -ljbwin@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GRAPHIC@ @GLFW_LIBS@ \
+	@SDL_LIBS@ @GLEW_LIBS@ @FREETYPE_LIBS@ @GTK_LIBS@ @PNG_LIBS@ \
+	@GTOP_LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ $(LDFLAGSLIB)
 
 CPPFLAGSBIN = @CPPFLAGS@ @PRECISION@ -DJBW=1
 CFLAGSBINLIB = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @GTOP_CFLAGS@ \
 	-pedantic -Wall -Wextra -c -O3
 CFLAGSBIN = $(CFLAGSBINLIB) -fPIC
-LDFLAGSBIN = -lsurcos -ljbbin@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GTOP_LIBS@ \
+LDFLAGSBIN = -ljbbin@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GTOP_LIBS@ \
 	@GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ $(LDFLAGSLIB)
 
 CC = @CC@ @LTO@ @ccflags@ -g #-pg
@@ -303,22 +303,22 @@ strip:
 manuals: $(manuals)
 
 ## Our main object (GUI)
-$(exepgo): $(objpgo) $(jb)
-	$(CC) $(pgogen) $(objpgo) $(LDFLAGS) -o $(exepgo)
+$(exepgo): $(objpgo) $(lib) $(jb)
+	$(CC) $(pgogen) $(objpgo) -lsurcospgo $(LDFLAGS) -o $(exepgo)
 	$(prefix1) $(exepgo) examples/furrow1
 	$(prefix2) $(exepgo) examples/furrows30x50
 	$(llvm_merge)
-$(exe): $(obj) $(jb)
-	$(CC) $(pgouse) $(obj) $(LDFLAGS) -o $(exe)
+$(exe): $(obj) $(lib) $(jb)
+	$(CC) $(pgouse) $(obj) -lsurcos $(LDFLAGS) -o $(exe)
 
 ## Our main object (no GUI)
-$(exebinpgo): $(objbinpgo) $(libpgo)
-	$(CC) $(pgogen) $(objbinpgo) $(LDFLAGSBIN) -lsurcospgo -o $(exebinpgo)
+$(exebinpgo): $(objbinpgo) $(libpgo) $(jbbin)
+	$(CC) $(pgogen) $(objbinpgo) -lsurcospgo $(LDFLAGSBIN) -o $(exebinpgo)
 	$(prefix1bin) $(exebinpgo) examples/furrow1
 	$(prefix2bin) $(exebinpgo) examples/furrows30x50
 	$(llvm_mergebin)
-$(exebin): $(objbin) $(lib)
-	$(CC) $(pgouse) $(objbin) $(LDFLAGSBIN) -lsurcos -o $(exebin)
+$(exebin): $(objbin) $(lib) $(jbbin)
+	$(CC) $(pgouse) $(objbin) -lsurcos $(LDFLAGSBIN) -o $(exebin)
 
 ## The SURCOS library
 $(libpgo): $(objlibpgo) $(jbbin)
