@@ -156,6 +156,11 @@ AC_SUBST(PGO, [$pgo])
 
 # Checks for header files.
 AC_CHECK_HEADERS_ONCE([libintl.h locale.h stdlib.h string.h unistd.h])
+if test -f "src/jb/src/jb_def.h"; then
+	AC_MSG_NOTICE([JB headers: OK])
+else
+	AC_MSG_ERROR([No JB headers])
+fi
 
 # Set precision
 AC_ARG_WITH([precision],
@@ -176,80 +181,86 @@ AC_SUBST(PRECISION, [-DJBM_PRECISION=$precision])
 AC_SUBST(SUFFIX, [-$precision])
 
 # Checks for libraries
-if test -f "src/jb/src/jb_math.h"; then
-	AC_MSG_NOTICE([JB headers: OK])
+libjb=${bindir}libjb-$precision$so
+if test -f $libjb; then
+	AC_MSG_NOTICE([$libjb: OK])
 else
-	AC_MSG_ERROR([No JB headers])
+	AC_MSG_ERROR([$libjb: not installed])
 fi
-if test -f "${bindir}libjb-$precision$so"; then
-	AC_MSG_NOTICE([libjb-$precision$so: OK])
+libjbm=${bindir}libjbm-$precision$so
+if test -f $libjbm; then
+	AC_MSG_NOTICE([$libjbm: OK])
 else
-	AC_MSG_ERROR([No libjb-$precision$so])
+	AC_MSG_ERROR([$libjbm: not installed])
 fi
-if test -f "${bindir}libjbbin-$precision$so"; then
-	AC_MSG_NOTICE([libjbbin-$precision$so: OK])
+libjbbin=${bindir}libjbbin-$precision$so
+if test -f $libjbbin; then
+	AC_MSG_NOTICE([$libjbbin: OK])
 else
-	AC_MSG_ERROR([No libjbbin-$precision$so])
-fi
-if test -f "${bindir}libjbm-$precision$so"; then
-	AC_MSG_NOTICE([libjbm-$precision$so: OK])
-else
-	AC_MSG_ERROR([No libjbm-$precision$so])
-fi
-if test -f "${bindir}libjbw-$precision$so"; then
-	AC_MSG_NOTICE([libjbw-$precision$so: OK])
-else
-	AC_MSG_ERROR([No libjbw-$precision$so])
+	AC_MSG_ERROR([$libjbbin: not installed])
 fi
 AC_SEARCH_LIBS([pow], [m])
 PKG_CHECK_MODULES([GLIB], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SEARCH_LIBS([textdomain], [intl])
-PKG_CHECK_MODULES([GTK], [gtk+-3.0])
-PKG_CHECK_MODULES([PNG], [libpng])
-PKG_CHECK_MODULES([FREETYPE], [freetype2])
-PKG_CHECK_MODULES([GLEW], [glew])
 PKG_CHECK_MODULES([GTOP], [libgtop-2.0], , AC_MSG_NOTICE([No libgtop]))
-AC_SEARCH_LIBS([glFlush], [GL opengl32])
 
-# Checks for GtkGLArea, FreeGLUT, GLFW or SDL to draw the graphic window
-AC_ARG_WITH([gtkglarea],
-	AS_HELP_STRING([--with-gtkglarea], [Build graphic window with GtkGLArea]))
-AC_ARG_WITH([freeglut],
-	AS_HELP_STRING([--with-freeglut], [Build graphic window with FreeGLUT]))
-AC_ARG_WITH([glfw],
-	AS_HELP_STRING([--with-glfw], [Build graphic window with GLFW]))
-AC_ARG_WITH([sdl],
-	AS_HELP_STRING([--with-sdl], [Build graphic window with SDL]))
-if test "x$with_freeglut" = "xyes"; then
-	AC_SUBST(GRAPHIC,"-DHAVE_FREEGLUT=1")
-	AC_SEARCH_LIBS([glutInit], [freeglut glut])
-elif test "x$with_glfw" = "xyes"; then
-	AC_SUBST(GRAPHIC,"-DHAVE_GLFW=1")
-	PKG_CHECK_MODULES([GLFW], [glfw3])
-elif test "x$with_sdl" = "xyes"; then
-	AC_SUBST(GRAPHIC,"-DHAVE_SDL=1")
-	PKG_CHECK_MODULES([SDL], [sdl2])
-else
-	AC_SUBST(GRAPHIC,"-DHAVE_GTKGLAREA=1")
-fi
-
-# Check for FreeMono font
-AC_MSG_NOTICE([searching FreeMono font])
-if test $win = 1; then
-	dir=/$mingw
-else
-	dir=/usr
-fi
-font=`find $dir -type f -iname freemono.otf`
-if test "x$font" = "x"; then
-	font=`find $dir -type f -iname freemono.ttf`
-	if test "x$font" = "x"; then
-		AC_MSG_ERROR([font not found])
+# Check for GTK
+AC_ARG_WITH([gtk], AS_HELP_STRING([--with-gtk], [Build with GTK]))
+if test "x$with_gtk" = "xyes"; then
+	libjbwin=${bindir}libjbwin-$precision$so
+	if test -f $libjbbin; then
+		AC_MSG_NOTICE([$libjbwin: OK])
+	else
+		AC_MSG_ERROR([$libjbwin: not installed])
 	fi
+	PKG_CHECK_MODULES([GTK], [gtk+-3.0])
+	PKG_CHECK_MODULES([PNG], [libpng])
+	PKG_CHECK_MODULES([FREETYPE], [freetype2])
+	PKG_CHECK_MODULES([GLEW], [glew])
+	AC_SEARCH_LIBS([glFlush], [GL opengl32])
+	AC_SUBST([EXEGUI], "\$(exe)")
+
+	# Checks for GtkGLArea, FreeGLUT, GLFW or SDL to draw the graphic window
+	AC_ARG_WITH([gtkglarea], AS_HELP_STRING([--with-gtkglarea],
+		[Build graphic window with GtkGLArea]))
+	AC_ARG_WITH([freeglut], AS_HELP_STRING([--with-freeglut],
+		[Build graphic window with FreeGLUT]))
+	AC_ARG_WITH([glfw],
+		AS_HELP_STRING([--with-glfw], [Build graphic window with GLFW]))
+	AC_ARG_WITH([sdl],
+		AS_HELP_STRING([--with-sdl], [Build graphic window with SDL]))
+	if test "x$with_freeglut" = "xyes"; then
+		AC_SUBST(GRAPHIC,"-DHAVE_FREEGLUT=1")
+		AC_SEARCH_LIBS([glutInit], [freeglut glut])
+	elif test "x$with_glfw" = "xyes"; then
+		AC_SUBST(GRAPHIC,"-DHAVE_GLFW=1")
+		PKG_CHECK_MODULES([GLFW], [glfw3])
+	elif test "x$with_sdl" = "xyes"; then
+		AC_SUBST(GRAPHIC,"-DHAVE_SDL=1")
+		PKG_CHECK_MODULES([SDL], [sdl2])
+	else
+		AC_SUBST(GRAPHIC,"-DHAVE_GTKGLAREA=1")
+	fi
+
+	# Check for FreeMono font
+	AC_MSG_NOTICE([searching FreeMono font])
+	if test $win = 1; then
+		dir=/$mingw
+	else
+		dir=/usr
+	fi
+	font=`find $dir -type f -iname freemono.otf`
+	if test "x$font" = "x"; then
+		font=`find $dir -type f -iname freemono.ttf`
+		if test "x$font" = "x"; then
+			AC_MSG_ERROR([font not found])
+		fi
+	fi
+	AC_MSG_NOTICE([Font: $font])
+	AC_SUBST(FONT, "-DFONT=\\\"$font\\\"")
+
 fi
-AC_MSG_NOTICE([Font: $font])
-AC_SUBST(FONT, "-DFONT=\\\"$font\\\"")
 
 # Checks for library functions.
 AC_FUNC_MALLOC
