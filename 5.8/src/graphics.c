@@ -709,9 +709,9 @@ graphic_map_new (GraphicMap * g,        ///< Furrows map structure.
                             (GCallback) jbw_graphic_render, NULL);
 
   g->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->label), 0, 1, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->scale), 1, 1, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->combo), 0, 1, 0);
+  gtk_box_append (g->box, GTK_WIDGET (g->label));
+  gtk_box_append (g->box, GTK_WIDGET (g->scale));
+  gtk_box_append (g->box, GTK_WIDGET (g->combo));
 }
 
 /**
@@ -948,10 +948,10 @@ graphic_furrows_new (GraphicFurrows * g,
                             (GCallback) jbw_graphic_render, NULL);
 
   g->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->label), 0, 1, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->scale), 1, 1, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->combo_furrow), 0, 1, 0);
-  gtk_box_pack_start (g->box, GTK_WIDGET (g->combo_variable), 0, 1, 0);
+  gtk_box_append (g->box, GTK_WIDGET (g->label));
+  gtk_box_append (g->box, GTK_WIDGET (g->scale));
+  gtk_box_append (g->box, GTK_WIDGET (g->combo_furrow));
+  gtk_box_append (g->box, GTK_WIDGET (g->combo_variable));
 
 #if DEBUG_GRAPHIC_FURROWS_NEW
   printf ("graphic_furrows_new: end\n");
@@ -1103,7 +1103,7 @@ window_plot_draw ()             ///< WindowPlot structure.
 void
 window_plot_destroy (WindowPlot * w)    ///< Results plot structure.
 {
-  gtk_widget_destroy (GTK_WIDGET (w->window));
+  gtk_window_destroy (w->window);
 }
 
 /**
@@ -1123,7 +1123,7 @@ window_plot_delete (MainWindow * w)     ///< Main window structure.
   if (w->plotted)
     jbw_graphic_destroy ();
   w->plotted = 0;
-  gtk_widget_destroy (GTK_WIDGET (w->window));
+  gtk_window_destroy (w->window);
 #if DEBUG_WINDOW_PLOT_DELETE
   printf ("window_plot_delete: end\n");
 #endif
@@ -1221,8 +1221,8 @@ window_plot_new (WindowPlot * w)        ///< Results plot structure.
   printf ("defining box\n");
 #endif
   w->box = (GtkBox *) gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-  gtk_box_pack_start (w->box, GTK_WIDGET (w->notebook), 1, 1, 0);
-  gtk_box_pack_start (w->box, GTK_WIDGET (w->button_save), 0, 1, 0);
+  gtk_box_append (w->box, GTK_WIDGET (w->notebook));
+  gtk_box_append (w->box, GTK_WIDGET (w->button_save));
 
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("defining header bar\n");
@@ -1237,13 +1237,21 @@ window_plot_new (WindowPlot * w)        ///< Results plot structure.
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("defining window\n");
 #endif
+#if GTK4
+  w->window = (GtkWindow *) gtk_window_new ();
+#else
   w->window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
+#endif
   gtk_window_set_titlebar (w->window, GTK_WIDGET (w->bar));
-  gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->box));
+  gtk_window_set_child (w->window, GTK_WIDGET (w->box));
   w->id_destroy_window
     = g_signal_connect_swapped (w->window, "destroy",
                                 (GCallback) window_plot_delete, main_window);
+#if GTK4
+  gtk_widget_show (GTK_WIDGET (w->window));
+#else
   gtk_widget_show_all (GTK_WIDGET (w->window));
+#endif
 
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("window_plot_new: end\n");

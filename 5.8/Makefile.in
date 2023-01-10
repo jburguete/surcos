@@ -173,7 +173,7 @@ WINLIBS = adwaita-icon-theme atk brotli bzip2 cairo expat fontconfig freetype \
 
 LDFLAGSLIB = -L$(bindir) -Wl,@RPATH@$(bindir) @LDFLAGS@
 
-CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2
+CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2 @GTK4@
 CFLAGS = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @ARCH@ \
 	@GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @GTOP_CFLAGS@ @PNG_CFLAGS@ @GTK_CFLAGS@ \
 	@FREETYPE_CFLAGS@ @GLEW_CFLAGS@ @SDL_CFLAGS@ @GLFW_CFLAGS@ @GRAPHIC@ \

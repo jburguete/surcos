@@ -206,15 +206,36 @@ AC_SEARCH_LIBS([textdomain], [intl])
 PKG_CHECK_MODULES([GTOP], [libgtop-2.0], , AC_MSG_NOTICE([No libgtop]))
 
 # Check for GTK
-AC_ARG_WITH([gtk], AS_HELP_STRING([--with-gtk], [Build with GTK]))
-if test "x$with_gtk" = "xyes"; then
+AC_ARG_WITH([gtk], AS_HELP_STRING([--with-gtk],
+	[Build using a version of GTK (3 (--with-gtk=3) or 4 (--with-gtk=4))]))
+gtk4=0
+gtk3=0
+gtk=0
+if test "x$with_gtk" = "x4"; then
+	PKG_CHECK_MODULES([GTK], [gtk4], [gtk4=1], [gtk4=0])
+	gtk3=1
+elif test "x$with_gtk" = "x3"; then
+	gtk3=1
+fi
+if test $gtk4 = 1; then
+	gtk=1
+	AC_SUBST(GTK4, "-DGTK4=1")
+elif test $gtk3 = 1; then
+	PKG_CHECK_MODULES([GTK], [gtk+-3.0],
+		[AC_MSG_NOTICE([With GTK])],
+		[AC_MSG_NOTICE([Without GTK])])
+	gtk=1
+	AC_SUBST(GTK4, "-DGTK4=0")
+fi
+
+# Graphical interface
+if test $gtk = 1; then
 	libjbwin=${bindir}libjbwin-$precision$so
 	if test -f $libjbbin; then
 		AC_MSG_NOTICE([$libjbwin: OK])
 	else
 		AC_MSG_ERROR([$libjbwin: not installed])
 	fi
-	PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 	PKG_CHECK_MODULES([PNG], [libpng])
 	PKG_CHECK_MODULES([FREETYPE], [freetype2])
 	PKG_CHECK_MODULES([GLEW], [glew])
@@ -259,7 +280,6 @@ if test "x$with_gtk" = "xyes"; then
 	fi
 	AC_MSG_NOTICE([Font: $font])
 	AC_SUBST(FONT, "-DFONT=\\\"$font\\\"")
-
 fi
 
 # Checks for library functions.
