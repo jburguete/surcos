@@ -718,7 +718,7 @@ window_run_destroy ()
   GMainContext *context = g_main_context_default ();
   while (g_main_context_pending (context))
     g_main_context_iteration (context, 0);
-  gtk_widget_destroy (GTK_WIDGET (windowRun->dialog));
+  gtk_window_destroy (GTK_WINDOW (windowRun->dialog));
 }
 
 /**
@@ -745,25 +745,25 @@ window_run_new ()
   char buffer[32];
   windowRun->progress = (GtkProgressBar *) gtk_progress_bar_new ();
 
-  windowRun->dialog =
-    (GtkDialog *)
+  windowRun->dialog = (GtkDialog *)
     gtk_dialog_new_with_buttons (_("Running the numerical simulation ..."),
                                  main_window->window, GTK_DIALOG_MODAL,
                                  _("_Stop"), GTK_RESPONSE_CLOSE, NULL);
-  gtk_window_set_position (GTK_WINDOW (windowRun->dialog),
-                           GTK_WIN_POS_CENTER_ALWAYS);
   gtk_widget_set_size_request (GTK_WIDGET (windowRun->dialog), 500, 80);
-  gtk_container_add (GTK_CONTAINER
-                     (gtk_dialog_get_content_area (windowRun->dialog)),
-                     GTK_WIDGET (windowRun->progress));
+  gtk_box_append (GTK_BOX (gtk_dialog_get_content_area (windowRun->dialog)),
+                  GTK_WIDGET (windowRun->progress));
   g_signal_connect_after (windowRun->dialog, "response",
                           G_CALLBACK (window_run_destroy), NULL);
   g_signal_connect_after (windowRun->dialog, "destroy", window_run_close, NULL);
   gtk_progress_bar_set_fraction (windowRun->progress, 0.);
   snprintf (buffer, 32, "(0.0/0.0)");
   gtk_progress_bar_set_text (windowRun->progress, buffer);
-  gtk_widget_show_all (GTK_WIDGET (windowRun->dialog));
+#if GTK4
+  gtk_widget_show (gtk_dialog_get_content_area (windowRun->dialog));
+#else
   gtk_widget_show_all (gtk_dialog_get_content_area (windowRun->dialog));
+#endif
+  gtk_window_present (GTK_WINDOW (windowRun->dialog));
 }
 
 /**
@@ -949,10 +949,14 @@ summary_new (Summary * s)       ///< Summary widget.
 
   // showing input data summary
   s->view_input = (GtkTextView *) gtk_text_view_new ();
-  s->scrolled_input =
-    (GtkScrolledWindow *) gtk_scrolled_window_new (NULL, NULL);
-  gtk_container_add (GTK_CONTAINER (s->scrolled_input),
-                     GTK_WIDGET (s->view_input));
+  s->scrolled_input = (GtkScrolledWindow *)
+#if GTK4
+    gtk_scrolled_window_new ();
+#else
+    gtk_scrolled_window_new (NULL, NULL);
+#endif
+  gtk_scrolled_window_set_child (s->scrolled_input,
+                                 GTK_WIDGET (s->view_input));
   s->text_input = gtk_text_view_get_buffer (s->view_input);
   gtk_text_view_set_editable (s->view_input, FALSE);
   gtk_text_buffer_get_start_iter (s->text_input, iter);
@@ -1061,10 +1065,14 @@ summary_new (Summary * s)       ///< Summary widget.
 
   // showing output data
   s->view_output = (GtkTextView *) gtk_text_view_new ();
-  s->scrolled_output =
-    (GtkScrolledWindow *) gtk_scrolled_window_new (NULL, NULL);
-  gtk_container_add (GTK_CONTAINER (s->scrolled_output),
-                     GTK_WIDGET (s->view_output));
+  s->scrolled_output = (GtkScrolledWindow *)
+#if GTK4
+    gtk_scrolled_window_new ();
+#else
+    gtk_scrolled_window_new (NULL, NULL);
+#endif
+  gtk_scrolled_window_set_child (s->scrolled_output,
+                                 GTK_WIDGET (s->view_output));
   s->text_output = gtk_text_view_get_buffer (s->view_output);
   gtk_text_view_set_editable (s->view_output, FALSE);
   gtk_text_buffer_get_start_iter (s->text_output, iter);
@@ -1260,7 +1268,11 @@ summary_new (Summary * s)       ///< Summary widget.
   gtk_widget_set_size_request (GTK_WIDGET (s->notebook), 480, 350);
   gtk_widget_set_hexpand (GTK_WIDGET (s->notebook), 1);
   gtk_widget_set_vexpand (GTK_WIDGET (s->notebook), 1);
+#if GTK4
+  gtk_widget_show (GTK_WIDGET (s->notebook));
+#else
   gtk_widget_show_all (GTK_WIDGET (s->notebook));
+#endif
 }
 
 /**
@@ -1341,6 +1353,33 @@ main_window_update (MainWindow * w)     ///< Main window structure.
 }
 
 /**
+ * Function to close the dialog to open a new fertigation problem.
+ */
+static void
+main_window_open_close (MainWindow * w, ///< Main window structure.
+                        int response_id,        ///< Response identifier.
+			GtkDialog * dlg)        ///< Open problem dialog.
+{
+  GFile *file;
+  if (response_id == GTK_RESPONSE_OK)
+    {
+      if (w->plotted)
+        main_window_delete_graphic (w);
+      g_free (input_dir);
+      file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (dlg));
+      input_dir = g_file_get_path (file);
+      g_object_unref (file);
+    }
+  gtk_window_destroy (GTK_WINDOW (dlg));
+  if (input_dir && !kernel_open (input_dir, 1))
+    {
+      g_free (input_dir);
+      input_dir = NULL;
+    }
+  main_window_update (w);
+}
+
+/**
  * Function to open a new fertigation problem.
  */
 static void
@@ -1353,21 +1392,9 @@ main_window_open (MainWindow * w)       ///< Main window structure.
                                  GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
                                  _("_Cancel"), GTK_RESPONSE_CANCEL,
                                  _("_OK"), GTK_RESPONSE_OK, NULL);
-  if (gtk_dialog_run (GTK_DIALOG (dlg)) == GTK_RESPONSE_OK)
-    {
-      if (w->plotted)
-        main_window_delete_graphic (w);
-      g_free (input_dir);
-      input_dir
-        = (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dlg));
-    }
-  gtk_widget_destroy (GTK_WIDGET (dlg));
-  if (input_dir && !kernel_open (input_dir, 1))
-    {
-      g_free (input_dir);
-      input_dir = NULL;
-    }
-  main_window_update (w);
+  g_signal_connect_swapped (dlg, "response",
+                            G_CALLBACK (main_window_open_close), w);
+  gtk_window_present (GTK_WINDOW (dlg));
 }
 
 /**
@@ -1412,12 +1439,14 @@ main_window_run (MainWindow * w)        ///< Main window structure.
     {
       window_plot_new (w->plot);
       w->plotted = 1;
+#if !GTK4
 #if DEBUG_MAIN_WINDOW_RUN
       printf ("main_window_run: set icons\n");
 #endif
       gtk_window_set_icon (w->plot->window, w->pixbuf);
 #if HAVE_GTKGLAREA
       gtk_window_set_icon (w->plot->graphic->window, w->pixbuf);
+#endif
 #endif
 #if DEBUG_MAIN_WINDOW_RUN
       printf ("main_window_run: summary\n");
@@ -1449,7 +1478,11 @@ main_window_help (MainWindow * w)       ///< Main window structure.
   g_free (buffer);
   buffer = g_filename_to_uri (buffer2, NULL, NULL);
   g_free (buffer2);
+#if GTK4
+  gtk_show_uri (w->window, buffer, GDK_CURRENT_TIME);
+#else
   gtk_show_uri_on_window (w->window, buffer, GDK_CURRENT_TIME, NULL);
+#endif
   g_free (buffer);
 }
 
@@ -1510,57 +1543,63 @@ main_window_new ()
   printf ("main_window_new: buttons\n");
 #endif
 
-  w->button_open = (GtkButton *) gtk_button_new_with_label (_("Open"));
-  gtk_button_set_image (w->button_open,
-                        gtk_image_new_from_icon_name
-                        ("document-open", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_open, GTK_POS_TOP);
+  w->button_open = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("document-open");
+#else
+    gtk_button_new_from_icon_name ("document-open", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_open),
                                _("Open furrows system"));
   g_signal_connect_swapped (w->button_open, "clicked",
                             (GCallback) main_window_open, w);
 
-  w->button_config = (GtkButton *) gtk_button_new_with_label (_("Configure"));
-  gtk_button_set_image (w->button_config,
-                        gtk_image_new_from_icon_name
-                        ("preferences-system", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_config, GTK_POS_TOP);
+  w->button_config = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("preferenes-system");
+#else
+    gtk_button_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_config),
                                _("Simulation configure"));
   g_signal_connect_swapped (w->button_config, "clicked",
                             (GCallback) main_window_config, w);
 
-  w->button_run = (GtkButton *) gtk_button_new_with_label (_("Run"));
-  gtk_button_set_image (w->button_run,
-                        gtk_image_new_from_icon_name
-                        ("system-run", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_run, GTK_POS_TOP);
+  w->button_run = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("system-run");
+#else
+    gtk_button_new_from_icon_name ("system-run", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_run),
                                _("Run the simulation"));
   g_signal_connect_swapped (w->button_run, "clicked",
                             (GCallback) main_window_run, w);
 
-  w->button_help = (GtkButton *) gtk_button_new_with_label (_("Help"));
-  gtk_button_set_image (w->button_help,
-                        gtk_image_new_from_icon_name
-                        ("help-browser", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_help, GTK_POS_TOP);
+  w->button_help = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("help-browser");
+#else
+    gtk_button_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_help), _("Help"));
   g_signal_connect_swapped (w->button_help, "clicked",
                             (GCallback) main_window_help, w);
 
-  w->button_about = (GtkButton *) gtk_button_new_with_label (_("About"));
-  gtk_button_set_image (w->button_about,
-                        gtk_image_new_from_icon_name
-                        ("help-about", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_about, GTK_POS_TOP);
+  w->button_about = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("help-about");
+#else
+    gtk_button_new_from_icon_name ("help-about", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_about), _("About"));
 
-  w->button_exit = (GtkButton *) gtk_button_new_with_label (_("Exit"));
-  gtk_button_set_image (w->button_exit,
-                        gtk_image_new_from_icon_name
-                        ("application-exit", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_exit, GTK_POS_TOP);
+  w->button_exit = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("application-exit");
+#else
+    gtk_button_new_from_icon_name ("application-exit", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_exit), _("Exit"));
 
   w->grid = (GtkGrid *) gtk_grid_new ();
@@ -1581,11 +1620,20 @@ main_window_new ()
   printf ("main_window_new: window\n");
 #endif
 
-  w->window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->grid));
-  gtk_window_set_icon (w->window, w->pixbuf);
+  w->window = (GtkWindow *)
+#if GTK4
+    gtk_window_new ();
+#else
+    gtk_window_new (GTK_WINDOW_TOPLEVEL);
+#endif
+  gtk_window_set_child (w->window, GTK_WIDGET (w->grid));
   gtk_window_set_title (w->window, "SURCOS");
+#if GTK4
+  gtk_widget_show (GTK_WIDGET (w->window));
+#else
+  gtk_window_set_icon (w->window, w->pixbuf);
   gtk_widget_show_all (GTK_WIDGET (w->window));
+#endif
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: signals\n");
@@ -1595,8 +1643,13 @@ main_window_new ()
                             (GCallback) main_window_about, w);
   g_signal_connect_swapped (w->window, "destroy",
                             (GCallback) main_window_delete, w);
+#if GTK4
+  g_signal_connect_swapped (w->button_exit, "clicked",
+                            (GCallback) gtk_window_destroy, w->window);
+#else
   g_signal_connect_swapped (w->button_exit, "clicked",
                             (GCallback) gtk_widget_destroy, w->window);
+#endif
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: updating\n");
@@ -1609,17 +1662,22 @@ main_window_new ()
   printf ("main_window_new: intro window\n");
 #endif
 
-  window = (GtkWindow *) gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  pixbuf = gdk_pixbuf_new_from_xpm_data (fondo6);
-  gtk_container_add (GTK_CONTAINER (window),
-                     gtk_image_new_from_pixbuf (pixbuf));
-  g_object_unref (pixbuf);
-#if GTK_MAJOR_VERSION >= 3 && GTK_MINOR_VERSION >=8
-  gtk_widget_set_opacity (GTK_WIDGET (window), 0.5);
+  window = (GtkWindow *)
+#if GTK4
+    gtk_window_new ();
+#else
+    gtk_window_new (GTK_WINDOW_TOPLEVEL);
 #endif
+  pixbuf = gdk_pixbuf_new_from_xpm_data (fondo6);
+  gtk_window_set_child (window, gtk_image_new_from_pixbuf (pixbuf));
+  g_object_unref (pixbuf);
+  gtk_widget_set_opacity (GTK_WIDGET (window), 0.5);
   gtk_window_set_decorated (window, FALSE);
+#if GTK4
+  gtk_widget_show (GTK_WIDGET (window));
+#else
   gtk_widget_show_all (GTK_WIDGET (window));
-  gtk_window_set_position (window, GTK_WIN_POS_CENTER_ALWAYS);
+#endif
   g_timeout_add_seconds (3, (GSourceFunc) intro_window_destroy, window);
 
 #if DEBUG_MAIN_WINDOW_NEW

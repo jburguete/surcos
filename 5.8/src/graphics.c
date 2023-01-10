@@ -1208,11 +1208,12 @@ window_plot_new (WindowPlot * w)        ///< Results plot structure.
 #if DEBUG_WINDOW_PLOT_NEW
   printf ("defining save button\n");
 #endif
-  w->button_save = (GtkButton *) gtk_button_new_with_label (_("Save"));
-  gtk_button_set_image (w->button_save,
-                        gtk_image_new_from_icon_name
-                        ("document-save", GTK_ICON_SIZE_LARGE_TOOLBAR));
-  gtk_button_set_image_position (w->button_save, GTK_POS_TOP);
+  w->button_save = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("document-save");
+#else
+    gtk_button_new_from_icon_name ("document-save", GTK_ICON_SIZE_BUTTON);
+#endif
   gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_save), _("Save graph"));
   g_signal_connect_swapped (w->button_save, "clicked",
                             (GCallback) jbw_graphic_dialog_save, w->graphic);
