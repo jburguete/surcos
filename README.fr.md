@@ -1,4 +1,4 @@
-SURCOS (version 5.9)
+SURCOS (version 5.10)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -83,7 +83,7 @@ Debian 10 (Linux)
 _________________
 Devuan Linux 3
 _________________
-DragonFly BSD 5.9
+DragonFly BSD 5.10
 ___________________
 Dyson Illumos
 _____________
@@ -111,7 +111,7 @@ __________________
 > $ git clone https://github.com/jburguete/surcos.git
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd surcos/5.9/src
+> $ cd surcos/5.10/src
 >
 > $ ln -s ../../../jb/2.4.1 jb
 
@@ -142,7 +142,7 @@ MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd surcos/5.9
+> $ cd surcos/5.10
 >
 > $ doxygen
 >
