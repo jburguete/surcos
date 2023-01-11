@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-11 01:53+0100\n"
+"POT-Creation-Date: 2023-01-11 09:08+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -40,16 +40,16 @@ msgstr "Données des entrées incorrectes"
 msgid "Bad input"
 msgstr "Entrée incorrecte"
 
-#: src/field.c:104 src/configIrrigation.c:469 src/mainWindow.c:889
+#: src/field.c:104 src/configIrrigation.c:469 src/mainWindow.c:937
 msgid "Initial time"
 msgstr "Temps initial"
 
-#: src/field.c:109 src/configIrrigation.c:469 src/mainWindow.c:891
+#: src/field.c:109 src/configIrrigation.c:469 src/mainWindow.c:939
 msgid "Final time"
 msgstr "Temps final"
 
-#: src/field.c:114 src/configIrrigation.c:468 src/mainWindow.c:893
-#: src/mainWindow.c:896
+#: src/field.c:114 src/configIrrigation.c:468 src/mainWindow.c:941
+#: src/mainWindow.c:944
 msgid "Discharge"
 msgstr "Débit"
 
@@ -68,9 +68,9 @@ msgstr "Données incorrectes"
 msgid "solubility"
 msgstr "solubilité"
 
-#: src/field.c:290 src/kernel.c:162 src/kernel.c:234 src/graphics.c:770
-#: src/graphics.c:922 src/mainWindow.c:1003 src/mainWindow.c:1140
-#: src/mainWindow.c:1217
+#: src/field.c:290 src/kernel.c:164 src/kernel.c:236 src/graphics.c:770
+#: src/graphics.c:922 src/mainWindow.c:1051 src/mainWindow.c:1188
+#: src/mainWindow.c:1265
 #, c-format
 msgid "Distribution furrow"
 msgstr "Sillon de distribution"
@@ -79,14 +79,14 @@ msgstr "Sillon de distribution"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
 
-#: src/field.c:311 src/kernel.c:156 src/kernel.c:217 src/mainWindow.c:1006
-#: src/mainWindow.c:1129 src/mainWindow.c:1199
+#: src/field.c:311 src/kernel.c:158 src/kernel.c:219 src/mainWindow.c:1054
+#: src/mainWindow.c:1177 src/mainWindow.c:1247
 msgid "Irrigation furrows"
 msgstr "Sillons d'irrigation"
 
-#: src/field.c:325 src/kernel.c:175 src/kernel.c:254 src/graphics.c:774
-#: src/graphics.c:924 src/mainWindow.c:997 src/mainWindow.c:1008
-#: src/mainWindow.c:1154 src/mainWindow.c:1238
+#: src/field.c:325 src/kernel.c:177 src/kernel.c:256 src/graphics.c:774
+#: src/graphics.c:924 src/mainWindow.c:1045 src/mainWindow.c:1056
+#: src/mainWindow.c:1202 src/mainWindow.c:1286
 #, c-format
 msgid "Recirculation furrow"
 msgstr "Sillon de recirculation"
@@ -135,96 +135,96 @@ msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 msgid "Bad probes data"
 msgstr "Données des sondes incorrectes"
 
-#: src/kernel.c:113 src/mainWindow.c:1079
+#: src/kernel.c:115 src/mainWindow.c:1127
 msgid "Irrigation life time"
 msgstr "Temps de durée de l'irrigation"
 
-#: src/kernel.c:115 src/mainWindow.c:1081
+#: src/kernel.c:117 src/mainWindow.c:1129
 msgid "Calculation time"
 msgstr "Temps de calcul"
 
-#: src/kernel.c:119 src/mainWindow.c:1085
+#: src/kernel.c:121 src/mainWindow.c:1133
 msgid "IRRIGATION QUALITY"
 msgstr "QUALITÉ D'IRRIGATION"
 
-#: src/kernel.c:121 src/configIrrigation.c:450 src/mainWindow.c:1088
+#: src/kernel.c:123 src/configIrrigation.c:450 src/mainWindow.c:1136
 msgid "Water"
 msgstr "Eau"
 
-#: src/kernel.c:123 src/kernel.c:131 src/mainWindow.c:1091
-#: src/mainWindow.c:1100
+#: src/kernel.c:125 src/kernel.c:133 src/mainWindow.c:1139
+#: src/mainWindow.c:1148
 msgid "Uniformity"
 msgstr "Uniformité"
 
-#: src/kernel.c:126 src/kernel.c:134 src/mainWindow.c:1094
-#: src/mainWindow.c:1103
+#: src/kernel.c:128 src/kernel.c:136 src/mainWindow.c:1142
+#: src/mainWindow.c:1151
 msgid "Efficiency"
 msgstr "Efficience"
 
-#: src/kernel.c:129 src/configIrrigation.c:450 src/configWindow.c:258
-#: src/mainWindow.c:1097
+#: src/kernel.c:131 src/configIrrigation.c:450 src/configWindow.c:258
+#: src/mainWindow.c:1145
 msgid "Fertilizer"
 msgstr "Fertilisant"
 
-#: src/kernel.c:138 src/mainWindow.c:1107
+#: src/kernel.c:140 src/mainWindow.c:1155
 msgid "WATER VOLUME"
 msgstr "VOLUME D'EAU"
 
-#: src/kernel.c:140 src/kernel.c:158 src/kernel.c:164 src/kernel.c:177
-#: src/kernel.c:191 src/kernel.c:219 src/kernel.c:236 src/kernel.c:256
-#: src/mainWindow.c:1110 src/mainWindow.c:1132 src/mainWindow.c:1143
-#: src/mainWindow.c:1157 src/mainWindow.c:1172 src/mainWindow.c:1202
-#: src/mainWindow.c:1220 src/mainWindow.c:1241
+#: src/kernel.c:142 src/kernel.c:160 src/kernel.c:166 src/kernel.c:179
+#: src/kernel.c:193 src/kernel.c:221 src/kernel.c:238 src/kernel.c:258
+#: src/mainWindow.c:1158 src/mainWindow.c:1180 src/mainWindow.c:1191
+#: src/mainWindow.c:1205 src/mainWindow.c:1220 src/mainWindow.c:1250
+#: src/mainWindow.c:1268 src/mainWindow.c:1289
 msgid "Total"
 msgstr "Totale"
 
-#: src/kernel.c:143 src/kernel.c:194 src/configIrrigation.c:431
-#: src/configIrrigation.c:439 src/mainWindow.c:1114 src/mainWindow.c:1176
-#: src/mainWindow.c:1264
+#: src/kernel.c:145 src/kernel.c:196 src/configIrrigation.c:431
+#: src/configIrrigation.c:439 src/mainWindow.c:1162 src/mainWindow.c:1224
+#: src/mainWindow.c:1312
 msgid "Input"
 msgstr "Entrée"
 
-#: src/kernel.c:145 src/kernel.c:197 src/mainWindow.c:1116
-#: src/mainWindow.c:1179
+#: src/kernel.c:147 src/kernel.c:199 src/mainWindow.c:1164
+#: src/mainWindow.c:1227
 msgid "Calculated"
 msgstr "Calculée"
 
-#: src/kernel.c:147 src/kernel.c:199 src/mainWindow.c:1118
-#: src/mainWindow.c:1181
+#: src/kernel.c:149 src/kernel.c:201 src/mainWindow.c:1166
+#: src/mainWindow.c:1229
 msgid "Conservation error"
 msgstr "Erreur de conservation"
 
-#: src/kernel.c:149 src/kernel.c:159 src/kernel.c:166 src/kernel.c:179
-#: src/kernel.c:202 src/kernel.c:222 src/kernel.c:239 src/kernel.c:259
-#: src/mainWindow.c:1120 src/mainWindow.c:1134 src/mainWindow.c:1145
-#: src/mainWindow.c:1159 src/mainWindow.c:1184 src/mainWindow.c:1205
-#: src/mainWindow.c:1223 src/mainWindow.c:1244
+#: src/kernel.c:151 src/kernel.c:161 src/kernel.c:168 src/kernel.c:181
+#: src/kernel.c:204 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
+#: src/mainWindow.c:1168 src/mainWindow.c:1182 src/mainWindow.c:1193
+#: src/mainWindow.c:1207 src/mainWindow.c:1232 src/mainWindow.c:1253
+#: src/mainWindow.c:1271 src/mainWindow.c:1292
 msgid "Superficial"
 msgstr "Superficielle"
 
-#: src/kernel.c:151 src/kernel.c:160 src/kernel.c:168 src/kernel.c:181
-#: src/kernel.c:205 src/kernel.c:225 src/kernel.c:242 src/kernel.c:262
-#: src/mainWindow.c:1122 src/mainWindow.c:1136 src/mainWindow.c:1147
-#: src/mainWindow.c:1161 src/mainWindow.c:1187 src/mainWindow.c:1208
-#: src/mainWindow.c:1226 src/mainWindow.c:1247
+#: src/kernel.c:153 src/kernel.c:162 src/kernel.c:170 src/kernel.c:183
+#: src/kernel.c:207 src/kernel.c:227 src/kernel.c:244 src/kernel.c:264
+#: src/mainWindow.c:1170 src/mainWindow.c:1184 src/mainWindow.c:1195
+#: src/mainWindow.c:1209 src/mainWindow.c:1235 src/mainWindow.c:1256
+#: src/mainWindow.c:1274 src/mainWindow.c:1295
 msgid "Infiltrated"
 msgstr "Infiltrée"
 
-#: src/kernel.c:152 src/kernel.c:161 src/kernel.c:170 src/kernel.c:183
-#: src/kernel.c:208 src/kernel.c:228 src/kernel.c:245 src/kernel.c:265
-#: src/mainWindow.c:1124 src/mainWindow.c:1138 src/mainWindow.c:1149
-#: src/mainWindow.c:1163 src/mainWindow.c:1190 src/mainWindow.c:1211
-#: src/mainWindow.c:1229 src/mainWindow.c:1250
+#: src/kernel.c:154 src/kernel.c:163 src/kernel.c:172 src/kernel.c:185
+#: src/kernel.c:210 src/kernel.c:230 src/kernel.c:247 src/kernel.c:267
+#: src/mainWindow.c:1172 src/mainWindow.c:1186 src/mainWindow.c:1197
+#: src/mainWindow.c:1211 src/mainWindow.c:1238 src/mainWindow.c:1259
+#: src/mainWindow.c:1277 src/mainWindow.c:1298
 msgid "Percolated"
 msgstr "Percolée"
 
-#: src/kernel.c:189 src/mainWindow.c:1169
+#: src/kernel.c:191 src/mainWindow.c:1217
 msgid "FERTILIZER MASS"
 msgstr "MASSE DE FERTILISANT"
 
-#: src/kernel.c:211 src/kernel.c:231 src/kernel.c:248 src/kernel.c:268
-#: src/mainWindow.c:1193 src/mainWindow.c:1214 src/mainWindow.c:1232
-#: src/mainWindow.c:1253
+#: src/kernel.c:213 src/kernel.c:233 src/kernel.c:250 src/kernel.c:270
+#: src/mainWindow.c:1241 src/mainWindow.c:1262 src/mainWindow.c:1280
+#: src/mainWindow.c:1301
 msgid "Solid"
 msgstr "Solide"
 
@@ -244,11 +244,11 @@ msgstr "Débit (m³/s)"
 msgid "Discharge (kg/s)"
 msgstr "Débit (kg/s)"
 
-#: src/configIrrigation.c:447 src/mainWindow.c:1015
+#: src/configIrrigation.c:447 src/mainWindow.c:1063
 msgid "Number of water inputs"
 msgstr "Nombre d'entrées d'eau"
 
-#: src/configIrrigation.c:448 src/mainWindow.c:1018
+#: src/configIrrigation.c:448 src/mainWindow.c:1066
 msgid "Number of fertilizer inputs"
 msgstr "Nombre d'entrées de fertilisant"
 
@@ -288,7 +288,7 @@ msgstr ""
 "a: exponent de Kostiakov\n"
 "f0: vitesse d'infiltration en sol saturé"
 
-#: src/configFurrows.c:335 src/mainWindow.c:1001
+#: src/configFurrows.c:335 src/mainWindow.c:1049
 msgid "Number of irrigation furrows"
 msgstr "Nombre de sillons d'irrigation"
 
@@ -304,7 +304,7 @@ msgstr "Géométrie"
 msgid "Soil"
 msgstr "Sol"
 
-#: src/configFurrows.c:355 src/mainWindow.c:828 src/mainWindow.c:839
+#: src/configFurrows.c:355 src/mainWindow.c:876 src/mainWindow.c:887
 msgid "Friction model"
 msgstr "Modèle de friction"
 
@@ -320,19 +320,19 @@ msgstr "Temps de simulation maximale (s)"
 msgid "Data saving cycle (s)"
 msgstr "Période de renversé des données (s)"
 
-#: src/configTimes.c:114 src/mainWindow.c:1056
+#: src/configTimes.c:114 src/mainWindow.c:1104
 msgid "Cells number for distribution channel (between furrows)"
 msgstr "Nombre de cellules pour le sillon de distribution (parmi les sillons)"
 
-#: src/configTimes.c:116 src/mainWindow.c:1060
+#: src/configTimes.c:116 src/mainWindow.c:1108
 msgid "Cells number for irrigation channels"
 msgstr "Nombre de cellules pour les sillons d'irrigation"
 
-#: src/configProbes.c:207 src/graphics.c:983 src/mainWindow.c:912
+#: src/configProbes.c:207 src/graphics.c:983 src/mainWindow.c:960
 msgid "Probe"
 msgstr "Sonde"
 
-#: src/configProbes.c:210 src/mainWindow.c:1038
+#: src/configProbes.c:210 src/mainWindow.c:1086
 msgid "Number of probes"
 msgstr "Nombre de sondes"
 
@@ -364,11 +364,11 @@ msgstr "Configurer irrigation"
 msgid "Set the irrigation problem configuration"
 msgstr "Définir la configuration du problème d'irrigation"
 
-#: src/configWindow.c:291 src/mainWindow.c:1390
+#: src/configWindow.c:291 src/mainWindow.c:1438
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/configWindow.c:293 src/mainWindow.c:1391
+#: src/configWindow.c:293 src/mainWindow.c:1439
 msgid "_OK"
 msgstr "_Accepter"
 
@@ -491,127 +491,127 @@ msgstr "Graphique"
 msgid "Set the result graph options"
 msgstr "Définir les options de la graphique des resultats"
 
-#: src/mainWindow.c:749
+#: src/mainWindow.c:797
 msgid "Running the numerical simulation ..."
 msgstr "Calculant la simulation numérique ..."
 
-#: src/mainWindow.c:751
+#: src/mainWindow.c:799
 msgid "_Stop"
 msgstr "_Arrêter"
 
-#: src/mainWindow.c:789
+#: src/mainWindow.c:837
 msgid "Coordinates of corner"
 msgstr "Coordonnées du sommet"
 
-#: src/mainWindow.c:815
+#: src/mainWindow.c:863
 msgid "Base width"
 msgstr "Largeur de la base"
 
-#: src/mainWindow.c:817
+#: src/mainWindow.c:865
 msgid "Lateral slope"
 msgstr "Pente laterale"
 
-#: src/mainWindow.c:819
+#: src/mainWindow.c:867
 msgid "Depth"
 msgstr "Profondeur"
 
-#: src/mainWindow.c:821
+#: src/mainWindow.c:869
 msgid "Distance"
 msgstr "Distance"
 
-#: src/mainWindow.c:824
+#: src/mainWindow.c:872
 msgid "Soil retention capacity"
 msgstr "Capacité de rétention sol"
 
-#: src/mainWindow.c:831
+#: src/mainWindow.c:879
 msgid "Aerodynamical coefficient"
 msgstr "Coefficient aérodynamique"
 
-#: src/mainWindow.c:834
+#: src/mainWindow.c:882
 msgid "Characteristic roughness length"
 msgstr "Longueur caractéristique de rugosité"
 
-#: src/mainWindow.c:843
+#: src/mainWindow.c:891
 msgid "Number of Gauckler-Manning"
 msgstr "Nombre de Gauckler-Manning"
 
-#: src/mainWindow.c:850
+#: src/mainWindow.c:898
 msgid "Kostiakov's coefficient"
 msgstr "Coefficient de Kostiakov"
 
-#: src/mainWindow.c:856
+#: src/mainWindow.c:904
 msgid "Kostiakov's exponent"
 msgstr "Exponent de Kostiakov"
 
-#: src/mainWindow.c:860
+#: src/mainWindow.c:908
 msgid "Infiltration velocity in saturated soil"
 msgstr "Velocité d'infiltration en sol saturé"
 
-#: src/mainWindow.c:879
+#: src/mainWindow.c:927
 msgid "Fertilizer input"
 msgstr "Entrée de fertilisant"
 
-#: src/mainWindow.c:881
+#: src/mainWindow.c:929
 msgid "Water input"
 msgstr "Entrée d'eau"
 
-#: src/mainWindow.c:966
+#: src/mainWindow.c:1014
 msgid "GEOMETRY"
 msgstr "GÉOMÉTRIE"
 
-#: src/mainWindow.c:994
+#: src/mainWindow.c:1042
 msgid "FURROWS"
 msgstr "SILLONS"
 
-#: src/mainWindow.c:998
+#: src/mainWindow.c:1046
 msgid "yes"
 msgstr "oui"
 
-#: src/mainWindow.c:998
+#: src/mainWindow.c:1046
 msgid "not"
 msgstr "non"
 
-#: src/mainWindow.c:1012
+#: src/mainWindow.c:1060
 msgid "INPUTS"
 msgstr "ENTRÉES"
 
-#: src/mainWindow.c:1028
+#: src/mainWindow.c:1076
 msgid "FERTILIZER"
 msgstr "FERTILISANT"
 
-#: src/mainWindow.c:1031
+#: src/mainWindow.c:1079
 msgid "Solubility"
 msgstr "Solubilité"
 
-#: src/mainWindow.c:1035
+#: src/mainWindow.c:1083
 msgid "PROBES"
 msgstr "SONDES"
 
-#: src/mainWindow.c:1044
+#: src/mainWindow.c:1092
 msgid "ADVANCED OPTIONS"
 msgstr "OPTIONS AVANCÉES"
 
-#: src/mainWindow.c:1047
+#: src/mainWindow.c:1095
 msgid "Maximum simulation time"
 msgstr "Temps de simulation maximale"
 
-#: src/mainWindow.c:1050
+#: src/mainWindow.c:1098
 msgid "CFL number"
 msgstr "Nombre CFL"
 
-#: src/mainWindow.c:1052
+#: src/mainWindow.c:1100
 msgid "Data saving cycle"
 msgstr "Période de renversé des données"
 
-#: src/mainWindow.c:1262
+#: src/mainWindow.c:1310
 msgid "Results"
 msgstr "Résultats"
 
-#: src/mainWindow.c:1469 src/mainWindow.c:1471
+#: src/mainWindow.c:1517 src/mainWindow.c:1519
 msgid "user-manual-en.pdf"
 msgstr ""
 
-#: src/mainWindow.c:1502
+#: src/mainWindow.c:1550
 msgid ""
 "A software tool to solve irrigation and fertigation in isolated furrows and "
 "furrow networks"
@@ -619,31 +619,31 @@ msgstr ""
 "Un outil informatique pour resolver irrigation et fertirrigation en sillons "
 "isolés et en réseaux de sillons"
 
-#: src/mainWindow.c:1507
+#: src/mainWindow.c:1555
 msgid "translator-credits"
 msgstr "Javier Burguete Tolosa (jburguete@eead.csic.es)"
 
-#: src/mainWindow.c:1548
+#: src/mainWindow.c:1596
 msgid "Open furrows system"
 msgstr "Ouvrir système de sillons"
 
-#: src/mainWindow.c:1559
+#: src/mainWindow.c:1607
 msgid "Simulation configure"
 msgstr "Configurer simulation"
 
-#: src/mainWindow.c:1570
+#: src/mainWindow.c:1618
 msgid "Run the simulation"
 msgstr "Commencer la simulation"
 
-#: src/mainWindow.c:1580
+#: src/mainWindow.c:1628
 msgid "Help"
 msgstr "Aïde"
 
-#: src/mainWindow.c:1590
+#: src/mainWindow.c:1638
 msgid "About"
 msgstr "A propos"
 
-#: src/mainWindow.c:1598
+#: src/mainWindow.c:1646
 msgid "Exit"
 msgstr "Sortir"
 

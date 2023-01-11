@@ -390,7 +390,9 @@ kernel_step (FILE * file_probes,        ///< File to save the probes data.
  * Function to run a simulation.
  */
 void
-kernel_run (unsigned int gui,   ///< 1 on graphical GUI, 0 on else.
+kernel_run (char *dir,
+            ///< Directory where the input data files are located.
+            unsigned int gui,   ///< 1 on graphical GUI, 0 on else.
             unsigned int msg __attribute__((unused)))       
             ///< 1 on periodic messages, 0 on else.
 {
@@ -477,11 +479,6 @@ kernel (char *dir,
         unsigned int msg __attribute__((unused)))       
         ///< 1 on periodic messages, 0 on else.
 {
-  char buffer[512];
-  FILE *file_probes;
-  unsigned long int i;
-  unsigned int j;
-
 #if DEBUG_KERNEL
   JBDOUBLE ud, uds, ef, efs;
   printf ("kernel: start\n");
@@ -489,7 +486,7 @@ kernel (char *dir,
   field_destroy (field);
   if (!kernel_open (dir, gui))
     return 0;
-  kernel_run (gui, msg);
+  kernel_run (dir, gui, msg);
 #if DEBUG_KERNEL
   printf ("kernel: end\n");
 #endif

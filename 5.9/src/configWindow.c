@@ -299,8 +299,8 @@ window_config_new ()
                   GTK_WIDGET (w->notebook));
   gtk_widget_show (GTK_WIDGET (w->dialog));
 #else
-  gtk_conatainer_add (GTK_CONTAINER (gtk_dialog_get_content_area (w->dialog)),
-                      GTK_WIDGET (w->notebook));
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (w->dialog)),
+                     GTK_WIDGET (w->notebook));
   gtk_widget_show_all (GTK_WIDGET (w->dialog));
 #endif
 

@@ -707,7 +707,7 @@ void
 kernel_new ()
 {
   Furrow *f;
-  InitialCondition *ic;
+  InitialConditions *ic;
   field->si = NULL;
   field->p = NULL;
   field->input = NULL;

@@ -42,7 +42,7 @@ extern void (*kernel_extern_step) ();
 extern void (*kernel_extern_destroy) ();
 
 unsigned int kernel_open (char *dir, unsigned int gui);
-unsigned int kernel_run (unsigned int gui, unsigned int msg);
+void kernel_run (char *dir, unsigned int gui, unsigned int msg);
 unsigned int kernel (char *dir, unsigned int gui, unsigned int msg);
 
 #endif

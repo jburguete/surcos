@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-11 01:53+0100\n"
+"POT-Creation-Date: 2023-01-11 09:08+0100\n"
 "PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -67,7 +67,7 @@ msgstr "Données incorrectes"
 msgid "solubility"
 msgstr "solubilité"
 
-#: src/field.c:290 src/kernel.c:162 src/kernel.c:234
+#: src/field.c:290 src/kernel.c:164 src/kernel.c:236
 msgid "Distribution furrow"
 msgstr "Sillon de distribution"
 
@@ -75,11 +75,11 @@ msgstr "Sillon de distribution"
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
 
-#: src/field.c:311 src/kernel.c:156 src/kernel.c:217
+#: src/field.c:311 src/kernel.c:158 src/kernel.c:219
 msgid "Irrigation furrows"
 msgstr "Sillons d'irrigation"
 
-#: src/field.c:325 src/kernel.c:175 src/kernel.c:254
+#: src/field.c:325 src/kernel.c:177 src/kernel.c:256
 msgid "Recirculation furrow"
 msgstr "Sillon de recirculation"
 
@@ -127,75 +127,75 @@ msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 msgid "Bad probes data"
 msgstr "Données des sondes incorrectes"
 
-#: src/kernel.c:113
+#: src/kernel.c:115
 msgid "Irrigation life time"
 msgstr "Temps de durée de l'irrigation"
 
-#: src/kernel.c:115
+#: src/kernel.c:117
 msgid "Calculation time"
 msgstr "Temps de calculation"
 
-#: src/kernel.c:119
+#: src/kernel.c:121
 msgid "IRRIGATION QUALITY"
 msgstr "QUALITÉ D'IRRIGATION"
 
-#: src/kernel.c:121
+#: src/kernel.c:123
 msgid "Water"
 msgstr "Eau"
 
-#: src/kernel.c:123 src/kernel.c:131
+#: src/kernel.c:125 src/kernel.c:133
 msgid "Uniformity"
 msgstr "Uniformité"
 
-#: src/kernel.c:126 src/kernel.c:134
+#: src/kernel.c:128 src/kernel.c:136
 msgid "Efficiency"
 msgstr "Efficience"
 
-#: src/kernel.c:129
+#: src/kernel.c:131
 msgid "Fertilizer"
 msgstr "Fertilisant"
 
-#: src/kernel.c:138
+#: src/kernel.c:140
 msgid "WATER VOLUME"
 msgstr "VOLUME D'EAU"
 
-#: src/kernel.c:140 src/kernel.c:158 src/kernel.c:164 src/kernel.c:177
-#: src/kernel.c:191 src/kernel.c:219 src/kernel.c:236 src/kernel.c:256
+#: src/kernel.c:142 src/kernel.c:160 src/kernel.c:166 src/kernel.c:179
+#: src/kernel.c:193 src/kernel.c:221 src/kernel.c:238 src/kernel.c:258
 msgid "Total"
 msgstr "Totale"
 
-#: src/kernel.c:143 src/kernel.c:194
+#: src/kernel.c:145 src/kernel.c:196
 msgid "Input"
 msgstr "Entrée"
 
-#: src/kernel.c:145 src/kernel.c:197
+#: src/kernel.c:147 src/kernel.c:199
 msgid "Calculated"
 msgstr "Calculée"
 
-#: src/kernel.c:147 src/kernel.c:199
+#: src/kernel.c:149 src/kernel.c:201
 msgid "Conservation error"
 msgstr "Erreur de conservation"
 
-#: src/kernel.c:149 src/kernel.c:159 src/kernel.c:166 src/kernel.c:179
-#: src/kernel.c:202 src/kernel.c:222 src/kernel.c:239 src/kernel.c:259
+#: src/kernel.c:151 src/kernel.c:161 src/kernel.c:168 src/kernel.c:181
+#: src/kernel.c:204 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
 msgid "Superficial"
 msgstr "Superficielle"
 
-#: src/kernel.c:151 src/kernel.c:160 src/kernel.c:168 src/kernel.c:181
-#: src/kernel.c:205 src/kernel.c:225 src/kernel.c:242 src/kernel.c:262
+#: src/kernel.c:153 src/kernel.c:162 src/kernel.c:170 src/kernel.c:183
+#: src/kernel.c:207 src/kernel.c:227 src/kernel.c:244 src/kernel.c:264
 msgid "Infiltrated"
 msgstr "Infiltrée"
 
-#: src/kernel.c:152 src/kernel.c:161 src/kernel.c:170 src/kernel.c:183
-#: src/kernel.c:208 src/kernel.c:228 src/kernel.c:245 src/kernel.c:265
+#: src/kernel.c:154 src/kernel.c:163 src/kernel.c:172 src/kernel.c:185
+#: src/kernel.c:210 src/kernel.c:230 src/kernel.c:247 src/kernel.c:267
 msgid "Percolated"
 msgstr "Percolée"
 
-#: src/kernel.c:189
+#: src/kernel.c:191
 msgid "FERTILIZER MASS"
 msgstr "MASS DE FERTILISANT"
 
-#: src/kernel.c:211 src/kernel.c:231 src/kernel.c:248 src/kernel.c:268
+#: src/kernel.c:213 src/kernel.c:233 src/kernel.c:250 src/kernel.c:270
 msgid "Solid"
 msgstr "Solide"
 
