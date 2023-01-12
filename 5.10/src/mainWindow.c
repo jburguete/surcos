@@ -722,7 +722,7 @@ initial_conditions_save (InitialConditions * ic,
 #if DEBUG_INITIAL_CONDITIONS_SAVE
   fprintf (stderr, "initial_conditions_save: start\n");
 #endif
-  fscanf (file, FWF " " FWF " " FWF "\n", ic->h, ic->Q, ic->c);
+  fprintf (file, FWF " " FWF " " FWF "\n", ic->h, ic->Q, ic->c);
 #if DEBUG_INITIAL_CONDITIONS_SAVE
   fprintf (stderr, "initial_conditions_save: end\n");
 #endif
@@ -771,9 +771,10 @@ field_save_data ()
   g_free (buffer);
   fprintf (file,
            "%u %u " FWL "\n"
-           FWL " " FWL " " FWL " " FWL "\n"
-           FWL " " FWL " " FWL " " FWL "\n"
-           FWL " " FWL " " FWL " " FWL "\n",
+           FWL " " FWL " " FWL "\n"
+           FWL " " FWL " " FWL "\n"
+           FWL " " FWL " " FWL "\n"
+           FWL " " FWL " " FWL "\n",
            field->open, field->nfurrows, solubility,
            field->x[0], field->y[0], field->z[0],
            field->x[1], field->y[1], field->z[1],
