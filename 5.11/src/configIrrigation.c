@@ -223,7 +223,7 @@ static void
 input_insert (GList ** list,    ///< List of inputs.
               unsigned int nInputsOld,  ///< Old inputs number.
               unsigned int nInputs,     ///< New inputs number.
-              GtkGrid * grid)  ///< configuration GtkGrid.
+              GtkGrid * grid)   ///< configuration GtkGrid.
 {
   double min[5] = { -1e6, -1e6, 0., 0., 0. };
   double max[5] = { 1e6, 1e6, 1e6, 1e6, 1. };
@@ -257,7 +257,7 @@ input_remove (GList ** list,    ///< List of inputs.
               unsigned int nInputsOld,  ///< Old inputs number.
               unsigned int nInputs,     ///< New inputs number.
               GtkGrid * grid __attribute__((unused)))
-              ///< configuration GtkGrid.
+  ///< configuration GtkGrid.
 {
   GList *element, *next;
   unsigned int i, j;
@@ -282,7 +282,7 @@ input_update (GList ** list,    ///< List of inputs.
               unsigned int *nInputs,    ///< New inputs number.
               GtkSpinButton * spin,
               ///< GtkSpinButton defining the inputs number.
-              GtkGrid * grid)  ///< configuration GtkGrid.
+              GtkGrid * grid)   ///< configuration GtkGrid.
 {
   unsigned int nInputsOld;
   nInputsOld = *nInputs;

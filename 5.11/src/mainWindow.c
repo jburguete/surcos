@@ -943,14 +943,12 @@ field_save ()
 /**
  * Function to init a new kernel.
  */
-void
+static inline void
 kernel_new ()
 {
   Furrow *f;
   InitialConditions *ic;
   field_destroy (field);
-  g_free (input_dir);
-  input_dir = g_strdup ("new");
   field->si = NULL;
   field->p = NULL;
   field->open = 0;
@@ -1027,9 +1025,7 @@ window_run_close ()
 static void
 window_run_destroy ()
 {
-  GMainContext *context = g_main_context_default ();
-  while (g_main_context_pending (context))
-    g_main_context_iteration (context, 0);
+  jbw_process_pending ();
   gtk_window_destroy (GTK_WINDOW (windowRun->dialog));
 }
 
@@ -1037,15 +1033,13 @@ window_run_destroy ()
  * Function to update a simulation running dialog.
  */
 static void
-window_run_update ()   //< Field data structure.
+window_run_update ()            //< Field data structure.
 {
   char buffer[32];
-  GMainContext *context = g_main_context_default ();
   gtk_progress_bar_set_fraction (windowRun->progress, t / field->tf);
   snprintf (buffer, 32, "(%.2lf/%.2lf)", (double) t, (double) field->tf);
   gtk_progress_bar_set_text (windowRun->progress, buffer);
-  while (g_main_context_pending (context))
-    g_main_context_iteration (context, 0);
+  jbw_process_pending ();
 }
 
 /**
@@ -1264,8 +1258,7 @@ summary_new (Summary * s)       ///< Summary widget.
 #else
     gtk_scrolled_window_new (NULL, NULL);
 #endif
-  gtk_scrolled_window_set_child (s->scrolled_input,
-                                 GTK_WIDGET (s->view_input));
+  gtk_scrolled_window_set_child (s->scrolled_input, GTK_WIDGET (s->view_input));
   s->text_input = gtk_text_view_get_buffer (s->view_input);
   gtk_text_view_set_editable (s->view_input, FALSE);
   gtk_text_buffer_get_start_iter (s->text_input, iter);
@@ -1597,16 +1590,45 @@ intro_window_destroy (GtkWindow * w)    ///< Introduction window.
 }
 
 /**
+ * Function to close the dialog to create a new fertigation problem.
+ */
+static void
+main_window_create_close (GtkFileChooserDialog * dlg,
+                          ///< GtkFileChooserDialog dialog.
+                          int response_id,      ///< Response identifier.
+                          MainWindow * w)       ///< Main window structure.
+{
+  GFile *file;
+  if (response_id == GTK_RESPONSE_OK)
+    {
+      g_free (input_dir);
+      file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (dlg));
+      input_dir = g_file_get_path (file);
+      g_object_unref (file);
+      kernel_new ();
+      main_window_update (w);
+    }
+  gtk_window_destroy (dlg);
+}
+
+/**
  * Function to create a new fertigation problem.
  */
 static void
-main_window_create (MainWindow * w)   ///< Main window structure.
+main_window_create (MainWindow * w)     ///< Main window structure.
 {
+  GtkFileChooserDialog *dlg;
 #if DEBUG_MAIN_WINDOW_CREATE
   printf ("main_window_create: start\n");
 #endif
-  kernel_new ();
-  main_window_update (w);
+  dlg = (GtkFileChooserDialog *)
+    gtk_file_chooser_dialog_new ("Case Directory",
+                                 w->window,
+                                 GTK_FILE_CHOOSER_ACTION_SAVE,
+                                 _("_Cancel"), GTK_RESPONSE_CANCEL,
+                                 _("_OK"), GTK_RESPONSE_OK, NULL);
+  g_signal_connect (dlg, "response", G_CALLBACK (main_window_create_close), w);
+  gtk_window_present (GTK_WINDOW (dlg));
 #if DEBUG_MAIN_WINDOW_CREATE
   printf ("main_window_create: end\n");
 #endif
@@ -1683,7 +1705,7 @@ main_window_update (MainWindow * w)     ///< Main window structure.
 static void
 main_window_open_close (MainWindow * w, ///< Main window structure.
                         int response_id,        ///< Response identifier.
-			GtkDialog * dlg)        ///< Open problem dialog.
+                        GtkDialog * dlg)        ///< Open problem dialog.
 {
   GFile *file;
   if (response_id == GTK_RESPONSE_OK)
@@ -1833,7 +1855,7 @@ main_window_about (MainWindow * w)      ///< Main window structure.
                          "authors", authors,
                          "artists", artists,
                          "translator-credits", _("translator-credits"),
-                         "version", "5.10",
+                         "version", "5.11",
                          "copyright",
                          "Copyright 2011-2023 Javier Burguete Tolosa",
                          "license-type", GTK_LICENSE_BSD,

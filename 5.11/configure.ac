@@ -1,6 +1,6 @@
 # Header
 AC_PREREQ([2.69])
-AC_INIT([surcos],[5.10])
+AC_INIT([surcos],[5.11])
 
 # Checks for operative systems
 AC_CANONICAL_TARGET

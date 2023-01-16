@@ -63,7 +63,7 @@ void
 scheme_show (Parameters * p,
 ///< Mesh node parameters structure of the furrow initial point.
              unsigned int n,    ///< Number of the furrow mesh cells.
-	     FILE * file)       ///< Output file.
+             FILE * file)       ///< Output file.
 {
   unsigned int i;
   if (t >= DEBUG_SCHEME_TIME)

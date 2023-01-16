@@ -177,7 +177,7 @@ window_config_new_close (GtkDialog * dlg,
 #if DEBUG_WINDOW_CONFIG_NEW_CLOSE
   printf ("check response\n");
 #endif
-  WindowConfig * w;
+  WindowConfig *w;
   w = window_config;
   main_window->open = 0;
   if (response_id == GTK_RESPONSE_OK)
