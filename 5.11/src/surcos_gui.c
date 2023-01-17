@@ -65,17 +65,6 @@ MainWindow *main_window;        ///< Main window.
 
 #if HAVE_FREEGLUT
 
-/**
- * Idle function in the main loop.
- */
-void
-main_window_idle ()
-{
-  GMainContext *context = g_main_context_default ();
-  while (g_main_context_pending (context))
-    g_main_context_iteration (context, 0);
-}
-
 #elif HAVE_GLFW
 
 /**
@@ -194,7 +183,7 @@ main (int argn,                 ///< Arguments number.
 #if HAVE_GTKGLAREA
   jbw_graphic_loop_pointer = g_main_loop_new (NULL, 0);
 #elif HAVE_FREEGLUT
-  jbw_graphic_loop_idle = main_window_idle;
+  jbw_graphic_loop_idle = jbw_process_pending;
   jbw_graphic_loop_resize = main_window_resize;
   jbw_graphic_loop_render = main_window_render;
 #elif HAVE_SDL

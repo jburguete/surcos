@@ -374,8 +374,8 @@ void
 kernel_run (char *dir,
             ///< Directory where the input data files are located.
             unsigned int gui,   ///< 1 on graphical GUI, 0 on else.
-            unsigned int msg __attribute__((unused)))       
-            ///< 1 on periodic messages, 0 on else.
+            unsigned int msg __attribute__((unused)))
+  ///< 1 on periodic messages, 0 on else.
 {
   char buffer[512];
   FILE *file_probes;
@@ -461,8 +461,8 @@ unsigned int
 kernel (char *dir,
         ///< Directory where the input data files are located.
         unsigned int gui,       ///< 1 on graphical GUI, 0 on else.
-        unsigned int msg __attribute__((unused)))       
-        ///< 1 on periodic messages, 0 on else.
+        unsigned int msg __attribute__((unused)))
+  ///< 1 on periodic messages, 0 on else.
 {
 #if DEBUG_KERNEL
   JBDOUBLE ud, uds, ef, efs;

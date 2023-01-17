@@ -1,17 +1,17 @@
-# Italian translations for SURCOS package.
-# Copyright (C) 2011 THE SURCOS'S COPYRIGHT HOLDER
+# French translations for SURCOS package.
+# Copyright (C) 2011 THE SURCOS' COPYRIGHT HOLDER
 # This file is distributed under the same license as the SURCOS package.
 # Automatically generated, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 5.10\n"
+"Project-Id-Version: 5.11\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-11 16:50+0100\n"
-"PO-Revision-Date: 2011-10-21 17:51+0200\n"
+"PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: it\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,145 +19,145 @@ msgstr ""
 
 #: src/furrow.c:63 src/furrow.c:68 src/furrow.c:73 src/furrow.c:78
 msgid "Bad initial conditions"
-msgstr "Condizioni iniziali non corretti"
+msgstr "Données des conditions initiales"
 
 #: src/furrow.c:109
 msgid "Bad furrow data"
-msgstr "Dati di solchi non corretti"
+msgstr "Données des sillons incorrectes"
 
 #: src/furrow.c:116 src/furrow.c:121 src/furrow.c:126 src/furrow.c:131
 #: src/furrow.c:136 src/furrow.c:141 src/furrow.c:146 src/furrow.c:151
 #: src/furrow.c:156 src/furrow.c:161
 msgid "Bad furrow"
-msgstr "Solco non corretto"
+msgstr "Sillon incorrect"
 
 #: src/field.c:97 src/field.c:496 src/field.c:512
 msgid "Bad input data"
-msgstr "Dati di input non valido"
+msgstr "Données des entrées incorrectes"
 
 #: src/field.c:102 src/field.c:107 src/field.c:112 src/field.c:117
 #: src/field.c:122
 msgid "Bad input"
-msgstr "Input non valido"
+msgstr "Données des entrées incorrectes"
 
 #: src/field.c:112
 msgid "Initial time"
-msgstr "Tempo iniziale"
+msgstr "Temps initial"
 
 #: src/field.c:117
 msgid "Final time"
-msgstr "Tempo finale"
+msgstr "Temps final"
 
 #: src/field.c:122
 msgid "Discharge"
-msgstr "Flusso"
+msgstr "Débit"
 
 #: src/field.c:205
 msgid "Unable to open the geometry data file"
-msgstr "Impossibile aprire il file di dati della geometria"
+msgstr "On ne peut pas ouvrir le fichier des données de géométrie"
 
 #: src/field.c:222 src/field.c:227 src/field.c:232 src/field.c:237
 #: src/field.c:242 src/field.c:247 src/field.c:252 src/field.c:257
 #: src/field.c:262 src/field.c:267 src/field.c:272 src/field.c:277
 #: src/field.c:282 src/field.c:287
 msgid "Bad data"
-msgstr "Dati non valido"
+msgstr "Données incorrectes"
 
 #: src/field.c:227
 msgid "solubility"
-msgstr "solubilità"
+msgstr "solubilité"
 
 #: src/field.c:297 src/kernel.c:155 src/kernel.c:227
 msgid "Distribution furrow"
-msgstr "Solco di distribuzione"
+msgstr "Sillon de distribution"
 
 #: src/field.c:310
 msgid "Not enough memory to open the irrigation furrows"
-msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
+msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
 
 #: src/field.c:316 src/kernel.c:149 src/kernel.c:210
 msgid "Irrigation furrows"
-msgstr "Solchi di irrigazione"
+msgstr "Sillons d'irrigation"
 
 #: src/field.c:328 src/kernel.c:168 src/kernel.c:247
 msgid "Recirculation furrow"
-msgstr "Solco di ricircolazione"
+msgstr "Sillon de recirculation"
 
 #: src/field.c:341
 msgid "Bad data set"
-msgstr "Serie di dati non corretta"
+msgstr "Données de champ incorrectes"
 
 #: src/field.c:486
 msgid "Unable to open the input file"
-msgstr "Impossibile aprire il file di input"
+msgstr "On ne peut pas ouvrir le fichier des entrées"
 
 #: src/field.c:504
 msgid "Not enough memory to open the input data"
-msgstr "Memoria insufficiente per aprire il file di input"
+msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
 
 #: src/field.c:573
 msgid "Unable to open the mesh data file"
-msgstr "Impossibile aprire il file di input di maglia"
+msgstr "On ne peut pas ouvrir le fichier des données de maille"
 
 #: src/field.c:586
 msgid "Bad mesh data"
-msgstr "Dati di maglia non corretti"
+msgstr "Données de maille incorrectes"
 
 #: src/field.c:628
 msgid "Unable to open the times data file"
-msgstr "Impossibile aprire il file di dati di tempo"
+msgstr "On ne peut pas ouvrir le fichier des données de temps"
 
 #: src/field.c:635
 msgid "Bad times data"
-msgstr "Dati di tempo non corretti"
+msgstr "Données des temps incorrectes"
 
 #: src/field.c:660
 msgid "Unable to open the model data file"
-msgstr "Impossibile aprire il file di dati di modelli"
+msgstr "On ne peut pas ouvrir le fichier des données des modèles"
 
 #: src/field.c:668
 msgid "Bad model data"
-msgstr "Dati di modelli non corretti"
+msgstr "Données des modèles incorrectes"
 
 #: src/field.c:694
 msgid "Unable to open the probes data file"
-msgstr "Impossibile aprire il file di dati di sondi"
+msgstr "On ne peut pas ouvrir le fichier des données des sondes"
 
 #: src/field.c:702 src/field.c:716
 msgid "Bad probes data"
-msgstr "Dati di sondi non corretti"
+msgstr "Données des sondes incorrectes"
 
 #: src/kernel.c:106
 msgid "Irrigation life time"
-msgstr "Durata dell’irrigazione"
+msgstr "Temps de durée de l'irrigation"
 
 #: src/kernel.c:108
 msgid "Calculation time"
-msgstr "Tempo di calcolo"
+msgstr "Temps de calculation"
 
 #: src/kernel.c:112
 msgid "IRRIGATION QUALITY"
-msgstr "QUALITA DI IRRIGAZIONE"
+msgstr "QUALITÉ D'IRRIGATION"
 
 #: src/kernel.c:114
 msgid "Water"
-msgstr "Acqua"
+msgstr "Eau"
 
 #: src/kernel.c:116 src/kernel.c:124
 msgid "Uniformity"
-msgstr "Uniformità"
+msgstr "Uniformité"
 
 #: src/kernel.c:119 src/kernel.c:127
 msgid "Efficiency"
-msgstr "Efficienza"
+msgstr "Efficience"
 
 #: src/kernel.c:122
 msgid "Fertilizer"
-msgstr "Fertilizzante"
+msgstr "Fertilisant"
 
 #: src/kernel.c:131
 msgid "WATER VOLUME"
-msgstr "VOLUME DI ACQUA"
+msgstr "VOLUME D'EAU"
 
 #: src/kernel.c:133 src/kernel.c:151 src/kernel.c:157 src/kernel.c:170
 #: src/kernel.c:184 src/kernel.c:212 src/kernel.c:229 src/kernel.c:249
@@ -166,283 +166,282 @@ msgstr "Totale"
 
 #: src/kernel.c:136 src/kernel.c:187
 msgid "Input"
-msgstr "Input"
+msgstr "Entrée"
 
 #: src/kernel.c:138 src/kernel.c:190
 msgid "Calculated"
-msgstr "Calcolato"
+msgstr "Calculée"
 
 #: src/kernel.c:140 src/kernel.c:192
 msgid "Conservation error"
-msgstr "Errore di conservazione"
+msgstr "Erreur de conservation"
 
 #: src/kernel.c:142 src/kernel.c:152 src/kernel.c:159 src/kernel.c:172
 #: src/kernel.c:195 src/kernel.c:215 src/kernel.c:232 src/kernel.c:252
 msgid "Superficial"
-msgstr "Superficiale"
+msgstr "Superficielle"
 
 #: src/kernel.c:144 src/kernel.c:153 src/kernel.c:161 src/kernel.c:174
 #: src/kernel.c:198 src/kernel.c:218 src/kernel.c:235 src/kernel.c:255
 msgid "Infiltrated"
-msgstr "Infiltrata"
+msgstr "Infiltrée"
 
 #: src/kernel.c:145 src/kernel.c:154 src/kernel.c:163 src/kernel.c:176
 #: src/kernel.c:201 src/kernel.c:221 src/kernel.c:238 src/kernel.c:258
 msgid "Percolated"
-msgstr "Filtrato"
+msgstr "Percolée"
 
 #: src/kernel.c:182
 msgid "FERTILIZER MASS"
-msgstr "MASSA DI FERTILIZZANTE"
+msgstr "MASS DE FERTILISANT"
 
 #: src/kernel.c:204 src/kernel.c:224 src/kernel.c:241 src/kernel.c:261
 msgid "Solid"
-msgstr "Solido"
+msgstr "Solide"
 
 #: src/surcos.c:134
 msgid "Usage is"
-msgstr "Uso è"
+msgstr "La sintaxe est"
 
 #: src/surcos.c:135
-#, fuzzy
 msgid "./surcosbin [-v] input_directory"
-msgstr "surcos [-v] cartella_di_input"
+msgstr "./surcosbin [-v] répertoire_d'entrée"
 
 #~ msgid "Running the numerical simulation ..."
-#~ msgstr "Correndo la simulazione numerica ..."
+#~ msgstr "Calculant la simulation numérique ..."
 
 #~ msgid "_Stop"
-#~ msgstr "_Fermare"
+#~ msgstr "_Arrêter"
 
 #~ msgid "unable to open the file"
-#~ msgstr "impossibile aprire il file"
+#~ msgstr "on ne peut pas ouvrir le fichier"
 
 #, fuzzy
 #~ msgid "not enough memory to open the file"
-#~ msgstr "memoria insufficiente per aprire l'immagine"
+#~ msgstr "mémoire insuffisante pour ouvrir l'image"
 
 #, fuzzy
 #~ msgid "unable to read the file"
-#~ msgstr "impossibile aprire il file"
+#~ msgstr "on ne peut pas ouvrir le fichier"
 
 #~ msgid "unable to init SDL"
-#~ msgstr "impossibile inizializzare SDL"
+#~ msgstr "on ne peut pas commencer SDL"
 
 #~ msgid "unable to init GLFW"
-#~ msgstr "impossibile inizializzare GLFW"
+#~ msgstr "on ne peut pas commencer GLFW"
 
 #~ msgid "Error!"
-#~ msgstr "Errore!"
+#~ msgstr "Erreur!"
 
 #~ msgid "Warning!"
-#~ msgstr "Avvertimento!"
+#~ msgstr "Attention!"
 
 #~ msgid "unable to compile the texture fragment shader"
-#~ msgstr "impossibile compilare le fragment shader di texture"
+#~ msgstr "on ne peut pas compiler le fragment shader de texture"
 
 #~ msgid "unable to compile the texture vertex shader"
-#~ msgstr "impossibile compilare le vertex shader di texture"
+#~ msgstr "on ne peut pas compiler le vertex shader de texture"
 
 #~ msgid "unable to link the texture program"
-#~ msgstr "impossibile collegare il programma di texture"
+#~ msgstr "on ne peut pas lier le programme de texture"
 
 #~ msgid "could not bind texture attribute"
-#~ msgstr "impossibile collegare il attribute di texture"
+#~ msgstr "on ne peut pas lier l'attribut de texture"
 
 #~ msgid "could not bind texture position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione"
+#~ msgstr "on ne peut pas lier l'attribut de position de texture"
 
 #~ msgid "could not bind texture uniform"
-#~ msgstr "impossibile collegare la texture uniforme"
+#~ msgstr "on ne peut pas lier la texture uniforme"
 
 #~ msgid "could not bind matrix uniform"
-#~ msgstr "impossibile collegare la matrice uniforme"
+#~ msgstr "on ne peut pas lier la matrice uniforme"
 
 #~ msgid "unable to open the PNG file"
-#~ msgstr "impossibile aprire il file PNG"
+#~ msgstr "on ne peut pas ouvrir le fichier PNG"
 
 #~ msgid "not enough memory to open the widget"
-#~ msgstr "memoria insufficiente per aprire l'oggetto"
+#~ msgstr "mémoire insuffisante pour ouvrir le widget"
 
 #~ msgid "not enough memory to open the image"
-#~ msgstr "memoria insufficiente per aprire l'immagine"
+#~ msgstr "mémoire insuffisante pour ouvrir l'image"
 
 #, fuzzy
 #~ msgid "unable to create a Vulkan surface"
-#~ msgstr "impossibile compilare il fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader"
 
 #, fuzzy
 #~ msgid "unable to create the Vulkan swap chain"
-#~ msgstr "impossibile compilare il fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader"
 
 #, fuzzy
 #~ msgid "failed to open the shader file"
-#~ msgstr "Impossibile aprire il file di input di maglia"
+#~ msgstr "On ne peut pas ouvrir le fichier des données de maille"
 
 #~ msgid "OpenGL 2.1 is not supported"
-#~ msgstr "OpenGL 2.1 non è supportato"
+#~ msgstr "OpenGL 2.1 n'est pas prise en charge"
 
 #~ msgid "unable to compile the fragment shader"
-#~ msgstr "impossibile compilare il fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader"
 
 #~ msgid "unable to compile the 2D vertex shader"
-#~ msgstr "impossibile compilare il vertex shader 2D"
+#~ msgstr "on ne peut pas compiler le vertex shader 2D"
 
 #~ msgid "unable to link the 2D program"
-#~ msgstr "impossibile collegare il programma 2D"
+#~ msgstr "on ne peut pas lier le programme 2D"
 
 #~ msgid "unable to compile the 3D vertex shader"
-#~ msgstr "impossibile compilare il vertex shader 3D"
+#~ msgstr "on ne peut pas compiler le vertex shader 3D"
 
 #~ msgid "unable to link the 3D program"
-#~ msgstr "impossibile collegare il programma 3D"
+#~ msgstr "on ne peut pas lier le programm 3D"
 
 #~ msgid "unable to compile the 2D with color vertex shader"
-#~ msgstr "impossibile compilare il vertex shader 2D con colore"
+#~ msgstr "on ne peut pas compiler le vertex shader 2D avec couleur"
 
 #~ msgid "unable to link the 2D with color program"
-#~ msgstr "impossibile collegare il programma 2D con colore"
+#~ msgstr "on ne peut pas lier le programme 2D avec couleur"
 
 #~ msgid "unable to compile the 3D with color vertex shader"
-#~ msgstr "impossibile compilare il vertex shader 3D con colore"
+#~ msgstr "on ne peut pas compile le vertex shader 3D avec couleur"
 
 #~ msgid "unable to link the 3D with color program"
-#~ msgstr "impossibile collegare il programma 3D con colore"
+#~ msgstr "on ne peut pas lier le programme 3D avec couleur"
 
 #~ msgid "unable to compile the text fragment shader"
-#~ msgstr "impossibile compilare il fragment shader di testo"
+#~ msgstr "on ne peut pas compiler le fragment shader de texte"
 
 #~ msgid "unable to compile the text vertex shader"
-#~ msgstr "impossibile compilare il vertex shader di testo"
+#~ msgstr "on ne peut pas compiler le vertex shader de texte"
 
 #~ msgid "unable to link the text program"
-#~ msgstr "impossibile collegare il programma di testo"
+#~ msgstr "on ne peut pas lier le programme de texte"
 
 #~ msgid "could not bind 2D position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione 2D"
+#~ msgstr "on ne peut pas lier l'attribut de position 2D"
 
 #~ msgid "could not bind 2D color"
-#~ msgstr "impossibile collegare il colore 2D"
+#~ msgstr "on ne peut pas lier la couleur 2D"
 
 #~ msgid "could not bind 2D matrix"
-#~ msgstr "impossibile collegare la matrice 2D"
+#~ msgstr "on ne peut pas lier la matrice 2D"
 
 #~ msgid "could not bind 3D position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione 3D"
+#~ msgstr "no ne peut pas lier l'attribut de position 3D"
 
 #~ msgid "could not bind 3D color"
-#~ msgstr "impossibile collegare il colore 3D"
+#~ msgstr "on ne peut pas lier la couleur 3D"
 
 #~ msgid "could not bind 3D matrix"
-#~ msgstr "impossibile collegare la matrice 3D"
+#~ msgstr "on ne peut pas lier la matrice 3D"
 
 #~ msgid "could not bind 2D with color position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione 2D con colore"
+#~ msgstr "on ne peut pas lier l'attribut de position 2D avec couleur"
 
 #~ msgid "could not bind 2D with color color"
-#~ msgstr "impossibile collegare il colore 2D con colore"
+#~ msgstr "on ne peut pas lier la couleur 2D avec couleur"
 
 #~ msgid "could not bind 2D with color matrix"
-#~ msgstr "impossibile collegare la matrice 2D con colore"
+#~ msgstr "on ne peut pas lier la matrice 2D avec couleur"
 
 #~ msgid "could not bind 3D with color position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione 3D con colore"
+#~ msgstr "on ne peut pas lier l'attribute de position 3D avec couleur"
 
 #~ msgid "could not bind 3D with color color"
-#~ msgstr "impossibile collegare il colore 3D con colore"
+#~ msgstr "on ne peut pas lier la couleur 3D avec couleur"
 
 #~ msgid "could not bind 3D with color matrix"
-#~ msgstr "impossibile collegare la matrice 3D con colore"
+#~ msgstr "on ne peut pas lier la matrice 3D avec couleur"
 
 #~ msgid "could not bind text position attribute"
-#~ msgstr "impossibile collegare il attribute di posizione di testo"
+#~ msgstr "on ne peut pas lier l'attribut de position de texte"
 
 #~ msgid "could not bind text uniform"
-#~ msgstr "impossibile collegare il testo uniforme"
+#~ msgstr "on ne peut pas lier le texte uniforme"
 
 #~ msgid "could not bind text color uniform"
-#~ msgstr "impossibile collegare il colore di testo uniforme"
+#~ msgstr "on ne peut pas lier la couleur de texte uniforme"
 
 #~ msgid "not enough memory to init the FreeType library"
-#~ msgstr "memoria insufficiente per inizializzare la biblioteca FreeType"
+#~ msgstr "mémoire insufissante pour commencer la bibliothèque FreeType"
 
 #~ msgid "could not init the FreeType library"
-#~ msgstr "impossibile initializzare la biblioteca FreeType"
+#~ msgstr "on ne peut pas commencer la bibliothèque FreeType"
 
 #~ msgid "not enough memory to open the font"
-#~ msgstr "memoria insufficiente per aprire il carattere"
+#~ msgstr "mémoire insuffisante pour ouvrir la font"
 
 #~ msgid "could not open font"
-#~ msgstr "impossibile aprire il carattere"
+#~ msgstr "on ne peut pas ouvrir la font"
 
 #~ msgid "bad tics number"
-#~ msgstr "numero di marchi sbagliato"
+#~ msgstr "nombre de marques érroné"
 
 #~ msgid "not enough memory to open the graphic area"
-#~ msgstr "memoria insufficiente per aprire l'area grafica"
+#~ msgstr "mémoire insuffisante pour ouvrir l'aire graphique"
 
 #~ msgid "unable to open the graphic area widget"
-#~ msgstr "impossibile aprire l'oggetto d'area grafica"
+#~ msgstr "on ne peut pas ouvrir le widget d'aire graphique"
 
 #~ msgid "unable to open the window"
-#~ msgstr "impossibile aprire la finestra"
+#~ msgstr "on ne peut pas ouvrir la fenêtre"
 
 #~ msgid "PNG file"
-#~ msgstr "File PNG"
+#~ msgstr "Fichier PNG"
 
 #~ msgid "JPEG file"
-#~ msgstr "File JPEG"
+#~ msgstr "Fichier JPG"
 
 #~ msgid "XPM file"
-#~ msgstr "File XPM"
+#~ msgstr "Fichier XPM"
 
 #~ msgid "TIFF file"
-#~ msgstr "File TIFF"
+#~ msgstr "Fichier TIFF"
 
 #~ msgid "BMP file"
-#~ msgstr "File BMP"
+#~ msgstr "Fichier BMP"
 
 #~ msgid "GIF file"
-#~ msgstr "File GIF"
+#~ msgstr "Fichier GIF"
 
 #~ msgid "ICO file"
-#~ msgstr "File ICO"
+#~ msgstr "Fichier ICO"
 
 #~ msgid "Save graph"
-#~ msgstr "Salvare grafico"
+#~ msgstr "Enregistrer graphique"
 
 #~ msgid "_OK"
-#~ msgstr "_Acceptare"
+#~ msgstr "_Accepter"
 
 #~ msgid "_Cancel"
-#~ msgstr "_Cancellare"
+#~ msgstr "_Annuler"
 
 #~ msgid "no a text editor type"
-#~ msgstr "non è un tipo di editor di testo"
+#~ msgstr "ce n'est pas un type d'éditeur de texte"
 
 #~ msgid "no an integer numbers editor type"
-#~ msgstr "non è un tipo di editor di numeri interi"
+#~ msgstr "ce n'est pas un type d'éditeur de nombres entiers"
 
 #~ msgid "no a float numbers editor type"
-#~ msgstr "non è un tipo di editor di numeri reali"
+#~ msgstr "ce n'est pas un type d'éditeur de nombres réels"
 
 #~ msgid "no a date editor type"
-#~ msgstr "non è un tipo di editor di date"
+#~ msgstr "ce n'est pas un type d'éditeur de dates"
 
 #~ msgid "bad array editor widget type"
-#~ msgstr "non è un tipo di oggetto di editor di vettori"
+#~ msgstr "type de widget d'éditeur de tableaux érroné"
 
 #~ msgid "not enough memory to open the array editor"
-#~ msgstr "memoria insufficiente per aprire l'editore di matrici"
+#~ msgstr "mémoire insuffisante pour ouvrir l'éditeur de tableaux"
 
 #~ msgid "unable to get the GdkPixbuf widget"
-#~ msgstr "impossibile ottenere l'oggetto GdkPixbuf"
+#~ msgstr "on ne peut pas obtenir le widget GdkPixbuf"
 
 #~ msgid "Unable to open the coefficients file"
-#~ msgstr "Impossibile aprire il file di coefficienti"
+#~ msgstr "On ne peut pas ouvrir le fichier des coefficients"
 
 #~ msgid "Bad coefficients file"
-#~ msgstr "File di coefficienti non corretti"
+#~ msgstr "Fichier des coefficients incorrect"
 
 #~ msgid "Not enough memory to calibrate the coefficients"
-#~ msgstr "Memoria insufficiente per calibrare i coefficienti"
+#~ msgstr "Mémoire insuffisante pour ouvrir le fichier des coefficients"
