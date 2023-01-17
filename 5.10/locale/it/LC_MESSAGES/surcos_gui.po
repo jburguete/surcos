@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 5.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-11 17:10+0100\n"
+"POT-Creation-Date: 2023-01-12 02:56+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -161,7 +161,7 @@ msgstr "Uniformità"
 msgid "Efficiency"
 msgstr "Efficienza"
 
-#: src/kernel.c:122 src/configIrrigation.c:450 src/configWindow.c:258
+#: src/kernel.c:122 src/configIrrigation.c:450 src/configWindow.c:257
 #: src/mainWindow.c:1409
 msgid "Fertilizer"
 msgstr "Fertilizzante"
@@ -296,7 +296,7 @@ msgstr "Numero di solci di irrigazione"
 msgid "Furrow"
 msgstr "Solco"
 
-#: src/configFurrows.c:348 src/configWindow.c:252
+#: src/configFurrows.c:348 src/configWindow.c:251
 msgid "Geometry"
 msgstr "Geometria"
 
@@ -340,35 +340,35 @@ msgstr "Numero di sondi"
 msgid "Solubility (kg/m³)"
 msgstr "Solubilità (kg/m³)"
 
-#: src/configWindow.c:254
+#: src/configWindow.c:253
 msgid "Furrows"
 msgstr "Solci"
 
-#: src/configWindow.c:256
+#: src/configWindow.c:255
 msgid "Inputs"
 msgstr "Inputs"
 
-#: src/configWindow.c:260
+#: src/configWindow.c:259
 msgid "Probes"
 msgstr "Sondi"
 
-#: src/configWindow.c:262
+#: src/configWindow.c:261
 msgid "Advanced parameters"
 msgstr "Parametri avanzati"
 
-#: src/configWindow.c:270 src/configWindow.c:276
+#: src/configWindow.c:269 src/configWindow.c:275
 msgid "Configure irrigation"
 msgstr "Configurare l'irrigazione"
 
-#: src/configWindow.c:271 src/configWindow.c:278
+#: src/configWindow.c:270 src/configWindow.c:277
 msgid "Set the irrigation problem configuration"
 msgstr "Definire la configurazione di problema di irrigazione"
 
-#: src/configWindow.c:291 src/mainWindow.c:1718
+#: src/configWindow.c:290 src/mainWindow.c:1719
 msgid "_Cancel"
 msgstr "_Cancellare"
 
-#: src/configWindow.c:293 src/mainWindow.c:1719
+#: src/configWindow.c:292 src/mainWindow.c:1720
 msgid "_OK"
 msgstr "_Acceptare"
 
@@ -607,11 +607,11 @@ msgstr "Periodo di scarico dati"
 msgid "Results"
 msgstr "Risultati"
 
-#: src/mainWindow.c:1797 src/mainWindow.c:1799
+#: src/mainWindow.c:1798 src/mainWindow.c:1800
 msgid "user-manual-en.pdf"
 msgstr ""
 
-#: src/mainWindow.c:1830
+#: src/mainWindow.c:1831
 msgid ""
 "A software tool to solve irrigation and fertigation in isolated furrows and "
 "furrow networks"
@@ -619,36 +619,36 @@ msgstr ""
 "Un attrezzo informatico per risolvere irrigazione e fertirrigazione in "
 "solchi isolati e in reti di solchi"
 
-#: src/mainWindow.c:1835
+#: src/mainWindow.c:1836
 msgid "translator-credits"
 msgstr "Sofiane Ouazaa (sofiane.ouazaa@eead.csic.es)"
 
-#: src/mainWindow.c:1876
+#: src/mainWindow.c:1877
 #, fuzzy
 msgid "Create a new furrows system"
 msgstr "Aprire sistema di solchi"
 
-#: src/mainWindow.c:1887
+#: src/mainWindow.c:1888
 msgid "Open furrows system"
 msgstr "Aprire sistema di solchi"
 
-#: src/mainWindow.c:1898
+#: src/mainWindow.c:1899
 msgid "Simulation configure"
 msgstr "Configurare la simulazione"
 
-#: src/mainWindow.c:1909
+#: src/mainWindow.c:1910
 msgid "Run the simulation"
 msgstr "Iniziare la simulazione"
 
-#: src/mainWindow.c:1919
+#: src/mainWindow.c:1920
 msgid "Help"
 msgstr "Aiuto"
 
-#: src/mainWindow.c:1929
+#: src/mainWindow.c:1930
 msgid "About"
 msgstr "Informazioni"
 
-#: src/mainWindow.c:1937
+#: src/mainWindow.c:1938
 msgid "Exit"
 msgstr "Uscire"
 

@@ -380,4 +380,5 @@ table_config_furrows_new (TableConfigFurrows * w)
                             (GCallback) table_config_furrows_update, w);
   g_signal_connect_swapped (w->button_recirculation, "toggled",
                             (GCallback) table_config_furrows_update, w);
+  table_config_furrows_update (w);
 }

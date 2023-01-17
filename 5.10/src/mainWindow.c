@@ -707,7 +707,7 @@ static void
 input_save (Input * i,          ///< Input data structure.
             FILE * file)        ///< Input data file.
 {
-  fprintf (file, FWL " " FWL " " FWL " " FWL " " FWL "\n",
+  fprintf (file, FGL " " FGL " " FGL " " FGL " " FGL "\n",
            i->x, i->y, i->t0, i->tf, i->q);
 }
 
@@ -722,7 +722,7 @@ initial_conditions_save (InitialConditions * ic,
 #if DEBUG_INITIAL_CONDITIONS_SAVE
   fprintf (stderr, "initial_conditions_save: start\n");
 #endif
-  fprintf (file, FWF " " FWF " " FWF "\n", ic->h, ic->Q, ic->c);
+  fprintf (file, FGF " " FGF " " FGF "\n", ic->h, ic->Q, ic->c);
 #if DEBUG_INITIAL_CONDITIONS_SAVE
   fprintf (stderr, "initial_conditions_save: end\n");
 #endif
@@ -739,8 +739,8 @@ furrow_save (Furrow * f,        ///< Furrow structure.
 #if DEBUG_FURROW_SAVE
   fprintf (stderr, "furrow_save: start\n");
 #endif
-  fprintf (file, FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " " FWF " "
-           FWF " " FWF " " FWF "\n",
+  fprintf (file, FGF " " FGF " " FGF " " FGF " " FGF " " FGF " " FGF " " FGF " "
+           FGF " " FGF " " FGF "\n",
            f->b, f->z, f->h, f->D, f->H, f->epsilon, f->n, f->i1,
            f->i2, f->i3, f->d);
   initial_conditions_save (ic, file);
@@ -770,11 +770,11 @@ field_save_data ()
   file = g_fopen (buffer, "w");
   g_free (buffer);
   fprintf (file,
-           "%u %u " FWL "\n"
-           FWL " " FWL " " FWL "\n"
-           FWL " " FWL " " FWL "\n"
-           FWL " " FWL " " FWL "\n"
-           FWL " " FWL " " FWL "\n",
+           "%u %u " FGL "\n"
+           FGL " " FGL " " FGL "\n"
+           FGL " " FGL " " FGL "\n"
+           FGL " " FGL " " FGL "\n"
+           FGL " " FGL " " FGL "\n",
            field->open, field->nfurrows, solubility,
            field->x[0], field->y[0], field->z[0],
            field->x[1], field->y[1], field->z[1],
@@ -816,7 +816,7 @@ field_save_time ()
   buffer = g_build_filename (input_dir, "times.in", NULL);
   file = g_fopen (buffer, "w");
   g_free (buffer);
-  fprintf (file, FWL " " FWL " " FWL, field->tf, field->cfl, field->tm);
+  fprintf (file, FGL " " FGL " " FGL, field->tf, field->cfl, field->tm);
   fclose (file);
 }
 
@@ -900,7 +900,7 @@ save_probes ()
   g_free (buffer);
   fprintf (file, "%u\n", field->nprobes);
   for (i = 0; i < field->nprobes; ++i)
-    fprintf (file, FWL " " FWL "\n", field->probe[i].x, field->probe[i].y);
+    fprintf (file, FGL " " FGL "\n", field->probe[i].x, field->probe[i].y);
   fclose (file);
 }
 
@@ -1597,22 +1597,6 @@ intro_window_destroy (GtkWindow * w)    ///< Introduction window.
 }
 
 /**
- * Function to create a new fertigation problem.
- */
-static void
-main_window_create (MainWindow * w)   ///< Main window structure.
-{
-#if DEBUG_MAIN_WINDOW_CREATE
-  printf ("main_window_create: start\n");
-#endif
-  kernel_new ();
-  main_window_update (w);
-#if DEBUG_MAIN_WINDOW_CREATE
-  printf ("main_window_create: end\n");
-#endif
-}
-
-/**
  * Function to close, freeing the used memory, a graphic plot.
  */
 void
@@ -1675,6 +1659,23 @@ main_window_update (MainWindow * w)     ///< Main window structure.
     i = 0;
   gtk_widget_set_sensitive (GTK_WIDGET (w->button_config), i);
   gtk_widget_set_sensitive (GTK_WIDGET (w->button_run), i);
+}
+
+/**
+ * Function to create a new fertigation problem.
+ */
+static void
+main_window_create (MainWindow * w)   ///< Main window structure.
+{
+#if DEBUG_MAIN_WINDOW_CREATE
+  printf ("main_window_create: start\n");
+#endif
+  kernel_new ();
+  w->open = 1;
+  main_window_update (w);
+#if DEBUG_MAIN_WINDOW_CREATE
+  printf ("main_window_create: end\n");
+#endif
 }
 
 /**
@@ -2014,6 +2015,8 @@ main_window_new ()
   gtk_widget_show_all (GTK_WIDGET (window));
 #endif
   g_timeout_add_seconds (3, (GSourceFunc) intro_window_destroy, window);
+
+  w->open = 0;
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: end\n");
