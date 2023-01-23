@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 07:37+0100\n"
+"POT-Creation-Date: 2023-01-23 15:53+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -71,95 +71,95 @@ msgstr "Nessun solco di distribuzione"
 msgid "Distribution furrow"
 msgstr "Solco di distribuzione"
 
-#: src/field.c:327
+#: src/field.c:325
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 
-#: src/field.c:332 src/field.c:372
+#: src/field.c:330 src/field.c:370
 msgid "No irrigation furrow"
 msgstr "Nessun solco di irrigazione"
 
-#: src/field.c:339 src/kernel.c:160 src/kernel.c:221
+#: src/field.c:337 src/kernel.c:160 src/kernel.c:221
 msgid "Irrigation furrows"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:352
+#: src/field.c:350
 msgid "No recirculation furrow"
 msgstr "Nessun solco di ricircolazione"
 
-#: src/field.c:359 src/kernel.c:179 src/kernel.c:258
+#: src/field.c:357 src/kernel.c:179 src/kernel.c:258
 msgid "Recirculation furrow"
 msgstr "Solco di ricircolazione"
 
-#: src/field.c:379
+#: src/field.c:377
 msgid "Irrigation furrow"
 msgstr "Solco di irrigazione"
 
-#: src/field.c:391
+#: src/field.c:389
 msgid "Bad data set"
 msgstr "Serie di dati non corretta"
 
-#: src/field.c:531
+#: src/field.c:529
 msgid "Bad times data"
 msgstr "Dati di tempo non corretti"
 
-#: src/field.c:537
+#: src/field.c:535
 msgid "Bad simulation time"
 msgstr "Tempo di simulazione non corretto"
 
-#: src/field.c:543
+#: src/field.c:541
 msgid "Bad CFL number"
 msgstr "Numero CFL non corretto"
 
-#: src/field.c:549
+#: src/field.c:547
 msgid "Bad measured time"
 msgstr "Tempo di misurazione non corretto"
 
-#: src/field.c:575
+#: src/field.c:573
 msgid "Bad distribution cells number"
 msgstr "Numero di celle di distribuzione sbagliato"
 
-#: src/field.c:581 src/field.c:590
+#: src/field.c:579 src/field.c:588
 msgid "Bad irrigation cells number"
 msgstr "Numero di celle di irrigazione sbagliato"
 
-#: src/field.c:641
+#: src/field.c:639
 msgid "Bad fertilizer model"
 msgstr "Modello di fertilizzante non corretto"
 
-#: src/field.c:648
+#: src/field.c:646
 msgid "Bad infiltration model"
 msgstr "Modello di infiltrazione non corretto"
 
-#: src/field.c:655
+#: src/field.c:653
 msgid "Bad soil diffusion model"
 msgstr "Modello di diffusione di suolo non corretto"
 
-#: src/field.c:661
+#: src/field.c:659
 msgid "Bad beta model"
 msgstr "Modello beta non corretti"
 
-#: src/field.c:686
+#: src/field.c:684
 msgid "No water inputs"
 msgstr "Nessun input di acqua"
 
-#: src/field.c:704
+#: src/field.c:702
 msgid "Not enough memory to open the input data"
 msgstr "Memoria insufficiente per aprire il file di input"
 
-#: src/field.c:715 src/field.c:727
+#: src/field.c:713 src/field.c:725
 msgid "Bad input data"
 msgstr "Dati di input non validi"
 
-#: src/field.c:795
+#: src/field.c:793
 msgid "Bad probe x"
 msgstr "Coordinata x della sonda non corretta"
 
-#: src/field.c:801
+#: src/field.c:799
 msgid "Bad probe y"
 msgstr "Coordinata y della sonda non corretta"
 
-#: src/field.c:1536
+#: src/field.c:1534
 msgid "Bad input file"
 msgstr "File di input non valido"
 

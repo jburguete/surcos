@@ -120,7 +120,7 @@ config_window_read (ConfigWindow * w)
   ConfigGeometry *wg;
   ConfigPoint *point;
   TableConfigFurrows *wf;
-  ConfigFurrow * furrow;
+  ConfigFurrow *furrow;
   ConfigTimes *ct;
   ConfigFertilizer *cf;
   ConfigProbes *cp;

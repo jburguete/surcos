@@ -228,7 +228,7 @@ config_furrow_set_sensitive (ConfigFurrow * w,
 static void
 config_furrow_show_initial_conditions (ConfigFurrow * w,
 ///< Furrow configuration structure.
-                                      int show)
+                                       int show)
 ///< 1 on configurable, 0 on no configurable.
 {
   unsigned int i;
@@ -301,7 +301,8 @@ config_furrow_new (ConfigFurrow * w,    ///< Furrow configuration structure.
   const double max[13] =
     { 100., 100., 10., 100., 10., 1., 1., 1e6, 1., 1., 10., 1., 1000. };
   const double step[13] = { 0.01, 0.01, 0.01, 0.01, 0.001, 0.001, 0.001, 1e-5,
-    0.01, 1e-7, 0.01, 1e-6, 1e-6 };
+    0.01, 1e-7, 0.01, 1e-6, 1e-6
+  };
   unsigned int i;
 
   w->button = (GtkButton *) gtk_button_new_with_label (label);
@@ -330,18 +331,18 @@ table_config_furrows_update (TableConfigFurrows * w)
   // Sensitive if they are initial conditions
   n = gtk_check_button_get_active (w->check_button_initial_conditions);
   for (i = 0; i < 3; ++i)
-      config_furrow_show_initial_conditions (f + i, n);
+    config_furrow_show_initial_conditions (f + i, n);
   if (n)
     {
       gtk_widget_show (GTK_WIDGET (w->button_initial_conditions));
       for (i = 10; i < 13; ++i)
-        gtk_widget_show (GTK_WIDGET (w->button_coefficient[i])); 
+        gtk_widget_show (GTK_WIDGET (w->button_coefficient[i]));
     }
   else
     {
       gtk_widget_hide (GTK_WIDGET (w->button_initial_conditions));
       for (i = 10; i < 13; ++i)
-        gtk_widget_hide (GTK_WIDGET (w->button_coefficient[i])); 
+        gtk_widget_hide (GTK_WIDGET (w->button_coefficient[i]));
     }
 }
 
@@ -450,14 +451,14 @@ table_config_furrows_new (TableConfigFurrows * w)
   w->button_recirculation = (GtkCheckButton *) gtk_check_button_new_with_label
     (_("Recirculation"));
   w->check_button_initial_conditions = (GtkCheckButton *)
-    gtk_check_button_new_with_label(_("Initial conditions"));
+    gtk_check_button_new_with_label (_("Initial conditions"));
   w->box_furrows = (GtkGrid *) gtk_grid_new ();
   gtk_grid_attach (w->box_furrows, GTK_WIDGET (w->label_furrow), 0, 0, 1, 1);
   gtk_grid_attach (w->box_furrows, GTK_WIDGET (w->spin), 1, 0, 1, 1);
   gtk_grid_attach (w->box_furrows, GTK_WIDGET (w->button_recirculation),
                    2, 0, 1, 1);
   gtk_grid_attach (w->box_furrows,
-		   GTK_WIDGET (w->check_button_initial_conditions), 3, 0, 1, 1);
+                   GTK_WIDGET (w->check_button_initial_conditions), 3, 0, 1, 1);
   gtk_grid_attach (w->grid, GTK_WIDGET (w->box_furrows), 0, 1, 5, 1);
   w->button_furrow = (GtkButton *) gtk_button_new_with_label (_("Furrow"));
   gtk_widget_set_can_focus (GTK_WIDGET (w->button_furrow), FALSE);

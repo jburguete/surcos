@@ -772,33 +772,32 @@ graphic_furrows_draw (WindowPlot * w)   ///< WindowPlot structure.
       file = g_fopen (buffer, "rb");
       g_free (buffer);
       if (!file || fread (pi, sizeof (unsigned int), 4, file) != 4)
-	goto exit_on_error;
+        goto exit_on_error;
       n = JBM_MAX (pi[1], pi[3]);
       k = (JBFLOAT *) realloc (k, 3 * n * sizeof (JBFLOAT));
       n = pi[3];
       if (g->furrow)
         {
           if (pi[2])
-           {
-             if (g->furrow > 1)
-	       fseek (file, 3 * n * (g->furrow - 2) * sizeof (JBFLOAT),
-                      SEEK_CUR);
-	     else
-               {
-	         fseek (file, 3 * n * pi[0] * sizeof (JBFLOAT),
-                        SEEK_CUR);
-                 n = pi[1];
-	         fseek (file, 3 * n * sizeof (JBFLOAT), SEEK_CUR);
-	       }
-	    }
-	  else
+            {
+              if (g->furrow > 1)
+                fseek (file, 3 * n * (g->furrow - 2) * sizeof (JBFLOAT),
+                       SEEK_CUR);
+              else
+                {
+                  fseek (file, 3 * n * pi[0] * sizeof (JBFLOAT), SEEK_CUR);
+                  n = pi[1];
+                  fseek (file, 3 * n * sizeof (JBFLOAT), SEEK_CUR);
+                }
+            }
+          else
             fseek (file, 3 * n * (g->furrow - 1) * sizeof (JBFLOAT), SEEK_CUR);
-	}
+        }
       else
         {
           fseek (file, 3 * n * pi[0] * sizeof (JBFLOAT), SEEK_CUR);
-	  n = pi[1];
-	}
+          n = pi[1];
+        }
       size = 3 * n;
       if (fread (k, sizeof (double), size, file) != size)
         goto exit_on_error;
@@ -822,7 +821,7 @@ graphic_furrows_draw (WindowPlot * w)   ///< WindowPlot structure.
       file = g_fopen (buffer, "rb");
       g_free (buffer);
       if (!file || fread (pi, sizeof (unsigned int), 4, file) != 4)
-	goto exit_on_error;
+        goto exit_on_error;
       size = pi[0] * pi[3] + pi[1];
       if (pi[0] && pi[2])
         size += pi[1];
@@ -832,58 +831,58 @@ graphic_furrows_draw (WindowPlot * w)   ///< WindowPlot structure.
         goto exit_on_error;
       if (pi[2])
         {
-	  if (g->furrow >= pi[0] + 2)
-	    goto exit_on_error;
-	}
+          if (g->furrow >= pi[0] + 2)
+            goto exit_on_error;
+        }
       else
         {
-	  if (g->furrow >= pi[0] + 1)
-	    goto exit_on_error;
-	}
+          if (g->furrow >= pi[0] + 1)
+            goto exit_on_error;
+        }
       if (g->furrow)
         {
           if (pi[2])
-	    {
+            {
               if (g->furrow == 1)
                 {
                   fseek (file, (pi[0] * pi[3] + pi[1]) * 12 * sizeof (JBFLOAT),
                          SEEK_CUR);
                   n = pi[1];
-		}
-	      else
-		{
+                }
+              else
+                {
                   fseek (file, (g->furrow - 2) * pi[3] * 12 * sizeof (JBFLOAT),
                          SEEK_CUR);
                   n = pi[3];
-		}
-	    }
+                }
+            }
           else
             {
               fseek (file, (g->furrow - 1) * pi[3] * 12 * sizeof (JBFLOAT),
                      SEEK_CUR);
               n = pi[3];
-	    }
-	}
+            }
+        }
       else
-	{
+        {
           fseek (file, pi[0] * pi[3] * 12 * sizeof (JBFLOAT), SEEK_CUR);
           n = pi[1];
-	}
+        }
       if (!n)
         goto exit_on_error;
       x = (JBFLOAT *) malloc (n * sizeof (JBFLOAT));
       y = (JBFLOAT *) malloc (n * sizeof (JBFLOAT));
       switch (g->variable)
         {
-	case 4:
+        case 4:
           z = (JBFLOAT *) malloc (n * sizeof (JBFLOAT));
           z2 = (JBFLOAT *) malloc (n * sizeof (JBFLOAT));
-	  // fallthrough
-	case 0:
+          // fallthrough
+        case 0:
         case 2:
           y2 = (JBFLOAT *) malloc (n * sizeof (JBFLOAT));
-	  break;
-	}
+          break;
+        }
       for (i = 0; i < n; ++i)
         {
           if (fread (p, sizeof (JBFLOAT), 12, file) != 12)

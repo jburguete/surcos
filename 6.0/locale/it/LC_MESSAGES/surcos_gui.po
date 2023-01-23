@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 13:50+0100\n"
+"POT-Creation-Date: 2023-01-23 16:00+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -70,119 +70,119 @@ msgid "No distribution furrow"
 msgstr "Solco di distribuzione"
 
 #: src/field.c:314 src/kernel.c:166 src/kernel.c:238 src/graphics.c:725
-#: src/graphics.c:965 src/mainWindow.c:1373 src/mainWindow.c:1518
+#: src/graphics.c:964 src/mainWindow.c:1373 src/mainWindow.c:1518
 #: src/mainWindow.c:1595
 #, c-format
 msgid "Distribution furrow"
 msgstr "Solco di distribuzione"
 
-#: src/field.c:327
+#: src/field.c:325
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Memoria insufficiente per aprire i solchi di irrigazione"
 
-#: src/field.c:332 src/field.c:372
+#: src/field.c:330 src/field.c:370
 #, fuzzy
 msgid "No irrigation furrow"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:339 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
+#: src/field.c:337 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
 #: src/mainWindow.c:1507 src/mainWindow.c:1577
 msgid "Irrigation furrows"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:352
+#: src/field.c:350
 #, fuzzy
 msgid "No recirculation furrow"
 msgstr "Solco di ricircolazione"
 
-#: src/field.c:359 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
-#: src/graphics.c:967 src/mainWindow.c:1367 src/mainWindow.c:1378
+#: src/field.c:357 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
+#: src/graphics.c:966 src/mainWindow.c:1367 src/mainWindow.c:1378
 #: src/mainWindow.c:1532 src/mainWindow.c:1616
 #, c-format
 msgid "Recirculation furrow"
 msgstr "Solco di ricircolazione"
 
-#: src/field.c:379
+#: src/field.c:377
 #, fuzzy
 msgid "Irrigation furrow"
 msgstr "Solchi di irrigazione"
 
-#: src/field.c:391
+#: src/field.c:389
 msgid "Bad data set"
 msgstr "Serie di dati non corretta"
 
-#: src/field.c:531
+#: src/field.c:529
 msgid "Bad times data"
 msgstr "Dati di tempo non corretti"
 
-#: src/field.c:537
+#: src/field.c:535
 #, fuzzy
 msgid "Bad simulation time"
 msgstr "Tempo di simulazione massimale"
 
-#: src/field.c:543
+#: src/field.c:541
 #, fuzzy
 msgid "Bad CFL number"
 msgstr "Numero CFL"
 
-#: src/field.c:549
+#: src/field.c:547
 #, fuzzy
 msgid "Bad measured time"
 msgstr "Dati di maglia non corretti"
 
-#: src/field.c:575
+#: src/field.c:573
 #, fuzzy
 msgid "Bad distribution cells number"
 msgstr "numero di marchi sbagliato"
 
-#: src/field.c:581 src/field.c:590
+#: src/field.c:579 src/field.c:588
 #, fuzzy
 msgid "Bad irrigation cells number"
 msgstr "numero di marchi sbagliato"
 
-#: src/field.c:641
+#: src/field.c:639
 #, fuzzy
 msgid "Bad fertilizer model"
 msgstr "Fertilizzante"
 
-#: src/field.c:648
+#: src/field.c:646
 #, fuzzy
 msgid "Bad infiltration model"
 msgstr "Modello di infiltrazione"
 
-#: src/field.c:655
+#: src/field.c:653
 msgid "Bad soil diffusion model"
 msgstr ""
 
-#: src/field.c:661
+#: src/field.c:659
 #, fuzzy
 msgid "Bad beta model"
 msgstr "Dati di modelli non corretti"
 
-#: src/field.c:686
+#: src/field.c:684
 #, fuzzy
 msgid "No water inputs"
 msgstr "Numero di input di acqua"
 
-#: src/field.c:704
+#: src/field.c:702
 msgid "Not enough memory to open the input data"
 msgstr "Memoria insufficiente per aprire il file di input"
 
-#: src/field.c:715 src/field.c:727
+#: src/field.c:713 src/field.c:725
 msgid "Bad input data"
 msgstr "Dati di input non valido"
 
-#: src/field.c:795
+#: src/field.c:793
 #, fuzzy
 msgid "Bad probe x"
 msgstr "Dati di sondi non corretti"
 
-#: src/field.c:801
+#: src/field.c:799
 #, fuzzy
 msgid "Bad probe y"
 msgstr "Dati di sondi non corretti"
 
-#: src/field.c:1536
+#: src/field.c:1534
 #, fuzzy
 msgid "Bad input file"
 msgstr "Input non valido"
@@ -313,19 +313,19 @@ msgstr "Numero di input di fertilizzante"
 msgid "Point"
 msgstr "Punto"
 
-#: src/configFurrows.c:408
+#: src/configFurrows.c:409
 msgid "Distribution"
 msgstr "Distribuzione"
 
-#: src/configFurrows.c:409
+#: src/configFurrows.c:410
 msgid "Irrigation"
 msgstr "Irrigazione"
 
-#: src/configFurrows.c:410 src/configFurrows.c:451
+#: src/configFurrows.c:411 src/configFurrows.c:452
 msgid "Recirculation"
 msgstr "Ricircolazione"
 
-#: src/configFurrows.c:437
+#: src/configFurrows.c:438
 msgid ""
 "R: water retention capacity\n"
 "e=0: Gauckler-Manning's model\n"
@@ -345,32 +345,32 @@ msgstr ""
 "a: esponente di Kostiakov\n"
 "f0: velocità di infiltrazione nel suolo saturo"
 
-#: src/configFurrows.c:448 src/mainWindow.c:1371
+#: src/configFurrows.c:449 src/mainWindow.c:1371
 msgid "Number of irrigation furrows"
 msgstr "Numero di solci di irrigazione"
 
-#: src/configFurrows.c:453 src/configFurrows.c:480
+#: src/configFurrows.c:454 src/configFurrows.c:481
 #, fuzzy
 msgid "Initial conditions"
 msgstr "Condizioni iniziali non corretti"
 
-#: src/configFurrows.c:462
+#: src/configFurrows.c:463
 msgid "Furrow"
 msgstr "Solco"
 
-#: src/configFurrows.c:465 src/configWindow.c:439
+#: src/configFurrows.c:466 src/configWindow.c:439
 msgid "Geometry"
 msgstr "Geometria"
 
-#: src/configFurrows.c:468
+#: src/configFurrows.c:469
 msgid "Soil"
 msgstr "Suolo"
 
-#: src/configFurrows.c:472 src/mainWindow.c:1199 src/mainWindow.c:1210
+#: src/configFurrows.c:473 src/mainWindow.c:1199 src/mainWindow.c:1210
 msgid "Friction model"
 msgstr "Modello di attrito"
 
-#: src/configFurrows.c:476
+#: src/configFurrows.c:477
 msgid "Infiltration model"
 msgstr "Modello di infiltrazione"
 
@@ -390,7 +390,7 @@ msgstr "Numero di celle per il solco di distribuzione (tra i solchi)"
 msgid "Cells number for irrigation channels"
 msgstr "Numero di celle per i solchi del irrigazione"
 
-#: src/configProbes.c:210 src/graphics.c:1020 src/mainWindow.c:1283
+#: src/configProbes.c:210 src/graphics.c:1019 src/mainWindow.c:1283
 msgid "Probe"
 msgstr "Sonda"
 
@@ -434,12 +434,12 @@ msgstr "_Cancellare"
 msgid "_OK"
 msgstr "_Acceptare"
 
-#: src/graphics.c:357 src/graphics.c:651 src/graphics.c:978
+#: src/graphics.c:357 src/graphics.c:651 src/graphics.c:977
 msgid "Water depth (m)"
 msgstr "Profondità dell'acqua (m)"
 
-#: src/graphics.c:358 src/graphics.c:653 src/graphics.c:680 src/graphics.c:983
-#: src/graphics.c:1024
+#: src/graphics.c:358 src/graphics.c:653 src/graphics.c:680 src/graphics.c:982
+#: src/graphics.c:1023
 msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentrazione di fertilizzante (kg/m³)"
 
@@ -451,7 +451,7 @@ msgstr "Massa di acqua infiltrata per unità di lunghezza (m²)"
 msgid "Infiltrated fertilizer mass per unit length (kg/m)"
 msgstr "Massa di fertilizzante infiltrata per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:642 src/graphics.c:956
+#: src/graphics.c:642 src/graphics.c:955
 msgid "Time step"
 msgstr "Passo di tempo"
 
@@ -491,7 +491,7 @@ msgstr "Tempo di recessione (s)"
 msgid "Superficial fertilizer mass per unit length (kg/m)"
 msgstr "Massa di fertilizzante superficiale per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:731 src/graphics.c:734 src/graphics.c:970
+#: src/graphics.c:731 src/graphics.c:734 src/graphics.c:969
 #, c-format
 msgid "Furrow %d"
 msgstr "Solco %d"
@@ -500,56 +500,56 @@ msgstr "Solco %d"
 msgid "Position (m)"
 msgstr "Posizione (m)"
 
-#: src/graphics.c:980
+#: src/graphics.c:979
 msgid "Water discharge (m³/s)"
 msgstr "Flusso di acqua (m³/s)"
 
-#: src/graphics.c:981
+#: src/graphics.c:980
 msgid "Level (m)"
 msgstr "Livello (m)"
 
-#: src/graphics.c:985
+#: src/graphics.c:984
 msgid "Mass per unit length (kg/m)"
 msgstr "Massa per unità di lunghezza (kg/m)"
 
-#: src/graphics.c:987
+#: src/graphics.c:986
 msgid "Advance and recession times (s)"
 msgstr "Tempo di avanzamento e di recessione (s)"
 
-#: src/graphics.c:1022
+#: src/graphics.c:1021
 msgid "Time (s)"
 msgstr "Tempo (s)"
 
-#: src/graphics.c:1023
+#: src/graphics.c:1022
 msgid "Depth (m)"
 msgstr "Profondità (m)"
 
-#: src/graphics.c:1096
+#: src/graphics.c:1095
 #, c-format
 msgid "Probe %d"
 msgstr "Sonda %d"
 
-#: src/graphics.c:1230
+#: src/graphics.c:1229
 msgid "Furrow representation"
 msgstr "Rappresentazione di solchi"
 
-#: src/graphics.c:1233
+#: src/graphics.c:1232
 msgid "Map furrows representation"
 msgstr "Mappa di solchi"
 
-#: src/graphics.c:1242
+#: src/graphics.c:1241
 msgid "Probes time evolution"
 msgstr "Evoluzione temporale delle sonde"
 
-#: src/graphics.c:1256
+#: src/graphics.c:1255
 msgid "Save graph"
 msgstr "Salvare grafico"
 
-#: src/graphics.c:1273 src/graphics.c:1279
+#: src/graphics.c:1272 src/graphics.c:1278
 msgid "Graph"
 msgstr "Grafico"
 
-#: src/graphics.c:1274 src/graphics.c:1280
+#: src/graphics.c:1273 src/graphics.c:1279
 msgid "Set the result graph options"
 msgstr "Definire i opzioni di grafico di risultati"
 

@@ -315,8 +315,6 @@ field_read_data (JsonObject * object)   ///< JSON object.
           g_free (buffer);
           goto exit0;
         }
-      if (field->sb->initial_conditions)
-        field->initial_conditions = 1;
 #if DEBUG_FIELD_READ_DATA
       printf ("Reading irrigation furrows\n");
 #endif
@@ -827,7 +825,7 @@ field_open_probes ()
  * Function to save the furrow longitudinal profiles header.
  */
 void
-field_save_parameters_header (FILE *file)       ///< File.
+field_save_parameters_header (FILE * file)      ///< File.
 {
   unsigned int pi[4];
   pi[0] = field->nfurrows;
@@ -841,7 +839,7 @@ field_save_parameters_header (FILE *file)       ///< File.
  * Function to save the furrow longitudinal profiles at a step time.
  */
 void
-field_save_parameters (FILE *file)      ///< File.
+field_save_parameters (FILE * file)     ///< File.
 {
   Parameters *p;
   unsigned int i;
@@ -857,7 +855,7 @@ field_save_parameters (FILE *file)      ///< File.
  * Function to save the probes header.
  */
 void
-field_save_probes_header (FILE * file)   ///< File to save the probes header.
+field_save_probes_header (FILE * file)  ///< File to save the probes header.
 {
   unsigned int n[field->nprobes];
   Probe *probe;
@@ -877,7 +875,7 @@ field_save_probes_header (FILE * file)   ///< File to save the probes header.
 void
 field_save_probes (FILE * file) ///< File to save the probes data.
 {
-  JBFLOAT x[1 + 2 * field->nprobes]; 
+  JBFLOAT x[1 + 2 * field->nprobes];
   Parameters *p;
   unsigned int i, j, k;
   if (!field->nprobes)
@@ -900,7 +898,7 @@ field_save_probes (FILE * file) ///< File to save the probes data.
  * Function to save the furrow advance and recesion times.
  */
 void
-field_save_advances (char *name) ///< Input file name.
+field_save_advances (char *name)        ///< Input file name.
 {
   unsigned int pi[4];
   Parameters *p;

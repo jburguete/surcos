@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 13:50+0100\n"
+"POT-Creation-Date: 2023-01-23 16:00+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -69,105 +69,105 @@ msgid "No distribution furrow"
 msgstr "Falta el surco de distribución"
 
 #: src/field.c:314 src/kernel.c:166 src/kernel.c:238 src/graphics.c:725
-#: src/graphics.c:965 src/mainWindow.c:1373 src/mainWindow.c:1518
+#: src/graphics.c:964 src/mainWindow.c:1373 src/mainWindow.c:1518
 #: src/mainWindow.c:1595
 #, c-format
 msgid "Distribution furrow"
 msgstr "Surco de distribución"
 
-#: src/field.c:327
+#: src/field.c:325
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Falta memoria para abrir los surcos de riego"
 
-#: src/field.c:332 src/field.c:372
+#: src/field.c:330 src/field.c:370
 msgid "No irrigation furrow"
 msgstr "Faltan los surcos de riego"
 
-#: src/field.c:339 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
+#: src/field.c:337 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
 #: src/mainWindow.c:1507 src/mainWindow.c:1577
 msgid "Irrigation furrows"
 msgstr "Surcos de riego"
 
-#: src/field.c:352
+#: src/field.c:350
 msgid "No recirculation furrow"
 msgstr "Falta el surco de recirculación"
 
-#: src/field.c:359 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
-#: src/graphics.c:967 src/mainWindow.c:1367 src/mainWindow.c:1378
+#: src/field.c:357 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
+#: src/graphics.c:966 src/mainWindow.c:1367 src/mainWindow.c:1378
 #: src/mainWindow.c:1532 src/mainWindow.c:1616
 #, c-format
 msgid "Recirculation furrow"
 msgstr "Surco de recirculación"
 
-#: src/field.c:379
+#: src/field.c:377
 msgid "Irrigation furrow"
 msgstr "Surco de riego"
 
-#: src/field.c:391
+#: src/field.c:389
 msgid "Bad data set"
 msgstr "Datos de campo incorrectos"
 
-#: src/field.c:531
+#: src/field.c:529
 msgid "Bad times data"
 msgstr "Datos temporales incorrectos"
 
-#: src/field.c:537
+#: src/field.c:535
 msgid "Bad simulation time"
 msgstr "Tiempo de simulación incorrecto"
 
-#: src/field.c:543
+#: src/field.c:541
 msgid "Bad CFL number"
 msgstr "Número CFL incorrecto"
 
-#: src/field.c:549
+#: src/field.c:547
 msgid "Bad measured time"
 msgstr "Tiempo de medida incorrecto"
 
-#: src/field.c:575
+#: src/field.c:573
 msgid "Bad distribution cells number"
 msgstr "Número de celdas de distribución incorrecto"
 
-#: src/field.c:581 src/field.c:590
+#: src/field.c:579 src/field.c:588
 msgid "Bad irrigation cells number"
 msgstr "Número de celdas de riego incorrecto"
 
-#: src/field.c:641
+#: src/field.c:639
 msgid "Bad fertilizer model"
 msgstr "Modelo de fertilizante incorrecto"
 
-#: src/field.c:648
+#: src/field.c:646
 msgid "Bad infiltration model"
 msgstr "Modelo de infiltración incorrecto"
 
-#: src/field.c:655
+#: src/field.c:653
 msgid "Bad soil diffusion model"
 msgstr "Modelo de difusión de suelo incorrecto"
 
-#: src/field.c:661
+#: src/field.c:659
 msgid "Bad beta model"
 msgstr "Modelo beta incorrecto"
 
-#: src/field.c:686
+#: src/field.c:684
 msgid "No water inputs"
 msgstr "Faltan entradas de agua"
 
-#: src/field.c:704
+#: src/field.c:702
 msgid "Not enough memory to open the input data"
 msgstr "Falta memoria para abrir el fichero de entradas"
 
-#: src/field.c:715 src/field.c:727
+#: src/field.c:713 src/field.c:725
 msgid "Bad input data"
 msgstr "Datos de entradas incorrectos"
 
-#: src/field.c:795
+#: src/field.c:793
 msgid "Bad probe x"
 msgstr "Coordenada x de sonda incorrecta"
 
-#: src/field.c:801
+#: src/field.c:799
 msgid "Bad probe y"
 msgstr "Coordenada y de sonda incorrecta"
 
-#: src/field.c:1536
+#: src/field.c:1534
 msgid "Bad input file"
 msgstr "Fichero de entrada incorrecto"
 
@@ -297,19 +297,19 @@ msgstr "Número de entradas de fertilizante"
 msgid "Point"
 msgstr "Punto"
 
-#: src/configFurrows.c:408
+#: src/configFurrows.c:409
 msgid "Distribution"
 msgstr "Distribución"
 
-#: src/configFurrows.c:409
+#: src/configFurrows.c:410
 msgid "Irrigation"
 msgstr "Riego"
 
-#: src/configFurrows.c:410 src/configFurrows.c:451
+#: src/configFurrows.c:411 src/configFurrows.c:452
 msgid "Recirculation"
 msgstr "Recirculación"
 
-#: src/configFurrows.c:437
+#: src/configFurrows.c:438
 msgid ""
 "R: water retention capacity\n"
 "e=0: Gauckler-Manning's model\n"
@@ -329,31 +329,31 @@ msgstr ""
 "a: exponente de Kostiakov\n"
 "f0: velocidad de infiltración en suelo saturado"
 
-#: src/configFurrows.c:448 src/mainWindow.c:1371
+#: src/configFurrows.c:449 src/mainWindow.c:1371
 msgid "Number of irrigation furrows"
 msgstr "Número de surcos de riego"
 
-#: src/configFurrows.c:453 src/configFurrows.c:480
+#: src/configFurrows.c:454 src/configFurrows.c:481
 msgid "Initial conditions"
 msgstr "Condiciones iniciales"
 
-#: src/configFurrows.c:462
+#: src/configFurrows.c:463
 msgid "Furrow"
 msgstr "Surco"
 
-#: src/configFurrows.c:465 src/configWindow.c:439
+#: src/configFurrows.c:466 src/configWindow.c:439
 msgid "Geometry"
 msgstr "Geometría"
 
-#: src/configFurrows.c:468
+#: src/configFurrows.c:469
 msgid "Soil"
 msgstr "Suelo"
 
-#: src/configFurrows.c:472 src/mainWindow.c:1199 src/mainWindow.c:1210
+#: src/configFurrows.c:473 src/mainWindow.c:1199 src/mainWindow.c:1210
 msgid "Friction model"
 msgstr "Modelo de fricción"
 
-#: src/configFurrows.c:476
+#: src/configFurrows.c:477
 msgid "Infiltration model"
 msgstr "Modelo de infiltración"
 
@@ -373,7 +373,7 @@ msgstr "Número de celdas del canal de distribución (entre surcos)"
 msgid "Cells number for irrigation channels"
 msgstr "Número de celdas de los surcos de riego"
 
-#: src/configProbes.c:210 src/graphics.c:1020 src/mainWindow.c:1283
+#: src/configProbes.c:210 src/graphics.c:1019 src/mainWindow.c:1283
 msgid "Probe"
 msgstr "Sonda"
 
@@ -417,12 +417,12 @@ msgstr "_Cancelar"
 msgid "_OK"
 msgstr "_Aceptar"
 
-#: src/graphics.c:357 src/graphics.c:651 src/graphics.c:978
+#: src/graphics.c:357 src/graphics.c:651 src/graphics.c:977
 msgid "Water depth (m)"
 msgstr "Calado (m)"
 
-#: src/graphics.c:358 src/graphics.c:653 src/graphics.c:680 src/graphics.c:983
-#: src/graphics.c:1024
+#: src/graphics.c:358 src/graphics.c:653 src/graphics.c:680 src/graphics.c:982
+#: src/graphics.c:1023
 msgid "Fertilizer concentration (kg/m³)"
 msgstr "Concentración de fertilizante (kg/m³)"
 
@@ -434,7 +434,7 @@ msgstr "Masa de agua infiltrada por unidad de longitud (kg/m)"
 msgid "Infiltrated fertilizer mass per unit length (kg/m)"
 msgstr "Masa de fertilizante infiltrado por unidad de longitud (kg/m)"
 
-#: src/graphics.c:642 src/graphics.c:956
+#: src/graphics.c:642 src/graphics.c:955
 msgid "Time step"
 msgstr "Paso de tiempo"
 
@@ -474,7 +474,7 @@ msgstr "Tiempo de receso (s)"
 msgid "Superficial fertilizer mass per unit length (kg/m)"
 msgstr "Masa de fertilizante superficial por unidad de longitud (kg/m)"
 
-#: src/graphics.c:731 src/graphics.c:734 src/graphics.c:970
+#: src/graphics.c:731 src/graphics.c:734 src/graphics.c:969
 #, c-format
 msgid "Furrow %d"
 msgstr "Surco %d"
@@ -483,56 +483,56 @@ msgstr "Surco %d"
 msgid "Position (m)"
 msgstr "Posición (m)"
 
-#: src/graphics.c:980
+#: src/graphics.c:979
 msgid "Water discharge (m³/s)"
 msgstr "Caudal de agua (m³/s)"
 
-#: src/graphics.c:981
+#: src/graphics.c:980
 msgid "Level (m)"
 msgstr "Nivel (m)"
 
-#: src/graphics.c:985
+#: src/graphics.c:984
 msgid "Mass per unit length (kg/m)"
 msgstr "Masa por unidad de longitud (kg/m)"
 
-#: src/graphics.c:987
+#: src/graphics.c:986
 msgid "Advance and recession times (s)"
 msgstr "Tiempos de avance y receso (s)"
 
-#: src/graphics.c:1022
+#: src/graphics.c:1021
 msgid "Time (s)"
 msgstr "Tiempo (s)"
 
-#: src/graphics.c:1023
+#: src/graphics.c:1022
 msgid "Depth (m)"
 msgstr "Calado (m)"
 
-#: src/graphics.c:1096
+#: src/graphics.c:1095
 #, c-format
 msgid "Probe %d"
 msgstr "Sonda %d"
 
-#: src/graphics.c:1230
+#: src/graphics.c:1229
 msgid "Furrow representation"
 msgstr "Representación de surco"
 
-#: src/graphics.c:1233
+#: src/graphics.c:1232
 msgid "Map furrows representation"
 msgstr "Representación de mapa de surcos"
 
-#: src/graphics.c:1242
+#: src/graphics.c:1241
 msgid "Probes time evolution"
 msgstr "Evolución temporal de sondas"
 
-#: src/graphics.c:1256
+#: src/graphics.c:1255
 msgid "Save graph"
 msgstr "Guardar gráfica"
 
-#: src/graphics.c:1273 src/graphics.c:1279
+#: src/graphics.c:1272 src/graphics.c:1278
 msgid "Graph"
 msgstr "Gráfica"
 
-#: src/graphics.c:1274 src/graphics.c:1280
+#: src/graphics.c:1273 src/graphics.c:1279
 msgid "Set the result graph options"
 msgstr "Definir las opciones del gráfico de resultados"
 
