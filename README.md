@@ -1,4 +1,4 @@
-SURCOS (5.11 version)
+SURCOS (6.0 version)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -27,18 +27,19 @@ FILES
 
 * configure.ac: configure generator.
 * Makefile.in: Makefile generator.
-* TODO: List of tasks TO DO
+* TODO: list of tasks TO DO.
 * src/config.h.in: config header generator.
-* src/\*.h: Header files.
-* src/\*.c: Source files.
-* \*.png: Diagram and logo files.
-* graph/\*.tex: Latex files to generate the diagrams.
+* src/\*.h: header files.
+* src/\*.c: source files.
+* \*.png: diagram and logo files.
+* graph/\*.tex: LaTeX files to generate the diagrams.
 * Doxyfile: configuration file to generate doxygen documentation.
 * locale/es/LC\_MESSAGES/\*.po: spanish language files.
 * locale/fr/LC\_MESSAGES/\*.po: french language files.
 * locale/it/LC\_MESSAGES/\*.po: italian language files.
-* examples/\*/\*.in: example input files.
-* manual/\*: Manual files.
+* examples/\*.json: example input files.
+* check-errors/\*.json: input files to check error messages.
+* manual/\*: manual files.
 
 BUILDING INSTRUCTIONS
 ---------------------
@@ -79,7 +80,7 @@ Debian 10 (Linux)
 _________________
 Devuan Linux 3
 ______________
-DragonFly BSD 5.11
+DragonFly BSD 6.0
 ___________________
 Dyson Illumos
 _____________
@@ -107,7 +108,7 @@ __________________
 > $ git clone https://github.com/jburguete/surcos.git
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd surcos/5.11/src
+> $ cd surcos/6.0/src
 >
 > $ ln -s ../../../jb/2.4.1 jb
 
@@ -140,7 +141,7 @@ MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd surcos/5.11
+> $ cd surcos/6.0
 >
 > $ doxygen
 >

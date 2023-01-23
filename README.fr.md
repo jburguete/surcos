@@ -1,4 +1,4 @@
-SURCOS (version 5.11)
+SURCOS (version 6.0)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -25,20 +25,21 @@ manuels pour systèmes Microsoft Windows en
 FICHIERS
 --------
 
-* configure.ac: configure generator.
-* Makefile.in: Makefile generator.
-* TODO: List of tasks TO DO
-* src/config.h.in: config header generator.
-* src/\*.h: Header files.
-* src/\*.c: Source files.
-* \*.png: Diagram and logo files.
-* graph/\*.tex: Latex files to generate the diagrams.
-* Doxyfile: configuration file to generate doxygen documentation.
-* locale/es/LC\_MESSAGES/\*.po: spanish language files.
-* locale/fr/LC\_MESSAGES/\*.po: french language files.
-* locale/it/LC\_MESSAGES/\*.po: italian language files.
-* examples/\*/\*.in: example input files.
-* manual/\*: Manual files.
+* configure.ac: générateur de configuration.
+* Makefile.in: générateur du Makefile.
+* TODO: liste de tâches à faire.
+* src/config.h.in: générateur du fichier d'en tête de configuration.
+* src/\*.h: fichiers d'en tête.
+* src/\*.c: fichiers source.
+* \*.png: fichiers de diagramme et logo.
+* graph/\*.tex: fichiers LaTeX pour générer les diagrammes.
+* Doxyfile: fichier de configuration pour générer la documentation doxygen.
+* locale/es/LC\_MESSAGES/\*.po: fichiers de langue espagnole.
+* locale/fr/LC\_MESSAGES/\*.po: fichiers de langue française.
+* locale/it/LC\_MESSAGES/\*.po: fichiers de langue italienne.
+* examples/\*.json: fichiers d'example d'entrée.
+* check-errors/\*.json: fichiers d'entrée pour prouver les messages d'erreur.
+* manual/\*: fichiers de manuel.
 
 REQUIS
 ------
@@ -83,7 +84,7 @@ Debian 10 (Linux)
 _________________
 Devuan Linux 3
 _________________
-DragonFly BSD 5.11
+DragonFly BSD 6.0
 ___________________
 Dyson Illumos
 _____________
@@ -111,7 +112,7 @@ __________________
 > $ git clone https://github.com/jburguete/surcos.git
 
 3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd surcos/5.11/src
+> $ cd surcos/6.0/src
 >
 > $ ln -s ../../../jb/2.4.1 jb
 
@@ -142,7 +143,7 @@ MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
 ----------------------------------------------------------------
 
 Execute on a terminal:
-> $ cd surcos/5.11
+> $ cd surcos/6.0
 >
 > $ doxygen
 >

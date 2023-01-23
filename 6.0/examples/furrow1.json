@@ -1,0 +1,49 @@
+{
+  "solubility" : "10",
+  "z0" : "0.27",
+  "x1" : "30",
+  "z1" : "0.27",
+  "irrigation" : {
+    "B" : "0.17",
+    "Z" : "1.2",
+    "H" : "0.27",
+    "W" : "1",
+    "R" : "0.06",
+    "n" : "0.015",
+    "i1" : "0.0032",
+    "i2" : "0.42"
+  },
+  "simulation-time" : "3600",
+  "cfl" : "0.9",
+  "measured-time" : "10",
+  "irrigation-cells" : "30",
+  "models" : {
+    "fertilizer" : "1",
+    "infiltration" : "1",
+    "diffusion-soil" : "1"
+  },
+  "water-inputs" : [
+    {
+      "x" : "0",
+      "y" : "0",
+      "t0" : "0",
+      "tf" : "90",
+      "q" : "0.01"
+    }
+  ],
+  "fertilizer-inputs" : [
+    {
+      "x" : "1",
+      "y" : "0",
+      "t0" : "45",
+      "tf" : "90",
+      "q" : "0.02"
+    }
+  ],
+  "probes" : [
+    {
+      "x" : "15",
+      "y" : "15"
+    }
+  ]
+}
