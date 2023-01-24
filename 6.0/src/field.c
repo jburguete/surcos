@@ -220,37 +220,37 @@ field_read_data (JsonObject * object)   ///< JSON object.
       message = g_strconcat (_("Bad data"), " ", _("solubility"), NULL);
       goto exit0;
     }
-  field->x[0] = jb_json_object_get_float_with_default (object, "x0", &e, 0.);
+  field->x[0] = jb_json_object_get_float_with_default (object, "x1", &e, 0.);
   if (!e || JB_PROTECT (field->x[0], FIELD_X_MIN, FIELD_X_MAX))
     {
       message = g_strconcat (_("Bad data"), " x1", NULL);
       goto exit0;
     }
-  field->y[0] = jb_json_object_get_float_with_default (object, "y0", &e, 0.);
+  field->y[0] = jb_json_object_get_float_with_default (object, "y1", &e, 0.);
   if (!e || JB_PROTECT (field->y[0], FIELD_Y_MIN, FIELD_Y_MAX))
     {
       message = g_strconcat (_("Bad data"), " y1", NULL);
       goto exit0;
     }
-  field->z[0] = jb_json_object_get_float_with_default (object, "z0", &e, 0.);
+  field->z[0] = jb_json_object_get_float_with_default (object, "z1", &e, 0.);
   if (!e || JB_PROTECT (field->z[0], FIELD_Z_MIN, FIELD_Z_MAX))
     {
       message = g_strconcat (_("Bad data"), " z1", NULL);
       goto exit0;
     }
-  field->x[1] = jb_json_object_get_float_with_default (object, "x1", &e, 0.);
+  field->x[1] = jb_json_object_get_float_with_default (object, "x2", &e, 0.);
   if (!e || JB_PROTECT (field->x[1], FIELD_X_MIN, FIELD_X_MAX))
     {
       message = g_strconcat (_("Bad data"), " x2", NULL);
       goto exit0;
     }
-  field->y[1] = jb_json_object_get_float_with_default (object, "y1", &e, 0.);
+  field->y[1] = jb_json_object_get_float_with_default (object, "y2", &e, 0.);
   if (!e || JB_PROTECT (field->y[1], FIELD_Y_MIN, FIELD_Y_MAX))
     {
       message = g_strconcat (_("Bad data"), " y2", NULL);
       goto exit0;
     }
-  field->z[1] = jb_json_object_get_float_with_default (object, "z1", &e, 0.);
+  field->z[1] = jb_json_object_get_float_with_default (object, "z2", &e, 0.);
   if (!e || JB_PROTECT (field->z[1], FIELD_Z_MIN, FIELD_Z_MAX))
     {
       message = g_strconcat (_("Bad data"), " z2", NULL);
@@ -259,42 +259,42 @@ field_read_data (JsonObject * object)   ///< JSON object.
   if (field->nfurrows)
     {
       field->x[2]
-        = jb_json_object_get_float_with_default (object, "x2", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "x3", &e, 0.);
       if (!e || JB_PROTECT (field->x[2], FIELD_X_MIN, FIELD_X_MAX))
         {
           message = g_strconcat (_("Bad data"), " x3", NULL);
           goto exit0;
         }
       field->y[2]
-        = jb_json_object_get_float_with_default (object, "y2", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "y3", &e, 0.);
       if (!e || JB_PROTECT (field->y[2], FIELD_Y_MIN, FIELD_Y_MAX))
         {
           message = g_strconcat (_("Bad data"), " y3", NULL);
           goto exit0;
         }
       field->z[2]
-        = jb_json_object_get_float_with_default (object, "z2", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "z3", &e, 0.);
       if (!e || JB_PROTECT (field->z[2], FIELD_Z_MIN, FIELD_Z_MAX))
         {
           message = g_strconcat (_("Bad data"), " z3", NULL);
           goto exit0;
         }
       field->x[3]
-        = jb_json_object_get_float_with_default (object, "x3", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "x4", &e, 0.);
       if (!e || JB_PROTECT (field->x[3], FIELD_X_MIN, FIELD_X_MAX))
         {
           message = g_strconcat (_("Bad data"), " x4", NULL);
           goto exit0;
         }
       field->y[3]
-        = jb_json_object_get_float_with_default (object, "y3", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "y4", &e, 0.);
       if (!e || JB_PROTECT (field->y[3], FIELD_Y_MIN, FIELD_Y_MAX))
         {
           message = g_strconcat (_("Bad data"), " y4", NULL);
           goto exit0;
         }
       field->z[3]
-        = jb_json_object_get_float_with_default (object, "z3", &e, 0.);
+        = jb_json_object_get_float_with_default (object, "z4", &e, 0.);
       if (!e || JB_PROTECT (field->z[3], FIELD_Z_MIN, FIELD_Z_MAX))
         {
           message = g_strconcat (_("Bad data"), " z4", NULL);

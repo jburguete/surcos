@@ -257,31 +257,31 @@ field_write_data (JsonObject * object)
   if (!dbl_is_zero (solubility))
     dbl_write (object, "solubility", solubility);
   if (!dbl_is_zero (x[0]))
-    dbl_write (object, "x0", x[0]);
+    dbl_write (object, "x1", x[0]);
   if (!dbl_is_zero (y[0]))
-    dbl_write (object, "y0", y[0]);
+    dbl_write (object, "y1", y[0]);
   if (!dbl_is_zero (z[0]))
-    dbl_write (object, "z0", z[0]);
+    dbl_write (object, "z1", z[0]);
   if (!dbl_is_zero (x[1]))
-    dbl_write (object, "x1", x[1]);
+    dbl_write (object, "x2", x[1]);
   if (!dbl_is_zero (y[1]))
-    dbl_write (object, "y1", y[1]);
+    dbl_write (object, "y2", y[1]);
   if (!dbl_is_zero (z[1]))
-    dbl_write (object, "z1", z[1]);
+    dbl_write (object, "z2", z[1]);
   if (nfurrows)
     {
       if (!dbl_is_zero (x[2]))
-        dbl_write (object, "x2", x[2]);
+        dbl_write (object, "x3", x[2]);
       if (!dbl_is_zero (y[2]))
-        dbl_write (object, "y2", y[2]);
+        dbl_write (object, "y3", y[2]);
       if (!dbl_is_zero (z[2]))
-        dbl_write (object, "z2", z[2]);
+        dbl_write (object, "z3", z[2]);
       if (!dbl_is_zero (x[3]))
-        dbl_write (object, "x3", x[3]);
+        dbl_write (object, "x4", x[3]);
       if (!dbl_is_zero (y[3]))
-        dbl_write (object, "y3", y[3]);
+        dbl_write (object, "y4", y[3]);
       if (!dbl_is_zero (z[3]))
-        dbl_write (object, "z3", z[3]);
+        dbl_write (object, "z4", z[3]);
       furrow_write (sb, cib, "distribution", object);
       furrow_write (si, cii, "irrigation", object);
       if (open)
