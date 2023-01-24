@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-24 01:19+0100\n"
+"POT-Creation-Date: 2023-01-24 15:44+0100\n"
 "PO-Revision-Date: 2011-10-11 04:25+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -139,31 +139,43 @@ msgstr "Modèle de diffusion dans le sol érroné"
 msgid "Bad beta model"
 msgstr "Modèle beta érroné"
 
-#: src/field.c:697
+#: src/field.c:698
 msgid "No water inputs"
 msgstr "Pas d'entrées d'eau"
 
-#: src/field.c:715
+#: src/field.c:704
+msgid "Bad water inputs"
+msgstr "Entrées d'eau érronées"
+
+#: src/field.c:714
+msgid "Bad fertilizer inputs"
+msgstr "Entrées de fertilisant érronées"
+
+#: src/field.c:728
 msgid "Not enough memory to open the input data"
 msgstr "Mémoire insuffisante pour ouvrir les données de l'entrée"
 
-#: src/field.c:726
+#: src/field.c:739
 msgid "Bad water input data"
 msgstr "Données d'entrée d'eau érronées"
 
-#: src/field.c:739
+#: src/field.c:752
 msgid "Bad fertilizer input data"
 msgstr "Données d'entrée de fertilisant érronées"
 
-#: src/field.c:807
+#: src/field.c:809
+msgid "Bad probes"
+msgstr "Sondes érronées"
+
+#: src/field.c:828
 msgid "Bad probe x"
 msgstr "Coordonnée x de la sonde érronée"
 
-#: src/field.c:813
+#: src/field.c:834
 msgid "Bad probe y"
 msgstr "Coordonnée y de la sonde érronée"
 
-#: src/field.c:1548
+#: src/field.c:1569
 msgid "Bad input file"
 msgstr "Fichier d'entrée érroné"
 

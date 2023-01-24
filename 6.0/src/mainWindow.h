@@ -75,6 +75,8 @@ typedef struct
   ///< GtkButton to create a new fertigation problem.
   GtkButton *button_open;
   ///< GtkButton to open a fertigation problem.
+  GtkButton *button_save;
+  ///< GtkButton to save a fertigation problem.
   GtkButton *button_config;
   ///< GtkButton to configure the fertigation problem.
   GtkButton *button_run;
@@ -95,7 +97,7 @@ typedef struct
   ///< 1 on open case, 0 otherwise.
 } MainWindow;
 
-extern char *input_file, *input_dir;
+extern char *input_file;
 extern MainWindow *main_window;
 
 void main_window_update (MainWindow * w);

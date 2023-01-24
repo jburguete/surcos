@@ -176,7 +176,6 @@ main (int argn,                 ///< Arguments number.
   if (argn >= 2)
     {
       input_file = g_strdup (argc[argn - 1]);
-      input_dir = g_path_get_dirname (input_file);
       kernel_read (input_file);
       main_window_update (window);
     }
@@ -199,7 +198,6 @@ main (int argn,                 ///< Arguments number.
 
   // Freeing memory
   free (window);
-  g_free (input_dir);
   g_free (input_file);
 
   return 0;

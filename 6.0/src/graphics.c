@@ -120,7 +120,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define BCOLOR2 (1. - BCOLOR1 - BCOLOR3)
 
 extern char *input_file;
-extern char *input_dir;
 
 WindowPlot *window_plot;
 ///< current results WindowPlot struct pointer.
@@ -163,7 +162,7 @@ furrows_number ()
   unsigned int size;
 #if DEBUG_FURROWS_NUMBER
   printf ("furrows_number: start\n");
-  printf ("input_dir = %s\n", input_dir);
+  printf ("input_fle = %s\n", input_file);
 #endif
   nfurrows = -1;
   ny = 0;
@@ -373,7 +372,7 @@ graphic_map_draw (WindowPlot * w)       ///< WindowPlot structure.
 
 #if DEBUG_GRAPHIC_MAP_DRAW
   printf ("graphic_map_draw: start\n");
-  printf ("input_dir=%s\n", input_dir);
+  printf ("input_file=%s\n", input_file);
   printf ("nfurrows=%d recirculation=%u n=%u\n", nfurrows, recirculation, n);
 #endif
   g = w->graphic_map;

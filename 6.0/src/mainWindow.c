@@ -71,7 +71,6 @@ typedef struct
 } WindowRun;
 
 char *input_file = NULL;        ///< Input file name.
-char *input_dir = NULL;         ///< Input directory.
 
 ///> fondo6 pixmap.
 const char *fondo6[] = {
@@ -819,31 +818,31 @@ field_write_data (JsonObject * object)  ///< JSON object.
   if (!dbl_is_zero (solubility))
     dbl_write (object, "solubility", solubility);
   if (!dbl_is_zero (field->x[0]))
-    dbl_write (object, "x0", field->x[0]);
+    dbl_write (object, "x1", field->x[0]);
   if (!dbl_is_zero (field->y[0]))
-    dbl_write (object, "y0", field->y[0]);
+    dbl_write (object, "y1", field->y[0]);
   if (!dbl_is_zero (field->z[0]))
-    dbl_write (object, "z0", field->z[0]);
+    dbl_write (object, "z1", field->z[0]);
   if (!dbl_is_zero (field->x[1]))
-    dbl_write (object, "x1", field->x[1]);
+    dbl_write (object, "x2", field->x[1]);
   if (!dbl_is_zero (field->y[1]))
-    dbl_write (object, "y1", field->y[1]);
+    dbl_write (object, "y2", field->y[1]);
   if (!dbl_is_zero (field->z[1]))
-    dbl_write (object, "z1", field->z[1]);
+    dbl_write (object, "z2", field->z[1]);
   if (field->nfurrows)
     {
       if (!dbl_is_zero (field->x[2]))
-        dbl_write (object, "x2", field->x[2]);
+        dbl_write (object, "x3", field->x[2]);
       if (!dbl_is_zero (field->y[2]))
-        dbl_write (object, "y2", field->y[2]);
+        dbl_write (object, "y3", field->y[2]);
       if (!dbl_is_zero (field->z[2]))
-        dbl_write (object, "z2", field->z[2]);
+        dbl_write (object, "z3", field->z[2]);
       if (!dbl_is_zero (field->x[3]))
-        dbl_write (object, "x3", field->x[3]);
+        dbl_write (object, "x4", field->x[3]);
       if (!dbl_is_zero (field->y[3]))
-        dbl_write (object, "y3", field->y[3]);
+        dbl_write (object, "y4", field->y[3]);
       if (!dbl_is_zero (field->z[3]))
-        dbl_write (object, "z3", field->z[3]);
+        dbl_write (object, "z4", field->z[3]);
       furrow_write (field->sb, field->cib, "distribution", object);
       furrow_write (field->si, field->cii, "irrigation", object);
       if (field->open)
@@ -1072,7 +1071,6 @@ kernel_new ()
   field->probe = (Probe *) malloc (sizeof (Probe));
   field->probe[0].x = 10.;
   field->probe[0].y = 0.;
-  field_write ();
 }
 
 /**
@@ -1666,10 +1664,9 @@ intro_window_destroy (GtkWindow * w)    ///< Introduction window.
  * Function to close the dialog to create a new fertigation problem.
  */
 static void
-main_window_create_close (GtkFileChooserDialog * dlg,
-                          ///< GtkFileChooserDialog dialog.
-                          int response_id,      ///< Response identifier.
-                          MainWindow * w)       ///< Main window structure.
+main_window_save_close (GtkFileChooserDialog * dlg,
+                        ///< GtkFileChooserDialog dialog.
+                        int response_id)      ///< Response identifier.
 {
   GFile *file;
   if (response_id == GTK_RESPONSE_OK)
@@ -1678,12 +1675,32 @@ main_window_create_close (GtkFileChooserDialog * dlg,
       file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (dlg));
       input_file = g_file_get_path (file);
       g_object_unref (file);
-      g_free (input_dir);
-      input_dir = g_path_get_dirname (input_file);
-      kernel_new ();
-      main_window_update (w);
+      field_write ();
     }
   gtk_window_destroy (dlg);
+}
+
+/**
+ * Function to save a fertigation problem.
+ */
+static void
+main_window_save (MainWindow * w)       ///< Main window structure.
+{
+  GtkFileChooserDialog *dlg;
+#if DEBUG_MAIN_WINDOW_SAVE
+  printf ("main_window_save: start\n");
+#endif
+  dlg = (GtkFileChooserDialog *)
+    gtk_file_chooser_dialog_new ("Case file",
+                                 w->window,
+                                 GTK_FILE_CHOOSER_ACTION_SAVE,
+                                 _("_Cancel"), GTK_RESPONSE_CANCEL,
+                                 _("_OK"), GTK_RESPONSE_OK, NULL);
+  g_signal_connect (dlg, "response", G_CALLBACK (main_window_save_close), NULL);
+  gtk_window_present (GTK_WINDOW (dlg));
+#if DEBUG_MAIN_WINDOW_SAVE
+  printf ("main_window_save: end\n");
+#endif
 }
 
 /**
@@ -1692,18 +1709,11 @@ main_window_create_close (GtkFileChooserDialog * dlg,
 static void
 main_window_create (MainWindow * w)     ///< Main window structure.
 {
-  GtkFileChooserDialog *dlg;
 #if DEBUG_MAIN_WINDOW_CREATE
   printf ("main_window_create: start\n");
 #endif
-  dlg = (GtkFileChooserDialog *)
-    gtk_file_chooser_dialog_new ("Case Directory",
-                                 w->window,
-                                 GTK_FILE_CHOOSER_ACTION_SAVE,
-                                 _("_Cancel"), GTK_RESPONSE_CANCEL,
-                                 _("_OK"), GTK_RESPONSE_OK, NULL);
-  g_signal_connect (dlg, "response", G_CALLBACK (main_window_create_close), w);
-  gtk_window_present (GTK_WINDOW (dlg));
+  kernel_new ();
+  main_window_update (w);
 #if DEBUG_MAIN_WINDOW_CREATE
   printf ("main_window_create: end\n");
 #endif
@@ -1790,8 +1800,6 @@ main_window_open_close (MainWindow * w, ///< Main window structure.
       g_free (input_file);
       file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (dlg));
       input_file = g_file_get_path (file);
-      g_free (input_dir);
-      input_dir = g_path_get_dirname (input_file);
       g_object_unref (file);
     }
   gtk_window_destroy (GTK_WINDOW (dlg));
@@ -1811,7 +1819,7 @@ main_window_open (MainWindow * w)       ///< Main window structure.
 {
   GtkFileChooserDialog *dlg;
   dlg = (GtkFileChooserDialog *)
-    gtk_file_chooser_dialog_new ("Case Directory",
+    gtk_file_chooser_dialog_new ("Case file",
                                  w->window,
                                  GTK_FILE_CHOOSER_ACTION_OPEN,
                                  _("_Cancel"), GTK_RESPONSE_CANCEL,
@@ -1980,6 +1988,17 @@ main_window_new ()
   g_signal_connect_swapped (w->button_open, "clicked",
                             (GCallback) main_window_open, w);
 
+  w->button_save = (GtkButton *)
+#if GTK4
+    gtk_button_new_from_icon_name ("document-save");
+#else
+    gtk_button_new_from_icon_name ("document-save", GTK_ICON_SIZE_BUTTON);
+#endif
+  gtk_widget_set_tooltip_text (GTK_WIDGET (w->button_save),
+                               _("Save furrows system"));
+  g_signal_connect_swapped (w->button_save, "clicked",
+                            (GCallback) main_window_save, w);
+
   w->button_config = (GtkButton *)
 #if GTK4
     gtk_button_new_from_icon_name ("preferenes-system");
@@ -2031,11 +2050,12 @@ main_window_new ()
   w->grid = (GtkGrid *) gtk_grid_new ();
   gtk_grid_attach (w->grid, GTK_WIDGET (w->button_new), 0, 0, 1, 1);
   gtk_grid_attach (w->grid, GTK_WIDGET (w->button_open), 1, 0, 1, 1);
-  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_config), 2, 0, 1, 1);
-  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_run), 3, 0, 1, 1);
-  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_help), 4, 0, 1, 1);
-  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_about), 5, 0, 1, 1);
-  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_exit), 6, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_save), 2, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_config), 3, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_run), 4, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_help), 5, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_about), 6, 0, 1, 1);
+  gtk_grid_attach (w->grid, GTK_WIDGET (w->button_exit), 7, 0, 1, 1);
 
 #if DEBUG_MAIN_WINDOW_NEW
   printf ("main_window_new: logo2\n");

@@ -6,8 +6,7 @@ HIGH PRIORITY
 *****************************************
 AL) Improve and update the program manual
 JB) Fix unneeded compilations by Makefile
-JB) Do save as dialog when editing the case
-JB) Check types in JSON files
+JB) Unify binary and GUI .mo gettext files?
 
 MEDIUM PRIORITY
 *****************************************

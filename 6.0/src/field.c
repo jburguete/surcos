@@ -685,6 +685,7 @@ exit0:
 static int
 field_read_input (JsonObject * object)  ///< JSON object.
 {
+  JsonNode *node;
   JsonObject *child;
   JsonArray *winput, *sinput;
   char *buffer;
@@ -697,11 +698,23 @@ field_read_input (JsonObject * object)  ///< JSON object.
       message = g_strdup (_("No water inputs"));
       goto error1;
     }
-  winput = json_object_get_array_member (object, "water-inputs");
+  node = json_object_get_member (object, "water-inputs");
+  if (json_node_get_node_type (node) != JSON_NODE_ARRAY)
+    {
+      message = g_strdup (_("Bad water inputs"));
+      goto error1;
+    }
+  winput = json_node_get_array (node);
   field->nwinputs = json_array_get_length (winput);
   if (json_object_has_member (object, "fertilizer-inputs"))
     {
-      sinput = json_object_get_array_member (object, "fertilizer-inputs");
+      node = json_object_get_member (object, "fertilizer-inputs");
+      if (json_node_get_node_type (node) != JSON_NODE_ARRAY)
+        {
+          message = g_strdup (_("Bad fertilizer inputs"));
+          goto error1;
+        }
+      sinput = json_node_get_array (node);
       field->nsinputs = json_array_get_length (sinput);
     }
   else
@@ -781,14 +794,22 @@ field_open_input ()
 static int
 field_read_probes (JsonObject * object) ///< JSON object.
 {
+  JsonNode *node;
   JsonObject *child;
   JsonArray *probes;
   int j, e;
   unsigned int i;
   j = 0;
+  field->probe = NULL;
   if (json_object_has_member (object, "probes"))
     {
-      probes = json_object_get_array_member (object, "probes");
+      node = json_object_get_member (object, "probes");
+      if (json_node_get_node_type (node) != JSON_NODE_ARRAY)
+        {
+          message = g_strdup (_("Bad probes"));
+          goto exit0;
+        }
+      probes = json_node_get_array (node);
       field->nprobes = json_array_get_length (probes);
     }
   else
