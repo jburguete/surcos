@@ -290,10 +290,10 @@ lib = $(bindir)libsurcos@SO@
 manuals = doc/latex/refman.pdf $(mandir)user-manual-es.pdf $(mandir)user-manual-en.pdf
 dirs = $(objdir) $(objbindir)
 
-all: $(dirs) @EXEGUI@ $(exebin) $(podir)surcos_gui.pot $(podir)surcos.pot \
-	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
-	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
-	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo
+all: $(dirs) @EXEGUI@ $(exebin) $(podir)surcos.pot \
+	$(localdir)$(es)surcos.mo \
+	$(localdir)$(fr)surcos.mo \
+	$(localdir)$(it)surcos.mo
 
 $(objdir):
 	test -d $(objdir) || mkdir -p $(objdir)
@@ -406,24 +406,9 @@ $(main_o): $(dep_main_o)
 $(objdir)logo.o: logo.rc logo2.ico
 	@WINDRES@ logo.rc -o $(objdir)logo.o
 
-## Making the languages general rules (GUI)
-$(podir)surcos_gui.pot: Makefile $(src) 
-	xgettext -k_ -d $(exe) -o $(podir)surcos_gui.pot --from-code=UTF-8 $(src)
-## THE FIRST TIME
-#	msginit -l es -o $(podir)$(es)surcos_gui.po -i $(podir)surcos_gui.pot \
-#		--no-translator
-#	msginit -l fr -o $(podir)$(fr)surcos_gui.po -i $(podir)surcos_gui.pot \
-#		--no-translator
-## OTHER TIMES
-	msgmerge -U $(podir)$(es)surcos_gui.po $(podir)surcos_gui.pot
-	msgmerge -U $(podir)$(fr)surcos_gui.po $(podir)surcos_gui.pot
-	msgmerge -U $(podir)$(it)surcos_gui.po $(podir)surcos_gui.pot
-	vim -p $(podir)$(es)surcos_gui.po $(podir)$(fr)surcos_gui.po \
-		$(podir)$(it)surcos_gui.po
-
-## Making the languages general rules (no GUI)
-$(podir)surcos.pot: Makefile $(srcbin)
-	xgettext -k_ -d $(exebin) -o $(podir)surcos.pot --from-code=UTF-8 $(srcbin)
+## Making the languages general rules
+$(podir)surcos.pot: Makefile $(src) 
+	xgettext -k_ -d $(exe) -o $(podir)surcos.pot --from-code=UTF-8 $(src)
 ## THE FIRST TIME
 #	msginit -l es -o $(podir)$(es)surcos.po -i $(podir)surcos.pot \
 #		--no-translator
@@ -437,27 +422,18 @@ $(podir)surcos.pot: Makefile $(srcbin)
 		$(podir)$(it)surcos.po
 
 ## Compiling the spanish language
-$(localdir)$(es)surcos_gui.mo: $(podir)$(es)surcos_gui.po $(podir)surcos_gui.pot
-	test -d $(localdir)$(es) || mkdir -p $(localdir)$(es)
-	msgfmt -c -v -o $(localdir)$(es)surcos_gui.mo $(podir)$(es)surcos_gui.po
-
 $(localdir)$(es)surcos.mo: $(podir)$(es)surcos.po $(podir)surcos.pot
+	test -d $(localdir)$(es) || mkdir -p $(localdir)$(es)
 	msgfmt -c -v -o $(localdir)$(es)surcos.mo $(podir)$(es)surcos.po
 
 ## Compiling the french language
-$(localdir)$(fr)surcos_gui.mo: $(podir)$(fr)surcos_gui.po $(podir)surcos_gui.pot
-	test -d $(localdir)$(fr) || mkdir -p $(localdir)$(fr)
-	msgfmt -c -v -o $(localdir)$(fr)surcos_gui.mo $(podir)$(fr)surcos_gui.po
-
 $(localdir)$(fr)surcos.mo: $(podir)$(fr)surcos.po $(podir)surcos.pot
+	test -d $(localdir)$(fr) || mkdir -p $(localdir)$(fr)
 	msgfmt -c -v -o $(localdir)$(fr)surcos.mo $(podir)$(fr)surcos.po
 
 ## Compiling the italian language
-$(localdir)$(it)surcos_gui.mo: $(podir)$(it)surcos_gui.po $(podir)surcos_gui.pot
-	test -d $(localdir)$(it) || mkdir -p $(localdir)$(it)
-	msgfmt -c -v -o $(localdir)$(it)surcos_gui.mo $(podir)$(it)surcos_gui.po
-
 $(localdir)$(it)surcos.mo: $(podir)$(it)surcos.po $(podir)surcos.pot
+	test -d $(localdir)$(it) || mkdir -p $(localdir)$(it)
 	msgfmt -c -v -o $(localdir)$(it)surcos.mo $(podir)$(it)surcos.po
 
 ## Making the reference manual
@@ -478,17 +454,17 @@ $(mandir)user-manual-en.pdf: Makefile $(man_en)
 clean:
 	rm configure Makefile $(exe) $(exebin) $(objdir)*.o $(objbindir)*.o \
 		$(mandir)user-manual-es.pdf $(mandir)user-manual-en.pdf \
-		$(localdir)$(es)surcos*.mo $(localdir)$(fr)surcos*.mo
-		$(localdir)$(it)surcos*.mo
+		$(localdir)$(es)surcos.mo $(localdir)$(fr)surcos.mo
+		$(localdir)$(it)surcos.mo
 
 ## Rebuild option with cleaning functionallity
 rebuild: clean $(exe)
 
 ## Making Microsoft Windows distribution
 dist: $(exe) $(exebin) $(dll) $(manuals) \
-	$(localdir)$(es)surcos_gui.mo $(localdir)$(es)surcos.mo \
-	$(localdir)$(fr)surcos_gui.mo $(localdir)$(fr)surcos.mo \
-	$(localdir)$(it)surcos_gui.mo $(localdir)$(it)surcos.mo fetch.pl
+	$(localdir)$(es)surcos.mo \
+	$(localdir)$(fr)surcos.mo \
+	$(localdir)$(it)surcos.mo fetch.pl
 	test -d $(icondir) || mkdir -p $(icondir)
 	cp $(dll) $(png) $(bindir)
 	test -d $(sharedir)glib-2.0/schemas || mkdir -p $(sharedir)glib-2.0/schemas

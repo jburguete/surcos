@@ -49,7 +49,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define DEBUG_MAIN 0            ///< Macro to debug the main() function.
 
-#define PROGRAM_NAME "surcos_gui"
+#define PROGRAM_NAME "surcos"
 ///< Macro to define the executable program name.
 
 /**

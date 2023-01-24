@@ -6,7 +6,6 @@ HIGH PRIORITY
 *****************************************
 AL) Improve and update the program manual
 JB) Fix unneeded compilations by Makefile
-JB) Unify binary and GUI .mo gettext files?
 
 MEDIUM PRIORITY
 *****************************************
