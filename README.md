@@ -44,107 +44,110 @@ FILES
 BUILDING INSTRUCTIONS
 ---------------------
 
-REQUIRED
-________
+REQUIRED LIBRARIES AND TOOLS
+____________________________
 
-* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) (to compile the
-  source code)
-* [make](http://www.gnu.org/software/make) (to build the executable file)
-* [autoconf](http://www.gnu.org/software/autoconf) (to generate the Makefile in
-  different operative systems)
-* [automake](http://www.gnu.org/software/automake) (to check the operative
-  system)
-* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) (to find the
-  libraries to compile)
-* [glib](https://developer.gnome.org/glib) (extended utilities of C to work with
+Mandatory:
+* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) to compile the
+  source code.
+* [make](http://www.gnu.org/software/make) to build the executable file.
+* [autoconf](http://www.gnu.org/software/autoconf) to generate the Makefile in
+  different operative systems.
+* [automake](http://www.gnu.org/software/automake) to check the operative
+  system.
+* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) to find the
+  libraries to compile.
+* [glib](https://developer.gnome.org/glib) extended utilities of C to work with
   data, lists, mapped files, regular expressions, using multicores in shared
-  memory machines, ...)
-* [gettext](http://www.gnu.org/software/gettext) (to work with different
-  locales and languages)
-* [png](http://libpng.sourceforge.net) (to work with PNG files)
-* [gtk+3](http://www.gtk.org) (to create the interactive GUI tool)
-* [freeglut](http://freeglut.sourceforge.net) (interaction with OpenGL to draw 
-  graphics)
-* [jb](https://github.com/jburguete/jb.git) (utility library of J. Burguete)
-* [doxygen](http://www.stack.nl/~dimitri/doxygen) (optional: standard comments
-  format to generate documentation)
-* [latex](https://www.latex-project.org/) (optional: to build the PDF manuals)
+  memory machines, ...
+* [json-glib](https://gitlab.gnome.org/GNOME/json-glib) to deal with JSON files.
+* [gettext](http://www.gnu.org/software/gettext) to work with different
+  international locales and languages.
+* [jb](https://github.com/jburguete/jb.git) tools library of J. Burguete.
 
-This software has been built and tested in the following operative systems.
-Probably, it can be built in other systems, distributions, or versions but it
-has not been tested.
+Optional to get the processor properties:
+* [libgtop](https://github.com/GNOME/libgtop) to get the processors number.
 
-Arch Linux
-__________
-Debian 10 (Linux)
+Optional: required only to build the GUI program:
+* [png](http://libpng.sourceforge.net) to work with PNG files.
+* [gtk](http://www.gtk.org) to create the interactive GUI tool.
+* [glew](http://glew.sourceforge.net) high level OpenGL functions.
+
+The following optional libraries can be used as alternative to the GtkGLArea
+widget of the GTK library to interact with OpenGL to draw graphs.
+* [freeglut](http://freeglut.sourceforge.net)
+* [sdl2](https://www.libsdl.org)
+* [glfw](http://www.glfw.org)
+
+Optional to build the documentation:
+* [doxygen](http://www.stack.nl/~dimitri/doxygen) standard comments format to
+  generate documentation)
+* [latex](https://www.latex-project.org/) to build the PDF manuals.
+
+OPERATIVE SYSTEMS
 _________________
-Devuan Linux 3
-______________
-DragonFly BSD 6.0
-___________________
-Dyson Illumos
-_____________
-Fedora Linux 32
-_______________
-FreeBSD 12.1
-____________
-Linux Mint DE 3
-_______________
-Manjaro Linux
-_____________
-NetBSD 9.0
-__________
-OpenIndiana Hipster
-___________________
-OpenSUSE Linux Leap 15
-______________________
-Xubuntu Linux 20.04
-__________________
 
-1. Download the latest [JB library](https://github.com/jburguete/jb)
-> $ git clone https://github.com/jburguete/jb.git
+You can install all required utilities and libraries using the instructions of
+[install-unix](https://github.com/jburguete/install-unix).
 
-2. Download this repository
-> $ git clone https://github.com/jburguete/surcos.git
+This software has been built and tested in the following operative systems:
+* Arch Linux
+* Debian Linux 11
+* Devuan Linux 4
+* Dragonfly BSD 6.4
+* Fedora Linux 37
+* FreeBSD 13.1
+* Gentoo Linux
+* Linux Mint DE 5
+* MacOS Catalina + Homebrew
+* Manjaro Linux
+* Microsoft Windows 10
+* NetBSD 9.3
+* OpenBSD 7.2
+* OpenInidiana Hipster
+* OpenSUSE Linux 15.4
+* Ubuntu Linux 22.10
 
-3. Link the JB library on the source directory to jb doing on a terminal:
-> $ cd surcos/6.0/src
->
-> $ ln -s ../../../jb/2.4.1 jb
-
-4. Build SURCOS doing on a terminal:
-> $ cd ..
->
-> $ ./build
-
-OpenBSD 6.7
-___________
-
-1. Select adequate versions:
-> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.16
-
-2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
-
-Microsoft Windows 7 (with MSYS2)
-________________________________
-Microsoft Windows 10 (with MSYS2)
-_________________________________
-
-1. Install [MSYS2](http://sourceforge.net/projects/msys2) and the required
+On Microsoft Windows systems you have to install
+[MSYS2](http://sourceforge.net/projects/msys2) and the required
 libraries and utilities. You can follow detailed instructions in
 [install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
+tutorial.
 
-2. Then, in a MSYS2 terminal, follow steps 1 to 4 of the previous Debian Linux
-8 section.
+On NetBSD 9.3, to use the last GCC version, you have to do first on the
+building terminal:
+> $ export PATH="/usr/pkg/gcc12/bin:$PATH"
 
-MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
-----------------------------------------------------------------
+To do permanent this change the following line can be added to the ".profile"
+file in the user root directory:
+> PATH="/usr/pkg/gcc12/bin:$PATH"
 
-Execute on a terminal:
-> $ cd surcos/6.0
+On OpenBSD 7.2 you have to do first on the building terminal:
+> $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
+
+BUILDING INSTRUCTIONS
+_____________________
+
+1. Download the latest version of the
+  [JB library](https://github.com/jburguete/jb):
+> $ git clone https://github.com/jburguete/jb.git
+
+2. Build the JB library:
+> $ cd jb/5.3.3
 >
-> $ doxygen
+> $ ./build.sh
 >
-> $ cd doc/latex
+> $ cd ../..
+
+3. Download this repository:
+> $ git clone https://github.com/jburguete/surcos.git
+
+4. Link the latest version of the JB library on the source directory to jb:
+> $ cd surcos/6.0/src
 >
-> $ make
+> $ ln -s ../../../jb/5.3.3 jb
+>
+> $ cd ..
+
+5. Build SURCOS doing on the terminal:
+> $ ./build.sh

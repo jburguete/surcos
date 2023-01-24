@@ -41,112 +41,119 @@ FICHIERS
 * check-errors/\*.json: fichiers d'entrée pour prouver les messages d'erreur.
 * manual/\*: fichiers de manuel.
 
-REQUIS
-------
+INSTRUCTIONS DE CONSTRUCTION
+----------------------------
 
-* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) pour compiler le
-  code source
-* [make](http://www.gnu.org/software/make) pour construire le fichier exécutable
+BIBLIOTHÈQUES ET OUTILS REQUIS
+______________________________
+
+Obligatoire:
+* [gcc](https://gcc.gnu.org) ou [clang](http://clang.llvm.org) pour compiler le
+  code source.
+* [make](http://www.gnu.org/software/make) pour construire le fichier
+  executable.
 * [autoconf](http://www.gnu.org/software/autoconf) pour générer le Makefile en
-  differents systèmes d'exploitation
+  differents systèmes d'exploitation.
 * [automake](http://www.gnu.org/software/automake) pour détecter le système
-  d'exploitation
+  d'exploitation.
 * [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) pour trouver
-  les bibliothèqes pour compiler
+  les bibliothèques pour compiler.
 * [glib](https://developer.gnome.org/glib) outils étendues de C pour travailler
   avec données, listes, fichiers mappés, expressions régulières, utiliser
   multiprocesseurs en machines à mémoire partagée, ...
+* [json-glib](https://gitlab.gnome.org/GNOME/json-glib) pour travailler avec
+  fichiers JSON.
 * [gettext](http://www.gnu.org/software/gettext) pour travailler avec differents
-  codes et langues internationaux
-* [jb](https://github.com/jburguete/jb.git) (utility library of J. Burguete)
+  codes et langues internationaux.
+* [jb](https://github.com/jburguete/jb.git) bibliothèque d'outils de
+  J. Burguete.
 
-OPTIONEL
-________
+Optionnel pour détecter les characteristiques du processeur:
+* [libgtop](https://github.com/GNOME/libgtop) pour obtenir le nombre de
+  processeurs.
 
-* [png](http://libpng.sourceforge.net) (to work with PNG files)
-* [gtk+3](http://www.gtk.org) (to create the interactive GUI tool)
-* [freeglut](http://freeglut.sourceforge.net) (interaction with OpenGL to draw 
-  graphics)
-* [doxygen](http://www.stack.nl/~dimitri/doxygen) (optional: standard comments
-  format to generate documentation)
-* [latex](https://www.latex-project.org/) (optional: to build the PDF manuals)
+Optionnel: obligatoire seulement pour construire le programme GUI.
+* [png](http://libpng.sourceforge.net) pour travailler avec fichiers PNG.
+* [gtk](http://www.gtk.org) pour travailler avec fenêtres interactives.
+* [glew](http://glew.sourceforge.net) functions OpenGL de haut niveau.
 
-BUILDING INSTRUCTIONS
----------------------
+On peut utiliser les bibliothèques graphiques suivantes comme alternative au
+widget GtkGLArea de la bibliothèque GTK pour interagir avec OpenGL pour dessiner
+graphiques:
+* [freeglut](http://freeglut.sourceforge.net)
+* [sdl2](https://www.libsdl.org)
+* [glfw](http://www.glfw.org)
 
-This software has been built and tested in the following operative systems.
-Probably, it can be built in other systems, distributions, or versions but it
-has not been tested.
+Optionnel pour construire la documentation:
+* [doxygen](http://www.stack.nl/~dimitri/doxygen) format de commentaires
+  standard pour générer la documentation.
+* [latex](https://www.latex-project.org/) pour construire les manuels PDF.
 
-Arch Linux
-__________
-Debian 10 (Linux)
-_________________
-Devuan Linux 3
-_________________
-DragonFly BSD 6.0
-___________________
-Dyson Illumos
-_____________
-Fedora Linux 32
-_______________
-FreeBSD 12.1
-____________
-Linux Mint DE 3
-_______________
-Manjaro Linux
-_____________
-NetBSD 9.0
-__________
-OpenIndiana Hipster
-___________________
-OpenSUSE Linux Leap 15
-______________________
-Xubuntu Linux 20.04
-__________________
+SISTÈMES D'EXPLOITATION
+_______________________
 
-1. Download the latest [JB library](https://github.com/jburguete/jb)
+On peut installer tous les bibliothèques et les outils requis en utilisant les
+instructions en [install-unix](https://github.com/jburguete/install-unix).
+
+Ce programme a été construit et verifié avec les suivants systèmes
+d'exploitation:
+* Arch Linux
+* Debian Linux 11
+* Devuan Linux 4
+* Dragonfly BSD 6.4
+* Fedora Linux 37
+* FreeBSD 13.1
+* Gentoo Linux
+* Linux Mint DE 5
+* MacOS Catalina + Homebrew
+* Manjaro Linux
+* Microsoft Windows 10 + MSYS2
+* NetBSD 9.3
+* OpenBSD 7.2
+* OpenInidiana Hipster
+* OpenSUSE Linux 15.4
+* Ubuntu Linux 22.10
+
+Avec systèmes Microsoft Windows on doit installer
+[MSYS2](http://sourceforge.net/projects/msys2) et en plus les bibliothèques et
+les outils requis. On peut suivre les instructions détaillées dans le
+didacticiel
+[install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf).
+
+Avec NetBSD 9.3, pour utiliser le derniére version du compilateur GCC, il faut
+faire avant dans le terminal:
+> $ export PATH="/usr/pkg/gcc12/bin:$PATH"
+
+Pour faire le changement permanent on peut ajouter à la dernière ligne du
+fichier ".profile" dans le répertoire racine du utilisateur:
+> PATH="/usr/pkg/gcc12/bin:$PATH"
+
+Avec OpenBSD 7.2 on doit faire avant dans le terminal:
+> $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
+
+INSTRUCTIONS DE CONSTRUCTION
+____________________________
+
+1. Télécharger la dernière version de la
+  [bibliotèque JB](https://github.com/jburguete/jb):
 > $ git clone https://github.com/jburguete/jb.git
 
-2. Download this repository
+2. Construire la bibliothèque JB:
+> $ cd jb/5.3.3
+>
+> $ ./build.sh
+>
+> $ cd ../..
+
+3. Télécharge ce dépôt:
 > $ git clone https://github.com/jburguete/surcos.git
 
-3. Link the JB library on the source directory to jb doing on a terminal:
+4. Lier la dernière version de la bibliothèque JB dans le dossier source à jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/2.4.1 jb
-
-4. Build SURCOS doing on a terminal:
+> $ ln -s ../../../jb/5.3.3 jb
+>
 > $ cd ..
->
-> $ ./build
 
-OpenBSD 6.7
-___________
-
-1. Select adequate versions:
-> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.16
-
-2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
-
-Microsoft Windows 10 (with MSYS2)
-_________________________________
-
-1. Install [MSYS2](http://sourceforge.net/projects/msys2) and the required
-libraries and utilities. You can follow detailed instructions in
-[install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
-
-2. Then, in a MSYS2 terminal, follow steps 1 to 4 of the previous Debian Linux
-8 section.
-
-MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
-----------------------------------------------------------------
-
-Execute on a terminal:
-> $ cd surcos/6.0
->
-> $ doxygen
->
-> $ cd doc/latex
->
-> $ make
+5. Construire SURCOS an faisant dans le terminal:
+> $ ./build.sh

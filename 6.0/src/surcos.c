@@ -137,8 +137,10 @@ surcos (int argn,               ///< Arguments number.
       return 4;
     }
   if (kernel_read (argc[1]))
-    kernel_run (argc[1], 0, k);
-  field_destroy (field);
+    {
+      kernel_run (argc[1], 0, k);
+      field_destroy (field);
+    }
 
 #if DEBUG_SURCOS
   printf ("surcos: end\n");

@@ -196,7 +196,7 @@ depexe = $(obj)
 depexebin = $(objbin)
 dep = Makefile
 depkernel = $(dep) $(config_h) $(furrow_h) $(parameters_h) $(scheme_h) \
-		$(field_h) $(kernel_h)
+	$(field_h) $(kernel_h)
 depconfig = $(depkernel) $(configIrrigation_h) $(configGeometry_h) \
 	$(configFurrows_h) $(configTimes_h) $(configProbes_h) $(configWindow_h)
 depgui = $(depconfig) $(graphics_h) $(mainWindow_h)

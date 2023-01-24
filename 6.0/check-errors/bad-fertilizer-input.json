@@ -1,0 +1,18 @@
+{
+	"irrigation": {},
+	"simulation-time": "1",
+	"cfl": "1",
+	"measured-time": "1",
+	"irrigation-cells": "1",
+	"water-inputs": [
+		{
+			"x": "0",
+			"y": "0",
+			"t0": "0",
+			"tf": "0",
+			"q": "0"
+		}
+	],
+	"fertilizer-inputs": [{}]
+
+}

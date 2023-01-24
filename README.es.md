@@ -41,108 +41,117 @@ FICHEROS
 * check-errors/\*.json: ficheros de entrada para probar los mensajes de error.
 * manual/\*: ficheros de manual.
 
-BUILDING INSTRUCTIONS
----------------------
+CONSTRUYENDO LA BIBLIOTECA
+--------------------------
 
-REQUIRED
-________
+BIBLIOTECAS Y UTILIDADES REQUERIDAS
+___________________________________
 
-* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) (to compile the
-  source code)
-* [make](http://www.gnu.org/software/make) (to build the executable file)
-* [autoconf](http://www.gnu.org/software/autoconf) (to generate the Makefile in
-  different operative systems)
-* [automake](http://www.gnu.org/software/automake) (to check the operative
-  system)
-* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) (to find the
-  libraries to compile)
-* [glib](https://developer.gnome.org/glib) (extended utilities of C to work with
-  data, lists, mapped files, regular expressions, using multicores in shared
-  memory machines, ...)
-* [gettext](http://www.gnu.org/software/gettext) (to work with different
-  locales and languages)
-* [png](http://libpng.sourceforge.net) (to work with PNG files)
-* [gtk+3](http://www.gtk.org) (to create the interactive GUI tool)
-* [freeglut](http://freeglut.sourceforge.net) (interaction with OpenGL to draw 
-  graphics)
-* [jb](https://github.com/jburguete/jb.git) (utility library of J. Burguete)
-* [doxygen](http://www.stack.nl/~dimitri/doxygen) (optional: standard comments
-  format to generate documentation)
-* [latex](https://www.latex-project.org/) (optional: to build the PDF manuals)
+Obligatorio:
+* [gcc](https://gcc.gnu.org) o [clang](http://clang.llvm.org) para compilar el
+  código fuente.
+* [make](http://www.gnu.org/software/make) para construir el fichero ejecutable.
+* [autoconf](http://www.gnu.org/software/autoconf) para generar el Makefile en
+  diferentes sistemas operativos.
+* [automake](http://www.gnu.org/software/automake) para detectar el sistema
+  operativo.
+* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) para
+  encontrar las bibliotecas para compilar.
+* [glib](https://developer.gnome.org/glib) utilidades extendidas de C para
+  trabajar con datos, listas, ficheros mapeados, expresiones regulares, usar
+  multiprocesador en máquinas de memoria compartida, ...
+* [json-glib](https://gitlab.gnome.org/GNOME/json-glib) para trabajar con
+  ficheros JSON.
+* [gettext](http://www.gnu.org/software/gettext) para trabajar con diferentes
+  códigos y lenguajes internacionales.
+* [jb](https://github.com/jburguete/jb.git) bilbioteca de utilidades de
+  J. Burguete.
 
-This software has been built and tested in the following operative systems.
-Probably, it can be built in other systems, distributions, or versions but it
-has not been tested.
+Opcional para detectar las características del procesador:
+* [libgtop](https://github.com/GNOME/libgtop) para obtener el número de
+  procesadores.
 
-Arch Linux
-__________
-Debian 10 (Linux)
-_________________
-Devuan Linux 3
-_________________
-DragonFly BSD 6.0
+Opcional: requerido únicamente para construir el programa GUI.
+* [png](http://libpng.sourceforge.net) para trabajar con ficheros PNG.
+* [gtk](http://www.gtk.org) para trabajar con ventanas interactivas.
+* [glew](http://glew.sourceforge.net) funciones OpenGL de alto nivel.
+
+Bibliotecas opcionales que pueden usarse como alternativa al widget GtkGLArea de
+la biblioteca GTK para interactuar con OpenGL para dibujar gráficos:
+* [freeglut](http://freeglut.sourceforge.net)
+* [sdl2](https://www.libsdl.org)
+* [glfw](http://www.glfw.org)
+
+Opcional para construir la documentación:
+* [doxygen](http://www.stack.nl/~dimitri/doxygen) formato de comentarios
+  estándar para generar documentación.
+* [latex](https://www.latex-project.org/) para construir los manuales PDF.
+
+SISTEMAS OPERATIVOS
 ___________________
-Dyson Illumos
-_____________
-Fedora Linux 32
-_______________
-FreeBSD 12.1
-____________
-Linux Mint DE 3
-_______________
-Manjaro Linux
-_____________
-NetBSD 9.0
-__________
-OpenIndiana Hipster
-___________________
-OpenSUSE Linux Leap 15
-______________________
-Xubuntu Linux 20.04
-__________________
 
-1. Download the latest [JB library](https://github.com/jburguete/jb)
+Pueden instalarse todas las bibliotecas y utilidades requeridas usando las
+instrucciones de [install-unix](https://github.com/jburguete/install-unix).
+
+Este programa ha sido construido y probado en los siguientes sistemas
+operativos:
+* Arch Linux
+* Debian Linux 11
+* Devuan Linux 4
+* Dragonfly BSD 6.4
+* Fedora Linux 37
+* FreeBSD 13.1
+* Gentoo Linux
+* Linux Mint DE 5
+* MacOS Catalina + Homebrew
+* Manjaro Linux
+* Microsoft Windows 10 + MSYS2
+* NetBSD 9.3
+* OpenBSD 7.2
+* OpenInidiana Hipster
+* OpenSUSE Linux 15.4
+* Ubuntu Linux 22.10
+
+En sistemas Microsoft Windows hay que instalar
+[MSYS2](http://sourceforge.net/projects/msys2) además de las bibliotecas y
+utilidades requeridas. Puede seguir instrucciones detalladas en el tutorial
+[install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf).
+
+En NetBSD 9.3, para usar la última versión del compilador GCC, hay que hacer
+primero en el terminal:
+> $ export PATH="/usr/pkg/gcc12/bin:$PATH"
+
+Si se quiere hacer permanente tambien se puede añadir en el fichero ".profile"
+de la carpeta raíz del usuario la línea:
+> PATH="/usr/pkg/gcc12/bin:$PATH"
+
+En OpenBSD 7.2 hay que hacer antes en el terminal:
+> $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
+
+INSTRUCCIONES DE CONSTRUCCIÓN
+_____________________________
+
+1. Descárguese la última versión de la
+  [biblioteca JB](https://github.com/jburguete/jb)
 > $ git clone https://github.com/jburguete/jb.git
 
-2. Download this repository
+2. Construya la biblioteca JB:
+> $ cd jb/5.3.3
+>
+> $ ./build.sh
+>
+> $ cd ../..
+
+3. Descárguese este repositorio:
 > $ git clone https://github.com/jburguete/surcos.git
 
-3. Link the JB library on the source directory to jb doing on a terminal:
+4. Enlace la carpeta de la última versión de la biblioteca Jb en la carpeta
+  fuente de este programa a jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/2.4.1 jb
-
-4. Build SURCOS doing on a terminal:
+> $ ln -s ../../../jb/5.3.3 jb
+>
 > $ cd ..
->
-> $ ./build
 
-OpenBSD 6.7
-___________
-
-1. Select adequate versions:
-> $ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.16
-
-2. Then, in a terminal, follow steps 1 to 4 of the previous subsection.
-
-Microsoft Windows 10 (with MSYS2)
-_________________________________
-
-1. Install [MSYS2](http://sourceforge.net/projects/msys2) and the required
-libraries and utilities. You can follow detailed instructions in
-[install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
-
-2. Then, in a MSYS2 terminal, follow steps 1 to 4 of the previous Debian Linux
-8 section.
-
-MAKING REFERENCE MANUAL INSTRUCTIONS (doc/latex/refman.pdf file)
-----------------------------------------------------------------
-
-Execute on a terminal:
-> $ cd surcos/6.0
->
-> $ doxygen
->
-> $ cd doc/latex
->
-> $ make
+5. Construya el programa surcos haciendo en el terminal:
+> $ ./build.sh

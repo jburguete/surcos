@@ -190,8 +190,10 @@ field_isnan (Field * T)         ///< Field structure.
 static int
 field_read_data (JsonObject * object)   ///< JSON object.
 {
+  JBFLOAT normal[2];
   JsonObject *child;
   char *buffer;
+  JBFLOAT D;
   int e;
   unsigned int j = 0;
 #if DEBUG_FIELD_READ_DATA
@@ -378,6 +380,17 @@ field_read_data (JsonObject * object)   ///< JSON object.
           g_free (buffer);
           goto exit0;
         }
+      normal[0] = field->y[1] - field->y[0];
+      normal[1] = field->x[0] - field->x[1];
+      D = field->sb->D / HYPOT (normal[0], normal[1]);
+      normal[0] *= D;
+      normal[1] *= D;
+      field->x[2] = field->x[0] + normal[0];
+      field->x[3] = field->x[1] + normal[0];
+      field->y[2] = field->y[0] + normal[1];
+      field->y[3] = field->y[1] + normal[1];
+      field->z[2] = field->z[0];
+      field->z[3] = field->z[1];
     }
   if (field->sb->initial_conditions)
     field->initial_conditions = 1;
@@ -710,7 +723,7 @@ field_read_input (JsonObject * object)  ///< JSON object.
       if (!input_read (field->input + i, child))
         {
           buffer = message;
-          message = g_strconcat (_("Bad input data"), "\n", buffer, NULL);
+          message = g_strconcat (_("Bad water input data"), "\n", buffer, NULL);
           g_free (buffer);
           goto error1;
         }
@@ -722,7 +735,8 @@ field_read_input (JsonObject * object)  ///< JSON object.
       if (!input_read (field->input + n, child))
         {
           buffer = message;
-          message = g_strconcat (_("Bad input data"), "\n", buffer, NULL);
+          message
+            = g_strconcat (_("Bad fertilizer input data"), "\n", buffer, NULL);
           g_free (buffer);
           goto error1;
         }

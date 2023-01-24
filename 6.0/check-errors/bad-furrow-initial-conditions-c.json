@@ -1,0 +1,7 @@
+{
+	"irrigation": {
+		"initial-conditions": {
+			"c": "x"
+		}
+	}
+}

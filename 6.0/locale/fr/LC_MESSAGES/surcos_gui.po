@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 16:00+0100\n"
+"POT-Creation-Date: 2023-01-24 01:19+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -45,129 +45,133 @@ msgstr "Temps final"
 msgid "Discharge"
 msgstr "Débit"
 
-#: src/field.c:204 src/field.c:211 src/field.c:218 src/field.c:224
-#: src/field.c:230 src/field.c:236 src/field.c:242 src/field.c:248
-#: src/field.c:254 src/field.c:263 src/field.c:270 src/field.c:277
-#: src/field.c:284 src/field.c:291 src/field.c:298
+#: src/field.c:206 src/field.c:213 src/field.c:220 src/field.c:226
+#: src/field.c:232 src/field.c:238 src/field.c:244 src/field.c:250
+#: src/field.c:256 src/field.c:265 src/field.c:272 src/field.c:279
+#: src/field.c:286 src/field.c:293 src/field.c:300
 msgid "Bad data"
 msgstr "Données incorrectes"
 
-#: src/field.c:204
+#: src/field.c:206
 msgid "open"
 msgstr "ouvert"
 
-#: src/field.c:211
+#: src/field.c:213
 msgid "furrows number"
 msgstr "nombre de sillons"
 
-#: src/field.c:218
+#: src/field.c:220
 msgid "solubility"
 msgstr "solubilité"
 
-#: src/field.c:307
+#: src/field.c:309
 msgid "No distribution furrow"
 msgstr "Pas de sillon de distribution"
 
-#: src/field.c:314 src/kernel.c:166 src/kernel.c:238 src/graphics.c:725
+#: src/field.c:316 src/kernel.c:166 src/kernel.c:238 src/graphics.c:725
 #: src/graphics.c:964 src/mainWindow.c:1373 src/mainWindow.c:1518
 #: src/mainWindow.c:1595
 #, c-format
 msgid "Distribution furrow"
 msgstr "Sillon de distribution"
 
-#: src/field.c:325
+#: src/field.c:327
 msgid "Not enough memory to open the irrigation furrows"
 msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
 
-#: src/field.c:330 src/field.c:370
+#: src/field.c:332 src/field.c:372
 msgid "No irrigation furrow"
 msgstr "Pas de sillon d'irrigation"
 
-#: src/field.c:337 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
+#: src/field.c:339 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1376
 #: src/mainWindow.c:1507 src/mainWindow.c:1577
 msgid "Irrigation furrows"
 msgstr "Sillons d'irrigation"
 
-#: src/field.c:350
+#: src/field.c:352
 msgid "No recirculation furrow"
 msgstr "Pas de sillon de recirculation"
 
-#: src/field.c:357 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
+#: src/field.c:359 src/kernel.c:179 src/kernel.c:258 src/graphics.c:729
 #: src/graphics.c:966 src/mainWindow.c:1367 src/mainWindow.c:1378
 #: src/mainWindow.c:1532 src/mainWindow.c:1616
 #, c-format
 msgid "Recirculation furrow"
 msgstr "Sillon de recirculation"
 
-#: src/field.c:377
+#: src/field.c:379
 msgid "Irrigation furrow"
 msgstr "Sillon d'irrigation"
 
-#: src/field.c:389
+#: src/field.c:402
 msgid "Bad data set"
 msgstr "Données de champ incorrectes"
 
-#: src/field.c:529
+#: src/field.c:542
 msgid "Bad times data"
 msgstr "Données des temps incorrectes"
 
-#: src/field.c:535
+#: src/field.c:548
 msgid "Bad simulation time"
 msgstr "Temps de simulation incorrect"
 
-#: src/field.c:541
+#: src/field.c:554
 msgid "Bad CFL number"
 msgstr "Nombre CFL incorrect"
 
-#: src/field.c:547
+#: src/field.c:560
 msgid "Bad measured time"
 msgstr "Temps de mesure incorrect"
 
-#: src/field.c:573
+#: src/field.c:586
 msgid "Bad distribution cells number"
 msgstr "Nombre de cellules de distribution érroné"
 
-#: src/field.c:579 src/field.c:588
+#: src/field.c:592 src/field.c:601
 msgid "Bad irrigation cells number"
 msgstr "Nombre de cellules d'irrrigation érroné"
 
-#: src/field.c:639
+#: src/field.c:652
 msgid "Bad fertilizer model"
 msgstr "Modèle de fertilisant érroné"
 
-#: src/field.c:646
+#: src/field.c:659
 msgid "Bad infiltration model"
 msgstr "Modèle d'infiltration érroné"
 
-#: src/field.c:653
+#: src/field.c:666
 msgid "Bad soil diffusion model"
 msgstr "Modèle de diffusion dans le sol érroné"
 
-#: src/field.c:659
+#: src/field.c:672
 msgid "Bad beta model"
 msgstr "Modèle beta érroné"
 
-#: src/field.c:684
+#: src/field.c:697
 msgid "No water inputs"
 msgstr "Pas d'entrées d'eau"
 
-#: src/field.c:702
+#: src/field.c:715
 msgid "Not enough memory to open the input data"
 msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
 
-#: src/field.c:713 src/field.c:725
-msgid "Bad input data"
-msgstr "Pas de données des entrées"
+#: src/field.c:726
+msgid "Bad water input data"
+msgstr "Données d'entrée d'eau érronés"
 
-#: src/field.c:793
+#: src/field.c:739
+msgid "Bad fertilizer input data"
+msgstr "Données d'entrée de fertilisant érronés"
+
+#: src/field.c:807
 msgid "Bad probe x"
 msgstr "Coordonnée x de la sonde érronée"
 
-#: src/field.c:799
+#: src/field.c:813
 msgid "Bad probe y"
 msgstr "Coordonnée y de la sonde érronée"
 
-#: src/field.c:1534
+#: src/field.c:1548
 msgid "Bad input file"
 msgstr "Fichier d'entrée incorrecte"
 
@@ -195,7 +199,7 @@ msgstr "Uniformité"
 #: src/kernel.c:123 src/kernel.c:135 src/mainWindow.c:1465
 #: src/mainWindow.c:1478
 msgid "Christiansen's uniformity"
-msgstr ""
+msgstr "Uniformité de Christiansen"
 
 #: src/kernel.c:126 src/kernel.c:138 src/mainWindow.c:1468
 #: src/mainWindow.c:1481

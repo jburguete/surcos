@@ -1,0 +1,10 @@
+{
+	"irrigation": {},
+	"simulation-time": "1",
+	"cfl": "1",
+	"measured-time": "1",
+	"irrigation-cells": "1",
+	"models": {
+		"fertilizer": "x"
+	}
+}

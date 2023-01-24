@@ -1,13 +1,11 @@
 TO DO!
-23/01/2023
+24/01/2023
 *****************************************
 
 HIGH PRIORITY
 *****************************************
 AL) Improve and update the program manual
-AL) Update, and end translations of, the README file
-JB) Create check error files
-JB) Correct an error drawing graph maps in isolated furrow
+JB) Fix unneeded compilations by Makefile
 
 MEDIUM PRIORITY
 *****************************************
