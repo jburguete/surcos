@@ -1,5 +1,5 @@
 TO DO!
-24/01/2023
+25/01/2023
 *****************************************
 
 HIGH PRIORITY
@@ -16,6 +16,8 @@ JB) Add calibrator of roughness and infiltration parameters from experimental
 JB) Solve with simplified models (zero-inertia, ...) and different numerical
 	schemes
 JB) Add 3D viewing
+JB) Enable different unit systems (only in dialogs and graphics, not in
+	engine software and input/output files)
 
 LOW PRIORITY
 *****************************************
@@ -23,5 +25,3 @@ JB) Test more color codes in map graphics
 JB) Create a dialog to stablish color bounds in map graphics
 JB) Enable working furrows (machine path) with different conditions of roughness
 	and infiltration
-JB) Enable different unit systems (only in dialogs and graphics, not in
-	engine software and input/output files)

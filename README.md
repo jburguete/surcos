@@ -48,20 +48,20 @@ REQUIRED LIBRARIES AND TOOLS
 ____________________________
 
 Mandatory:
-* [gcc](https://gcc.gnu.org) or [clang](http://clang.llvm.org) to compile the
+* [gcc](https://gcc.gnu.org) or [clang](https://clang.llvm.org) to compile the
   source code.
-* [make](http://www.gnu.org/software/make) to build the executable file.
-* [autoconf](http://www.gnu.org/software/autoconf) to generate the Makefile in
+* [make](https://www.gnu.org/software/make) to build the executable file.
+* [autoconf](https://www.gnu.org/software/autoconf) to generate the Makefile in
   different operative systems.
-* [automake](http://www.gnu.org/software/automake) to check the operative
+* [automake](https://www.gnu.org/software/automake) to check the operative
   system.
-* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) to find the
+* [pkg-config](https://www.freedesktop.org/wiki/Software/pkg-config) to find the
   libraries to compile.
 * [glib](https://developer.gnome.org/glib) extended utilities of C to work with
   data, lists, mapped files, regular expressions, using multicores in shared
   memory machines, ...
 * [json-glib](https://gitlab.gnome.org/GNOME/json-glib) to deal with JSON files.
-* [gettext](http://www.gnu.org/software/gettext) to work with different
+* [gettext](https://www.gnu.org/software/gettext) to work with different
   international locales and languages.
 * [jb](https://github.com/jburguete/jb.git) tools library of J. Burguete.
 
@@ -70,19 +70,19 @@ Optional to get the processor properties:
 
 Optional: required only to build the GUI program:
 * [png](http://libpng.sourceforge.net) to work with PNG files.
-* [gtk](http://www.gtk.org) to create the interactive GUI tool.
-* [glew](http://glew.sourceforge.net) high level OpenGL functions.
+* [gtk](https://www.gtk.org) to create the interactive GUI tool.
+* [glew](https://glew.sourceforge.net) high level OpenGL functions.
 
 The following optional libraries can be used as alternative to the GtkGLArea
 widget of the GTK library to interact with OpenGL to draw graphs.
-* [freeglut](http://freeglut.sourceforge.net)
+* [freeglut](https://freeglut.sourceforge.net)
 * [sdl2](https://www.libsdl.org)
-* [glfw](http://www.glfw.org)
+* [glfw](https://www.glfw.org)
 
 Optional to build the documentation:
-* [doxygen](http://www.stack.nl/~dimitri/doxygen) standard comments format to
+* [doxygen](https://www.doxygen.nl) standard comments format to
   generate documentation)
-* [latex](https://www.latex-project.org/) to build the PDF manuals.
+* [latex](https://www.latex-project.org) to build the PDF manuals.
 
 OPERATIVE SYSTEMS
 _________________
@@ -120,7 +120,7 @@ building terminal:
 
 To do permanent this change the following line can be added to the ".profile"
 file in the user root directory:
-> PATH="/usr/pkg/gcc12/bin:$PATH"
+> $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
 On OpenBSD 7.2 you have to do first on the building terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
@@ -133,7 +133,7 @@ _____________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Build the JB library:
-> $ cd jb/5.3.3
+> $ cd jb/5.3.4
 >
 > $ ./build.sh
 >
@@ -145,7 +145,7 @@ _____________________
 4. Link the latest version of the JB library on the source directory to jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/5.3.3 jb
+> $ ln -s ../../../jb/5.3.4 jb
 >
 > $ cd ..
 

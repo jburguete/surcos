@@ -48,23 +48,23 @@ BIBLIOTHÈQUES ET OUTILS REQUIS
 ______________________________
 
 Obligatoire:
-* [gcc](https://gcc.gnu.org) ou [clang](http://clang.llvm.org) pour compiler le
+* [gcc](https://gcc.gnu.org) ou [clang](https://clang.llvm.org) pour compiler le
   code source.
-* [make](http://www.gnu.org/software/make) pour construire le fichier
+* [make](https://www.gnu.org/software/make) pour construire le fichier
   executable.
-* [autoconf](http://www.gnu.org/software/autoconf) pour générer le Makefile en
+* [autoconf](https://www.gnu.org/software/autoconf) pour générer le Makefile en
   differents systèmes d'exploitation.
-* [automake](http://www.gnu.org/software/automake) pour détecter le système
+* [automake](https://www.gnu.org/software/automake) pour détecter le système
   d'exploitation.
-* [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config) pour trouver
-  les bibliothèques pour compiler.
+* [pkg-config](https://www.freedesktop.org/wiki/Software/pkg-config) pour
+  trouver les bibliothèques pour compiler.
 * [glib](https://developer.gnome.org/glib) outils étendues de C pour travailler
   avec données, listes, fichiers mappés, expressions régulières, utiliser
   multiprocesseurs en machines à mémoire partagée, ...
 * [json-glib](https://gitlab.gnome.org/GNOME/json-glib) pour travailler avec
   fichiers JSON.
-* [gettext](http://www.gnu.org/software/gettext) pour travailler avec differents
-  codes et langues internationaux.
+* [gettext](https://www.gnu.org/software/gettext) pour travailler avec
+  differents codes et langues internationaux.
 * [jb](https://github.com/jburguete/jb.git) bibliothèque d'outils de
   J. Burguete.
 
@@ -74,19 +74,19 @@ Optionnel pour détecter les characteristiques du processeur:
 
 Optionnel: obligatoire seulement pour construire le programme GUI.
 * [png](http://libpng.sourceforge.net) pour travailler avec fichiers PNG.
-* [gtk](http://www.gtk.org) pour travailler avec fenêtres interactives.
-* [glew](http://glew.sourceforge.net) functions OpenGL de haut niveau.
+* [gtk](https://www.gtk.org) pour travailler avec fenêtres interactives.
+* [glew](https://glew.sourceforge.net) functions OpenGL de haut niveau.
 
 On peut utiliser les bibliothèques graphiques suivantes comme alternative au
 widget GtkGLArea de la bibliothèque GTK pour interagir avec OpenGL pour dessiner
 graphiques:
-* [freeglut](http://freeglut.sourceforge.net)
+* [freeglut](https://freeglut.sourceforge.net)
 * [sdl2](https://www.libsdl.org)
-* [glfw](http://www.glfw.org)
+* [glfw](https://www.glfw.org)
 
 Optionnel pour construire la documentation:
-* [doxygen](http://www.stack.nl/~dimitri/doxygen) format de commentaires
-  standard pour générer la documentation.
+* [doxygen](https://www.doxygen.nl) format de commentaires standard pour générer
+  documentation.
 * [latex](https://www.latex-project.org/) pour construire les manuels PDF.
 
 SISTÈMES D'EXPLOITATION
@@ -126,7 +126,7 @@ faire avant dans le terminal:
 
 Pour faire le changement permanent on peut ajouter à la dernière ligne du
 fichier ".profile" dans le répertoire racine du utilisateur:
-> PATH="/usr/pkg/gcc12/bin:$PATH"
+> $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
 Avec OpenBSD 7.2 on doit faire avant dans le terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
@@ -139,7 +139,7 @@ ____________________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Construire la bibliothèque JB:
-> $ cd jb/5.3.3
+> $ cd jb/5.3.4
 >
 > $ ./build.sh
 >
@@ -151,7 +151,7 @@ ____________________________
 4. Lier la dernière version de la bibliothèque JB dans le dossier source à jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/5.3.3 jb
+> $ ln -s ../../../jb/5.3.4 jb
 >
 > $ cd ..
 

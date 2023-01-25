@@ -10,8 +10,10 @@
 
 \usepackage[usenames,dvipsnames]{pstricks}
 \usepackage{auto-pst-pdf}
-\usepackage[british]{babel}  % texto autogenerado en español o inglés
-\usepackage[utf8]{inputenc} % Para linux, utf8
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
 
 \setlength{\parskip}{0.3cm}
 
@@ -20,14 +22,6 @@
 
 \bibliographystyle{plain}
 \nocite{*}
-
-%\renewcommand{\tablename}{Tabla}
-%\renewcommand{\listtablename}{Índice de tablas}
-
-%\selectlanguage{spanish}
-
-%\renewcommand{\listtablename}{Índice de tablas}
-%\renewcommand{\bibname}{Bibliografía}
 
 \pagestyle{empty}
 
@@ -57,7 +51,7 @@
 \cleardoublepage
 
 \pagestyle{plain}
-\pagenumbering{roman} % las primeras paginas las numeramos con numeros romanos
+\pagenumbering{roman}
 
 \tableofcontents
 \listoffigures
@@ -65,7 +59,7 @@
 \cleardoublepage
 
 \pagestyle{headings}
-\pagenumbering{arabic} % las primeras paginas las numeramos con numeros romanos
+\pagenumbering{arabic}
 
 \include{chapters/Chapter1}
 \cleardoublepage
@@ -74,9 +68,9 @@
 \cleardoublepage
 
 \include{chapters/Chapter3}
-%\cleardoublepage
+\cleardoublepage
 
-%\bibliography{bib/references}
-%\cleardoublepage
+\bibliography{bib/references}
+\cleardoublepage
 
 \end{document}

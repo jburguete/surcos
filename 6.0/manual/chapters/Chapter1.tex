@@ -1,8 +1,7 @@
 \chapter*{Warning!}
 
-To execute the program \emph{surcos} on operative system Windows init the
-application on the subdirectory \emph{win32/bin/winsurcos.exe}, with 32 bits
-versions, or \emph{win64/bin/winsurcos.exe} with 64 bits versions.
+To execute the program \emph{surcos} on Microsoft Windows operative system init
+the application on the subdirectory \emph{win64/bin/winsurcos.exe}.
 
 \begin{itemize}
 \item Real numbers are represented according to the international standard,
@@ -12,36 +11,56 @@ overriding locale settings, separating the integer and decimal parts by ''.''.
 
 The program has been tested in the following operative systems of Microsoft:
 \begin{itemize}
-\item Windows 10 32 bits.
 \item Windows 10 64 bits.
 \end{itemize}
 
 The language activation is perfomed through the regional configuration in the 
-operative system. Version 5.6 is offered in English, Spanish, French and Italian. 
+operative system. Version 6.0 is offered in English, Spanish, French and
+Italian. 
 
 Some problems with graphic representation have been reported due to OpenGL 
-configuration failure in the graphical card driver. In that case, the latest driver
-should be installed.
+configuration failure in the graphical card driver. In that case, the latest
+graphic card driver should be installed.
 
-Windows 10 are trademarks of Microsoft.
+Windows 10 is a trademarks of Microsoft.
 
 \setcounter{page}{1}
 
-\chapter{Instalation instruction}
+\chapter{Install instructions}
 
 \section{Download}
 
 Program \emph{surcos} can be freely downloaded from:
 \begin{itemize}
-\item \textit{http://digital.csic.es/handle/10261/75830}
+\item \url{http://digital.csic.es/handle/10261/75830}
 \end{itemize}
 The latest program \emph{surcos} source code can be freely downloaded, under
 a BSD type licence, from:
 \begin{itemize}
-\item \textit{https://github.com/jburguete/surcos}
+\item \url{https://github.com/jburguete/surcos}
 \end{itemize}
 
-\section{Instalation}
+\section{Source code files}
+
+\begin{description}
+\item[configure.ac]: configure generator.
+\item[Makefile.in]: Makefile generator.
+\item[TODO]: list of tasks TO DO.
+\item[src/config.h.in]: config header generator.
+\item[src/*.h]: C-header files.
+\item[src/*.c]: C-source files.
+\item[*.png]: diagram and logo files.
+\item[graph/*.tex]: LaTeX files to generate the diagrams.
+\item[Doxyfile]: configuration file to generate doxygen documentation.
+\item[locale/es/LC\_MESSAGES/*.po]: spanish language files.
+\item[locale/fr/LC\_MESSAGES/*.po]: french language files.
+\item[locale/it/LC\_MESSAGES/*.po]: italian language files.
+\item[examples/*.json]: example input files.
+\item[check-errors/*.json]: input files to check error messages.
+\item[manual/*]: manual files.
+\end{description}
+
+\section{Instalation of the binary program in Microsoft Windows}
 
 To install \emph{surcos} it must only be decompressed in the desired folder.
 It is recommended to avoid blank spaces and symbols in the names of the folder. 
@@ -51,11 +70,13 @@ It is recommended to avoid blank spaces and symbols in the names of the folder.
 The program contains the following folders:
 \begin{description}
 \item[win32/bin]
-\item Folder with the executable file, the libraries executable files and the diagram files in the 
- Windows 32 bits version.
+\item Folder with the executable file, the libraries executable files and the
+diagram files in the Windows 32 bits version.
 \item[win32/etc]
+\item Configuration folder for the libraries in Windows 32 bits.
 \item[win32/lib]
-\item These two folders contain some files of the libraries for Windows 32 bits.
+\item These two folders contain some binary files of the libraries for Windows
+32 bits.
 \item[win32/share]
 \item Contains the language files for Windows 32 bits.
 \item[win64/bin]
@@ -71,55 +92,154 @@ The program contains the following folders:
 
 \section{Source code compilation}
 
-The source code is written in C and has been compiled using the GNU free tools: gcc, gmake, 
-aclocal, autoconf and pkg-config. The Windows version has been compiled using also msys2.
+\subsection{Required library and tools}
 
-Program \emph{surcos} uses the following libraries:
+The source code is written in C and has been compiled using the following free
+libraries and tools:
+
+\begin{itemize}
+
+\item Mandatory:
 \begin{description}
-\item[libiconv] (http://ftp.gnu.org/pub/gnu/libiconv)
-\item[zlib] (http://sourceforge.net/projects/libpng)
-\item[libxml] (http://xmlsoft.org)
-\item[libffi] (ftp://sourceware.org/pub/libffi)
-\item[glib] (http://ftp.gnome.org/pub/gnome/sources/glib)
-\item[gettext] (http://ftp.gnu.org/pub/gnu/gettext)
-\item[libpng] (http://sourceforge.net/projects/libpng)
-\item[freetype] (http://sourceforge.net/projects/freetype)
-\item[fontconfig] (http://fontconfig.freedesktop.org)
-\item[pixman] (http://www.cairographics.org)
-\item[cairo] (http://www.cairographics.org)
-\item[atk] (http://ftp.gnome.org/pub/gnome/sources/atk)
-\item[pango] (http://ftp.gnome.org/pub/gnome/sources/pango)
-\item[gdk-pixbuf] (http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf)
-\item[gtk+] (http://ftp.gnome.org/pub/gnome/sources/gtk+)
-\item[freeglut] (http://sourceforge.net/projects/freeglut)
-\item[jb] (https://github.com/jburguete/jb)
+\item[gcc]\url{https://gcc.gnu.org} or
+\item[clang]\url{https://clang.llvm.org}
+\item to compile the source code.
+\item[make]\url{https://www.gnu.org/software/make}
+\item to build the executable file.
+\item[autoconf]\url{https://www.gnu.org/software/autoconf}
+\item to generate the Makefile in different operative systems.
+\item[automake]\url{https://www.gnu.org/software/automake}
+\item to check the operative system.
+\item[pkg-config]\url{https://www.freedesktop.org/wiki/Software/pkg-config}
+\item to find the libraries to compile.
+\item[glib]\url{https://developer.gnome.org/glib}
+\item extended utilities of C to work with data, lists, mapped files, regular
+expressions, using multicores in shared memory machines, ...
+\item[json-glib]\url{https://gitlab.gnome.org/GNOME/json-glib}
+\item to deal with JSON files.
+\item[gettext]\url{https://www.gnu.org/software/gettext}
+\item to work with different international locales and languages.
+\item[jb]\url{https://github.com/jburguete/jb.git}
+\item tools library of J. Burguete.
 \end{description}
 
-Once installed and configurated all the tools and libraries, the sequence to compile is made on a terminal:
+\item Optional to get the processor properties:
+\begin{description}
+\item[libgtop]\url{https://github.com/GNOME/libgtop}
+\item to get the processors number.
+\end{description}
 
-\begin{enumerate}
-\item cd 5.6
-\item ./build
-\end{enumerate}
-Some systems require corrections. Look at the README.md file where more detailed instructions are provided.  
+\item Optional: required only to build the GUI program:
+\begin{description}
+\item[png]\url{http://libpng.sourceforge.net}
+\item to work with PNG files.
+\item[gtk]\url{https://www.gtk.org}
+\item to create the interactive GUI tool.
+\item[glew]\url{https://glew.sourceforge.net}
+\item high level OpenGL functions.
+\end{description}
 
-The program \emph{surcos} has been compiled and tested in the following
-operative systems:
+\item The following optional libraries can be used as alternative to the
+GtkGLArea widget of the GTK library to interact with OpenGL to draw graphs.
+\begin{description}
+\item[freeglut]\url{https://freeglut.sourceforge.net}
+\item[sdl2]\url{https://www.libsdl.org}
+\item[glfw]\url{https://www.glfw.org}
+\end{description}
+
+\item Optional to build the documentation:
+\begin{description}
+\item[doxygen]\url{https://www.doxygen.nl}
+\item standard comments format to generate documentation.
+\item[latex]\url{https://www.latex-project.org/}
+\item to build the PDF manuals.
+\end{description}
+
+\end{itemize}
+
+\subsection{Operative systems}
+
+You can install all required utilities and libraries using the instructions of
+\href{https://github.com/jburguete/install-unix}{install-unix}.
+
+This software has been built and tested in the following operative systems:
 \begin{itemize}
 \item Arch Linux
-\item Debian Linux 10
-\item Devuan Linux 3
-\item DragonFly BSD 5.8
-\item Dyson Illumos
-\item Fedora Linux 32
-\item FreeBSD 12.1
-\item Linux Mint DE 3
+\item Debian Linux 11
+\item Devuan Linux 4
+\item Dragonfly BSD 6.4
+\item Fedora Linux 37
+\item FreeBSD 13.1
+\item Gentoo Linux
+\item Linux Mint DE 5
+\item MacOS Catalina + Homebrew
 \item Manjaro Linux
-\item Microsoft Windows 10 32 bits
-\item Microsoft Windows 10 64 bits
-\item NetBSD 9.0
-\item OpenBSD 6.7
-\item OpenIndiana Hipster
-\item OpenSUSE Linux Leap 15
-\item Xubuntu Linux 20.04
+\item Microsoft Windows 10
+\item NetBSD 9.3
+\item OpenBSD 7.2
+\item OpenInidiana Hipster
+\item OpenSUSE Linux 15.4
+\item Ubuntu Linux 22.10
 \end{itemize}
+
+On Microsoft Windows systems you have to install
+\href{http://sourceforge.net/projects/msys2}{MSYS2} and the required
+libraries and utilities. You can follow detailed instructions in
+\href{https://github.com/jburguete/install-unix/blob/master/tutorial.pdf}{install-unix}
+tutorial.
+
+On NetBSD 9.3, to use the last GCC version, you have to do first on the
+building terminal:
+\begin{lstlisting}[language=bash]
+$ export PATH="/usr/pkg/gcc12/bin:$PATH"
+\end{lstlisting}
+
+To do permanent this change the following line can be added to the ".profile"
+file in the user root directory:
+\begin{lstlisting}[language=bash]
+$ PATH="/usr/pkg/gcc12/bin:$PATH"
+\end{lstlisting}
+
+On OpenBSD 7.2 you have to do first on the building terminal:
+\begin{lstlisting}[language=bash]
+$ export AUTOCONF_VERSION=2.69 AUTOMAKE_VERSION=1.16
+\end{lstlisting}
+
+\subsection{Building instructions}
+
+Once installed and configurated all the tools and libraries, the sequence to
+compile is made on a terminal:
+
+\begin{enumerate}
+
+\item Download the latest version of the
+\href{https://github.com/jburguete/jb}{JB library}:
+\begin{lstlisting}[language=bash]
+$ git clone https://github.com/jburguete/jb.git
+\end{lstlisting}
+
+\item Build the JB library:
+\begin{lstlisting}[language=bash]
+$ cd jb/5.3.4
+$ ./build.sh
+$ cd ../..
+\end{lstlisting}
+
+\item Download this repository:
+\begin{lstlisting}[language=bash]
+$ git clone https://github.com/jburguete/surcos.git
+\end{lstlisting}
+
+\item Link the latest version of the JB library on the source directory to jb:
+\begin{lstlisting}[language=bash]
+$ cd surcos/6.0/src
+$ ln -s ../../../jb/5.3.3 jb
+$ cd ..
+\end{lstlisting}
+
+\item Build SURCOS doing on the terminal:
+\begin{lstlisting}[language=bash]
+$ ./build.sh
+\end{lstlisting}
+
+\end{enumerate}
