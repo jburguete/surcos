@@ -193,7 +193,6 @@ building terminal:
 \begin{lstlisting}[language=bash]
 $ export PATH="/usr/pkg/gcc12/bin:$PATH"
 \end{lstlisting}
-
 To do permanent this change the following line can be added to the ".profile"
 file in the user root directory:
 \begin{lstlisting}[language=bash]
@@ -233,13 +232,19 @@ $ git clone https://github.com/jburguete/surcos.git
 \item Link the latest version of the JB library on the source directory to jb:
 \begin{lstlisting}[language=bash]
 $ cd surcos/6.0/src
-$ ln -s ../../../jb/5.3.3 jb
+$ ln -s ../../../jb/5.3.4 jb
 $ cd ..
 \end{lstlisting}
 
 \item Build SURCOS doing on the terminal:
 \begin{lstlisting}[language=bash]
 $ ./build.sh
+\end{lstlisting}
+
+\item On Microsoft Windows you can do in order to create a framework to work
+away of MSYS2:
+\begin{lstlisting}[language=bash]
+$ make dist
 \end{lstlisting}
 
 \end{enumerate}
