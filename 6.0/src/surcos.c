@@ -65,7 +65,6 @@ int
 surcos (int argn,               ///< Arguments number.
         char *argc[])           ///< Argument strings.
 {
-  char *buffer, *buffer2;
   unsigned int k;
 
 #if DEBUG_SURCOS
@@ -84,41 +83,11 @@ surcos (int argn,               ///< Arguments number.
   parallel->mutex = g_mutex_new ();
 #endif
 
-  // Setting locale to system default
-  buffer = setlocale (LC_ALL, "");
-#if DEBUG_SURCOS
-  printf ("locale = %s\n", buffer);
-#endif
+  // Setting locale to system default, numerical locale to international
+  // standard, and the program name and locale directory to find locale files
+  jb_set_locales (PROGRAM_NAME, LOCALE_DIR, "", "C");
 
-  // Setting numerical locale to international standard
-  buffer = setlocale (LC_NUMERIC, "C");
-#if DEBUG_SURCOS
-  printf ("LC_NUMERIC = %s\n", buffer);
-#endif
-
-  // Setting the program name and locale directory to find locale files
-  buffer2 = g_get_current_dir ();
-  buffer = g_build_filename (buffer2, LOCALE_DIR, NULL);
-  g_free (buffer2);
-  buffer2 = bindtextdomain (PROGRAM_NAME, buffer);
-#if DEBUG_SURCOS
-  printf ("Locale dir = %s\n", buffer);
-  printf ("bindtextdomain = %s\n", buffer2);
-#endif
-  g_free (buffer);
-
-  // Setting the format of the codeset files (UTF-8)
-  buffer2 = bind_textdomain_codeset (PROGRAM_NAME, "UTF-8");
-#if DEBUG_SURCOS
-  printf ("codeset = %s\n", buffer2);
-#endif
-
-  // Loading the locale strings
-  buffer2 = textdomain (PROGRAM_NAME);
-#if DEBUG_SURCOS
-  printf ("textdomain = %s\n", buffer2);
-#endif
-
+  // Checking command-line arguments
   switch (argn)
     {
     case 2:
@@ -136,6 +105,8 @@ surcos (int argn,               ///< Arguments number.
               _("./surcosbin [-v] input_directory"));
       return 4;
     }
+
+  // Opening and running
   if (kernel_read (argc[1]))
     {
       kernel_run (argc[1], 0, k);

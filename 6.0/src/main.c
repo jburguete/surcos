@@ -32,6 +32,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \author Javier Burguete Tolosa.
  * \copyright Copyright 2011-2023, Javier Burguete Tolosa.
  */
+#include "jb/src/jb_win.h"
 #include "surcos.h"
 
 /**
@@ -43,5 +44,6 @@ int
 main (int argn,                 ///< Arguments number.
       char *argc[])             ///< Argument strings.
 {
+  jbw_show_init ();
   return surcos (argn, argc);
 }
