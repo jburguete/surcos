@@ -44,6 +44,6 @@ int
 main (int argn,                 ///< Arguments number.
       char *argc[])             ///< Argument strings.
 {
-  jbw_show_init ();
+  jbw_init (&argn, &argc);
   return surcos (argn, argc);
 }

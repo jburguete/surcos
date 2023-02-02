@@ -128,7 +128,6 @@ main (int argn,                 ///< Arguments number.
 
   // Initing JB windows library
   jbw_init (&argn, &argc);
-  jbw_show_init ();
 
   // Initing field arrays
   field->si = NULL;
