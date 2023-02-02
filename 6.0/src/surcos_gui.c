@@ -121,7 +121,6 @@ main (int argn,                 ///< Arguments number.
       char *argc[])             ///< Argument strings.
 {
   MainWindow *window;
-  char *buffer, *buffer2;
 
 #if DEBUG_MAIN
   printf ("main: start\n");
@@ -129,6 +128,7 @@ main (int argn,                 ///< Arguments number.
 
   // Initing JB windows library
   jbw_init (&argn, &argc);
+  jbw_show_init ();
 
   // Initing field arrays
   field->si = NULL;
@@ -143,28 +143,9 @@ main (int argn,                 ///< Arguments number.
   parallel->mutex = g_mutex_new ();
 #endif
 
-  // Setting the program name and locale directory to find locale files
-  buffer2 = g_get_current_dir ();
-  buffer = g_build_filename (buffer2, LOCALE_DIR, NULL);
-  g_free (buffer2);
-  buffer2 = bindtextdomain (PROGRAM_NAME, buffer);
-#if DEBUG_MAIN
-  printf ("Locale dir = %s\n", buffer);
-  printf ("bindtextdomain = %s\n", buffer2);
-#endif
-  g_free (buffer);
-
-  // Setting the format of the codeset files (UTF-8)
-  buffer2 = bind_textdomain_codeset (PROGRAM_NAME, "UTF-8");
-#if DEBUG_MAIN
-  printf ("codeset = %s\n", buffer2);
-#endif
-
-  // Loading the locale string
-  buffer2 = textdomain (PROGRAM_NAME);
-#if DEBUG_MAIN
-  printf ("textdomain = %s\n", buffer2);
-#endif
+  // Setting locale to system default, numerical locale to international
+  // standard, and the program name and locale directory to find locale files
+  jb_set_locales (PROGRAM_NAME, LOCALE_DIR, "", "C");
 
   // Showing the main window
 #if DEBUG_MAIN

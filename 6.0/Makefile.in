@@ -454,7 +454,7 @@ $(mandir)user-manual-en.pdf: Makefile $(man_en)
 clean:
 	rm configure Makefile $(exe) $(exebin) $(objdir)*.o $(objbindir)*.o \
 		$(mandir)user-manual-es.pdf $(mandir)user-manual-en.pdf \
-		$(localdir)$(es)surcos.mo $(localdir)$(fr)surcos.mo
+		$(localdir)$(es)surcos.mo $(localdir)$(fr)surcos.mo \
 		$(localdir)$(it)surcos.mo
 
 ## Rebuild option with cleaning functionallity
