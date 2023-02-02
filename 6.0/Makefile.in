@@ -171,7 +171,9 @@ WINLIBS = adwaita-icon-theme atk brotli bzip2 cairo expat fontconfig freetype \
 	libffi libheif libiconv libpng librsvg libthai libwmf \
 	libwinpthread-git pango pcre2 pixman zlib
 
-LDFLAGSLIB = -L$(bindir) -Wl,@RPATH@$(bindir) @LDFLAGS@
+LDFLAGSLIB =  -ljbjson@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GTOP_LIBS@ \
+	@JSON_LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ -L$(bindir) \
+	-Wl,@RPATH@$(bindir) @LDFLAGS@
 
 CPPFLAGS = @CPPFLAGS@ @PRECISION@ -DJBW=2 @GTK4@
 CFLAGS = $(CPPFLAGS) -pedantic -Wall -Wextra -c -O3 @ARCH@ \
@@ -187,7 +189,7 @@ CPPFLAGSBIN = @CPPFLAGS@ @PRECISION@ -DJBW=1
 CFLAGSBINLIB = $(CPPFLAGSBIN) @GTHREAD_CFLAGS@ @GLIB_CFLAGS@ @JSON_CFLAGS@ \
 	@GTOP_CFLAGS@ -pedantic -Wall -Wextra -c -O3
 CFLAGSBIN = $(CFLAGSBINLIB) -fPIC
-LDFLAGSBIN = -ljbbin@SUFFIX@ -ljbjson@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ \
+LDFLAGSBIN = -ljbbin@SUFFIX@\
 	@GTOP_LIBS@ @JSON_LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ $(LDFLAGSLIB)
 
 CC = @CC@ @LTO@ @ccflags@ -g #-pg
