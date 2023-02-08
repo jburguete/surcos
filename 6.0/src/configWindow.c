@@ -386,8 +386,6 @@ config_window_new_close (GtkDialog * dlg,
 
 /**
  * Function to open the problem configuration dialog.
- *
- * \return 1 on new problem, 0 otherwise.
  */
 void
 config_window_new ()

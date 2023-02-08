@@ -36,7 +36,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define MAIN_WINDOW__H 1
 
 /**
- * \struct _Summary
+ * \struct Summary
  * \brief Structure to display the summary.
  */
 typedef struct
@@ -58,7 +58,7 @@ typedef struct
 } Summary;
 
 /**
- * \struct _MainWindow
+ * \struct MainWindow
  * \brief Main window structure.
  */
 typedef struct

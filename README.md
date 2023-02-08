@@ -99,7 +99,7 @@ This software has been built and tested in the following operative systems:
 * FreeBSD 13.1
 * Gentoo Linux
 * Linux Mint DE 5
-* MacOS Catalina + Homebrew
+* MacOS Big Sur + Homebrew
 * Manjaro Linux
 * Microsoft Windows 10
 * NetBSD 9.3

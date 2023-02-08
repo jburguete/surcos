@@ -35,7 +35,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <locale.h>
-#define GNULIB_defined_setlocale
 #include "config.h"
 #include "jb/src/jb_win.h"
 #include "jb/src/jb_json.h"

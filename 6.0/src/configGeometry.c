@@ -34,7 +34,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #define _GNU_SOURCE
 #include <locale.h>
-#define GNULIB_defined_setlocale
 #include <libintl.h>
 #include "config.h"
 #include "jb/src/jb_win.h"
@@ -42,8 +41,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define DEBUG_CONFIG_GEOMETRY_NEW 0
 ///< Macro to debug the config_geometry_new() function
-
-extern int plot_show;
 
 ///> English geometry diagram.
 const char *diagram_geometry_en[] = {

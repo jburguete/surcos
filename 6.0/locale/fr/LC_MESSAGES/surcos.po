@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-24 15:42+0100\n"
+"POT-Creation-Date: 2023-02-04 07:43+0100\n"
 "PO-Revision-Date: 2011-10-21 17:51+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -218,7 +218,7 @@ msgstr "Uniformité de Christiansen"
 msgid "Efficiency"
 msgstr "Efficience"
 
-#: src/kernel.c:129 src/configIrrigation.c:461 src/configWindow.c:445
+#: src/kernel.c:129 src/configIrrigation.c:461 src/configWindow.c:443
 #: src/mainWindow.c:1469
 msgid "Fertilizer"
 msgstr "Fertilisant"
@@ -309,7 +309,7 @@ msgstr "Nombre d'entrées d'eau"
 msgid "Number of fertilizer inputs"
 msgstr "Nombre d'entrées de fertilisant"
 
-#: src/configGeometry.c:1465
+#: src/configGeometry.c:1462
 msgid "Point"
 msgstr "Point"
 
@@ -357,7 +357,7 @@ msgstr "Conditions initiales"
 msgid "Furrow"
 msgstr "Sillon"
 
-#: src/configFurrows.c:466 src/configWindow.c:439
+#: src/configFurrows.c:466 src/configWindow.c:437
 msgid "Geometry"
 msgstr "Géométrie"
 
@@ -401,35 +401,35 @@ msgstr "Nombre de sondes"
 msgid "Solubility (kg/m³)"
 msgstr "Solubilité (kg/m³)"
 
-#: src/configWindow.c:441
+#: src/configWindow.c:439
 msgid "Furrows"
 msgstr "Sillons"
 
-#: src/configWindow.c:443
+#: src/configWindow.c:441
 msgid "Inputs"
 msgstr "Entrées"
 
-#: src/configWindow.c:447
+#: src/configWindow.c:445
 msgid "Probes"
 msgstr "Sondes"
 
-#: src/configWindow.c:449
+#: src/configWindow.c:447
 msgid "Advanced parameters"
 msgstr "Paramètres avancés"
 
-#: src/configWindow.c:457 src/configWindow.c:463
+#: src/configWindow.c:455 src/configWindow.c:461
 msgid "Configure irrigation"
 msgstr "Configurer irrigation"
 
-#: src/configWindow.c:458 src/configWindow.c:465
+#: src/configWindow.c:456 src/configWindow.c:463
 msgid "Set the irrigation problem configuration"
 msgstr "Définir la configuration du problème d'irrigation"
 
-#: src/configWindow.c:478 src/mainWindow.c:1697 src/mainWindow.c:1825
+#: src/configWindow.c:476 src/mainWindow.c:1697 src/mainWindow.c:1825
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/configWindow.c:480 src/mainWindow.c:1698 src/mainWindow.c:1826
+#: src/configWindow.c:478 src/mainWindow.c:1698 src/mainWindow.c:1826
 msgid "_OK"
 msgstr "_Accepter"
 

@@ -59,6 +59,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define DEBUG_SCHEME_TIME 0.
 ///< Macro to define the time to begin the debug of scheme functions.
 
+/**
+ * Debug function to show the parameters of a scheme.
+ */
 #if SCHEME_SHOW
 void
 scheme_show (Parameters * p,
