@@ -306,7 +306,7 @@ exit_error:
 #if DEBUG_KERNEL_READ
   printf ("message=%s\n", message);
 #endif
-  jbw_show_error (message);
+  jb_show_error (message);
 #if DEBUG_KERNEL_READ
   printf ("kernel_read: end\n");
 #endif
