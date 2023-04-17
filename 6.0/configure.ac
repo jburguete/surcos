@@ -182,19 +182,19 @@ AC_SUBST(SUFFIX, [-$precision])
 
 # Checks for libraries
 libjb=${bindir}libjb-$precision$so
-if test -f $libjb; then
+if test -x $libjb; then
 	AC_MSG_NOTICE([$libjb: OK])
 else
 	AC_MSG_ERROR([$libjb: not installed])
 fi
 libjbm=${bindir}libjbm-$precision$so
-if test -f $libjbm; then
+if test -x $libjbm; then
 	AC_MSG_NOTICE([$libjbm: OK])
 else
 	AC_MSG_ERROR([$libjbm: not installed])
 fi
 libjbbin=${bindir}libjbbin-$precision$so
-if test -f $libjbbin; then
+if test -x $libjbbin; then
 	AC_MSG_NOTICE([$libjbbin: OK])
 else
 	AC_MSG_ERROR([$libjbbin: not installed])
@@ -232,7 +232,7 @@ fi
 # Graphical interface
 if test $gtk = 1; then
 	libjbwin=${bindir}libjbwin-$precision$so
-	if test -f $libjbbin; then
+	if test -x $libjbbin; then
 		AC_MSG_NOTICE([$libjbwin: OK])
 	else
 		AC_MSG_ERROR([$libjbwin: not installed])
