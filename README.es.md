@@ -99,16 +99,16 @@ operativos:
 * Arch Linux
 * Debian Linux 11
 * Devuan Linux 4
-* Dragonfly BSD 6.4
-* Fedora Linux 37
-* FreeBSD 13.1
+* Dragonfly BSD 6.4.0
+* Fedora Linux 38
+* FreeBSD 13.2
 * Gentoo Linux
 * Linux Mint DE 5
 * MacOS Big Sur + Homebrew
 * Manjaro Linux
 * Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
-* OpenBSD 7.2
+* OpenBSD 7.3
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.4
 * Ubuntu Linux 22.10
@@ -126,7 +126,7 @@ Si se quiere hacer permanente tambien se puede añadir en el fichero ".profile"
 de la carpeta raíz del usuario la línea:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-En OpenBSD 7.2 hay que hacer antes en el terminal:
+En OpenBSD 7.3 hay que hacer antes en el terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 INSTRUCCIONES DE CONSTRUCCIÓN
@@ -137,7 +137,7 @@ _____________________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Construya la biblioteca JB:
-> $ cd jb/5.3.4
+> $ cd jb/7.0.0
 >
 > $ ./build.sh
 >
@@ -150,7 +150,7 @@ _____________________________
   fuente de este programa a jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/5.3.4 jb
+> $ ln -s ../../../jb/7.0.0 jb
 >
 > $ cd ..
 
