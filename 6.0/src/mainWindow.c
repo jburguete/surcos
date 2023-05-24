@@ -2076,7 +2076,7 @@ main_window_new ()
   gtk_window_set_child (w->window, GTK_WIDGET (w->grid));
   gtk_window_set_title (w->window, "SURCOS");
 #if GTK4
-  gtk_widget_show (GTK_WIDGET (w->window));
+  gtk_window_present (w->window);
 #else
   gtk_window_set_icon (w->window, w->pixbuf);
   gtk_widget_show_all (GTK_WIDGET (w->window));
@@ -2121,7 +2121,7 @@ main_window_new ()
   gtk_widget_set_opacity (GTK_WIDGET (window), 0.5);
   gtk_window_set_decorated (window, FALSE);
 #if GTK4
-  gtk_widget_show (GTK_WIDGET (window));
+  gtk_window_present (window);
 #else
   gtk_widget_show_all (GTK_WIDGET (window));
 #endif

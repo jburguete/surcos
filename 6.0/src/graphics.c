@@ -1295,7 +1295,7 @@ window_plot_new (WindowPlot * w)        ///< Results plot structure.
     = g_signal_connect_swapped (w->window, "destroy",
                                 (GCallback) window_plot_delete, main_window);
 #if GTK4
-  gtk_widget_show (GTK_WIDGET (w->window));
+  gtk_window_present (w->window);
 #else
   gtk_widget_show_all (GTK_WIDGET (w->window));
 #endif

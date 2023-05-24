@@ -482,7 +482,7 @@ config_window_new ()
 #if GTK4
   gtk_box_append (GTK_BOX (gtk_dialog_get_content_area (w->dialog)),
                   GTK_WIDGET (w->notebook));
-  gtk_widget_show (GTK_WIDGET (w->dialog));
+  gtk_window_present (GTK_WINDOW (w->dialog));
 #else
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (w->dialog)),
                      GTK_WIDGET (w->notebook));
