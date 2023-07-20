@@ -98,21 +98,21 @@ instructions en [install-unix](https://github.com/jburguete/install-unix).
 Ce programme a été construit et verifié avec les suivants systèmes
 d'exploitation:
 * Arch Linux
-* Debian Linux 11
+* Debian Linux 12
 * Devuan Linux 4
 * Dragonfly BSD 6.4.0
 * Fedora Linux 38
 * FreeBSD 13.2
 * Gentoo Linux
 * Linux Mint DE 5
-* MacOS Big Sur + Homebrew
+* MacOS Ventura + Homebrew
 * Manjaro Linux
 * Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
 * OpenBSD 7.3
 * OpenInidiana Hipster
-* OpenSUSE Linux 15.4
-* Ubuntu Linux 22.10
+* OpenSUSE Linux 15.5
+* Ubuntu Linux 23.04
 
 Avec systèmes Microsoft Windows on doit installer
 [MSYS2](http://sourceforge.net/projects/msys2) et en plus les bibliothèques et
@@ -139,7 +139,7 @@ ____________________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Construire la bibliothèque JB:
-> $ cd jb/7.0.0
+> $ cd jb/7.0.1
 >
 > $ ./build.sh
 >
@@ -151,7 +151,7 @@ ____________________________
 4. Lier la dernière version de la bibliothèque JB dans le dossier source à jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/7.0.0 jb
+> $ ln -s ../../../jb/7.0.1 jb
 >
 > $ cd ..
 

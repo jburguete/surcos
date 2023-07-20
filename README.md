@@ -92,21 +92,21 @@ You can install all required utilities and libraries using the instructions of
 
 This software has been built and tested in the following operative systems:
 * Arch Linux
-* Debian Linux 11
+* Debian Linux 12
 * Devuan Linux 4
 * Dragonfly BSD 6.4.0
 * Fedora Linux 38
 * FreeBSD 13.2
 * Gentoo Linux
 * Linux Mint DE 5
-* MacOS Big Sur + Homebrew
+* MacOS Ventura + Homebrew
 * Manjaro Linux
-* Microsoft Windows 10
+* Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
 * OpenBSD 7.3
 * OpenInidiana Hipster
-* OpenSUSE Linux 15.4
-* Ubuntu Linux 22.10
+* OpenSUSE Linux 15.5
+* Ubuntu Linux 23.04
 
 On Microsoft Windows systems you have to install
 [MSYS2](http://sourceforge.net/projects/msys2) and the required
@@ -133,7 +133,7 @@ _____________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Build the JB library:
-> $ cd jb/7.0.0
+> $ cd jb/7.0.1
 >
 > $ ./build.sh
 >
@@ -145,7 +145,7 @@ _____________________
 4. Link the latest version of the JB library on the source directory to jb:
 > $ cd surcos/6.0/src
 >
-> $ ln -s ../../../jb/7.0.0 jb
+> $ ln -s ../../../jb/7.0.1 jb
 >
 > $ cd ..
 
