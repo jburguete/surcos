@@ -150,6 +150,7 @@ dll = $(dlldir)glew32.dll \
 	$(dlldir)libharfbuzz-0.dll \
 	$(dlldir)libiconv-2.dll \
 	$(dlldir)libintl-8.dll \
+	$(dlldir)libjson-glib-1.0-0.dll \
 	$(dlldir)libpango-1.0-0.dll \
 	$(dlldir)libpangocairo-1.0-0.dll \
 	$(dlldir)libpangoft2-1.0-0.dll \
@@ -480,7 +481,7 @@ dist: $(exe) $(exebin) $(dll) $(manuals) \
 	cp doc/latex/refman.pdf $(basedir)reference-manual.pdf
 	cp manual/user-manual-es.pdf $(basedir)
 	cp manual/user-manual-en.pdf $(basedir)
-	cp --parents examples/*/*.in @basedir@
+	cp --parents examples/*.json @basedir@
 	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
 		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
 		$(modir)$(es)gtk30.mo $(modir)$(es)gtk30-properties.mo \
