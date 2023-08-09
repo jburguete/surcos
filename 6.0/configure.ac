@@ -9,6 +9,7 @@ AC_MSG_NOTICE([Build: $build])
 AC_MSG_NOTICE([Host: $host])
 win=0
 openbsd=0
+haiku=0
 rpath="-rpath="
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
@@ -47,6 +48,9 @@ elif test `uname -s` = "DragonFly"; then
 	AC_MSG_NOTICE([DragonFly BSD])
 	LDFLAGS="$LDFLAGS -L/usr/local/lib"
 	CPPFLAGS="$CPPFLAGS -I/usr/local/include"
+elif test `uname -s` = "Haiku"; then
+	AC_MSG_NOTICE([Haiku])
+	haiku=1
 fi
 if test $win = 0; then
 	AC_MSG_NOTICE([Unix type system])
@@ -239,7 +243,12 @@ if test $gtk = 1; then
 	fi
 	PKG_CHECK_MODULES([PNG], [libpng])
 	PKG_CHECK_MODULES([FREETYPE], [freetype2])
-	PKG_CHECK_MODULES([GLEW], [glew])
+	if test $haiku = 1; then
+		AC_MSG_NOTICE([Haiku])
+		AC_SUBST(GLEW_LIBS, "-lGLEW -lGLU")
+	else
+		PKG_CHECK_MODULES([GLEW], [glew])
+	fi
 	AC_SEARCH_LIBS([glFlush], [GL opengl32])
 	AC_SUBST([EXEGUI], "\$(exe)")
 
@@ -269,6 +278,8 @@ if test $gtk = 1; then
 	AC_MSG_NOTICE([searching FreeMono font])
 	if test $win = 1; then
 		dir=/$mingw
+	elif test $haiku = 1; then
+		dir="/"
 	else
 		dir=/usr
 	fi
@@ -276,7 +287,10 @@ if test $gtk = 1; then
 	if test "x$font" = "x"; then
 		font=`find $dir -type f -iname freemono.ttf`
 		if test "x$font" = "x"; then
-			AC_MSG_ERROR([font not found])
+			font=`find $dir -type f -iname NotoSansMono-Regular.ttf`
+			if test "x$font" = "x"; then
+				AC_MSG_ERROR([FreeMono font not found])
+			fi
 		fi
 	fi
 	AC_MSG_NOTICE([Font: $font])
