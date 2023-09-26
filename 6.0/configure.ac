@@ -11,6 +11,7 @@ win=0
 openbsd=0
 haiku=0
 rpath="-rpath="
+strip="strip"
 if test $host = "x86_64-w64-mingw32"; then
 	AC_MSG_NOTICE([Microsoft Windows 64 bits])
 	AC_SUBST(ccflags, "-march=corei7 -mfpmath=sse -msse3 -mwindows")
@@ -34,6 +35,7 @@ elif test `uname -s` = "Darwin"; then
 	AC_MSG_NOTICE([MacOS])
 	LDFLAGS="$LDFLAGS -L/System/Library/Frameworks -framework GLUT -framework OpenGL"
 	rpath="-rpath,"
+	strip="strip -x"
 elif test `uname -s` = "NetBSD"; then
 	AC_MSG_NOTICE([NetBSD])
 	LDFLAGS="$LDFLAGS -L/usr/pkg/lib"
@@ -83,6 +85,7 @@ fi
 AC_SUBST(SO, [$so])
 AC_SUBST(srcdir, [src/])
 AC_SUBST(bindir, [$bindir])
+AC_SUBST(STRIP, [$strip])
 
 # Checks for programs
 AC_PROG_CC([gcc-13 gcc13 gcc-12 gcc12 gcc-11 gcc11 gcc-10 gcc10 egcc gcc clang])

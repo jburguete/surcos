@@ -306,7 +306,8 @@ $(objbindir):
 
 strip:
 	@MAKE@
-	strip $(exe) $(exebin) $(lib)
+	@STRIP@ $(lib)
+	strip $(exe) $(exebin)
 
 manuals: $(manuals)
 
