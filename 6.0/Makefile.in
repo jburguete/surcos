@@ -227,61 +227,61 @@ dep_main_pgo = $(dep) $(surcos_h) $(main_c)
 
 ifeq (@PGO@, 1)
 ifeq (@CC@, clang)
-	pgogen = -fprofile-instr-generate
-	pgouse = -fprofile-instr-use=$(bindir)gui.profraw
-	prefix1 = LLVM_PROFILE_FILE="$(bindir)gui1.profdata"
-	prefix2 = LLVM_PROFILE_FILE="$(bindir)gui2.profdata"
-	llvm_merge = @LLVM_PROFDATA@ merge $(bindir)gui*.profdata \
-		-output $(bindir)gui.profraw
-	pgousebin = -fprofile-instr-use=$(bindir)bin.profraw
-	prefix1bin = LLVM_PROFILE_FILE="$(bindir)bin1.profdata"
-	prefix2bin = LLVM_PROFILE_FILE="$(bindir)bin2.profdata"
-	llvm_mergebin = @LLVM_PROFDATA@ merge $(bindir)bin*.profdata \
-		-output $(bindir)bin.profraw
-	pgo = $(bindir)gui.profraw
-	binpgo = $(bindir)bin.profraw
+pgogen = -fprofile-instr-generate
+pgouse = -fprofile-instr-use=$(bindir)gui.profraw
+prefix1 = LLVM_PROFILE_FILE="$(bindir)gui1.profdata"
+prefix2 = LLVM_PROFILE_FILE="$(bindir)gui2.profdata"
+llvm_merge = @LLVM_PROFDATA@ merge $(bindir)gui*.profdata \
+	-output $(bindir)gui.profraw
+pgousebin = -fprofile-instr-use=$(bindir)bin.profraw
+prefix1bin = LLVM_PROFILE_FILE="$(bindir)bin1.profdata"
+prefix2bin = LLVM_PROFILE_FILE="$(bindir)bin2.profdata"
+llvm_mergebin = @LLVM_PROFDATA@ merge $(bindir)bin*.profdata \
+	-output $(bindir)bin.profraw
+pgo = $(bindir)gui.profraw
+binpgo = $(bindir)bin.profraw
 else
-	pgogen = -fprofile-generate
-	pgouse = -fprofile-use -fprofile-correction
-	pgo = $(objdir)surcos_gui.gcda
-	binpgo = $(objbindir)surcos.gcda
+pgogen = -fprofile-generate
+pgouse = -fprofile-use -fprofile-correction
+pgo = $(objdir)surcos_gui.gcda
+binpgo = $(objbindir)surcos.gcda
 endif
-	exepgo = $(bindir)@exegui@pgo@EXE@
-	exebinpgo = $(bindir)surcospgo@EXE@
-	libpgo = $(bindir)libsurcospgo@SO@
-	dep_furrow_o = $(binpgo)
-	dep_parameters_o = $(binpgo)
-	dep_scheme_o = $(binpgo)
-	dep_field_o = $(binpgo)
-	dep_kernel_o = $(binpgo)
-	dep_configIrrigation_o = $(pgo)
-	dep_configGeometry_o = $(pgo)
-	dep_configFurrows_o = $(pgo)
-	dep_configTimes_o = $(pgo)
-	dep_configProbes_o = $(pgo)
-	dep_configWindow_o = $(pgo)
-	dep_graphics_o = $(pgo)
-	dep_mainWindow_o = $(pgo)
-	dep_surcos_gui_o = $(pgo)
-	dep_surcos_o = $(binpgo)
-	dep_main_o = $(binpgo)
+exepgo = $(bindir)@exegui@pgo@EXE@
+exebinpgo = $(bindir)surcospgo@EXE@
+libpgo = $(bindir)libsurcospgo@SO@
+dep_furrow_o = $(binpgo)
+dep_parameters_o = $(binpgo)
+dep_scheme_o = $(binpgo)
+dep_field_o = $(binpgo)
+dep_kernel_o = $(binpgo)
+dep_configIrrigation_o = $(pgo)
+dep_configGeometry_o = $(pgo)
+dep_configFurrows_o = $(pgo)
+dep_configTimes_o = $(pgo)
+dep_configProbes_o = $(pgo)
+dep_configWindow_o = $(pgo)
+dep_graphics_o = $(pgo)
+dep_mainWindow_o = $(pgo)
+dep_surcos_gui_o = $(pgo)
+dep_surcos_o = $(binpgo)
+dep_main_o = $(binpgo)
 else
-	dep_furrow_o = $(dep_furrow_pgo)
-	dep_parameters_o = $(dep_parameters_pgo)
-	dep_scheme_o = $(dep_scheme_pgo)
-	dep_field_o = $(dep_field_pgo)
-	dep_kernel_o = $(dep_kernel_pgo)
-	dep_configIrrigation_o = $(dep_configIrrigation_pgo)
-	dep_configGeometry_o = $(dep_configGeometry_pgo)
-	dep_configFurrows_o = $(dep_configFurrows_pgo)
-	dep_configTimes_o = $(dep_configTimes_pgo)
-	dep_configProbes_o = $(dep_configProbes_pgo)
-	dep_configWindow_o = $(dep_configWindow_pgo)
-	dep_graphics_o = $(dep_graphics_pgo)
-	dep_mainWindow_o = $(dep_mainWindow_pgo)
-	dep_surcos_gui_o = $(dep_surcos_gui_pgo)
-	dep_surcos_o = $(dep_surcos_pgo)
-	dep_main_o = $(dep_main_pgo)
+dep_furrow_o = $(dep_furrow_pgo)
+dep_parameters_o = $(dep_parameters_pgo)
+dep_scheme_o = $(dep_scheme_pgo)
+dep_field_o = $(dep_field_pgo)
+dep_kernel_o = $(dep_kernel_pgo)
+dep_configIrrigation_o = $(dep_configIrrigation_pgo)
+dep_configGeometry_o = $(dep_configGeometry_pgo)
+dep_configFurrows_o = $(dep_configFurrows_pgo)
+dep_configTimes_o = $(dep_configTimes_pgo)
+dep_configProbes_o = $(dep_configProbes_pgo)
+dep_configWindow_o = $(dep_configWindow_pgo)
+dep_graphics_o = $(dep_graphics_pgo)
+dep_mainWindow_o = $(dep_mainWindow_pgo)
+dep_surcos_gui_o = $(dep_surcos_gui_pgo)
+dep_surcos_o = $(dep_surcos_pgo)
+dep_main_o = $(dep_main_pgo)
 endif
 jb = $(bindir)libjbwin@SUFFIX@@SO@ $(bindir)libjbm@SUFFIX@@SO@ \
 	$(bindir)libjb@SUFFIX@@SO@
