@@ -126,11 +126,9 @@ png = logo3.png
 dll = $(dlldir)glew32.dll \
 	$(dlldir)glfw3.dll \
 	$(dlldir)libatk-1.0-0.dll \
-	$(dlldir)libbrotlidec.dll \
-	$(dlldir)libbrotlicommon.dll \
+	$(dlldir)libbrotli*.dll \
 	$(dlldir)libbz2-1.dll \
-	$(dlldir)libcairo-2.dll \
-	$(dlldir)libcairo-gobject-2.dll \
+	$(dlldir)libcairo-*.dll \
 	$(dlldir)libdatrie-1.dll \
 	$(dlldir)libepoxy-0.dll \
 	$(dlldir)libexpat-1.dll \
@@ -147,20 +145,21 @@ dll = $(dlldir)glew32.dll \
 	$(dlldir)libgobject-2.0-0.dll \
 	$(dlldir)libgraphite2.dll \
 	$(dlldir)libgtk-3-0.dll \
-	$(dlldir)libharfbuzz-0.dll \
+	$(dlldir)libharfbuzz-*.dll \
 	$(dlldir)libiconv-2.dll \
 	$(dlldir)libintl-8.dll \
 	$(dlldir)libjson-glib-1.0-0.dll \
-	$(dlldir)libpango-1.0-0.dll \
-	$(dlldir)libpangocairo-1.0-0.dll \
-	$(dlldir)libpangoft2-1.0-0.dll \
-	$(dlldir)libpangowin32-1.0-0.dll \
-	$(dlldir)libpcre2-8-0.dll \
+	$(dlldir)liblzma-5.dll \
+	$(dlldir)libpango*.dll \
+	$(dlldir)libpcre2*.dll \
 	$(dlldir)libpixman-1-0.dll \
 	$(dlldir)libpng16-16.dll \
+	$(dlldir)librsvg-2-2.dll \
 	$(dlldir)libstdc++-6.dll \
 	$(dlldir)libthai-0.dll \
 	$(dlldir)libwinpthread-1.dll \
+	$(dlldir)libxml2-2.dll \
+	$(dlldir)libzstd.dll \
 	$(dlldir)zlib1.dll
 
 
@@ -168,9 +167,9 @@ dll = $(dlldir)glew32.dll \
 gdkpixbuf = lib/gdk-pixbuf-2.0/2.10.0/
 WINLIBS = adwaita-icon-theme atk brotli bzip2 cairo expat fontconfig freetype \
 	fribidi gcc-libs gdk-pixbuf2 gettext glew glfw glib2 graphite2 \
-	gsettings-desktop-schemas gtk3 harfbuzz libavif libdatrie libepoxy \
-	libffi libheif libiconv libpng librsvg libthai libwmf \
-	libwinpthread-git pango pcre2 pixman zlib
+	gsettings-desktop-schemas gtk3 harfbuzz json-glib libavif libdatrie \
+	libepoxy libffi libheif libiconv libpng librsvg libthai libwmf \
+	libwinpthread-git libxml2 pango pcre2 pixman xz zlib zstd
 
 LDFLAGSLIB =  -ljbjson@SUFFIX@ -ljbm@SUFFIX@ -ljb@SUFFIX@ @GTOP_LIBS@ \
 	@JSON_LIBS@ @GTHREAD_LIBS@ @GLIB_LIBS@ @LIBS@ -L$(bindir) \
@@ -483,17 +482,17 @@ dist: $(exe) $(exebin) $(dll) $(manuals) \
 	cp manual/user-manual-es.pdf $(basedir)
 	cp manual/user-manual-en.pdf $(basedir)
 	cp --parents examples/*.json @basedir@
-	cp $(modir)$(es)atk10.mo $(modir)$(es)gdk-pixbuf.mo \
-		$(modir)$(es)gettext-runtime.mo $(modir)$(es)glib20.mo \
-		$(modir)$(es)gtk30.mo $(modir)$(es)gtk30-properties.mo \
+	cp $(modir)$(es)gdk-pixbuf.mo $(modir)$(es)gettext-runtime.mo \
+		$(modir)$(es)glib20.mo $(modir)$(es)gtk30.mo \
+		$(modir)$(es)gtk30-properties.mo $(modir)$(es)json-glib.mo \
 		$(localdir)$(es)
-	cp $(modir)$(fr)atk10.mo $(modir)$(fr)gdk-pixbuf.mo \
-		$(modir)$(fr)gettext-runtime.mo $(modir)$(fr)glib20.mo \
-		$(modir)$(fr)gtk30.mo $(modir)$(fr)gtk30-properties.mo \
+	cp $(modir)$(fr)gdk-pixbuf.mo $(modir)$(fr)gettext-runtime.mo \
+		$(modir)$(fr)glib20.mo $(modir)$(fr)gtk30.mo \
+		$(modir)$(fr)gtk30-propertifr.mo $(modir)$(fr)json-glib.mo \
 		$(localdir)$(fr)
-	cp $(modir)$(it)atk10.mo $(modir)$(it)gdk-pixbuf.mo \
-		$(modir)$(it)gettext-runtime.mo $(modir)$(it)glib20.mo \
-		$(modir)$(it)gtk30.mo $(modir)$(it)gtk30-properties.mo \
+	cp $(modir)$(it)gdk-pixbuf.mo $(modir)$(it)gettext-runtime.mo \
+		$(modir)$(it)glib20.mo $(modir)$(it)gtk30.mo \
+		$(modir)$(it)gtk30-propertiit.mo $(modir)$(it)json-glib.mo \
 		$(localdir)$(it)
 	test -d @WIN@src || mkdir @WIN@src
 	cd @WIN@src; perl ../../fetch.pl $(WINLIBS)
