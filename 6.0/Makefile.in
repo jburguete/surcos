@@ -484,15 +484,15 @@ dist: $(exe) $(exebin) $(dll) $(manuals) \
 	cp --parents examples/*.json @basedir@
 	cp $(modir)$(es)gdk-pixbuf.mo $(modir)$(es)gettext-runtime.mo \
 		$(modir)$(es)glib20.mo $(modir)$(es)gtk30.mo \
-		$(modir)$(es)gtk30-properties.mo $(modir)$(es)json-glib.mo \
+		$(modir)$(es)gtk30-properties.mo $(modir)$(es)json-glib-1.0.mo \
 		$(localdir)$(es)
 	cp $(modir)$(fr)gdk-pixbuf.mo $(modir)$(fr)gettext-runtime.mo \
 		$(modir)$(fr)glib20.mo $(modir)$(fr)gtk30.mo \
-		$(modir)$(fr)gtk30-propertifr.mo $(modir)$(fr)json-glib.mo \
+		$(modir)$(fr)gtk30-properties.mo $(modir)$(fr)json-glib-1.0.mo \
 		$(localdir)$(fr)
 	cp $(modir)$(it)gdk-pixbuf.mo $(modir)$(it)gettext-runtime.mo \
 		$(modir)$(it)glib20.mo $(modir)$(it)gtk30.mo \
-		$(modir)$(it)gtk30-propertiit.mo $(modir)$(it)json-glib.mo \
+		$(modir)$(it)gtk30-properties.mo $(modir)$(it)json-glib-1.0.mo \
 		$(localdir)$(it)
 	test -d @WIN@src || mkdir @WIN@src
 	cd @WIN@src; perl ../../fetch.pl $(WINLIBS)
