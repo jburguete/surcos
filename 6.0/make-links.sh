@@ -2,7 +2,7 @@
 if [ `uname -s` != 'Darwin' ]; then
     bin=bin/
 fi
-if [ `uname -o` != 'Msys' ]; then
+if [[ `uname -s` = 'NetBSD' || `uname -o` != 'Msys' ]]; then
   ln -sf ../../../jb/jb src
   ln -sf src/jb/${bin}libjb-3.so
   ln -sf src/jb/${bin}libjbm-3.so
