@@ -103,7 +103,7 @@ This software has been built and tested in the following operative systems:
 * Manjaro Linux
 * Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
-* OpenBSD 7.3
+* OpenBSD 7.6
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.5
 * Ubuntu Linux 23.04
@@ -122,7 +122,7 @@ To do permanent this change the following line can be added to the ".profile"
 file in the user root directory:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-On OpenBSD 7.3 you have to do first on the building terminal:
+On OpenBSD 7.6 you have to do first on the building terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 BUILDING INSTRUCTIONS

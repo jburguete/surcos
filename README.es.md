@@ -108,7 +108,7 @@ operativos:
 * Manjaro Linux
 * Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
-* OpenBSD 7.3
+* OpenBSD 7.6
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.5
 * Ubuntu Linux 23.04
@@ -126,7 +126,7 @@ Si se quiere hacer permanente tambien se puede añadir en el fichero ".profile"
 de la carpeta raíz del usuario la línea:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-En OpenBSD 7.3 hay que hacer antes en el terminal:
+En OpenBSD 7.6 hay que hacer antes en el terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 INSTRUCCIONES DE CONSTRUCCIÓN

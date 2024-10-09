@@ -109,7 +109,7 @@ d'exploitation:
 * Manjaro Linux
 * Microsoft Windows 10 + MSYS2
 * NetBSD 9.3
-* OpenBSD 7.3
+* OpenBSD 7.6
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.5
 * Ubuntu Linux 23.04
@@ -128,7 +128,7 @@ Pour faire le changement permanent on peut ajouter à la dernière ligne du
 fichier ".profile" dans le répertoire racine du utilisateur:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-Avec OpenBSD 7.3 on doit faire avant dans le terminal:
+Avec OpenBSD 7.6 on doit faire avant dans le terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 INSTRUCTIONS DE CONSTRUCTION
