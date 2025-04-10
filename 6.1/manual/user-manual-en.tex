@@ -1,0 +1,76 @@
+\documentclass[11pt, twoside, openany, a4paper]{book}
+
+\usepackage{graphicx}
+\ifx\pdfoutput\undefined
+	% we are running LaTeX, not pdflatex
+\else
+	% we are running pdflatex, so convert .eps files to .pdf
+	\usepackage{epstopdf}
+\fi
+
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{auto-pst-pdf}
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\setlength{\parskip}{0.3cm}
+
+
+\begin{document}
+
+\bibliographystyle{plain}
+\nocite{*}
+
+\pagestyle{empty}
+
+\begin{titlepage} 
+\begin{center} 
+ 
+\includegraphics*[height=3.5cm]{images/logo_surcos.png}\\ 
+
+\vspace*{3.5cm} 
+{\Huge \textbf{SURCOS: user manual\\}}
+\vspace*{1cm} 
+{\normalsize Version 6.1}\\
+\vspace*{1cm} 
+{\Large Javier Burguete$^1$, Asier Lacasta$^2$ and Pilar García-Navarro$^2$}\\ 
+\vspace*{2.5cm} 
+{\normalsize (1) Departament of Soil and Water}\\
+{Estación Experimental de Aula Dei / CSIC}\\ 
+{Avda. Montañana 1005, 50059 Zaragoza, Spain}\\ 
+\vspace*{1cm} 
+{\normalsize (2) Fluid Mechanics}\\ 
+{CPS, University of Zaragoza}\\ 
+{María de Luna 3, 50018 Zaragoza, Spain}\\
+\vspace*{1cm} 
+{\normalsize \today}\\ 
+\end{center} 
+\end{titlepage} 
+\cleardoublepage
+
+\pagestyle{plain}
+\pagenumbering{roman}
+
+\tableofcontents
+\listoffigures
+
+\cleardoublepage
+
+\pagestyle{headings}
+\pagenumbering{arabic}
+
+\include{chapters/Chapter1}
+\cleardoublepage
+
+\include{chapters/Chapter2}
+\cleardoublepage
+
+\include{chapters/Chapter3}
+\cleardoublepage
+
+\bibliography{bib/references}
+\cleardoublepage
+
+\end{document}

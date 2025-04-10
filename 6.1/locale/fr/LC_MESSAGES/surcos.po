@@ -1,0 +1,998 @@
+# French translations for SURCOS package.
+# Copyright (C) 2011 THE SURCOS'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the SURCOS package.
+# Automatically generated, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-05 10:50+0200\n"
+"PO-Revision-Date: 2011-10-21 17:51+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/furrow.c:67 src/furrow.c:74 src/furrow.c:81
+msgid "Bad initial conditions"
+msgstr "Conditions initiales incorrectes"
+
+#: src/furrow.c:125 src/furrow.c:131 src/furrow.c:137 src/furrow.c:143
+#: src/furrow.c:149 src/furrow.c:156 src/furrow.c:162 src/furrow.c:168
+#: src/furrow.c:174 src/furrow.c:180 src/furrow.c:186
+msgid "Bad furrow"
+msgstr "Sillon incorrect"
+
+#: src/field.c:99 src/field.c:105 src/field.c:111 src/field.c:117
+#: src/field.c:123
+msgid "Bad input"
+msgstr "Entrée incorrecte"
+
+#: src/field.c:111 src/configIrrigation.c:480 src/mainWindow.c:1258
+msgid "Initial time"
+msgstr "Temps initial"
+
+#: src/field.c:117 src/configIrrigation.c:480 src/mainWindow.c:1260
+msgid "Final time"
+msgstr "Temps final"
+
+#: src/field.c:123 src/configIrrigation.c:479 src/mainWindow.c:1262
+#: src/mainWindow.c:1265
+msgid "Discharge"
+msgstr "Débit"
+
+#: src/field.c:206 src/field.c:213 src/field.c:220 src/field.c:226
+#: src/field.c:232 src/field.c:238 src/field.c:244 src/field.c:250
+#: src/field.c:256 src/field.c:265 src/field.c:272 src/field.c:279
+#: src/field.c:286 src/field.c:293 src/field.c:300
+msgid "Bad data"
+msgstr "Données incorrectes"
+
+#: src/field.c:206
+msgid "open"
+msgstr "ouvert"
+
+#: src/field.c:213
+msgid "furrows number"
+msgstr "nombre de sillons"
+
+#: src/field.c:220
+msgid "solubility"
+msgstr "solubilité"
+
+#: src/field.c:309
+msgid "No distribution furrow"
+msgstr "Pas de sillon de distribution"
+
+#: src/field.c:316 src/kernel.c:166 src/kernel.c:238 src/graphics.c:724
+#: src/graphics.c:963 src/mainWindow.c:1371 src/mainWindow.c:1516
+#: src/mainWindow.c:1593
+#, c-format
+msgid "Distribution furrow"
+msgstr "Sillon de distribution"
+
+#: src/field.c:327
+msgid "Not enough memory to open the irrigation furrows"
+msgstr "Mémoire insuffisante pour ouvrir les sillons d'irrigation"
+
+#: src/field.c:332 src/field.c:372
+msgid "No irrigation furrow"
+msgstr "Pas de sillon d'irrigation"
+
+#: src/field.c:339 src/kernel.c:160 src/kernel.c:221 src/mainWindow.c:1374
+#: src/mainWindow.c:1505 src/mainWindow.c:1575
+msgid "Irrigation furrows"
+msgstr "Sillons d'irrigation"
+
+#: src/field.c:352
+msgid "No recirculation furrow"
+msgstr "Pas de sillon de recirculation"
+
+#: src/field.c:359 src/kernel.c:179 src/kernel.c:258 src/graphics.c:728
+#: src/graphics.c:965 src/mainWindow.c:1365 src/mainWindow.c:1376
+#: src/mainWindow.c:1530 src/mainWindow.c:1614
+#, c-format
+msgid "Recirculation furrow"
+msgstr "Sillon de recirculation"
+
+#: src/field.c:379
+msgid "Irrigation furrow"
+msgstr "Sillon d'irrigation"
+
+#: src/field.c:402
+msgid "Bad data set"
+msgstr "Données de champ incorrectes"
+
+#: src/field.c:542
+msgid "Bad times data"
+msgstr "Données des temps incorrectes"
+
+#: src/field.c:548
+msgid "Bad simulation time"
+msgstr "Temps de simulation incorrect"
+
+#: src/field.c:554
+msgid "Bad CFL number"
+msgstr "Nombre CFL incorrect"
+
+#: src/field.c:560
+msgid "Bad measured time"
+msgstr "Temps de mesure incorrect"
+
+#: src/field.c:586
+msgid "Bad distribution cells number"
+msgstr "Nombre de cellules de distribution érroné"
+
+#: src/field.c:592 src/field.c:601
+msgid "Bad irrigation cells number"
+msgstr "Nombre de cellules d'irrrigation érroné"
+
+#: src/field.c:652
+msgid "Bad fertilizer model"
+msgstr "Modèle de fertilisant érroné"
+
+#: src/field.c:659
+msgid "Bad infiltration model"
+msgstr "Modèle d'infiltration érroné"
+
+#: src/field.c:666
+msgid "Bad soil diffusion model"
+msgstr "Modèle de diffusion dans le sol érroné"
+
+#: src/field.c:672
+msgid "Bad beta model"
+msgstr "Modèle beta érroné"
+
+#: src/field.c:698
+msgid "No water inputs"
+msgstr "Pas d'entrées d'eau"
+
+#: src/field.c:704
+msgid "Bad water inputs"
+msgstr "Entrées d'eau érronées"
+
+#: src/field.c:714
+msgid "Bad fertilizer inputs"
+msgstr "Entrées de fertilisant érronées"
+
+#: src/field.c:728
+msgid "Not enough memory to open the input data"
+msgstr "Mémoire insuffisante pour ouvrir le fichier des entrées"
+
+#: src/field.c:739
+msgid "Bad water input data"
+msgstr "Données d'entrée d'eau érronés"
+
+#: src/field.c:752
+msgid "Bad fertilizer input data"
+msgstr "Données d'entrée de fertilisant érronés"
+
+#: src/field.c:809
+msgid "Bad probes"
+msgstr "Sondes érronées"
+
+#: src/field.c:828
+msgid "Bad probe x"
+msgstr "Coordonnée x de la sonde érronée"
+
+#: src/field.c:834
+msgid "Bad probe y"
+msgstr "Coordonnée y de la sonde érronée"
+
+#: src/field.c:1569
+msgid "Bad input file"
+msgstr "Fichier d'entrée incorrecte"
+
+#: src/kernel.c:109 src/mainWindow.c:1447
+msgid "Irrigation life time"
+msgstr "Temps de durée de l'irrigation"
+
+#: src/kernel.c:111 src/mainWindow.c:1449
+msgid "Calculation time"
+msgstr "Temps de calcul"
+
+#: src/kernel.c:115 src/mainWindow.c:1453
+msgid "IRRIGATION QUALITY"
+msgstr "QUALITÉ D'IRRIGATION"
+
+#: src/kernel.c:117 src/configIrrigation.c:461 src/mainWindow.c:1456
+msgid "Water"
+msgstr "Eau"
+
+#: src/kernel.c:119 src/kernel.c:131 src/mainWindow.c:1459
+#: src/mainWindow.c:1472
+msgid "Uniformity"
+msgstr "Uniformité"
+
+#: src/kernel.c:123 src/kernel.c:135 src/mainWindow.c:1463
+#: src/mainWindow.c:1476
+msgid "Christiansen's uniformity"
+msgstr "Uniformité de Christiansen"
+
+#: src/kernel.c:126 src/kernel.c:138 src/mainWindow.c:1466
+#: src/mainWindow.c:1479
+msgid "Efficiency"
+msgstr "Efficience"
+
+#: src/kernel.c:129 src/configIrrigation.c:461 src/configWindow.c:443
+#: src/mainWindow.c:1469
+msgid "Fertilizer"
+msgstr "Fertilisant"
+
+#: src/kernel.c:142 src/mainWindow.c:1483
+msgid "WATER VOLUME"
+msgstr "VOLUME D'EAU"
+
+#: src/kernel.c:144 src/kernel.c:162 src/kernel.c:168 src/kernel.c:181
+#: src/kernel.c:195 src/kernel.c:223 src/kernel.c:240 src/kernel.c:260
+#: src/mainWindow.c:1486 src/mainWindow.c:1508 src/mainWindow.c:1519
+#: src/mainWindow.c:1533 src/mainWindow.c:1548 src/mainWindow.c:1578
+#: src/mainWindow.c:1596 src/mainWindow.c:1617
+msgid "Total"
+msgstr "Totale"
+
+#: src/kernel.c:147 src/kernel.c:198 src/configIrrigation.c:442
+#: src/configIrrigation.c:450 src/mainWindow.c:1490 src/mainWindow.c:1552
+#: src/mainWindow.c:1640
+msgid "Input"
+msgstr "Entrée"
+
+#: src/kernel.c:149 src/kernel.c:201 src/mainWindow.c:1492
+#: src/mainWindow.c:1555
+msgid "Calculated"
+msgstr "Calculée"
+
+#: src/kernel.c:151 src/kernel.c:203 src/mainWindow.c:1494
+#: src/mainWindow.c:1557
+msgid "Conservation error"
+msgstr "Erreur de conservation"
+
+#: src/kernel.c:153 src/kernel.c:163 src/kernel.c:170 src/kernel.c:183
+#: src/kernel.c:206 src/kernel.c:226 src/kernel.c:243 src/kernel.c:263
+#: src/mainWindow.c:1496 src/mainWindow.c:1510 src/mainWindow.c:1521
+#: src/mainWindow.c:1535 src/mainWindow.c:1560 src/mainWindow.c:1581
+#: src/mainWindow.c:1599 src/mainWindow.c:1620
+msgid "Superficial"
+msgstr "Superficielle"
+
+#: src/kernel.c:155 src/kernel.c:164 src/kernel.c:172 src/kernel.c:185
+#: src/kernel.c:209 src/kernel.c:229 src/kernel.c:246 src/kernel.c:266
+#: src/mainWindow.c:1498 src/mainWindow.c:1512 src/mainWindow.c:1523
+#: src/mainWindow.c:1537 src/mainWindow.c:1563 src/mainWindow.c:1584
+#: src/mainWindow.c:1602 src/mainWindow.c:1623
+msgid "Infiltrated"
+msgstr "Infiltrée"
+
+#: src/kernel.c:156 src/kernel.c:165 src/kernel.c:174 src/kernel.c:187
+#: src/kernel.c:212 src/kernel.c:232 src/kernel.c:249 src/kernel.c:269
+#: src/mainWindow.c:1500 src/mainWindow.c:1514 src/mainWindow.c:1525
+#: src/mainWindow.c:1539 src/mainWindow.c:1566 src/mainWindow.c:1587
+#: src/mainWindow.c:1605 src/mainWindow.c:1626
+msgid "Percolated"
+msgstr "Percolée"
+
+#: src/kernel.c:193 src/mainWindow.c:1545
+msgid "FERTILIZER MASS"
+msgstr "MASSE DE FERTILISANT"
+
+#: src/kernel.c:215 src/kernel.c:235 src/kernel.c:252 src/kernel.c:272
+#: src/mainWindow.c:1569 src/mainWindow.c:1590 src/mainWindow.c:1608
+#: src/mainWindow.c:1629
+msgid "Solid"
+msgstr "Solide"
+
+#: src/configIrrigation.c:445 src/configIrrigation.c:453
+msgid "Initial time (s)"
+msgstr "Temps initial (s)"
+
+#: src/configIrrigation.c:446 src/configIrrigation.c:454
+msgid "Final time (s)"
+msgstr "Temps final (s)"
+
+#: src/configIrrigation.c:447 src/graphics.c:677
+msgid "Discharge (m³/s)"
+msgstr "Débit (m³/s)"
+
+#: src/configIrrigation.c:455
+msgid "Discharge (kg/s)"
+msgstr "Débit (kg/s)"
+
+#: src/configIrrigation.c:458 src/mainWindow.c:1383
+msgid "Number of water inputs"
+msgstr "Nombre d'entrées d'eau"
+
+#: src/configIrrigation.c:459 src/mainWindow.c:1386
+msgid "Number of fertilizer inputs"
+msgstr "Nombre d'entrées de fertilisant"
+
+#: src/configGeometry.c:1462
+msgid "Point"
+msgstr "Point"
+
+#: src/configFurrows.c:409
+msgid "Distribution"
+msgstr "Distribution"
+
+#: src/configFurrows.c:410
+msgid "Irrigation"
+msgstr "Irrigation"
+
+#: src/configFurrows.c:411 src/configFurrows.c:452
+msgid "Recirculation"
+msgstr "Recirculation"
+
+#: src/configFurrows.c:438
+msgid ""
+"R: water retention capacity\n"
+"e=0: Gauckler-Manning's model\n"
+"e>0: Burguete's aerodynamical coefficient\n"
+"n(e=0): Gauckler-Manning's number\n"
+"n(e>0): Burguete's characteristic roughness length\n"
+"K: Kostiakov's constant\n"
+"a: Kostiakov's exponent\n"
+"f0: infiltration velocity in saturated soil"
+msgstr ""
+"R: capacité de rétention d'eau\n"
+"e=0: modèle de Gauckler-Manning\n"
+"e>0: Burguete's aerodynamical coefficient\n"
+"n(e=0): nombre de Gauckler-Manning\n"
+"n(e>0): longueur de rugosité caractéristique de Burguete\n"
+"K: coefficient de Kostiakov\n"
+"a: exponent de Kostiakov\n"
+"f0: vitesse d'infiltration en sol saturé"
+
+#: src/configFurrows.c:449 src/mainWindow.c:1369
+msgid "Number of irrigation furrows"
+msgstr "Nombre de sillons d'irrigation"
+
+#: src/configFurrows.c:454 src/configFurrows.c:481
+msgid "Initial conditions"
+msgstr "Conditions initiales"
+
+#: src/configFurrows.c:463
+msgid "Furrow"
+msgstr "Sillon"
+
+#: src/configFurrows.c:466 src/configWindow.c:437
+msgid "Geometry"
+msgstr "Géométrie"
+
+#: src/configFurrows.c:469
+msgid "Soil"
+msgstr "Sol"
+
+#: src/configFurrows.c:473 src/mainWindow.c:1197 src/mainWindow.c:1208
+msgid "Friction model"
+msgstr "Modèle de friction"
+
+#: src/configFurrows.c:477
+msgid "Infiltration model"
+msgstr "Modèle d'infiltration"
+
+#: src/configTimes.c:84
+msgid "Maximum simulation time (s)"
+msgstr "Temps de simulation maximale (s)"
+
+#: src/configTimes.c:86
+msgid "Data saving cycle (s)"
+msgstr "Période de renversé des données (s)"
+
+#: src/configTimes.c:88 src/mainWindow.c:1424
+msgid "Cells number for distribution channel (between furrows)"
+msgstr "Nombre de cellules pour le sillon de distribution (parmi les sillons)"
+
+#: src/configTimes.c:90 src/mainWindow.c:1428
+msgid "Cells number for irrigation channels"
+msgstr "Nombre de cellules pour les sillons d'irrigation"
+
+#: src/configProbes.c:210 src/graphics.c:1018 src/mainWindow.c:1281
+msgid "Probe"
+msgstr "Sonde"
+
+#: src/configProbes.c:213 src/mainWindow.c:1406
+msgid "Number of probes"
+msgstr "Nombre de sondes"
+
+#: src/configWindow.c:105
+msgid "Solubility (kg/m³)"
+msgstr "Solubilité (kg/m³)"
+
+#: src/configWindow.c:439
+msgid "Furrows"
+msgstr "Sillons"
+
+#: src/configWindow.c:441
+msgid "Inputs"
+msgstr "Entrées"
+
+#: src/configWindow.c:445
+msgid "Probes"
+msgstr "Sondes"
+
+#: src/configWindow.c:447
+msgid "Advanced parameters"
+msgstr "Paramètres avancés"
+
+#: src/configWindow.c:455 src/configWindow.c:461
+msgid "Configure irrigation"
+msgstr "Configurer irrigation"
+
+#: src/configWindow.c:456 src/configWindow.c:463
+msgid "Set the irrigation problem configuration"
+msgstr "Définir la configuration du problème d'irrigation"
+
+#: src/configWindow.c:476 src/mainWindow.c:1697 src/mainWindow.c:1825
+msgid "_Cancel"
+msgstr "_Annuler"
+
+#: src/configWindow.c:478 src/mainWindow.c:1698 src/mainWindow.c:1826
+msgid "_OK"
+msgstr "_Accepter"
+
+#: src/graphics.c:356 src/graphics.c:650 src/graphics.c:976
+msgid "Water depth (m)"
+msgstr "Profondeur d'eau (m)"
+
+#: src/graphics.c:357 src/graphics.c:652 src/graphics.c:679 src/graphics.c:981
+#: src/graphics.c:1022
+msgid "Fertilizer concentration (kg/m³)"
+msgstr "Concentration de fertilisant (kg/m³)"
+
+#: src/graphics.c:358 src/graphics.c:654
+msgid "Infiltrated water mass per unit length (kg/m)"
+msgstr "Masse d'eau infiltrée par unité de longueur (m²)"
+
+#: src/graphics.c:359 src/graphics.c:656 src/graphics.c:704
+msgid "Infiltrated fertilizer mass per unit length (kg/m)"
+msgstr "Masse de fertilisant infiltrée par unité de longueur (kg/m)"
+
+#: src/graphics.c:641 src/graphics.c:954
+msgid "Time step"
+msgstr "Pas de temps"
+
+#: src/graphics.c:676
+msgid "Superficial depth (m)"
+msgstr "Profondeur superficielle (m)"
+
+#: src/graphics.c:678
+msgid "Superficial level (m)"
+msgstr "Niveau superficiel (m)"
+
+#: src/graphics.c:680
+msgid "Superficial water area (m²)"
+msgstr "Surface d'eau superficielle (m²)"
+
+#: src/graphics.c:681
+msgid "Advance time (s)"
+msgstr "Temps d'avance (s)"
+
+#: src/graphics.c:684
+msgid "Infiltrated depth (m)"
+msgstr "Profondeur infiltrée (m)"
+
+#: src/graphics.c:686
+msgid "Bottom level (m)"
+msgstr "Niveau du fond (m)"
+
+#: src/graphics.c:688
+msgid "Infiltrated water area (m²)"
+msgstr "Surface d'eau infiltrée (m²)"
+
+#: src/graphics.c:689
+msgid "Recession time (s)"
+msgstr "Temps de récession (s)"
+
+#: src/graphics.c:696
+msgid "Superficial fertilizer mass per unit length (kg/m)"
+msgstr "Masse superficielle de fertilisant par unité de longueur (kg/m)"
+
+#: src/graphics.c:730 src/graphics.c:733 src/graphics.c:968
+#, c-format
+msgid "Furrow %d"
+msgstr "Sillon %d"
+
+#: src/graphics.c:737
+msgid "Position (m)"
+msgstr "Position (m)"
+
+#: src/graphics.c:978
+msgid "Water discharge (m³/s)"
+msgstr "Débit d'eau (m³/s)"
+
+#: src/graphics.c:979
+msgid "Level (m)"
+msgstr "Niveau (m)"
+
+#: src/graphics.c:983
+msgid "Mass per unit length (kg/m)"
+msgstr "Masse par unité de longueur (kg/m)"
+
+#: src/graphics.c:985
+msgid "Advance and recession times (s)"
+msgstr "Temps d'avance et de récession (s)"
+
+#: src/graphics.c:1020
+msgid "Time (s)"
+msgstr "Temps (s)"
+
+#: src/graphics.c:1021
+msgid "Depth (m)"
+msgstr "Profondeur (m)"
+
+#: src/graphics.c:1094
+#, c-format
+msgid "Probe %d"
+msgstr "Sonde %d"
+
+#: src/graphics.c:1228
+msgid "Furrow representation"
+msgstr "Représentation de furrow"
+
+#: src/graphics.c:1231
+msgid "Map furrows representation"
+msgstr "Carte des sillons"
+
+#: src/graphics.c:1240
+msgid "Probes time evolution"
+msgstr "Evolution temporelle des sondes"
+
+#: src/graphics.c:1254
+msgid "Save graph"
+msgstr "Enregistrer graphique"
+
+#: src/graphics.c:1271 src/graphics.c:1277
+msgid "Graph"
+msgstr "Graphique"
+
+#: src/graphics.c:1272 src/graphics.c:1278
+msgid "Set the result graph options"
+msgstr "Définir les options de la graphique des resultats"
+
+#: src/mainWindow.c:1118
+msgid "Running the numerical simulation ..."
+msgstr "Calculant la simulation numérique ..."
+
+#: src/mainWindow.c:1120
+msgid "_Stop"
+msgstr "_Arrêter"
+
+#: src/mainWindow.c:1158
+msgid "Coordinates of corner"
+msgstr "Coordonnées du sommet"
+
+#: src/mainWindow.c:1184
+msgid "Base width"
+msgstr "Largeur de la base"
+
+#: src/mainWindow.c:1186
+msgid "Lateral slope"
+msgstr "Pente laterale"
+
+#: src/mainWindow.c:1188
+msgid "Depth"
+msgstr "Profondeur"
+
+#: src/mainWindow.c:1190
+msgid "Distance"
+msgstr "Distance"
+
+#: src/mainWindow.c:1193
+msgid "Soil retention capacity"
+msgstr "Capacité de rétention sol"
+
+#: src/mainWindow.c:1200
+msgid "Aerodynamical coefficient"
+msgstr "Coefficient aérodynamique"
+
+#: src/mainWindow.c:1203
+msgid "Characteristic roughness length"
+msgstr "Longueur caractéristique de rugosité"
+
+#: src/mainWindow.c:1212
+msgid "Number of Gauckler-Manning"
+msgstr "Nombre de Gauckler-Manning"
+
+#: src/mainWindow.c:1219
+msgid "Kostiakov's coefficient"
+msgstr "Coefficient de Kostiakov"
+
+#: src/mainWindow.c:1225
+msgid "Kostiakov's exponent"
+msgstr "Exponent de Kostiakov"
+
+#: src/mainWindow.c:1229
+msgid "Infiltration velocity in saturated soil"
+msgstr "Velocité d'infiltration en sol saturé"
+
+#: src/mainWindow.c:1248
+msgid "Fertilizer input"
+msgstr "Entrée de fertilisant"
+
+#: src/mainWindow.c:1250
+msgid "Water input"
+msgstr "Entrée d'eau"
+
+#: src/mainWindow.c:1334
+msgid "GEOMETRY"
+msgstr "GÉOMÉTRIE"
+
+#: src/mainWindow.c:1362
+msgid "FURROWS"
+msgstr "SILLONS"
+
+#: src/mainWindow.c:1366
+msgid "yes"
+msgstr "oui"
+
+#: src/mainWindow.c:1366
+msgid "not"
+msgstr "non"
+
+#: src/mainWindow.c:1380
+msgid "INPUTS"
+msgstr "ENTRÉES"
+
+#: src/mainWindow.c:1396
+msgid "FERTILIZER"
+msgstr "FERTILISANT"
+
+#: src/mainWindow.c:1399
+msgid "Solubility"
+msgstr "Solubilité"
+
+#: src/mainWindow.c:1403
+msgid "PROBES"
+msgstr "SONDES"
+
+#: src/mainWindow.c:1412
+msgid "ADVANCED OPTIONS"
+msgstr "OPTIONS AVANCÉES"
+
+#: src/mainWindow.c:1415
+msgid "Maximum simulation time"
+msgstr "Temps de simulation maximale"
+
+#: src/mainWindow.c:1418
+msgid "CFL number"
+msgstr "Nombre CFL"
+
+#: src/mainWindow.c:1420
+msgid "Data saving cycle"
+msgstr "Période de renversé des données"
+
+#: src/mainWindow.c:1638
+msgid "Results"
+msgstr "Résultats"
+
+#: src/mainWindow.c:1897 src/mainWindow.c:1899
+msgid "user-manual-en.pdf"
+msgstr ""
+
+#: src/mainWindow.c:1930
+msgid ""
+"A software tool to solve irrigation and fertigation in isolated furrows and "
+"furrow networks"
+msgstr ""
+"Un outil informatique pour resolver irrigation et fertirrigation en sillons "
+"isolés et en réseaux de sillons"
+
+#: src/mainWindow.c:1935
+msgid "translator-credits"
+msgstr "Javier Burguete Tolosa (jburguete@eead.csic.es)"
+
+#: src/mainWindow.c:1976
+msgid "Create a new furrows system"
+msgstr "Créer un nouveau système de sillons"
+
+#: src/mainWindow.c:1987
+msgid "Open furrows system"
+msgstr "Ouvrir système de sillons"
+
+#: src/mainWindow.c:1998
+msgid "Save furrows system"
+msgstr "Enregistrer système de sillons"
+
+#: src/mainWindow.c:2009
+msgid "Simulation configure"
+msgstr "Configurer simulation"
+
+#: src/mainWindow.c:2020
+msgid "Run the simulation"
+msgstr "Commencer la simulation"
+
+#: src/mainWindow.c:2030
+msgid "Help"
+msgstr "Aïde"
+
+#: src/mainWindow.c:2040
+msgid "About"
+msgstr "A propos"
+
+#: src/mainWindow.c:2048
+msgid "Exit"
+msgstr "Sortir"
+
+#~ msgid "Bad furrow data"
+#~ msgstr "Données des sillons incorrects"
+
+#~ msgid "Unable to open the geometry data file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données de géométrie"
+
+#~ msgid "Unable to open the input file"
+#~ msgstr "On ne peut pas ouvrir le fichier des entrées"
+
+#~ msgid "Unable to open the mesh data file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données de maille"
+
+#~ msgid "Unable to open the times data file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données de temps"
+
+#~ msgid "Unable to open the model data file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données des modèles"
+
+#~ msgid "Unable to open the probes data file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données des sondes"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Open"
+#~ msgstr "Ouvrir"
+
+#~ msgid "Configure"
+#~ msgstr "Configurer"
+
+#~ msgid "Run"
+#~ msgstr "Commencer"
+
+#~ msgid "unable to open the file"
+#~ msgstr "on ne peut pas ouvrir le fichier"
+
+#, fuzzy
+#~ msgid "not enough memory to open the file"
+#~ msgstr "mémoire insuffisante pour ouvrir l'image"
+
+#, fuzzy
+#~ msgid "unable to read the file"
+#~ msgstr "on ne peut pas ouvrir le fichier"
+
+#~ msgid "unable to init SDL"
+#~ msgstr "on ne peut pas commencer SDL"
+
+#~ msgid "unable to init GLFW"
+#~ msgstr "on ne peut pas commencer GLFW"
+
+#~ msgid "Error!"
+#~ msgstr "Erreur!"
+
+#~ msgid "Warning!"
+#~ msgstr "Attention!"
+
+#~ msgid "unable to compile the texture fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader de texture"
+
+#~ msgid "unable to compile the texture vertex shader"
+#~ msgstr "on ne peut pas compiler le vertex shader de texture"
+
+#~ msgid "unable to link the texture program"
+#~ msgstr "on ne peut pas lier le programme de texture"
+
+#~ msgid "could not bind texture attribute"
+#~ msgstr "on ne peut pas lier l'attribut de texture"
+
+#~ msgid "could not bind texture position attribute"
+#~ msgstr "on ne peut pas lier l'attribut de position de texture"
+
+#~ msgid "could not bind texture uniform"
+#~ msgstr "on ne peut pas lier la texture uniforme"
+
+#~ msgid "could not bind matrix uniform"
+#~ msgstr "on ne peut pas lier la matrice uniforme"
+
+#~ msgid "unable to open the PNG file"
+#~ msgstr "on ne peut pas ouvrir le fichier PNG"
+
+#~ msgid "not enough memory to open the widget"
+#~ msgstr "mémoire insuffisante pour ouvrir le widget"
+
+#~ msgid "not enough memory to open the image"
+#~ msgstr "mémoire insuffisante pour ouvrir l'image"
+
+#, fuzzy
+#~ msgid "unable to create a Vulkan surface"
+#~ msgstr "on ne peut pas compiler le fragment shader"
+
+#, fuzzy
+#~ msgid "unable to create the Vulkan swap chain"
+#~ msgstr "on ne peut pas compiler le fragment shader"
+
+#, fuzzy
+#~ msgid "failed to open the shader file"
+#~ msgstr "On ne peut pas ouvrir le fichier des données de maille"
+
+#~ msgid "OpenGL 2.1 is not supported"
+#~ msgstr "OpenGL 2.1 n'est pas prise en charge"
+
+#~ msgid "unable to compile the fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader"
+
+#~ msgid "unable to compile the 2D vertex shader"
+#~ msgstr "on ne peut pas compiler le vertex shader 2D"
+
+#~ msgid "unable to link the 2D program"
+#~ msgstr "on ne peut pas lier le programme 2D"
+
+#~ msgid "unable to compile the 3D vertex shader"
+#~ msgstr "on ne peut pas compiler le vertex shader 3D"
+
+#~ msgid "unable to link the 3D program"
+#~ msgstr "on ne peut pas lier le programme 3D"
+
+#~ msgid "unable to compile the 2D with color vertex shader"
+#~ msgstr "on ne peut pas compiler le vertex shader 2D avec couleur"
+
+#~ msgid "unable to link the 2D with color program"
+#~ msgstr "on ne peut pas lier le programme 2D avec couleur"
+
+#~ msgid "unable to compile the 3D with color vertex shader"
+#~ msgstr "on ne peut pas compile le vertex shader 3D avec couleur"
+
+#~ msgid "unable to link the 3D with color program"
+#~ msgstr "on ne peut pas lier le programme 3D avec couleur"
+
+#~ msgid "unable to compile the text fragment shader"
+#~ msgstr "on ne peut pas compiler le fragment shader de texte"
+
+#~ msgid "unable to compile the text vertex shader"
+#~ msgstr "on ne peut pas compiler le vertex shader de texte"
+
+#~ msgid "unable to link the text program"
+#~ msgstr "on ne peut pas lier le programme de texte"
+
+#~ msgid "could not bind 2D position attribute"
+#~ msgstr "on ne peut pas lier l'attribut de position 2D"
+
+#~ msgid "could not bind 2D color"
+#~ msgstr "on ne peut pas lier la couleur 2D"
+
+#~ msgid "could not bind 2D matrix"
+#~ msgstr "on ne peut pas lier la matrice 2D"
+
+#~ msgid "could not bind 3D position attribute"
+#~ msgstr "no ne peut pas lier l'attribut de position 3D"
+
+#~ msgid "could not bind 3D color"
+#~ msgstr "on ne peut pas lier la couleur 3D"
+
+#~ msgid "could not bind 3D matrix"
+#~ msgstr "on ne peut pas lier la matrice 3D"
+
+#~ msgid "could not bind 2D with color position attribute"
+#~ msgstr "on ne peut pas lier l'attribut de position 2D avec couleur"
+
+#~ msgid "could not bind 2D with color color"
+#~ msgstr "on ne peut pas lier la couleur 2D avec couleur"
+
+#~ msgid "could not bind 2D with color matrix"
+#~ msgstr "on ne peut pas lier la matrice 2D avec couleur"
+
+#~ msgid "could not bind 3D with color position attribute"
+#~ msgstr "on ne peut pas lier l'attribute de position 3D avec couleur"
+
+#~ msgid "could not bind 3D with color color"
+#~ msgstr "on ne peut pas lier la couleur 3D avec couleur"
+
+#~ msgid "could not bind 3D with color matrix"
+#~ msgstr "on ne peut pas lier la matrice 3D avec couleur"
+
+#~ msgid "could not bind text position attribute"
+#~ msgstr "on ne peut pas lier l'attribut de position de texte"
+
+#~ msgid "could not bind text uniform"
+#~ msgstr "on ne peut pas lier le texte uniforme"
+
+#~ msgid "could not bind text color uniform"
+#~ msgstr "on ne peut pas lier la couleur de texte uniforme"
+
+#~ msgid "not enough memory to init the FreeType library"
+#~ msgstr "mémoire insufissante pour commencer la bibliothèque FreeType"
+
+#~ msgid "could not init the FreeType library"
+#~ msgstr "on ne peut pas commencer la bibliothèque FreeType"
+
+#~ msgid "not enough memory to open the font"
+#~ msgstr "mémoire insuffisante pour ouvrir la font"
+
+#~ msgid "could not open font"
+#~ msgstr "on ne peut pas ouvrir la font"
+
+#~ msgid "not enough memory to open the graphic area"
+#~ msgstr "mémoire insuffisante pour ouvrir l'aire graphique"
+
+#~ msgid "unable to open the graphic area widget"
+#~ msgstr "on ne peut pas ouvrir le widget d'aire graphique"
+
+#~ msgid "unable to open the window"
+#~ msgstr "on ne peut pas ouvrir la fenêtre"
+
+#~ msgid "PNG file"
+#~ msgstr "Fichier PNG"
+
+#~ msgid "JPEG file"
+#~ msgstr "Fichier JPG"
+
+#~ msgid "XPM file"
+#~ msgstr "Fichier XPM"
+
+#~ msgid "TIFF file"
+#~ msgstr "Fichier TIFF"
+
+#~ msgid "BMP file"
+#~ msgstr "Fichier BMP"
+
+#~ msgid "GIF file"
+#~ msgstr "Fichier GIF"
+
+#~ msgid "ICO file"
+#~ msgstr "Fichier ICO"
+
+#~ msgid "no a text editor type"
+#~ msgstr "ce n'est pas un type d'éditeur de texte"
+
+#~ msgid "no an integer numbers editor type"
+#~ msgstr "ce n'est pas un type d'éditeur de nombres entiers"
+
+#~ msgid "no a float numbers editor type"
+#~ msgstr "ce n'est pas un type d'éditeur de nombres réels"
+
+#~ msgid "no a date editor type"
+#~ msgstr "ce n'est pas un type d'éditeur de dates"
+
+#~ msgid "bad array editor widget type"
+#~ msgstr "type de widget d'éditeur de tableaux érroné"
+
+#~ msgid "not enough memory to open the array editor"
+#~ msgstr "mémoire insuffisante pour ouvrir l'éditeur de tableaux"
+
+#~ msgid "unable to get the GdkPixbuf widget"
+#~ msgstr "on ne peut pas obtenir le widget GdkPixbuf"
+
+#~ msgid "Save graphic"
+#~ msgstr "Enregistrer graphique"
+
+#~ msgid "Save graphical"
+#~ msgstr "Enregistrer graphique"
+
+#~ msgid "Summary"
+#~ msgstr "Sommaire"
+
+#~ msgid "_Close"
+#~ msgstr "_Fermer"
+
+#~ msgid "Show summary"
+#~ msgstr "Montrer le sommaire"
+
+#~ msgid "Plot"
+#~ msgstr "Graphiques"
+
+#~ msgid "Plot results"
+#~ msgstr "Montrer graphiques"
+
+#~ msgid "Plotting results"
+#~ msgstr "Montre les résultats"
+
+#~ msgid "diagram_geometry_en.png"
+#~ msgstr "diagram_geometry_fr.png"
+
+#~ msgid "Reading logo"
+#~ msgstr "On ne peut pas ouvrir le logo"
+
+#~ msgid "Unable to open the coefficients file"
+#~ msgstr "On ne peut pas ouvrir le fichier des coefficients"
+
+#~ msgid "Bad coefficients file"
+#~ msgstr "Fichier de coefficients incorrect"

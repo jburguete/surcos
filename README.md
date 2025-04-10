@@ -1,4 +1,4 @@
-SURCOS (6.0 version)
+SURCOS (6.1 version)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -143,7 +143,7 @@ _____________________
 > $ git clone https://github.com/jburguete/surcos.git
 
 4. Link the latest version of the JB library on the source directory to jb:
-> $ cd surcos/6.0/src
+> $ cd surcos/6.1/src
 >
 > $ ln -s ../../../jb/7.0.1 jb
 >

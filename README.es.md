@@ -1,4 +1,4 @@
-SURCOS (versión 6.0)
+SURCOS (versión 6.1)
 ====================
 
 :gb:[english](README.md) :es:[español](README.es.md)
@@ -148,7 +148,7 @@ _____________________________
 
 4. Enlace la carpeta de la última versión de la biblioteca Jb en la carpeta
   fuente de este programa a jb:
-> $ cd surcos/6.0/src
+> $ cd surcos/6.1/src
 >
 > $ ln -s ../../../jb/7.0.1 jb
 >
