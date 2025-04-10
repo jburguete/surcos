@@ -2,7 +2,7 @@
 SURCOS - A software tool to solve irrigation and fertigation in isolated furrows
 and furrow networks.
 
-Copyright 2011-2023, Javier Burguete Tolosa.
+Copyright 2011-2025, Javier Burguete Tolosa.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -30,7 +30,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \file mainWindow.c
  * \brief Source file to define the main window.
  * \authors Javier Burguete Tolosa, Asier Lacasta Soto.
- * \copyright Copyright 2011-2023, Javier Burguete Tolosa.
+ * \copyright Copyright 2011-2025, Javier Burguete Tolosa.
  */
 #include "config.h"
 #include "jb/src/win.h"
@@ -1935,7 +1935,7 @@ main_window_about (MainWindow * w)      ///< Main window structure.
                          "translator-credits", _("translator-credits"),
                          "version", "6.1",
                          "copyright",
-                         "Copyright 2011-2023 Javier Burguete Tolosa",
+                         "Copyright 2011-2025 Javier Burguete Tolosa",
                          "license-type", GTK_LICENSE_BSD,
                          "logo", w->pixbuf,
                          "website-label", "Website",
