@@ -102,7 +102,7 @@ d'exploitation:
 * Devuan Linux 5
 * Dragonfly BSD 6.4.1
 * Fedora Linux 42
-* FreeBSD 14.1
+* FreeBSD 14.2
 * Gentoo Linux
 * Linux Mint DE 6
 * MacOS Ventura + Homebrew
@@ -111,8 +111,8 @@ d'exploitation:
 * NetBSD 10.1
 * OpenBSD 7.7
 * OpenInidiana Hipster
-* OpenSUSE Linux 15.5
-* Ubuntu Linux 25.04 
+* OpenSUSE Linux 15.6
+* Ubuntu Linux 25.04
 
 Avec systèmes Microsoft Windows on doit installer
 [MSYS2](http://sourceforge.net/projects/msys2) et en plus les bibliothèques et
