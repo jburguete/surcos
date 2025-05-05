@@ -93,20 +93,20 @@ You can install all required utilities and libraries using the instructions of
 This software has been built and tested in the following operative systems:
 * Arch Linux
 * Debian Linux 12
-* Devuan Linux 4
-* Dragonfly BSD 6.4.0
-* Fedora Linux 38
-* FreeBSD 13.2
+* Devuan Linux 5
+* Dragonfly BSD 6.4.1
+* Fedora Linux 42
+* FreeBSD 14.1
 * Gentoo Linux
-* Linux Mint DE 5
+* Linux Mint DE 6
 * MacOS Ventura + Homebrew
 * Manjaro Linux
-* Microsoft Windows 10 + MSYS2
-* NetBSD 9.3
-* OpenBSD 7.6
+* Microsoft Windows 11 + MSYS2
+* NetBSD 10.1
+* OpenBSD 7.7
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.5
-* Ubuntu Linux 23.04
+* Ubuntu Linux 25.04 
 
 On Microsoft Windows systems you have to install
 [MSYS2](http://sourceforge.net/projects/msys2) and the required
@@ -114,7 +114,7 @@ libraries and utilities. You can follow detailed instructions in
 [install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf)
 tutorial.
 
-On NetBSD 9.3, to use the last GCC version, you have to do first on the
+On NetBSD 10.1, to use the last GCC version, you have to do first on the
 building terminal:
 > $ export PATH="/usr/pkg/gcc12/bin:$PATH"
 
@@ -122,7 +122,7 @@ To do permanent this change the following line can be added to the ".profile"
 file in the user root directory:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-On OpenBSD 7.6 you have to do first on the building terminal:
+On OpenBSD 7.7 you have to do first on the building terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 BUILDING INSTRUCTIONS
@@ -133,7 +133,7 @@ _____________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Build the JB library:
-> $ cd jb/7.0.1
+> $ cd jb/11.3.9
 >
 > $ ./build.sh
 >
@@ -145,7 +145,7 @@ _____________________
 4. Link the latest version of the JB library on the source directory to jb:
 > $ cd surcos/6.1/src
 >
-> $ ln -s ../../../jb/7.0.1 jb
+> $ ln -s ../../../jb/11.3.9 jb
 >
 > $ cd ..
 

@@ -98,27 +98,27 @@ Este programa ha sido construido y probado en los siguientes sistemas
 operativos:
 * Arch Linux
 * Debian Linux 12
-* Devuan Linux 4
-* Dragonfly BSD 6.4.0
-* Fedora Linux 38
-* FreeBSD 13.2
+* Devuan Linux 5
+* Dragonfly BSD 6.4.1
+* Fedora Linux 42
+* FreeBSD 14.1
 * Gentoo Linux
-* Linux Mint DE 5
+* Linux Mint DE 6
 * MacOS Ventura + Homebrew
 * Manjaro Linux
-* Microsoft Windows 10 + MSYS2
-* NetBSD 9.3
-* OpenBSD 7.6
+* Microsoft Windows 11 + MSYS2
+* NetBSD 10.1
+* OpenBSD 7.7
 * OpenInidiana Hipster
 * OpenSUSE Linux 15.5
-* Ubuntu Linux 23.04
+* Ubuntu Linux 25.04 
 
 En sistemas Microsoft Windows hay que instalar
 [MSYS2](http://sourceforge.net/projects/msys2) además de las bibliotecas y
 utilidades requeridas. Puede seguir instrucciones detalladas en el tutorial
 [install-unix](https://github.com/jburguete/install-unix/blob/master/tutorial.pdf).
 
-En NetBSD 9.3, para usar la última versión del compilador GCC, hay que hacer
+En NetBSD 10.1, para usar la última versión del compilador GCC, hay que hacer
 primero en el terminal:
 > $ export PATH="/usr/pkg/gcc12/bin:$PATH"
 
@@ -126,7 +126,7 @@ Si se quiere hacer permanente tambien se puede añadir en el fichero ".profile"
 de la carpeta raíz del usuario la línea:
 > $ PATH="/usr/pkg/gcc12/bin:$PATH"
 
-En OpenBSD 7.6 hay que hacer antes en el terminal:
+En OpenBSD 7.7 hay que hacer antes en el terminal:
 > $ export AUTOCONF\_VERSION=2.69 AUTOMAKE\_VERSION=1.16
 
 INSTRUCCIONES DE CONSTRUCCIÓN
@@ -137,7 +137,7 @@ _____________________________
 > $ git clone https://github.com/jburguete/jb.git
 
 2. Construya la biblioteca JB:
-> $ cd jb/7.0.1
+> $ cd jb/11.3.9
 >
 > $ ./build.sh
 >
@@ -150,7 +150,7 @@ _____________________________
   fuente de este programa a jb:
 > $ cd surcos/6.1/src
 >
-> $ ln -s ../../../jb/7.0.1 jb
+> $ ln -s ../../../jb/11.3.9 jb
 >
 > $ cd ..
 
